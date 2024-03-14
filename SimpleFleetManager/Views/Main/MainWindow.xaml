@@ -12,7 +12,7 @@
         WindowStyle="ToolWindow"
         Height="1080" Width="1920">
     <Border SnapsToDevicePixels="True"
-            Background="Black">
+            Background="Transparent">
         <Grid>
             <!--#region Main Grid layout -->
             <Grid.RowDefinitions>
@@ -52,97 +52,7 @@
                            Text="Brak użytkownika"/>
             </StackPanel>
             <!--#endregion-->
-            <!--#region Main menu toggle button with menu animation -->
-            <ToggleButton x:Name="ExpandMenuButton"
-                                        Width="auto"
-                                        IsChecked="{Binding ShowMenu, Mode=TwoWay}"
-                                        Foreground="Wheat">
-                <ToggleButton.Triggers>
-                    <!--#region Event trigger expanding menu -->
-                    <EventTrigger RoutedEvent="ToggleButton.Checked">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuContainer" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.0" Value="{x:Static Visibility.Visible}"/>
-                                </ObjectAnimationUsingKeyFrames>
-                                <DoubleAnimation
-                                    Storyboard.TargetName="MenuContainer"
-                                    Storyboard.TargetProperty="Opacity"
-                                    From="0.3"
-                                    To="1"
-                                    Duration="0:0:0.3">
-                                    <DoubleAnimation.EasingFunction>
-                                        <SineEase EasingMode="EaseInOut" />
-                                    </DoubleAnimation.EasingFunction>
-                                </DoubleAnimation>
-                              
-                                <DoubleAnimation 
-                                    Storyboard.TargetName="MenuPanel"
-                                    Storyboard.TargetProperty="Width"
-                                    From="65"
-                                    To="300"
-                                    Duration="0:0:0.8">
-                                    <DoubleAnimation.EasingFunction>
-                                        <SineEase EasingMode="EaseInOut"/>
-                                    </DoubleAnimation.EasingFunction>
-                                </DoubleAnimation>
-                                <DoubleAnimation 
-                                    Storyboard.TargetName="ExpandMenuButton"
-                                    Storyboard.TargetProperty="Width"
-                                    From="65"
-                                    To="300"
-                                    Duration="0:0:0.8">
-                                    <DoubleAnimation.EasingFunction>
-                                        <SineEase EasingMode="EaseInOut"/>
-                                    </DoubleAnimation.EasingFunction>
-                                </DoubleAnimation>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                    <!--#endregion-->
-                    <!--#region Event triger collapsing menu -->
-                    <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuContainer" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.0" Value="{x:Static Visibility.Visible}"/>
-                                </ObjectAnimationUsingKeyFrames>
-                                <DoubleAnimation
-                                    Storyboard.TargetName="MenuContainer"
-                                    Storyboard.TargetProperty="Opacity"
-                                    From="1"
-                                    To="0.3"
-                                    Duration="0:0:0.3">
-                                    <DoubleAnimation.EasingFunction>
-                                        <SineEase EasingMode="EaseInOut" />
-                                    </DoubleAnimation.EasingFunction>
-                                </DoubleAnimation>
-                                <DoubleAnimation 
-                                    Storyboard.TargetName="MenuPanel"
-                                    Storyboard.TargetProperty="Width"
-                                    From="300"
-                                    To="65"
-                                    Duration="0:0:0.8">     
-                                    <DoubleAnimation.EasingFunction>
-                                        <SineEase EasingMode="EaseInOut"/>
-                                    </DoubleAnimation.EasingFunction>
-                                </DoubleAnimation>
-                                <DoubleAnimation 
-                                    Storyboard.TargetName="ExpandMenuButton"
-                                    Storyboard.TargetProperty="Width"
-                                    From="300"
-                                    To="65"
-                                    Duration="0:0:0.8">     
-                                    <DoubleAnimation.EasingFunction>
-                                        <SineEase EasingMode="EaseInOut"/>
-                                    </DoubleAnimation.EasingFunction>
-                                </DoubleAnimation>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                    <!--#endregion-->
-                </ToggleButton.Triggers>
-            </ToggleButton>
+            
             <!--#endregion-->
             <!--#endregion-->
             <!--#region Side animated menu -->
@@ -150,7 +60,7 @@
                 x:Name="MenuContainer"
                 Grid.Row="1"
                 Grid.RowSpan="2"
-                BorderBrush="DarkOrchid"
+                BorderBrush="#2d2d2d"
                 CornerRadius="15"
                 BorderThickness="3">
                 <StackPanel
@@ -158,18 +68,97 @@
                     Width="auto"
                     HorizontalAlignment="Left"
                     Background="Yellow">
-                    <TextBlock
-                        Height="auto"
-                        Margin="0"
-                        Padding="15,10"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Center"
-                        Background="Cyan"
-                        FontSize="12"
-                        FontWeight="Bold"
-                        Opacity="1"
-                        Text="Menu"
-                        TextAlignment="Center" />   
+                    <!--#region Main menu toggle button with menu animation -->
+                    <ToggleButton x:Name="ExpandMenuButton"
+                            Width="auto"
+                            IsChecked="{Binding ShowMenu, Mode=TwoWay}"
+                            Foreground="Wheat">
+                        <ToggleButton.Triggers>
+                            <!--#region Event trigger expanding menu -->
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuContainer" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.0" Value="{x:Static Visibility.Visible}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="MenuContainer"
+                                            Storyboard.TargetProperty="Opacity"
+                                            From="0.3"
+                                            To="1"
+                                            Duration="0:0:0.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <SineEase EasingMode="EaseInOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+
+                                        <DoubleAnimation 
+                                            Storyboard.TargetName="MenuPanel"
+                                            Storyboard.TargetProperty="Width"
+                                            From="65"
+                                            To="300"
+                                            Duration="0:0:0.8">
+                                            <DoubleAnimation.EasingFunction>
+                                                <SineEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetName="ExpandMenuButton"
+                                            Storyboard.TargetProperty="Width"
+                                            From="65"
+                                            To="300"
+                                            Duration="0:0:0.8">
+                                            <DoubleAnimation.EasingFunction>
+                                                <SineEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <!--#endregion-->
+                            <!--#region Event triger collapsing menu -->
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuContainer" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.0" Value="{x:Static Visibility.Visible}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="MenuContainer"
+                                            Storyboard.TargetProperty="Opacity"
+                                            From="1"
+                                            To="0.3"
+                                            Duration="0:0:0.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <SineEase EasingMode="EaseInOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetName="MenuPanel"
+                                            Storyboard.TargetProperty="Width"
+                                            From="300"
+                                            To="65"
+                                            Duration="0:0:0.8">
+                                            <DoubleAnimation.EasingFunction>
+                                                <SineEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetName="ExpandMenuButton"
+                                            Storyboard.TargetProperty="Width"
+                                            From="300"
+                                            To="65"
+                                            Duration="0:0:0.8">
+                                            <DoubleAnimation.EasingFunction>
+                                                <SineEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <!--#endregion-->
+                        </ToggleButton.Triggers>
+                    </ToggleButton>
                 </StackPanel>
             </Border>
             <!--#endregion-->
