@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SimpleFleetManager.Models.Common.AMR
+﻿namespace SimpleFleetManager.Models.Common.AMR.Misc
 {
     public class Lidar
     {
@@ -16,6 +10,6 @@ namespace SimpleFleetManager.Models.Common.AMR
         public bool SwitchMonitoringCaseError { get; set; }
         public bool ReducedSpeedZoneStatus { get; set; }
         public bool SoftStopZoneStatus { get; set; }
-        public bool emergencyStopZoneStatus { get; set; }
+        public bool EmergencyStopZoneStatus { get; set; }
     }
 }
