@@ -31,6 +31,7 @@ namespace SimpleFleetManager
             return Host.CreateDefaultBuilder(args)
                 .AddConfig()
                 .AddContext()
+                .AddServices()
                 .AddViewModels()
                 .AddViews();
         }
