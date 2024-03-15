@@ -14,6 +14,7 @@ namespace SimpleFleetManager.Models.Common.AMR.Misc.Config
         public double MaxVelAngular { get; set; }
         public double MaxAccForwardBackward { get; set; }
         public double MaxAccAngular { get; set; }
+        public double TurningRadius { get; set; }
         public double Wheelbase { get; set; }
         public double GoalLinearTolerance { get; set; }
         public double GoalAngularTolerance { get; set; }
