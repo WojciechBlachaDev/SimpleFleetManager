@@ -1,16 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using Serilog.Core;
+using Serilog.Events;
+using Serilog.Configuration;
 using SimpleFleetManager.Services.Host;
 using SimpleFleetManager.ViewModels;
 using System.Windows;
 
 namespace SimpleFleetManager
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
         private readonly IHost _host;
@@ -19,8 +17,8 @@ namespace SimpleFleetManager
             Console.WriteLine("DebugConsoleStarted");
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
-                .WriteTo.Console()
-                .WriteTo.File("applog.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.File("/applog.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.Console() // Wyświetlanie logów o poziomie Debug w konsoli
                 .CreateLogger();
             Log.Debug("Logger started");
             System.Globalization.CultureInfo customCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
@@ -32,6 +30,7 @@ namespace SimpleFleetManager
         {
             return Host.CreateDefaultBuilder(args)
                 .AddConfig()
+                .AddContext()
                 .AddViewModels()
                 .AddViews();
         }

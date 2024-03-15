@@ -1,7 +1,14 @@
-﻿namespace SimpleFleetManager.Models.Common.AMR.Misc.Config
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace SimpleFleetManager.Models.Common.AMR.Misc.Config
 {
     public class TebConfig
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public int ForkliftId { get; set; }
         public double MaxVelForward { get; set; }
         public double MaxVelBackward { get; set; }
         public double MaxVelAngular { get; set; }

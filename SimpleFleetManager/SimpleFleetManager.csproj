@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <None Remove="Models\AppData\AppConfig.json" />
+    <None Remove="Models\AppData\DataBase\Simple.db" />
+    <None Remove="Models\Resources\DebugIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -69,11 +71,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\AppData\DataBase\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Models\AppData\AppConfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\AppData\DataBase\Simple.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\DebugIcon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

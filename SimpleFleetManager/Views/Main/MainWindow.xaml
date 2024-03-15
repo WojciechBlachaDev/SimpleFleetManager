@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:hc="https://handyorg.github.io/handycontrol"
-        xmlns:local="clr-namespace:SimpleFleetManager"
+        xmlns:local="clr-namespace:SimpleFleetManager" 
+        xmlns:viewmodels="clr-namespace:SimpleFleetManager.ViewModels" 
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
         mc:Ignorable="d"
         WindowStartupLocation="CenterOwner"
         WindowState="Maximized"
@@ -52,13 +54,12 @@
                            Text="Brak użytkownika"/>
             </StackPanel>
             <!--#endregion-->
-            
-            <!--#endregion-->
-            <!--#endregion-->
+
             <!--#region Side animated menu -->
             <Border
                 x:Name="MenuContainer"
                 Grid.Row="1"
+                MinWidth="65"
                 Grid.RowSpan="2"
                 BorderBrush="#2d2d2d"
                 CornerRadius="15"
@@ -66,12 +67,13 @@
                 <StackPanel
                     x:Name="MenuPanel"
                     Width="auto"
+                    MinWidth="65"
                     HorizontalAlignment="Left"
                     Background="Yellow">
                     <!--#region Main menu toggle button with menu animation -->
                     <ToggleButton x:Name="ExpandMenuButton"
                             Width="auto"
-                            IsChecked="{Binding ShowMenu, Mode=TwoWay}"
+                            IsChecked="{Binding ShowMenu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             Foreground="Wheat">
                         <ToggleButton.Triggers>
                             <!--#region Event trigger expanding menu -->
@@ -159,8 +161,42 @@
                             <!--#endregion-->
                         </ToggleButton.Triggers>
                     </ToggleButton>
+                    <Button
+                        x:Name="LoginPageButton"
+                        MinWidth="65"
+                        MaxWidth="300"
+                        HorizontalAlignment="Left"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Command="{Binding LoginPageButtonClick}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="65"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Width="50"
+                                HorizontalAlignment="Left"
+                                Source="/Models/Resources/DebugIcon.png"/>
+                            <TextBlock
+                                Grid.Column="1"
+                                MinWidth="0"
+                                MaxWidth="235"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                FontWeight="Bold"
+                                Text="Login/Logout Page"
+                                Visibility="{Binding ShowMenu}"/>
+                        </Grid>
+                    </Button>
                 </StackPanel>
             </Border>
+            <!--#region Page frame -->
+            <Frame
+                x:Name="PageFrame"
+                Grid.Row="1"
+                Content="{Binding CurrentPage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                NavigationUIVisibility="Hidden"/>
             <!--#endregion-->
         </Grid>
         

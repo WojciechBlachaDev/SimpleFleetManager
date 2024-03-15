@@ -15,13 +15,16 @@ namespace SimpleFleetManager.Models.Main
         public int Type { get; set; }
         public string? Description { get; set; }
         [Required]
-        public Pose Position { get; set; }
+        public double X { get; set; }
+        [Required]
+        public double Y { get; set; }
+        [Required]
+        public double R { get; set; }
         [Required]
         public bool IsActive { get; set; }
         public Location()
         {
             Name = string.Empty;
-            Position = new();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace FMS.ViewModels.Common
+namespace SimpleFleetManager.ViewModels.Common
 {
     class RelayCommand : ICommand
     {

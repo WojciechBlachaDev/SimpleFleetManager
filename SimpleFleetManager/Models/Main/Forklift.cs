@@ -1,4 +1,5 @@
 ﻿using SimpleFleetManager.Models.Common.AMR;
+using SimpleFleetManager.Models.Common.AMR.Misc.Config;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Net.Sockets;
@@ -16,6 +17,8 @@ namespace SimpleFleetManager.Models.Main
         public required string ForkliftIpAddress { get; set; }
         public string? LidarLocIpAddress { get; set; }
         public string? VisionaryIpAddress { get; set; }
+        public DateTime Registrationdate { get; set; }
+        public TebConfig? BackedUpTebConfig { get; set; }
         [Required]
         public int Port { get; set; }
         [NotMapped]

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace FMS.ViewModels.Common
+namespace SimpleFleetManager.ViewModels.Common
 {
     public class BaseViewModel : INotifyPropertyChanged, INotifyPropertyChanging
     {

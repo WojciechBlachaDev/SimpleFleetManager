@@ -3,21 +3,23 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SimpleFleetManager.Models.Main
 {
-    public class JobStep
+    public class Job
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required]
-        public Location Location { get; set; }
-        [Required]
-        public int Type { get; set; }
+        public int PriorityLevel { get; set; }
+        public string? Name { get; set; }
+        public bool IsQueued { get; set; }
         public bool IsRunning { get; set; }
         public bool IsDone { get; set; }
         public bool IsCanceled { get; set; }
-        public JobStep()
+        public int CurrentJobStep { get; set; }
+        public List<JobStep>? JobSteps { get; set; }
+        public Job()
         {
-            Location = new();
+            Name = string.Empty;
+            JobSteps = [];
         }
     }
 }
