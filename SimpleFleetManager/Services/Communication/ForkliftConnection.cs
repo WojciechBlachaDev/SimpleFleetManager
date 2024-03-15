@@ -409,11 +409,11 @@ namespace SimpleFleetManager.Services.Communication
                             {
                                 for (int i = 0; i < 32 ; i++)
                                 {
-                                    forklift.DataOut.ScangridLeft.Ranges[i].Value = Convert.ToInt32(scangridMeasuring[i]);
+                                    forklift.DataOut.ScangridLeft.Ranges[i] = Convert.ToInt32(scangridMeasuring[i]);
                                 }
                                 for (int i = 32;i < 64 ; i++)
                                 {
-                                    forklift.DataOut.ScangridRight.Ranges[i - 32].Value = Convert.ToInt32(scangridMeasuring[i]);
+                                    forklift.DataOut.ScangridRight.Ranges[i - 32] = Convert.ToInt32(scangridMeasuring[i]);
                                 }
                             }
                             #endregion
