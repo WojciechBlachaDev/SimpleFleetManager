@@ -9,16 +9,16 @@ namespace SimpleFleetManager.Models.Main
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
-        public string Username { get; set; }
+        public string? Username { get; set; }
         [Required]
-        public string Password { get; set; }
+        public string? Password { get; set; }
         public string? CardTag { get; set; }
         public bool IsLogged { get; set; }
         public int AccessLevel { get; set; }
         public User()
         {
-            Username = string.Empty;
-            Password = string.Empty;
+            /*Username = string.Empty;
+            Password = string.Empty;*/
         }
     }
 }

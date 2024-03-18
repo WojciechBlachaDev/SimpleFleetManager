@@ -1,206 +1,361 @@
-﻿<mah:MetroWindow x:Class="SimpleFleetManager.MainWindow"
+﻿<Window x:Class="SimpleFleetManager.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:conv="clr-namespace:SimpleFleetManager.ViewModels.Converters"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:local="clr-namespace:SimpleFleetManager" 
-        xmlns:viewmodels="clr-namespace:SimpleFleetManager.ViewModels" 
-        d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
         mc:Ignorable="d"
         WindowStartupLocation="CenterOwner"
         WindowState="Maximized"
         WindowStyle="ToolWindow"
         Height="1080" Width="1920">
-    <Border SnapsToDevicePixels="True"
-            Background="Transparent">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="3" />
+    </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <conv:BoolToVIsibilityConverter x:Key="BoolToVisibility" />
+        <Style x:Key="MenuContainerStyle" TargetType="Border" />
+    </Window.Resources>
+    <Border
+    Background="{StaticResource PrimaryBackgroundBrush}"
+    BorderBrush="{StaticResource WindowBorderBrush}"
+    BorderThickness="3"
+    CornerRadius="10"
+    SnapsToDevicePixels="True">
         <Grid>
-            <!--#region Main Grid layout -->
+            <!--#region Main Grid Layout-->
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition/>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <!--#endregion-->
-            <!--#region Top Menu -->
-            <!--#region Layout -->
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="1100"/>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
-            </Grid.ColumnDefinitions>
+            <!--#region Background image-->
+            <Border Grid.RowSpan="3">
+                <Image Source="Models/Resources/Images/backgroundimg1.png" Stretch="None" />
+            </Border>
             <!--#endregion-->
-            <!--#region Program Title -->
-            <TextBlock Grid.Column="1"
-                       Margin="360,0,0,0"
-                       HorizontalAlignment="Center"
-                       Style="{StaticResource MahApps.Styles.TextBlock}"
-                       Foreground="White"
-                       FontWeight="SemiBold"
-                       FontSize="26"
-                       Text="SimpleFleetManager"/>
-            <!--#endregion-->
-            <!--#region Logged user data-->
-            <StackPanel Grid.Column="2" Orientation="Horizontal">
-                <TextBlock FontSize="24" Foreground="White" Text="Zalogowany"/>
-                <Separator Width="20"/>
-                <TextBlock Margin="0,0,30,0"
-                           FontSize="24"
-                           Foreground="White"
-                           Text="Brak użytkownika"/>
-            </StackPanel>
-            <!--#endregion-->
-
-            <!--#region Side animated menu -->
+            <!--#region Top area-->
             <Border
-                x:Name="MenuContainer"
-                Grid.Row="1"
-                MinWidth="65"
-                Grid.RowSpan="2"
-                BorderBrush="#2d2d2d"
-                CornerRadius="15"
-                BorderThickness="3">
-                <StackPanel
-                    x:Name="MenuPanel"
-                    Width="auto"
-                    MinWidth="65"
-                    HorizontalAlignment="Left"
-                    Background="Yellow">
-                    <!--#region Main menu toggle button with menu animation -->
-                    <ToggleButton x:Name="ExpandMenuButton"
-                            Width="auto"
-                            IsChecked="{Binding ShowMenu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                            Foreground="Wheat">
+            Height="50"
+            VerticalAlignment="Top"
+            Background="{StaticResource WindowBorderBrush}"
+            CornerRadius="10 10 0 0">
+                <Grid>
+                    <!--#region Top panel definition-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="1100" />
+                        <ColumnDefinition Width="300" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <!--#endregion-->
+                    <!--#region Program title-->
+                    <TextBlock
+                    Grid.Column="1"
+                    Margin="350,0,0,0"
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource TitleStyle}"
+                    Text="Fleet Management System" />
+                    <!--#region LoggedUser-->
+                    <StackPanel Grid.Column="2" Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource TitleStyle}" Text="Aktywny użytkownik:" />
+                        <Separator Width="20" />
+                        <TextBlock
+                        Margin="0,0,30,0"
+                        Style="{StaticResource TitleStyle}"
+                        Text="{Binding CurrentUser.Username}" />
+                    </StackPanel>
+                    <!--#endregion-->
+                    <!--#region Menu toggle button with animation-->
+                    <ToggleButton
+                    x:Name="ShowPagesMenuButton"
+                    Width="50"
+                    IsChecked="{Binding ShowMenu, Mode=TwoWay}"
+                    Style="{StaticResource MainMenuButtonStyle}">
                         <ToggleButton.Triggers>
-                            <!--#region Event trigger expanding menu -->
                             <EventTrigger RoutedEvent="ToggleButton.Checked">
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuContainer" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.0" Value="{x:Static Visibility.Visible}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.0" Value="{x:Static Visibility.Visible}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <DoubleAnimation
-                                            Storyboard.TargetName="MenuContainer"
-                                            Storyboard.TargetProperty="Opacity"
-                                            From="0.3"
-                                            To="1"
-                                            Duration="0:0:0.3">
+                                        Storyboard.TargetName="MenuContainer"
+                                        Storyboard.TargetProperty="Opacity"
+                                        From="0"
+                                        To="1"
+                                        Duration="0:0:0.3">
                                             <DoubleAnimation.EasingFunction>
                                                 <SineEase EasingMode="EaseInOut" />
                                             </DoubleAnimation.EasingFunction>
                                         </DoubleAnimation>
-
-                                        <DoubleAnimation 
-                                            Storyboard.TargetName="MenuPanel"
-                                            Storyboard.TargetProperty="Width"
-                                            From="65"
-                                            To="300"
-                                            Duration="0:0:0.8">
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="MenuPanel"
+                                        Storyboard.TargetProperty="Width"
+                                        From="0"
+                                        To="300"
+                                        Duration="0:0:0.8">
                                             <DoubleAnimation.EasingFunction>
-                                                <SineEase EasingMode="EaseInOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation 
-                                            Storyboard.TargetName="ExpandMenuButton"
-                                            Storyboard.TargetProperty="Width"
-                                            From="65"
-                                            To="300"
-                                            Duration="0:0:0.8">
-                                            <DoubleAnimation.EasingFunction>
-                                                <SineEase EasingMode="EaseInOut"/>
+                                                <SineEase EasingMode="EaseInOut" />
                                             </DoubleAnimation.EasingFunction>
                                         </DoubleAnimation>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
-                            <!--#endregion-->
-                            <!--#region Event triger collapsing menu -->
                             <EventTrigger RoutedEvent="ToggleButton.Unchecked">
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuContainer" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.0" Value="{x:Static Visibility.Visible}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.8" Value="{x:Static Visibility.Collapsed}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <DoubleAnimation
-                                            Storyboard.TargetName="MenuContainer"
-                                            Storyboard.TargetProperty="Opacity"
-                                            From="1"
-                                            To="0.3"
-                                            Duration="0:0:0.3">
+                                        Storyboard.TargetName="MenuContainer"
+                                        Storyboard.TargetProperty="Opacity"
+                                        From="1"
+                                        To="0"
+                                        Duration="0:0:1.3">
                                             <DoubleAnimation.EasingFunction>
                                                 <SineEase EasingMode="EaseInOut" />
                                             </DoubleAnimation.EasingFunction>
                                         </DoubleAnimation>
-                                        <DoubleAnimation 
-                                            Storyboard.TargetName="MenuPanel"
-                                            Storyboard.TargetProperty="Width"
-                                            From="300"
-                                            To="65"
-                                            Duration="0:0:0.8">
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="MenuPanel"
+                                        Storyboard.TargetProperty="Width"
+                                        From="300"
+                                        To="0"
+                                        Duration="0:0:0.8">
                                             <DoubleAnimation.EasingFunction>
-                                                <SineEase EasingMode="EaseInOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation 
-                                            Storyboard.TargetName="ExpandMenuButton"
-                                            Storyboard.TargetProperty="Width"
-                                            From="300"
-                                            To="65"
-                                            Duration="0:0:0.8">
-                                            <DoubleAnimation.EasingFunction>
-                                                <SineEase EasingMode="EaseInOut"/>
+                                                <SineEase EasingMode="EaseInOut" />
                                             </DoubleAnimation.EasingFunction>
                                         </DoubleAnimation>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
-                            <!--#endregion-->
                         </ToggleButton.Triggers>
                     </ToggleButton>
-                    <Button
-                        x:Name="LoginPageButton"
-                        MinWidth="65"
-                        MaxWidth="300"
-                        HorizontalAlignment="Left"
+                    <!--#endregion-->
+                    <Image
+                    Grid.Column="1"
+                    Margin="0,0,0,0"
+                    HorizontalAlignment="Left"
+                    Source="Models/Resources/Images/Logo.png" />
+                    <!--#region Buttons on top-->
+                    <StackPanel Grid.Column="4" VerticalAlignment="Top">
+                        <Button
+                        x:Name="CloseAppButton"
+                        Width="40"
+                        Height="40"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Command="{Binding Path=ShutdownAppButtonClick}">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <!--  Ustal podstawowe tło przycisku (opcjonalnie)  -->
+                                    <Setter Property="Background" Value="Transparent" />
+                                    <!--  Zmień tło przycisku na czerwone, gdy myszka jest nad nim  -->
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Red" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Image
+                            Width="40"
+                            Height="40"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Source="Models/Resources/Icons/CloseAppWhite.png" />
+                        </Button>
+                    </StackPanel>
+                    <!--#endregion-->
+                </Grid>
+            </Border>
+            <!--#endregion-->
+            <Frame
+            x:Name="PageContainer"
+            Grid.Row="1"
+            Content="{Binding CurrentPage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            NavigationUIVisibility="Hidden" />
+            <!--#region Side menu region-->
+            <Border
+            x:Name="MenuContainer"
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            Background="#59000000"
+            Opacity="0">
+                <StackPanel
+                x:Name="MenuPanel"
+                Width="80"
+                HorizontalAlignment="Left"
+                Background="#1e1e1e">
+                    <TextBlock
+                    Height="50"
+                    Margin="0"
+                    Padding="15,10"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Background="DarkCyan"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Opacity="1"
+                    Text="Menu"
+                    TextAlignment="Center" />
+                    <Separator Height="5" Margin="0,0,0,0" />
+                    <!--  TU DODAĆ PRZYCISKI DO STRON  -->
+                    <StackPanel>
+                        <ui:Button
+                        x:Name="LoginButton"
+                        Width="300"
+                        Padding="15,10"
+                        HorizontalContentAlignment="Left"
                         Background="Transparent"
                         BorderBrush="Transparent"
-                        Command="{Binding LoginPageButtonClick}">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="65"/>
-                                <ColumnDefinition Width="auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Image
-                                Width="50"
-                                HorizontalAlignment="Left"
-                                Source="/Models/Resources/DebugIcon.png"/>
-                            <TextBlock
+                        Command="{Binding LoginPageButtonClick}"
+                        MouseOverBackground="DarkCyan">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                Width="40"
+                                Height="40"
+                                Margin="0,0,10,0"
+                                Source="{Binding LoginPageIcon}" />
+                                <TextBlock
                                 Grid.Column="1"
-                                MinWidth="0"
-                                MaxWidth="235"
+                                Margin="15,0,0,0"
                                 VerticalAlignment="Center"
-                                FontSize="16"
+                                FontSize="18"
                                 FontWeight="Bold"
-                                Text="Login/Logout Page"
-                                Visibility="{Binding ShowMenu}"/>
-                        </Grid>
-                    </Button>
+                                Foreground="White"
+                                Text="Logowanie" />
+                            </Grid>
+                        </ui:Button>
+                        <Separator Height="5" Margin="0,0,0,0" />
+                        <ui:Button
+                        x:Name="UsersManagerButton"
+                        Width="300"
+                        Padding="15,10"
+                        HorizontalContentAlignment="Left"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Command="{Binding UsersManagerPageButtonClick}"
+                        MouseOverBackground="DarkCyan">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                Width="40"
+                                Height="40"
+                                Margin="0,0,10,0"
+                                Source="/Models/Resources/Icons/UsersPageWhite.png" />
+                                <TextBlock
+                                Grid.Column="1"
+                                Margin="15,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Text="Zarządzanie kontami" />
+                            </Grid>
+                        </ui:Button>
+                        <Separator Height="5" Margin="0,0,0,0" />
+                        <ui:Button
+                        x:Name="LiveForkliftsPage"
+                        Width="300"
+                        Padding="15,10"
+                        HorizontalContentAlignment="Left"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Command="{Binding LiveDataPageButtonClick}"
+                        MouseOverBackground="DarkCyan">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                Width="40"
+                                Height="40"
+                                Margin="0,0,10,0"
+                                Source="/Models/Resources/Icons/LiveDataWhite.png" />
+                                <TextBlock
+                                Grid.Column="1"
+                                Margin="15,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Text="Podgląd wózków" />
+                            </Grid>
+                        </ui:Button>
+                        <Separator Height="5" Margin="0,0,0,0" />
+                        <!--  Tu DODAJ PRZYCISKI  -->
+                    </StackPanel>
+                    <StackPanel x:Name="InstallatorPages" Visibility="{Binding InstallatorMenuVisible, Mode=TwoWay, Converter={StaticResource BoolToVisibility}}">
+                        <TextBlock
+                        Margin="0"
+                        Padding="15,10"
+                        HorizontalAlignment="Stretch"
+                        Background="DarkCyan"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Style="{StaticResource TitleStyle}"
+                        Text="Panel Instalatora"
+                        TextAlignment="Center" />
+                        <Separator
+                        Height="5"
+                        Margin="0,0,0,0"
+                        Background="{StaticResource UnactiveBackgroundBrush}" />
+                        <ui:Button
+                        x:Name="ForkliftManagementPageButton"
+                        Width="300"
+                        Margin="0,0,0,0"
+                        Padding="15,10"
+                        HorizontalAlignment="Left"
+                        HorizontalContentAlignment="LEft"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Command="{Binding ForkliftManagerPageButtonClick}"
+                        MouseOverBackground="DarkCyan">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                Width="40"
+                                Height="40"
+                                Margin="0,0,10,0"
+                                Source="Models/Resources/Icons/ForkliftManagementPageWhite.png" />
+                                <TextBlock
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Text="Zarządzanie wózkami" />
+                            </Grid>
+                        </ui:Button>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Tu tez dodaj" />
+                    </StackPanel>
+                    <!--  TU DODAĆ PRZYCISKI DO STRON  -->
                 </StackPanel>
             </Border>
-            <!--#region Page frame -->
-            <Frame
-                x:Name="PageFrame"
-                Grid.Row="1"
-                Content="{Binding CurrentPage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                NavigationUIVisibility="Hidden"/>
             <!--#endregion-->
         </Grid>
-        
-
     </Border>
-            
-</mah:MetroWindow>
+</Window>

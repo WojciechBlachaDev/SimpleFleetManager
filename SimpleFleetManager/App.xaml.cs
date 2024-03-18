@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using Serilog.Events;
-using Serilog.Configuration;
 using SimpleFleetManager.Services.Host;
-using SimpleFleetManager.ViewModels;
+using SimpleFleetManager.ViewModels.Main;
+using System.IO;
+using System.Reflection;
 using System.Windows;
 
 namespace SimpleFleetManager
@@ -14,13 +14,21 @@ namespace SimpleFleetManager
         private readonly IHost _host;
         public App()
         {
-            Console.WriteLine("DebugConsoleStarted");
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .WriteTo.File("/applog.txt", rollingInterval: RollingInterval.Day)
-                .WriteTo.Console() // Wyświetlanie logów o poziomie Debug w konsoli
-                .CreateLogger();
-            Log.Debug("Logger started");
+            try
+            {
+                Log.Logger = new LoggerConfiguration()
+                    .MinimumLevel.Debug()
+                    .WriteTo.Console()
+                    .WriteTo.File("Models/AppData/appLog.txt", rollingInterval: RollingInterval.Month)
+                    .WriteTo.File("C:\\Users\\Wojtek\\Desktop\\Projekty\\ProjektBR\\SimpleFleetManager\\SimpleFleetManager\\Models\\AppData\\debuglog.txt")
+                    .Destructure.ToMaximumDepth(5)
+                    .CreateLogger();
+                Log.Information("Logger started");
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error occured while creating serilog configuration: " + ex.Message);
+            }
             System.Globalization.CultureInfo customCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
             customCulture.NumberFormat.NumberDecimalSeparator = ".";
             System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;

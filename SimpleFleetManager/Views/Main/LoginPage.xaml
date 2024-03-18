@@ -1,0 +1,97 @@
+﻿<Page x:Class="SimpleFleetManager.Views.Main.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:conv="clr-namespace:SimpleFleetManager.ViewModels.Converters"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" 
+      xmlns:viewmodels="clr-namespace:SimpleFleetManager.ViewModels.Main" d:DataContext="{d:DesignInstance Type=viewmodels:LoginPageViewModel}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800">
+
+    <Page.Resources>
+        <conv:BoolToVIsibilityConverter x:Key="BoolToVisibilityConverter" />
+    </Page.Resources>
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+                <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Vertical">
+                    <Label
+                    Content="Nazwa użytkownika"
+                    FontSize="18"
+                    Foreground="White" />
+                    <Separator Height="10" />
+                    <Label
+                    Content="Hasło"
+                    FontSize="18"
+                    Foreground="White" />
+                </StackPanel>
+                <Separator Width="15" />
+                <StackPanel
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Vertical">
+                    <TextBox MinWidth="300" Text="{Binding Username}" />
+                    <Separator Height="10" />
+                    <ui:PasswordBox MinWidth="300" Text="{Binding Password}" />
+                </StackPanel>
+            </StackPanel>
+            <Separator Height="20" />
+            <Grid x:Name="ButtonGrid">
+                <Grid x:Name="LoginGrid" Visibility="{Binding IsLoginButtonVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <ui:Button
+                    Height="45"
+                    MinWidth="100"
+                    HorizontalAlignment="Center"
+                    Appearance="Success"
+                    Background="White"
+                    Command="{Binding LoginButtonClick}"
+                    CommandParameter="true">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Source="Models/Resources/Icons/LoginButtonBlack.png" />
+                            <Label
+                            Grid.Column="1"
+                            Content="Zaloguj"
+                            FontSize="18"
+                            Foreground="Black" />
+                        </Grid>
+                    </ui:Button>
+                </Grid>
+                <Grid x:Name="LogoutGrid" Visibility="{Binding IsLogoutButtonVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <ui:Button
+                    Height="45"
+                    MinWidth="100"
+                    HorizontalAlignment="Center"
+                    Appearance="Danger"
+                    Background="White"
+                    Command="{Binding LogoutButtonClick}"
+                    CommandParameter="true">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="Models/Resources/Icons/LogoutButtonBlack.png" />
+                            <Label
+                            Grid.Column="1"
+                            Content="Wyloguj"
+                            FontSize="18"
+                            Foreground="Black" />
+                        </Grid>
+                    </ui:Button>
+                </Grid>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

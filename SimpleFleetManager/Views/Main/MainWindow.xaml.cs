@@ -1,5 +1,5 @@
 ﻿using MahApps.Metro.Controls;
-using SimpleFleetManager.ViewModels;
+using SimpleFleetManager.ViewModels.Main;
 using System.Windows;
 
 namespace SimpleFleetManager
@@ -7,7 +7,7 @@ namespace SimpleFleetManager
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class MainWindow
     {
         public MainWindow(MainWindowViewModel viewModel)
         {

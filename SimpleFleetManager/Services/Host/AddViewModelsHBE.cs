@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SimpleFleetManager.ViewModels;
+using SimpleFleetManager.ViewModels.Main;
 
 namespace SimpleFleetManager.Services.Host
 {
@@ -11,6 +11,9 @@ namespace SimpleFleetManager.Services.Host
             hostBuilder.ConfigureServices(services =>
             {
                 services.AddTransient<MainWindowViewModel>();
+                services.AddTransient<LoginPageViewModel>();
+                services.AddTransient<UsersManagerPageViewModel>();
+                services.AddTransient<ForkliftsManagerPageViewModel>();
             });
             return hostBuilder;
         }

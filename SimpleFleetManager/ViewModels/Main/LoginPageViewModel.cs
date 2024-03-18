@@ -1,19 +1,28 @@
-﻿using SimpleFleetManager.Models.Main;
+﻿using Serilog;
+using SimpleFleetManager.Models.Main;
 using SimpleFleetManager.Services;
 using SimpleFleetManager.Services.Data;
 using SimpleFleetManager.ViewModels.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace SimpleFleetManager.ViewModels
+namespace SimpleFleetManager.ViewModels.Main
 {
-    public class UserLoginPageViewModel : BaseViewModel
+    public class LoginPageViewModel : BaseViewModel
     {
         #region Variables
+        private string? _username;
+        public string Username
+        {
+            get
+            {
+                return _username ?? string.Empty;
+            }
+            set
+            {
+                _username = value;
+                OnPropertyChanged(nameof(Username));
+            }
+        }
         private string? _password;
         public string Password
         {
@@ -83,7 +92,7 @@ namespace SimpleFleetManager.ViewModels
         private readonly UserDataService _userDataService;
         #endregion
         #region Constructors
-        public UserLoginPageViewModel(UserStore userStore, UserDataService userDataService)
+        public LoginPageViewModel(UserStore userStore, UserDataService userDataService)
         {
             _userStore = userStore;
             _userDataService = userDataService;
@@ -98,6 +107,21 @@ namespace SimpleFleetManager.ViewModels
         private async void GetSavedUsers()
         {
             AvaibleUsers = await _userDataService.GetAll();
+        }
+        private bool CheckUser()
+        {
+            _avaibleUsers ??= [];
+            foreach (User user in _avaibleUsers)
+            {
+                if (user.Username == _username && user.Password == _password)
+                {
+                    _userStore.CurrentUser = user;
+                    Log.Debug("Check user result: SUCCESS");
+                    return true;
+                }
+            }
+            Log.Information("Incorrect user name or password");
+            return false;
         }
         public void ButtonSelector()
         {
@@ -116,11 +140,48 @@ namespace SimpleFleetManager.ViewModels
         #region Buttons logic
         private void ExecuteLoginButtonClick(object o)
         {
-
+            try
+            {
+                if (!string.IsNullOrEmpty(_password) && !string.IsNullOrEmpty(_username) && o != null)
+                {
+                    if (CheckUser())
+                    {
+                        _userStore.CurrentUser.IsLogged = true;
+                        ButtonSelector();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error when user attempted to login: " + ex.Message);
+            }
         }
         private void ExecuteLogoutButtonClick(object o)
         {
-
+            try
+            {
+                if (_userStore.CurrentUser != null && o != null)
+                {
+                    _userStore.CurrentUser = new();
+                    ButtonSelector();
+                    Log.Debug("Logut action: SUCCESS");
+                }
+                else
+                {
+                    if (_userStore.CurrentUser == null)
+                    {
+                        Log.Warning("User store current user is null when attempting to logout");
+                    }
+                    if (o == null)
+                    {
+                        Log.Warning("Button parameter is null when attempting to logout");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error occured when user attempted to logout: " + ex.Message);
+            }
         }
         private void ExecuteSelectUserFromList(object o)
         {
@@ -130,7 +191,7 @@ namespace SimpleFleetManager.ViewModels
         #region Buttons Icommand declarations
         public ICommand LoginButtonClick { get; private set; }
         public ICommand LogoutButtonClick { get; private set; }
-        public ICommand SelectUserFromList {  get; private set; }
+        public ICommand SelectUserFromList { get; private set; }
         #endregion
     }
 }

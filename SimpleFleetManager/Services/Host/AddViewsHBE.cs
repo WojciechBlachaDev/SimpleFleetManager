@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SimpleFleetManager.ViewModels;
+using SimpleFleetManager.ViewModels.Main;
+using SimpleFleetManager.Views.Main;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,12 @@ namespace SimpleFleetManager.Services.Host
             {
                 services.AddSingleton<MainWindow>(s =>
                 new MainWindow(s.GetRequiredService<MainWindowViewModel>()));
+                services.AddSingleton<LoginPage>(s =>
+                new LoginPage(s.GetRequiredService<LoginPageViewModel>()));
+                services.AddSingleton<UsersManagerPage>(s =>
+                new UsersManagerPage(s.GetRequiredService<UsersManagerPageViewModel>()));
+                services.AddSingleton<ForkliftManagementPage>(s =>
+                new ForkliftManagementPage(s.GetRequiredService<ForkliftsManagerPageViewModel>()));
             });
             return hostBuilder;
         }

@@ -1,0 +1,262 @@
+﻿<Page x:Class="SimpleFleetManager.Views.Main.ForkliftManagementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:conv="clr-namespace:SimpleFleetManager.ViewModels.Converters"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:local="clr-namespace:SimpleFleetManager.Views.Main" xmlns:main="clr-namespace:SimpleFleetManager.ViewModels.Main" d:DataContext="{d:DesignInstance Type=main:ForkliftsManagerPageViewModel}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ForkliftManagementPage">
+
+    <Page.Resources>
+        <conv:BoolToVIsibilityConverter x:Key="BoolToVisibility" />
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <!--#region  Saved forklifts list-->
+        <Grid Grid.Column="0">
+            <StackPanel Width="auto" Margin="30,10,0,0">
+                <TextBlock
+                Margin="0"
+                Padding="15,10"
+                HorizontalAlignment="Stretch"
+                Background="Transparent"
+                FontSize="22"
+                FontWeight="ExtraBold"
+                Style="{StaticResource TitleStyle}"
+                Text="Zapisane wózki:"
+                TextAlignment="Left" />
+                <Separator Height="5" />
+                <ItemsControl Height="1000" ItemsSource="{Binding DatabaseForklifts}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button
+                            Width="auto"
+                            Height="50"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Command="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=DataContext.SelectForklift}"
+                            CommandParameter="{Binding Id}"
+                            Content="{Binding Name}"
+                            FontSize="20"
+                            Foreground="White" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </Grid>
+        <!--#endregion-->
+        <!--#region Editable parameters-->
+        <Grid Grid.Column="1" HorizontalAlignment="Center">
+            <StackPanel VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Height="300" Margin="100,20,0,0">
+                        <TextBlock
+                        Margin="0"
+                        Padding="15,10"
+                        HorizontalAlignment="Stretch"
+                        Background="Transparent"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Style="{StaticResource TitleStyle}"
+                        Text="Nazwa pojazdu"
+                        TextAlignment="Left" />
+                        <Separator Height="15" Margin="0,0,0,0" />
+                        <TextBlock
+                        Margin="0"
+                        Padding="15,10"
+                        HorizontalAlignment="Stretch"
+                        Background="Transparent"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Style="{StaticResource TitleStyle}"
+                        Text="Adres IP "
+                        TextAlignment="Left" />
+                        <Separator Height="15" Margin="0,0,0,0" />
+                        <TextBlock
+                        Margin="0"
+                        Padding="15,10"
+                        HorizontalAlignment="Stretch"
+                        Background="Transparent"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Style="{StaticResource TitleStyle}"
+                        Text="Port"
+                        TextAlignment="Left" />
+                        <Separator Height="15" Margin="0,0,0,0" />
+                        <TextBlock
+                        Margin="0"
+                        Padding="15,10"
+                        HorizontalAlignment="Stretch"
+                        Background="Transparent"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Style="{StaticResource TitleStyle}"
+                        Text="Adres LidarLoc"
+                        TextAlignment="Left" />
+                        <Separator Height="15" Margin="0,0,0,0" />
+                        <TextBlock
+                        Margin="0"
+                        Padding="15,10"
+                        HorizontalAlignment="Stretch"
+                        Background="Transparent"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Style="{StaticResource TitleStyle}"
+                        Text="Adres Visionary T-mini"
+                        TextAlignment="Left" />
+                    </StackPanel>
+                    <StackPanel Height="300" Margin="20,23,0,0">
+                        <TextBox
+                        MinWidth="200"
+                        VerticalAlignment="Center"
+                        FontSize="24"
+                        Text="{Binding CurrentForklift.Name}"
+                        TextAlignment="Center" />
+                        <Separator Height="15" Margin="0,-5,0,0" />
+                        <TextBox
+                        MinWidth="200"
+                        VerticalAlignment="Center"
+                        FontSize="24"
+                        Text="{Binding CurrentForklift.ForkliftIpAddress}"
+                        TextAlignment="Center" />
+                        <Separator Height="15" Margin="0,-5,0,0" />
+                        <TextBox
+                        MinWidth="200"
+                        VerticalAlignment="Center"
+                        FontSize="24"
+                        Text="{Binding CurrentForklift.Port}"
+                        TextAlignment="Center" />
+                        <Separator Height="15" Margin="0,-5,0,0" />
+                        <TextBox
+                        MinWidth="200"
+                        VerticalAlignment="Center"
+                        FontSize="24"
+                        Text="{Binding CurrentForklift.LidarLocIpAddress}"
+                        TextAlignment="Center" />
+                        <Separator Height="15" Margin="0,-5,0,0" />
+                        <TextBox
+                        MinWidth="200"
+                        VerticalAlignment="Center"
+                        FontSize="24"
+                        Text="{Binding CurrentForklift.VisionaryIpAddress}"
+                        TextAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Margin="50,0,0,0" Orientation="Horizontal">
+                    <ui:Button
+                    Width="180"
+                    Height="40"
+                    Appearance="Success"
+                    Background="White"
+                    Command="{Binding AddForkliftButttonClick}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                            Grid.Column="0"
+                            Width="30"
+                            Height="30"
+                            Source="/Models/Resources/Icons/SaveBlack.png" />
+                            <TextBlock
+                            Grid.Column="1"
+                            Margin="5,0,0,0"
+                            FontSize="20"
+                            FontWeight="Bold"
+                            Foreground="Black"
+                            Text="Zapisz" />
+                        </Grid>
+                    </ui:Button>
+                    <Separator Width="10" />
+                    <ui:Button
+                    Width="180"
+                    Height="40"
+                    Appearance="Primary"
+                    Background="White"
+                    Command="{Binding UpdateForkliftButttonClick}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                            Grid.Column="0"
+                            Width="30"
+                            Height="30"
+                            Source="/Models/Resources/Icons/UpdateBlack.png" />
+                            <TextBlock
+                            Grid.Column="1"
+                            Margin="5,0,0,0"
+                            FontSize="20"
+                            FontWeight="Bold"
+                            Foreground="Black"
+                            Text="Aktualizuj" />
+                        </Grid>
+                    </ui:Button>
+                    <Separator Width="10" />
+                    <ui:Button
+                    Width="180"
+                    Height="40"
+                    Appearance="Danger"
+                    Background="White"
+                    Command="{Binding DeleteForkliftButtonClick}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                            Grid.Column="0"
+                            Width="30"
+                            Height="30"
+                            Source="/Models/Resources/Icons/DeleteBlack.png" />
+                            <TextBlock
+                            Grid.Column="1"
+                            Margin="5,0,0,0"
+                            FontSize="20"
+                            FontWeight="Bold"
+                            Foreground="Black"
+                            Text="Usuń" />
+                        </Grid>
+                    </ui:Button>
+                    <Separator Width="10" />
+
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <!--#endregion-->
+        <!--#region Online status-->
+        <Grid Grid.Column="2" Margin="0,0,50,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock
+            Grid.Row="0"
+            Grid.Column="2"
+            MinWidth="100"
+            Margin="5,100,0,0"
+            FontSize="20"
+            FontWeight="Bold"
+            Foreground="White"
+            Text="Status połaczenia:"
+            TextWrapping="Wrap" />
+            <Image
+            x:Name="OnlineIcon"
+            Grid.Row="1"
+            Margin="0,20,0,0"
+            Source="{Binding ConnectionStatusIconPath}" />
+
+        </Grid>
+        <!--#endregion-->
+    </Grid>
+</Page>

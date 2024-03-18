@@ -10,11 +10,11 @@ namespace SimpleFleetManager.Models.Main
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public required int Id { get; set; }
+        public int Id { get; set; }
         [Required]
-        public required string Name { get; set; }
+        public string? Name { get; set; }
         [Required]
-        public required string ForkliftIpAddress { get; set; }
+        public string? ForkliftIpAddress { get; set; }
         public string? LidarLocIpAddress { get; set; }
         public string? VisionaryIpAddress { get; set; }
         public DateTime Registrationdate { get; set; }
