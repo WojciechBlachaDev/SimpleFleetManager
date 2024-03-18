@@ -46,3 +46,5 @@
 2024-03-18 14:31:39.587 +01:00 [DBG] Login page button clicked
 2024-03-18 14:31:45.508 +01:00 [DBG] Check user result: SUCCESS
 2024-03-18 14:31:59.858 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-18 14:51:53.419 +01:00 [INF] Logger started
+2024-03-18 15:04:10.479 +01:00 [INF] Logger started
