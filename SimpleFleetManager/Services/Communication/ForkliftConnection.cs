@@ -235,6 +235,10 @@ namespace SimpleFleetManager.Services.Communication
                             #endregion
                             #region Pose data assign to forklift
                             forklift.DataOut.ActualPosition ??= new();
+                            if (poseData.Count > 3)
+                            {
+                                poseData.RemoveAt(poseData.Count - 1);
+                            }
                             if (poseData.Count == 3)
                             {
                                 forklift.DataOut.ActualPosition.X = Convert.ToDouble(poseData[0]);
@@ -246,6 +250,7 @@ namespace SimpleFleetManager.Services.Communication
                             forklift.DataOut.Sensors ??= new();
                             if (sensorsData.Count > 10)
                             {
+                                sensorsData.RemoveAt(0);
                                 sensorsData.RemoveAt(sensorsData.Count - 1);
                             }
                             if (sensorsData.Count == 10)
@@ -287,18 +292,18 @@ namespace SimpleFleetManager.Services.Communication
                             }
                             if (plcErorrStatus.Count >= 12)
                             {
-                                forklift.DataOut.PlcErrorStatus.BatteryVoltageRead = Convert.ToBoolean(plcErorrStatus[0]);
-                                forklift.DataOut.PlcErrorStatus.ForksHeightSensor = Convert.ToBoolean(plcErorrStatus[1]);
-                                forklift.DataOut.PlcErrorStatus.ManualModeSpeedRegulator = Convert.ToBoolean(plcErorrStatus[2]);
-                                forklift.DataOut.PlcErrorStatus.PressureSensor = Convert.ToBoolean(plcErorrStatus[3]);
-                                forklift.DataOut.PlcErrorStatus.PowerToCurtisWrite = Convert.ToBoolean(plcErorrStatus[4]);
-                                forklift.DataOut.PlcErrorStatus.ScangridLeftReadMeasurement = Convert.ToBoolean(plcErorrStatus[5]);
-                                forklift.DataOut.PlcErrorStatus.ScangridRightReadMeasurement = Convert.ToBoolean(plcErorrStatus[6]);
-                                forklift.DataOut.PlcErrorStatus.ServoHalt = Convert.ToBoolean(plcErorrStatus[7]);
-                                forklift.DataOut.PlcErrorStatus.ServoMove = Convert.ToBoolean(plcErorrStatus[8]);
-                                forklift.DataOut.PlcErrorStatus.ServoPositionRead = Convert.ToBoolean(plcErorrStatus[9]);
-                                forklift.DataOut.PlcErrorStatus.TiltSensorAxis1 = Convert.ToBoolean(plcErorrStatus[10]);
-                                forklift.DataOut.PlcErrorStatus.TiltSensorAxis2 = Convert.ToBoolean(plcErorrStatus[11]);
+                                forklift.DataOut.PlcErrorStatus.BatteryVoltageRead = !Convert.ToBoolean(plcErorrStatus[0]);
+                                forklift.DataOut.PlcErrorStatus.ForksHeightSensor = !Convert.ToBoolean(plcErorrStatus[1]);
+                                forklift.DataOut.PlcErrorStatus.ManualModeSpeedRegulator = !Convert.ToBoolean(plcErorrStatus[2]);
+                                forklift.DataOut.PlcErrorStatus.PressureSensor = !Convert.ToBoolean(plcErorrStatus[3]);
+                                forklift.DataOut.PlcErrorStatus.PowerToCurtisWrite = !Convert.ToBoolean(plcErorrStatus[4]);
+                                forklift.DataOut.PlcErrorStatus.ScangridLeftReadMeasurement = !Convert.ToBoolean(plcErorrStatus[5]);
+                                forklift.DataOut.PlcErrorStatus.ScangridRightReadMeasurement = !Convert.ToBoolean(plcErorrStatus[6]);
+                                forklift.DataOut.PlcErrorStatus.ServoHalt = !Convert.ToBoolean(plcErorrStatus[7]);
+                                forklift.DataOut.PlcErrorStatus.ServoMove = !Convert.ToBoolean(plcErorrStatus[8]);
+                                forklift.DataOut.PlcErrorStatus.ServoPositionRead = !Convert.ToBoolean(plcErorrStatus[9]);
+                                forklift.DataOut.PlcErrorStatus.TiltSensorAxis1 = !Convert.ToBoolean(plcErorrStatus[10]);
+                                forklift.DataOut.PlcErrorStatus.TiltSensorAxis2 = !Convert.ToBoolean(plcErorrStatus[11]);
                             }
                             #endregion
                             #region PLC error codes assign to forklift
@@ -342,20 +347,20 @@ namespace SimpleFleetManager.Services.Communication
                                 forklift.DataOut.Safety.ButtonemergencyLeft = Convert.ToBoolean(safetyData[4]);
                                 forklift.DataOut.Safety.ButtonemergencyRight = Convert.ToBoolean(safetyData[5]);
                                 forklift.DataOut.Safety.LidarLeft.IsActive = Convert.ToBoolean(safetyData[6]);
-                                forklift.DataOut.Safety.LidarLeft.DeviceError = Convert.ToBoolean(safetyData[7]);
-                                forklift.DataOut.Safety.LidarLeft.AppError = Convert.ToBoolean(safetyData[8]);
-                                forklift.DataOut.Safety.LidarLeft.ContaminationError = Convert.ToBoolean(safetyData[9]);
+                                forklift.DataOut.Safety.LidarLeft.DeviceError = !Convert.ToBoolean(safetyData[7]);
+                                forklift.DataOut.Safety.LidarLeft.AppError = !Convert.ToBoolean(safetyData[8]);
+                                forklift.DataOut.Safety.LidarLeft.ContaminationError = !Convert.ToBoolean(safetyData[9]);
                                 forklift.DataOut.Safety.LidarLeft.ContaminationWarning = Convert.ToBoolean(safetyData[10]);
-                                forklift.DataOut.Safety.LidarLeft.SwitchMonitoringCaseError = Convert.ToBoolean(safetyData[11]);
+                                forklift.DataOut.Safety.LidarLeft.SwitchMonitoringCaseError = !Convert.ToBoolean(safetyData[11]);
                                 forklift.DataOut.Safety.LidarLeft.EmergencyStopZoneStatus = Convert.ToBoolean(safetyData[12]);
                                 forklift.DataOut.Safety.LidarLeft.SoftStopZoneStatus = Convert.ToBoolean(safetyData[13]);
                                 forklift.DataOut.Safety.LidarLeft.ReducedSpeedZoneStatus = Convert.ToBoolean(safetyData[14]);
                                 forklift.DataOut.Safety.LidarRight.IsActive = Convert.ToBoolean(safetyData[15]);
-                                forklift.DataOut.Safety.LidarRight.DeviceError = Convert.ToBoolean(safetyData[16]);
-                                forklift.DataOut.Safety.LidarRight.AppError = Convert.ToBoolean(safetyData[17]);
-                                forklift.DataOut.Safety.LidarRight.ContaminationError = Convert.ToBoolean(safetyData[18]);
+                                forklift.DataOut.Safety.LidarRight.DeviceError = !Convert.ToBoolean(safetyData[16]);
+                                forklift.DataOut.Safety.LidarRight.AppError = !Convert.ToBoolean(safetyData[17]);
+                                forklift.DataOut.Safety.LidarRight.ContaminationError = !Convert.ToBoolean(safetyData[18]);
                                 forklift.DataOut.Safety.LidarRight.ContaminationWarning = Convert.ToBoolean(safetyData[19]);
-                                forklift.DataOut.Safety.LidarRight.SwitchMonitoringCaseError = Convert.ToBoolean(safetyData[20]);
+                                forklift.DataOut.Safety.LidarRight.SwitchMonitoringCaseError = !Convert.ToBoolean(safetyData[20]);
                                 forklift.DataOut.Safety.LidarRight.EmergencyStopZoneStatus = Convert.ToBoolean(safetyData[21]);
                                 forklift.DataOut.Safety.LidarRight.SoftStopZoneStatus = Convert.ToBoolean(safetyData[22]);
                                 forklift.DataOut.Safety.LidarRight.ReducedSpeedZoneStatus = Convert.ToBoolean(safetyData[23]);
@@ -398,8 +403,8 @@ namespace SimpleFleetManager.Services.Communication
                             }
                             #endregion
                             #region Scangrid measuring data assign to forklift
-                            forklift.DataOut.ScangridRight.Ranges ??= [];
-                            forklift.DataOut.ScangridLeft.Ranges ??= [];
+                            forklift.DataOut.ScangridRight.Ranges = [];
+                            forklift.DataOut.ScangridLeft.Ranges = [];
                             if (scangridMeasuring.Count > 64)
                             {
                                 scangridMeasuring.RemoveAt(0);
@@ -409,11 +414,11 @@ namespace SimpleFleetManager.Services.Communication
                             {
                                 for (int i = 0; i < 32 ; i++)
                                 {
-                                    forklift.DataOut.ScangridLeft.Ranges[i] = Convert.ToInt32(scangridMeasuring[i]);
+                                    forklift.DataOut.ScangridLeft.Ranges.Append(Convert.ToInt32(scangridMeasuring[i]));
                                 }
                                 for (int i = 32;i < 64 ; i++)
                                 {
-                                    forklift.DataOut.ScangridRight.Ranges[i - 32] = Convert.ToInt32(scangridMeasuring[i]);
+                                    forklift.DataOut.ScangridLeft.Ranges.Append(Convert.ToInt32(scangridMeasuring[i]));
                                 }
                             }
                             #endregion

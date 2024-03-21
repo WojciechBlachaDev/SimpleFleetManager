@@ -17,7 +17,7 @@ namespace SimpleFleetManager.ViewModels.Main
         {
             get
             {
-                return _selectedUser = new();
+                return _selectedUser ??= new();
             }
             set
             {

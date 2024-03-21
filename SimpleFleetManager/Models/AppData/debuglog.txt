@@ -48,3 +48,144 @@
 2024-03-18 14:31:59.858 +01:00 [DBG] Forklift Manager page button clicked
 2024-03-18 14:51:53.419 +01:00 [INF] Logger started
 2024-03-18 15:04:10.479 +01:00 [INF] Logger started
+2024-03-21 09:36:40.972 +01:00 [INF] Logger started
+2024-03-21 09:36:45.855 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 09:38:03.301 +01:00 [INF] Logger started
+2024-03-21 09:38:08.463 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 09:38:11.991 +01:00 [DBG] Login page button clicked
+2024-03-21 09:38:14.494 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-21 09:38:17.094 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 09:38:37.638 +01:00 [DBG] Login page button clicked
+2024-03-21 09:38:45.094 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-21 09:38:51.510 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 09:38:52.270 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 09:38:58.518 +01:00 [DBG] Login page button clicked
+2024-03-21 09:39:40.773 +01:00 [INF] Logger started
+2024-03-21 09:39:44.743 +01:00 [DBG] Login page button clicked
+2024-03-21 09:39:52.975 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-21 09:39:57.750 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 09:40:30.611 +01:00 [INF] Logger started
+2024-03-21 09:40:33.343 +01:00 [DBG] Login page button clicked
+2024-03-21 09:40:41.902 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 09:40:45.870 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-21 09:42:07.567 +01:00 [INF] Logger started
+2024-03-21 09:42:13.879 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 09:42:19.854 +01:00 [DBG] Login page button clicked
+2024-03-21 09:42:28.863 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-21 09:44:47.348 +01:00 [INF] Logger started
+2024-03-21 09:44:49.950 +01:00 [DBG] Login page button clicked
+2024-03-21 09:45:12.006 +01:00 [DBG] Login page button clicked
+2024-03-21 09:45:16.342 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 09:45:20.382 +01:00 [DBG] Login page button clicked
+2024-03-21 09:45:38.672 +01:00 [INF] Logger started
+2024-03-21 09:45:41.599 +01:00 [DBG] Login page button clicked
+2024-03-21 09:45:48.390 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 09:47:26.411 +01:00 [INF] Logger started
+2024-03-21 09:47:29.078 +01:00 [DBG] Login page button clicked
+2024-03-21 09:48:10.618 +01:00 [INF] Logger started
+2024-03-21 09:48:12.630 +01:00 [DBG] Login page button clicked
+2024-03-21 09:48:17.918 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 09:48:22.630 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-21 09:50:30.355 +01:00 [INF] Logger started
+2024-03-21 09:50:33.542 +01:00 [DBG] Login page button clicked
+2024-03-21 09:50:40.837 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-21 09:51:59.480 +01:00 [INF] Logger started
+2024-03-21 09:52:01.854 +01:00 [DBG] Login page button clicked
+2024-03-21 09:52:05.989 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-21 09:59:08.271 +01:00 [INF] Logger started
+2024-03-21 09:59:12.413 +01:00 [DBG] Login page button clicked
+2024-03-21 09:59:18.708 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-21 09:59:21.908 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 09:59:25.012 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-21 10:06:58.424 +01:00 [INF] Logger started
+2024-03-21 10:07:02.245 +01:00 [DBG] Login page button clicked
+2024-03-21 10:07:07.532 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-21 10:07:12.419 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-21 10:11:47.579 +01:00 [INF] Logger started
+2024-03-21 10:11:58.604 +01:00 [DBG] Login page button clicked
+2024-03-21 10:12:16.691 +01:00 [DBG] Login page button clicked
+2024-03-21 10:15:04.865 +01:00 [INF] Logger started
+2024-03-21 10:17:22.912 +01:00 [INF] Logger started
+2024-03-21 10:17:25.636 +01:00 [DBG] Login page button clicked
+2024-03-21 10:23:17.488 +01:00 [INF] Logger started
+2024-03-21 10:23:23.411 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-21 10:24:01.843 +01:00 [INF] Logger started
+2024-03-21 10:24:04.643 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-21 10:24:22.130 +01:00 [DBG] Login page button clicked
+2024-03-21 10:24:23.674 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-21 10:24:25.842 +01:00 [DBG] Login page button clicked
+2024-03-21 10:24:31.686 +01:00 [DBG] Check user result: SUCCESS
+2024-03-21 10:24:37.107 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-21 10:25:00.410 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 10:25:20.803 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-21 10:25:21.934 +01:00 [DBG] Selected forklift: AMR
+2024-03-21 10:25:28.962 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 10:26:25.425 +01:00 [INF] Logger started
+2024-03-21 10:26:28.011 +01:00 [DBG] Login page button clicked
+2024-03-21 10:26:30.418 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-21 10:26:32.938 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 10:28:38.278 +01:00 [INF] Logger started
+2024-03-21 10:28:41.826 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 10:31:42.185 +01:00 [INF] Logger started
+2024-03-21 10:31:48.930 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 10:36:57.375 +01:00 [INF] Logger started
+2024-03-21 10:37:01.866 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 10:38:23.505 +01:00 [INF] Logger started
+2024-03-21 10:38:28.785 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 10:38:37.193 +01:00 [DBG] Login page button clicked
+2024-03-21 10:38:42.259 +01:00 [DBG] Check user result: SUCCESS
+2024-03-21 10:38:45.065 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-21 10:38:46.725 +01:00 [DBG] Selected forklift: AMR
+2024-03-21 10:53:39.360 +01:00 [INF] Logger started
+2024-03-21 10:53:46.600 +01:00 [DBG] Login page button clicked
+2024-03-21 10:53:51.522 +01:00 [DBG] Check user result: SUCCESS
+2024-03-21 10:53:54.632 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 10:53:59.640 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-21 10:54:00.859 +01:00 [DBG] Selected forklift: AMR
+2024-03-21 10:54:01.792 +01:00 [DBG] Selected forklift: AMR
+2024-03-21 10:54:02.640 +01:00 [DBG] Selected forklift: AMR
+2024-03-21 10:54:55.698 +01:00 [INF] Logger started
+2024-03-21 10:59:50.215 +01:00 [INF] Logger started
+2024-03-21 11:01:04.543 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 11:01:09.552 +01:00 [DBG] Login page button clicked
+2024-03-21 11:01:14.345 +01:00 [DBG] Check user result: SUCCESS
+2024-03-21 11:01:16.615 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-21 11:01:18.067 +01:00 [DBG] Selected forklift: AMR
+2024-03-21 11:05:18.581 +01:00 [INF] Logger started
+2024-03-21 11:05:22.647 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 11:11:19.998 +01:00 [INF] Logger started
+2024-03-21 11:11:38.222 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 11:13:57.979 +01:00 [INF] Logger started
+2024-03-21 11:14:07.039 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 11:14:26.181 +01:00 [INF] Logger started
+2024-03-21 11:15:00.669 +01:00 [INF] Logger started
+2024-03-21 11:15:31.907 +01:00 [INF] Logger started
+2024-03-21 11:16:41.077 +01:00 [INF] Logger started
+2024-03-21 11:17:37.463 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 11:18:17.871 +01:00 [INF] Logger started
+2024-03-21 11:18:20.470 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 11:22:32.795 +01:00 [INF] Logger started
+2024-03-21 11:22:36.278 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 11:23:48.451 +01:00 [INF] Logger started
+2024-03-21 11:23:51.462 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 11:30:18.681 +01:00 [INF] Logger started
+2024-03-21 11:30:21.213 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 11:31:02.708 +01:00 [INF] Logger started
+2024-03-21 11:31:05.069 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 11:41:04.702 +01:00 [INF] Logger started
+2024-03-21 11:42:30.024 +01:00 [INF] Logger started
+2024-03-21 11:42:32.996 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 11:45:03.116 +01:00 [INF] Logger started
+2024-03-21 11:45:06.012 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 12:18:45.413 +01:00 [INF] Logger started
+2024-03-21 13:13:47.615 +01:00 [INF] Logger started
+2024-03-21 13:13:51.324 +01:00 [DBG] Login page button clicked
+2024-03-21 13:13:56.639 +01:00 [DBG] Check user result: SUCCESS
+2024-03-21 13:13:59.347 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 13:14:07.260 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-21 13:14:08.695 +01:00 [DBG] Selected forklift: AMR
+2024-03-21 13:15:37.115 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 13:23:12.906 +01:00 [INF] Logger started
+2024-03-21 13:23:18.891 +01:00 [DBG] Forklifts page button clicked
+2024-03-21 13:28:57.369 +01:00 [INF] Logger started
+2024-03-21 13:29:00.299 +01:00 [DBG] Forklifts page button clicked

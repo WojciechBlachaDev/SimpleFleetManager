@@ -1,0 +1,420 @@
+﻿<Page
+    x:Class="SimpleFleetManager.Views.ForkliftPages.SafetyPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:conv="clr-namespace:SimpleFleetManager.ViewModels.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:forkliftpages="clr-namespace:SimpleFleetManager.ViewModels.ForkliftPages"
+    xmlns:local="clr-namespace:SimpleFleetManager.Views.ForkliftPages"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="SafetyPage"
+    d:DataContext="{d:DesignInstance Type=forkliftpages:SafetyPageViewModel}"
+    d:DesignHeight="1000"
+    d:DesignWidth="1610"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <conv:BoolToStatusGreenRed x:Key="BoolGreenRed" />
+        <conv:BoolToStatusGreenGrey x:Key="BoolGreenGrey" />
+        <conv:BoolToStatusGreyRed x:Key="BoolGreyRed" />
+        <conv:BoolToStatusGreyYellow x:Key="BoolGreyYellow" />
+    </Page.Resources>
+    <Grid>
+        <mah:MetroAnimatedTabControl>
+            <TabControl>
+                <!--#region Main safety statuses-->
+                <TabItem Header="Główne urzadzenia">
+                    <Grid>
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <!--#region Icons stack panel-->
+                            <StackPanel>
+                                <Separator Height="5" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/CpuWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/EncoderWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/StandstillWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/SpeedGuardWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/EmergencyStopButtonWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/EmergencyStopButtonWhite.png" />
+                            </StackPanel>
+                            <!--#endregion-->
+                            <!--#region Descriptions stack panel-->
+                            <StackPanel Margin="15,0,0,0">
+                                <Separator Height="5" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Status głównego modułu bezpieczeństwa:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Status enkodera bezpieczeńtwa:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Potwierdzony bezpieczny postój:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan ochrony przed przekroczeniem bezpiecznej prędkości:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan lewego przycisku awaryjnego zatrzymania:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan prawego przycisku awaryjnego zatrzymania:" />
+                            </StackPanel>
+                            <!--#endregion-->
+                            <!--#region Data status stack panel-->
+                            <StackPanel Margin="15,0,0,0">
+                                <Separator Height="5" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.CpuOk, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.EncoderOk, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.Standstill, Converter={StaticResource BoolGreenGrey}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.SafeSpeed, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.ButtonemergencyLeft, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.ButtonemergencyRight, Converter={StaticResource BoolGreenRed}}" />
+                            </StackPanel>
+                            <!--#endregion-->
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <!--#endregion-->
+                <!--#region Left lidar tab-->
+                <TabItem Header="SICK MicroScan3 lewy">
+                    <Grid>
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <!--#region Icons stack panel-->
+                            <StackPanel>
+                                <Separator Height="5" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/IsActiveWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/EmergencyZoneRed.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/SoftStopZoneOrange.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/ReducedSpeedZoneYellow.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" />
+                                <Separator Height="12" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/AppErrorWhite.png" />
+                                <Separator Height="12" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/DeviceErrorWhite.png" />
+                            </StackPanel>
+                            <!--#endregion-->
+                            <!--#region Descriptions stack panel-->
+                            <StackPanel Margin="15,0,0,0">
+                                <Separator Height="5" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan aktywności skanera:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan strefy awaryjnego zatrzymania:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan strefy zatrzymania:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan strefy ograniczonej prędkości:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan kontroli przełączania przypadków monitorowania:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Ostrzeżenie o zabrudzeniu:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Bład zabrudzenia urządzenia:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Błąd wewnętrzny programu skanera:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Błąd urządzenia:" />
+                            </StackPanel>
+                            <!--#endregion-->
+                            <!--#region Data status stack panel-->
+                            <StackPanel Margin="15,0,0,0">
+                                <Separator Height="5" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarLeft.IsActive, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarLeft.EmergencyStopZoneStatus, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarLeft.SoftStopZoneStatus, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarLeft.ReducedSpeedZoneStatus, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarLeft.SwitchMonitoringCaseError, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarLeft.ContaminationWarning, Converter={StaticResource BoolGreyYellow}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarLeft.ContaminationError, Converter={StaticResource BoolGreyRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarLeft.AppError, Converter={StaticResource BoolGreyRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarLeft.DeviceError, Converter={StaticResource BoolGreyRed}}" />
+                            </StackPanel>
+                            <!--#endregion-->
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <!--#endregion-->
+                <!--#region Left lidar tab-->
+                <TabItem Header="SICK MicroScan3 prawy">
+                    <Grid>
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <!--#region Icons stack panel-->
+                            <StackPanel>
+                                <Separator Height="5" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/IsActiveWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/EmergencyZoneRed.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/SoftStopZoneOrange.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/ReducedSpeedZoneYellow.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" />
+                                <Separator Height="12" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/AppErrorWhite.png" />
+                                <Separator Height="12" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/DeviceErrorWhite.png" />
+                            </StackPanel>
+                            <!--#endregion-->
+                            <!--#region Descriptions stack panel-->
+                            <StackPanel Margin="15,0,0,0">
+                                <Separator Height="5" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan aktywności skanera:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan strefy awaryjnego zatrzymania:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan strefy zatrzymania:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan strefy ograniczonej prędkości:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan kontroli przełączania przypadków monitorowania:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Ostrzeżenie o zabrudzeniu:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Bład zabrudzenia urządzenia:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Błąd wewnętrzny programu skanera:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Błąd urządzenia:" />
+                            </StackPanel>
+                            <!--#endregion-->
+                            <!--#region Data status stack panel-->
+                            <StackPanel Margin="15,0,0,0">
+                                <Separator Height="5" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarRight.IsActive, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarRight.EmergencyStopZoneStatus, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarRight.SoftStopZoneStatus, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarRight.ReducedSpeedZoneStatus, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarRight.SwitchMonitoringCaseError, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarRight.ContaminationWarning, Converter={StaticResource BoolGreyYellow}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarRight.ContaminationError, Converter={StaticResource BoolGreyRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarRight.AppError, Converter={StaticResource BoolGreyRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.Safety.LidarRight.DeviceError, Converter={StaticResource BoolGreyRed}}" />
+                            </StackPanel>
+                            <!--#endregion-->
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <!--#endregion-->
+                <!--#region Scangrid left statuses tab-->
+                <TabItem Header="SICK Scangrid2 lewy">
+                    <Grid>
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <!--#region Icons stack panel-->
+                            <StackPanel>
+                                <Separator Height="5" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/IsActiveWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/EmergencyZoneRed.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/ReducedSpeedZoneYellow.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/SafetyOutputWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/SleepModeWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" />
+                                <Separator Height="12" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/ExternalLightWhite.png" />
+                                <Separator Height="12" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/VoltageWhite.png" />
+                            </StackPanel>
+                            <!--#endregion-->
+                            <!--#region Descriptions stack panel-->
+                            <StackPanel Margin="15,0,0,0">
+                                <Separator Height="5" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan aktywności skanera:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan przełączania przypadków monitorowania (CAN):" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan przełączania przypadków monitorowania (INPUT):" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan strefy awaryjnego zatrzymania:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan strefy ostrzegania:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan wyjścia fizycznego safety:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan aktywności trybu uśpienia:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Ostrzeżenie o zabrudzeniu:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Błąd zabrudzenia:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Błąd odporności na oświetlenie zewnętrzne:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Błąd napięcia:" />
+                            </StackPanel>
+                            <!--#endregion-->
+                            <!--#region Data status stack panel-->
+                            <StackPanel Margin="15,0,0,0">
+                                <Separator Height="5" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridLeft.Status.WorkStatus, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridLeft.Status.MonitoringCaseSwitchCanValid, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridLeft.Status.MonitoringCaseSwitchInputValid, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridLeft.Status.ProtectionFieldStatus, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridLeft.Status.WarningFieldStatus, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridLeft.Status.SafetyOutputSignal, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridLeft.Status.SleeepModeStatus, Converter={StaticResource BoolGreyYellow}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridLeft.Status.ContaminationWarning, Converter={StaticResource BoolGreyYellow}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridLeft.Status.ContaminationError, Converter={StaticResource BoolGreyRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridLeft.Status.ExternalLightResistanceError, Converter={StaticResource BoolGreyRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridLeft.Status.VoltageError, Converter={StaticResource BoolGreyRed}}" />
+                            </StackPanel>
+                            <!--#endregion-->
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <!--#endregion-->
+                <!--#region Scangrid right statuses tab-->
+                <TabItem Header="SICK Scangrid2 prawy">
+                    <Grid>
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <!--#region Icons stack panel-->
+                            <StackPanel>
+                                <Separator Height="5" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/IsActiveWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/EmergencyZoneRed.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/ReducedSpeedZoneYellow.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/SafetyOutputWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/SleepModeWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" />
+                                <Separator Height="12" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/ExternalLightWhite.png" />
+                                <Separator Height="12" Background="Transparent" />
+                                <Image Height="30" Source="/Models/Resources/ItemsIcons/Safety/VoltageWhite.png" />
+                            </StackPanel>
+                            <!--#endregion-->
+                            <!--#region Descriptions stack panel-->
+                            <StackPanel Margin="15,0,0,0">
+                                <Separator Height="5" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan aktywności skanera:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan przełączania przypadków monitorowania (CAN):" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan przełączania przypadków monitorowania (INPUT):" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan strefy awaryjnego zatrzymania:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan strefy ostrzegania:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan wyjścia fizycznego safety:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Stan aktywności trybu uśpienia:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Ostrzeżenie o zabrudzeniu:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Błąd zabrudzenia:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Błąd odporności na oświetlenie zewnętrzne:" />
+                                <Separator Height="14" Background="Transparent" />
+                                <TextBlock FontSize="20" Text="Błąd napięcia:" />
+                            </StackPanel>
+                            <!--#endregion-->
+                            <!--#region Data status stack panel-->
+                            <StackPanel Margin="15,0,0,0">
+                                <Separator Height="5" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridRight.Status.WorkStatus, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridRight.Status.MonitoringCaseSwitchCanValid, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridRight.Status.MonitoringCaseSwitchInputValid, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridRight.Status.ProtectionFieldStatus, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridRight.Status.WarningFieldStatus, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridRight.Status.SafetyOutputSignal, Converter={StaticResource BoolGreenRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridRight.Status.SleeepModeStatus, Converter={StaticResource BoolGreyYellow}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridRight.Status.ContaminationWarning, Converter={StaticResource BoolGreyYellow}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridRight.Status.ContaminationError, Converter={StaticResource BoolGreyRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridRight.Status.ExternalLightResistanceError, Converter={StaticResource BoolGreyRed}}" />
+                                <Separator Height="10" Background="Transparent" />
+                                <Image Height="30" Source="{Binding Data.ScangridRight.Status.VoltageError, Converter={StaticResource BoolGreyRed}}" />
+                            </StackPanel>
+                            <!--#endregion-->
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <!--#endregion-->
+            </TabControl>
+        </mah:MetroAnimatedTabControl>
+    </Grid>
+</Page>

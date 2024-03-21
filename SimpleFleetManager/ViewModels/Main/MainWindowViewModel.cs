@@ -293,6 +293,9 @@ namespace SimpleFleetManager.ViewModels.Main
         private void ExecuteForkliftsPageButtonClick(object? o)
         {
             Log.Debug("Forklifts page button clicked");
+            _connectedForklifts ??= [];
+            CurrentPage = new ForkliftsPage(new ForkliftsPageViewModel(_userStore, _forkliftDataService, _connectedForklifts));
+            ShowMenu = false;
         }
         private void ExecuteUsersManagerPageButtonClick(object? o)
         {

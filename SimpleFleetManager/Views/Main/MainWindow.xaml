@@ -7,10 +7,12 @@
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:local="clr-namespace:SimpleFleetManager"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:main="clr-namespace:SimpleFleetManager.ViewModels.Main"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Width="1920"
     Height="1080"
+    d:DataContext="{d:DesignInstance Type=main:MainWindowViewModel}"
     WindowStartupLocation="CenterOwner"
     WindowState="Maximized"
     WindowStyle="ToolWindow"
@@ -101,7 +103,7 @@
                                         <DoubleAnimation
                                             Storyboard.TargetName="MenuPanel"
                                             Storyboard.TargetProperty="Width"
-                                            From="60"
+                                            From="0"
                                             To="300"
                                             Duration="0:0:0.8">
                                             <DoubleAnimation.EasingFunction>
@@ -131,7 +133,7 @@
                                             Storyboard.TargetName="MenuPanel"
                                             Storyboard.TargetProperty="Width"
                                             From="300"
-                                            To="60"
+                                            To="0"
                                             Duration="0:0:0.8">
                                             <DoubleAnimation.EasingFunction>
                                                 <SineEase EasingMode="EaseInOut" />
@@ -161,7 +163,7 @@
                 x:Name="MenuContainer"
                 Grid.Row="1"
                 Grid.RowSpan="2"
-                Background="#59000000">
+                Background="{x:Null}">
                 <StackPanel
                     x:Name="MenuPanel"
                     Width="80"
@@ -237,7 +239,7 @@
                             HorizontalContentAlignment="Left"
                             Background="Transparent"
                             BorderBrush="Transparent"
-                            Command="{Binding LiveDataPageButtonClick}"
+                            Command="{Binding ForkliftsPageButtonClick}"
                             MouseOverBackground="DarkCyan">
                             <Grid>
                                 <Grid.ColumnDefinitions>

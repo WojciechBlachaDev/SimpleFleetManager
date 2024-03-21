@@ -1,0 +1,409 @@
+﻿<Page
+    x:Class="SimpleFleetManager.Views.ForkliftPages.ActualParametersPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:forkliftpages="clr-namespace:SimpleFleetManager.ViewModels.ForkliftPages"
+    xmlns:local="clr-namespace:SimpleFleetManager.Views.ForkliftPages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ActualParametersPage"
+    d:DataContext="{d:DesignInstance Type=forkliftpages:ActualParametersPageVIewModel}"
+    d:DesignHeight="1000"
+    d:DesignWidth="1610"
+    mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel>
+            <!--#region Header data refresh time stack panel-->
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Image Height="30" Source="/Models/Resources/ItemsIcons/LiveData/RefreshDateWhite.png" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Czas ostatniego odczytu danych:" />
+                <TextBlock
+                    Margin="20,0,0,0"
+                    HorizontalAlignment="Center"
+                    FontSize="20"
+                    Foreground="White"
+                    Text="{Binding SelectedForklift.Registrationdate}" />
+            </StackPanel>
+            <!--#endregion-->
+            <Separator
+                Height="4"
+                Margin="0,2,0,0"
+                Background="Orange" />
+            <!--#region Data main stack panel-->
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <!--#region Icons stack panel-->
+                <StackPanel Width="30">
+                    <Image Height="30" Source="/Models/Resources/ItemsIcons/LiveData/PositionWhite.png" />
+                    <Separator
+                        Height="2.5"
+                        Margin="0,0,0,0"
+                        Background="Transparent" />
+                    <Image Height="30" Source="/Models/Resources/ItemsIcons/LiveData/PositionWhite.png" />
+                    <Separator Height="2.5" Margin="0,0,0,0" />
+                    <Image Height="30" Source="/Models/Resources/ItemsIcons/LiveData/RotationWhite.png" />
+                    <Separator
+                        Height="2.5"
+                        Margin="0,0,0,0"
+                        Background="Transparent" />
+                    <Image Height="30" Source="/Models/Resources/ItemsIcons/LiveData/BatteryWhite.png" />
+                    <Separator
+                        Height="2.5"
+                        Margin="0,0,0,0"
+                        Background="Transparent" />
+                    <Image Height="30" Source="/Models/Resources/ItemsIcons/LiveData/BatteryWhite.png" />
+                    <Separator
+                        Height="2.5"
+                        Margin="0,0,0,0"
+                        Background="Transparent" />
+                    <Image Height="30" Source="/Models/Resources/ItemsIcons/LiveData/BatteryRed.png" />
+                    <Separator
+                        Height="2.5"
+                        Margin="0,0,0,0"
+                        Background="Transparent" />
+                    <Image Height="30" Source="/Models/Resources/ItemsIcons/LiveData/ForksHeightWhite.png" />
+                    <Separator
+                        Height="2.5"
+                        Margin="0,0,0,0"
+                        Background="Transparent" />
+                    <Image Height="30" Source="/Models/Resources/ItemsIcons/LiveData/ForksHeightWhite.png" />
+                    <Separator
+                        Height="2.5"
+                        Margin="0,0,0,0"
+                        Background="Transparent" />
+                    <Image Height="30" Source="/Models/Resources/ItemsIcons/LiveData/ActualForksWeightWhite.png" />
+                    <Separator
+                        Height="2.5"
+                        Margin="0,0,0,0"
+                        Background="Transparent" />
+                    <Image Height="30" Source="/Models/Resources/ItemsIcons/LiveData/SavedWeightWhite.png" />
+                    <Separator
+                        Height="2.5"
+                        Margin="0,0,0,0"
+                        Background="Transparent" />
+                    <Image Height="30" Source="/Models/Resources/ItemsIcons/LiveData/TiltWhite.png" />
+                    <Separator
+                        Height="2.5"
+                        Margin="0,0,0,0"
+                        Background="Transparent" />
+                    <Image Height="30" Source="/Models/Resources/ItemsIcons/LiveData/TiltWhite.png" />
+                    <Separator
+                        Height="2.5"
+                        Margin="0,0,0,0"
+                        Background="Transparent" />
+                    <Image Height="30" Source="/Models/Resources/ItemsIcons/LiveData/DistanceWhite.png" />
+                    <Separator
+                        Height="2.5"
+                        Margin="0,0,0,0"
+                        Background="Transparent" />
+                    <Image Height="30" />
+                    <Separator
+                        Height="2.5"
+                        Margin="0,0,0,0"
+                        Background="Transparent" />
+                    <Image Height="30" />
+                    <Separator
+                        Height="2.5"
+                        Margin="0,0,0,0"
+                        Background="Transparent" />
+                    <Image Height="30" Source="/Models/Resources/ItemsIcons/LiveData/SteeringWHite.png" />
+                    <Separator
+                        Height="2.5"
+                        Margin="0,0,0,0"
+                        Background="Transparent" />
+                    <Image Height="30" Source="/Models/Resources/ItemsIcons/LiveData/SpeedWhite.png" />
+                    <Separator
+                        Height="2.5"
+                        Margin="0,0,0,0"
+                        Background="Transparent" />
+                </StackPanel>
+                <!--#endregion-->
+                <!--#region Descriptions stack panel-->
+                <StackPanel Margin="10,0,0,0">
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualna pozycja na mapie w osi X:" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualna pozycja na mapie w osi Y:" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualna pozycja kątowa na mapie:" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualne napięcie baterii:" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualny stan procentowy baterii:" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Poziom krytyczny baterii:" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualna wysokość wideł:" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Status czujnika krańcowego wideł:" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualny nacisk na widły:" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Zapisana waga ładunku:" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualny przechył wzdłuż wózka:" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualny przechył boczny wózka:" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Całkowity dystans przebyty:" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualny kąt skrętu koła:" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualna prędkość wózka:" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                </StackPanel>
+                <!--#endregion-->
+                <!--#region Data binding stack panel-->
+                <StackPanel Margin="20,0,0,0">
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.ActualPosition.X}" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.ActualPosition.Y}" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.ActualPosition.R}" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.Sensors.BatteryVoltage}" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.Sensors.BatteryPercentage}" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.Sensors.ChargingNeed}" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.Sensors.ForksHeight}" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.Sensors.ForksHeightLimiter}" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.Sensors.Weight}" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.Sensors.WeightSaved}" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.Sensors.TiltAxis1}" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.Sensors.TiltAxis2}" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.Encoder.DistanceMiliMeters}" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.Encoder.DistanceMeters}" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.Encoder.DistanceKilometers}" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.Sensors.ServoAngle}" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.Encoder.Speed}" />
+                    <Separator
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Background="Transparent" />
+                </StackPanel>
+                <!--#endregion-->
+            </StackPanel>
+            <!--#endregion-->
+        </StackPanel>
+    </Grid>
+</Page>
