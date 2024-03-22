@@ -1,6 +1,5 @@
 ﻿using SimpleFleetManager.Models.Main;
 using SimpleFleetManager.Services;
-using SimpleFleetManager.Services.Communication;
 using SimpleFleetManager.Services.Data;
 using SimpleFleetManager.ViewModels.Common;
 using SimpleFleetManager.ViewModels.ForkliftPages;
@@ -86,16 +85,21 @@ namespace SimpleFleetManager.ViewModels.Main
         }
         private readonly UserStore? _userStore;
         private readonly ForkliftDataService? _forkliftDataService;
+        private readonly LogsDataService _logsDataService;
         #endregion
         #region Constructor
-        public ForkliftsPageViewModel(UserStore userStore, ForkliftDataService forkliftDataService, List<Forklift> avaibleForklifts)
+        public ForkliftsPageViewModel(UserStore userStore, ForkliftDataService forkliftDataService, List<Forklift> avaibleForklifts, LogsDataService logsDataService)
         {
             _userStore = userStore;
             _forkliftDataService = forkliftDataService;
             _avaibleForklifts = avaibleForklifts ?? [];
+            _logsDataService = logsDataService;
             ActualParametersButtonClick = new RelayCommand(ExecuteActualParametersButtonClick);
             ErrorsPageButtonClick = new RelayCommand(ExecuteErrorsPageButtonClick);
             SafetyPageButtonClick = new RelayCommand(ExecuteSafetyPageButtonClick);
+            SickApiPageButtonClick = new RelayCommand(ExecuteSickApiPageButtonClick);
+            WorkPageButtonClick = new RelayCommand(ExecuteWorkPageButtonClick);
+            LogPageButtonClick = new RelayCommand(ExecuteLogPageButtonClick);
             SelectForkliftFromList = new RelayCommand(ExecuteSelectForkliftFromList);
         }
         #endregion
@@ -116,6 +120,18 @@ namespace SimpleFleetManager.ViewModels.Main
                     _selectedForklift ??= new();
                     ForkliftsCurrentPage = new SafetyPage(new SafetyPageViewModel(_selectedForklift));
                     break;
+                case 4:
+                    _selectedForklift ??= new();
+                    ForkliftsCurrentPage = new SickApiPage(new SickApiPageViewModel(_selectedForklift));
+                    break;
+                case 5:
+                    _selectedForklift ??= new();
+                    ForkliftsCurrentPage = new WorkPage(new WorkPageViewModel(_selectedForklift));
+                    break;
+                case 6:
+                    _selectedForklift ??= new();
+                    ForkliftsCurrentPage = new LogPage(new LogsPageViewModel(_selectedForklift, _logsDataService));
+                    break;
             }
         }
         #endregion
@@ -131,6 +147,18 @@ namespace SimpleFleetManager.ViewModels.Main
         private void ExecuteSafetyPageButtonClick(object? o)
         {
             RefreshPage(3);
+        }
+        private void ExecuteSickApiPageButtonClick(object? o)
+        {
+            RefreshPage(4);
+        }
+        private void ExecuteWorkPageButtonClick(object? o)
+        {
+            RefreshPage(5);
+        }
+        private void ExecuteLogPageButtonClick(object? o)
+        {
+            RefreshPage(6);
         }
         private void ExecuteSelectForkliftFromList(object? o)
         {
@@ -149,10 +177,13 @@ namespace SimpleFleetManager.ViewModels.Main
         }
         #endregion
         #region ICommand declarations
-        public ICommand? ActualParametersButtonClick {  get; private set; }
+        public ICommand? ActualParametersButtonClick { get; private set; }
         public ICommand? ErrorsPageButtonClick { get; private set; }
         public ICommand? SafetyPageButtonClick { get; private set; }
-        public ICommand? SelectForkliftFromList {  get; private set; }
+        public ICommand? SickApiPageButtonClick { get; private set; }
+        public ICommand? WorkPageButtonClick { get; private set; }
+        public ICommand? LogPageButtonClick { get; private set; }
+        public ICommand? SelectForkliftFromList { get; private set; }
         #endregion
     }
 }

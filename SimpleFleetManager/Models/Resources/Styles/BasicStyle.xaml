@@ -107,7 +107,7 @@
     <!--#endregion-->
 
     <!--#region Buttons-->
-    <Style x:Key="CloseButtonIconStyle" TargetType="{x:Type Button}">
+    <!--Style x:Key="CloseButtonIconStyle" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource PrimaryBackgroundBrush}" />
         <Setter Property="Foreground" Value="{StaticResource NeutralForegroundUnactiveBrush}" />
         <Setter Property="Width" Value="26" />
@@ -165,7 +165,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
     <Style x:Key="AddButtonIconStyle" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource SecoundaryBackgroundBrush}" />

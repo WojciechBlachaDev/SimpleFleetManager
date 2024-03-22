@@ -177,7 +177,7 @@ namespace SimpleFleetManager.ViewModels.Main
                 Log.Error("Error occured when trying to ping selected forklift: " + ex.Message);
             }
         }
-        private async void ConnectToSelectedForklift()
+        /*private async void ConnectToSelectedForklift()
         {
             try
             {
@@ -217,7 +217,7 @@ namespace SimpleFleetManager.ViewModels.Main
             {
                 Log.Error("Error occured while trying to connect to choosen forklift: " + ex.Message);
             }
-        }
+        }*/
         #endregion
         #region Button actions executions
         private async void ExecuteAddForkliftButtonClick(object o)
@@ -351,7 +351,7 @@ namespace SimpleFleetManager.ViewModels.Main
         {
             if (_currentForklift != null)
             {
-                ConnectToSelectedForklift();
+               /* ConnectToSelectedForklift();*/
                 ConnectionSstatusIconsSteering();
             }
         }

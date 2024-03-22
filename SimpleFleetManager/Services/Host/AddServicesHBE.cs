@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SimpleFleetManager.Models.Common.AMR.Misc;
 using SimpleFleetManager.Models.Main;
 using SimpleFleetManager.Services.Communication;
 using SimpleFleetManager.Services.Data;
@@ -24,11 +25,14 @@ namespace SimpleFleetManager.Services.Host
                 services.AddSingleton<JobStep>();
                 services.AddSingleton<Job>();
                 services.AddSingleton<Location>();
+                services.AddSingleton<ForkliftLog>();
+                services.AddSingleton<List<Forklift>>(provider => []);
                 services.AddScoped<UserDataService>();
                 services.AddScoped<ForkliftDataService>();
                 services.AddScoped<ForkliftConnection>();
                 services.AddScoped<JobStepDataService>();
                 services.AddScoped<LocationDataService>();
+                services.AddScoped<LogsDataService>();
                 services.AddScoped<JobDataService>();
                 services.AddSingleton<UserStore>();
                 services.AddTransient<IDataService<User>, UserDataService>();
@@ -38,7 +42,7 @@ namespace SimpleFleetManager.Services.Host
                 services.AddTransient<IDataService<Location>, LocationDataService>();
                 services.AddSingleton<IUserStore, UserStore>();
                 services.AddTransient<IForkliftConnection, ForkliftConnection>(provider => new ForkliftConnection());
-
+                services.AddTransient<IDataService<ForkliftLog>, LogsDataService>();
             });
             return hostBuilder;
         }

@@ -22,23 +22,16 @@
         <conv:NegativeBoolToVisibility x:Key="NegativeVisibility" />
     </Page.Resources>
     <Grid>
-        <ui:TabView>
+        <TabControl>
             <!--#region PLC Errors tab-->
-            <TabItem Background="Orange" Header="Sterownik PLC">
+            <TabItem Header="Sterownik PLC">
                 <Grid>
                     <StackPanel
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Orientation="Horizontal">
                         <!--#region Icons stack panel-->
-                        <StackPanel>
-                            <Image Height="40" Source="/Models/Resources/ItemsIcons/Safety/CpuWhite.png" />
-                            <Image Height="40" Source="/Models/Resources/ItemsIcons/Safety/EncoderWhite.png" />
-                            <Image Height="40" Source="/Models/Resources/ItemsIcons/Safety/StandstillWhite.png" />
-                            <Image Height="40" Source="/Models/Resources/ItemsIcons/Safety/SpeedGuardWhite.png" />
-                            <Image Height="40" Source="/Models/Resources/ItemsIcons/Safety/EmergencyStopButtonWhite.png" />
-                            <Image Height="40" Source="/Models/Resources/ItemsIcons/Safety/EmergencyStopButtonWhite.png" />
-                        </StackPanel>
+                        <StackPanel />
                         <!--#endregion-->
                         <!--#region Descriptions stack panel-->
                         <StackPanel>
@@ -212,6 +205,6 @@
                 </Grid>
             </TabItem>
             <!--#endregion-->
-        </ui:TabView>
+        </TabControl>
     </Grid>
 </Page>

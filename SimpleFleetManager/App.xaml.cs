@@ -3,9 +3,6 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using SimpleFleetManager.Services.Host;
 using SimpleFleetManager.ViewModels.Main;
-using SimpleFleetManager.Views.Main;
-using System.IO;
-using System.Reflection;
 using System.Windows;
 
 namespace SimpleFleetManager

@@ -4,11 +4,6 @@ using SimpleFleetManager.ViewModels.ForkliftPages;
 using SimpleFleetManager.ViewModels.Main;
 using SimpleFleetManager.Views.ForkliftPages;
 using SimpleFleetManager.Views.Main;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimpleFleetManager.Services.Host
 {
@@ -32,8 +27,14 @@ namespace SimpleFleetManager.Services.Host
                 new ActualParametersPage(s.GetRequiredService<ActualParametersPageVIewModel>()));
                 services.AddSingleton<ErrorsPage>(s =>
                 new ErrorsPage(s.GetRequiredService<ErrorsPageViewModel>()));
-                services.AddSingleton<SafetyPage>(s => 
+                services.AddSingleton<SafetyPage>(s =>
                 new SafetyPage(s.GetRequiredService<SafetyPageViewModel>()));
+                services.AddSingleton<SickApiPage>(s =>
+                new SickApiPage(s.GetRequiredService<SickApiPageViewModel>()));
+                services.AddSingleton<WorkPage>(s =>
+                new WorkPage(s.GetRequiredService<WorkPageViewModel>()));
+                services.AddSingleton<LogPage>(s =>
+                new LogPage(s.GetRequiredService<LogsPageViewModel>()));
             });
             return hostBuilder;
         }

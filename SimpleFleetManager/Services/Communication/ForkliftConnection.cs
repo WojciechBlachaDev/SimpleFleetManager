@@ -1,17 +1,17 @@
-﻿using SimpleFleetManager.Models.Main;
+﻿using Serilog;
+using SimpleFleetManager.Models.Common.AMR.Misc;
+using SimpleFleetManager.Models.Main;
+using SimpleFleetManager.Services.Data;
 using SimpleFleetManager.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace SimpleFleetManager.Services.Communication
 {
     public class ForkliftConnection : IForkliftConnection
     {
+        private ForkliftLog? _lastLog;
         public ForkliftConnection() { }
         #region Ping test
         public static async Task<bool> IsForkliftAvaible(string ipAddress)
@@ -24,7 +24,7 @@ namespace SimpleFleetManager.Services.Communication
                     var reply = await ping.SendPingAsync(ipAddress);
                     return reply.Status == IPStatus.Success;
                 }
-                    
+
             }
             catch (PingException)
             {
@@ -38,7 +38,7 @@ namespace SimpleFleetManager.Services.Communication
         {
             try
             {
-                if(forklift.ForkliftIpAddress != null)
+                if (forklift.ForkliftIpAddress != null)
                 {
                     if (!await IsForkliftAvaible(forklift.ForkliftIpAddress))
                     {
@@ -73,7 +73,7 @@ namespace SimpleFleetManager.Services.Communication
         }
         #endregion
         #region Reconnect task
-        public async Task<bool> Reconnect(Forklift forklift, int retryInterval = 5000, int maxRetries = 5)
+        public async Task<bool> Reconnect(Forklift forklift, LogsDataService logsDataService, int retryInterval = 5000, int maxRetries = 5)
         {
             if (forklift.Client != null)
             {
@@ -91,7 +91,7 @@ namespace SimpleFleetManager.Services.Communication
                     {
                         await Task.Run(() =>
                         {
-                            Task dataExchange = HandleDataExchange(forklift);
+                            Task dataExchange = HandleDataExchange(forklift, logsDataService);
                         });
                         return true;
                     }
@@ -129,14 +129,14 @@ namespace SimpleFleetManager.Services.Communication
                 }
                 return Task.FromResult(false);
             }
-            catch (Exception) 
+            catch (Exception)
             {
                 return Task.FromResult(false);
             }
         }
         #endregion
         #region Data exchange task
-        public async Task HandleDataExchange(Forklift forklift)
+        public async Task HandleDataExchange(Forklift forklift, LogsDataService logsDataService)
         {
             if (forklift.Client != null && forklift.Client.Connected)
             {
@@ -145,7 +145,7 @@ namespace SimpleFleetManager.Services.Communication
                 int bytesReaded;
                 try
                 {
-                    while((bytesReaded = await stream.ReadAsync(buffer)) != 0)
+                    while ((bytesReaded = await stream.ReadAsync(buffer)) != 0)
                     {
                         #region Read data from connected forklift
                         string dataReceived = Encoding.UTF8.GetString(buffer, 0, bytesReaded);
@@ -170,6 +170,7 @@ namespace SimpleFleetManager.Services.Communication
                             string ethernetStatusString = string.Empty;
                             string actualTebConfigString = string.Empty;
                             string actualTaskString = string.Empty;
+                            string actualLogString = string.Empty;
                             if (forkliftData[0] != null)
                             {
                                 poseDataStrig = forkliftData[0];
@@ -218,6 +219,10 @@ namespace SimpleFleetManager.Services.Communication
                             {
                                 actualTaskString = forkliftData[11];
                             }
+                            if (forkliftData[12] != null)
+                            {
+                                actualLogString = forkliftData[12];
+                            }
                             #endregion
                             #region Creating tables from strings above
                             var poseData = new List<string>(poseDataStrig.Split('#'));
@@ -232,6 +237,7 @@ namespace SimpleFleetManager.Services.Communication
                             var ethernetStatus = new List<string>(ethernetStatusString.Split('#'));
                             var actualTebConfig = new List<string>(actualTebConfigString.Split('#'));
                             var actualTask = new List<string>(actualTaskString.Split('#'));
+                            var actualLog = new List<string>(actualLogString.Split('#'));
                             #endregion
                             #region Pose data assign to forklift
                             forklift.DataOut.ActualPosition ??= new();
@@ -412,11 +418,11 @@ namespace SimpleFleetManager.Services.Communication
                             }
                             if (scangridMeasuring.Count == 64)
                             {
-                                for (int i = 0; i < 32 ; i++)
+                                for (int i = 0; i < 32; i++)
                                 {
                                     forklift.DataOut.ScangridLeft.Ranges.Append(Convert.ToInt32(scangridMeasuring[i]));
                                 }
-                                for (int i = 32;i < 64 ; i++)
+                                for (int i = 32; i < 64; i++)
                                 {
                                     forklift.DataOut.ScangridLeft.Ranges.Append(Convert.ToInt32(scangridMeasuring[i]));
                                 }
@@ -454,7 +460,7 @@ namespace SimpleFleetManager.Services.Communication
                                 ethernetStatus.RemoveAt(0);
                                 ethernetStatus.RemoveAt(ethernetStatus.Count - 1);
                             }
-                            if (ethernetStatus.Count == 10) 
+                            if (ethernetStatus.Count == 10)
                             {
                                 forklift.DataOut.Ethernet.LidarLoc = Convert.ToBoolean(ethernetStatus[0]);
                                 forklift.DataOut.Ethernet.Plc = Convert.ToBoolean(ethernetStatus[1]);
@@ -498,6 +504,28 @@ namespace SimpleFleetManager.Services.Communication
                                 forklift.DataOut.ActualTebConfig.Save = Convert.ToBoolean(actualTebConfig[18]);
                             }
                             #endregion
+                            #region Actual log data assign to forklift
+                            if (actualLog.Count > 6)
+                            {
+                                actualLog.RemoveAt(0);
+                                actualLog.RemoveAt(actualLog.Count - 1);
+                            }
+                            if (actualLog.Count == 6)
+                            {
+                                forklift.ActualLog ??= new();
+                                forklift.ActualLog.ForkliftId = forklift.Id;
+                                forklift.ActualLog.Date = actualLog[0];
+                                forklift.ActualLog.Level = Convert.ToInt32(actualLog[1]);
+                                forklift.ActualLog.Node = actualLog[2];
+                                forklift.ActualLog.Message = actualLog[3];
+                                forklift.ActualLog.CodeLine = Convert.ToInt32(actualLog[4]);
+                                forklift.ActualLog.File = actualLog[5];
+                                if (forklift.ActualLog != _lastLog)
+                                {
+                                    _lastLog = await logsDataService.Create(forklift.ActualLog);
+                                }
+                            }
+                            #endregion
 
 
 
@@ -508,12 +536,12 @@ namespace SimpleFleetManager.Services.Communication
                 }
                 catch (Exception)
                 {
-                    await Reconnect(forklift);
+                    await Reconnect(forklift, logsDataService);
                 }
             }
             else
             {
-                await Reconnect(forklift);
+                await Reconnect(forklift, logsDataService);
             }
         }
         #endregion

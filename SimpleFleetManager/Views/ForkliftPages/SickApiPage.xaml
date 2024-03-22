@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="SimpleFleetManager.Views.ForkliftPages.SickApiPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cefsharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:forkliftpages="clr-namespace:SimpleFleetManager.ViewModels.ForkliftPages"
+    xmlns:local="clr-namespace:SimpleFleetManager.Views.ForkliftPages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="SickApiPage"
+    d:DataContext="{d:DesignInstance Type=forkliftpages:SickApiPageViewModel}"
+    d:DesignHeight="1000"
+    d:DesignWidth="1610"
+    mc:Ignorable="d">
+
+    <Grid>
+        <TabControl>
+            <TabItem Header="LidarLoc">
+                <cefsharp:ChromiumWebBrowser
+                    Name="LidarLoc"
+                    cefsharp:ClipToBounds="True"
+                    cefsharp:HorizontalAlignment="Stretch"
+                    cefsharp:VerticalAlignment="Stretch"
+                    cefsharp:VerticalContentAlignment="Stretch"
+                    Address="{Binding SelectedForklift.LidarLocIpAddress}" />
+            </TabItem>
+            <TabItem Header="Visionary T-mini">
+                <cefsharp:ChromiumWebBrowser
+                    Name="Visionary"
+                    cefsharp:ClipToBounds="True"
+                    cefsharp:HorizontalAlignment="Stretch"
+                    cefsharp:VerticalAlignment="Stretch"
+                    cefsharp:VerticalContentAlignment="Stretch"
+                    Address="{Binding SelectedForklift.VisionaryIpAddress}" />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

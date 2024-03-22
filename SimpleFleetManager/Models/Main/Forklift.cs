@@ -1,4 +1,5 @@
 ﻿using SimpleFleetManager.Models.Common.AMR;
+using SimpleFleetManager.Models.Common.AMR.Misc;
 using SimpleFleetManager.Models.Common.AMR.Misc.Config;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -29,6 +30,8 @@ namespace SimpleFleetManager.Models.Main
         public TcpClient? Client { get; set; }
         [NotMapped]
         public bool IsConnected { get; set; }
+        [NotMapped]
+        public ForkliftLog? ActualLog { get; set; }
         public Forklift()
         {
             Client = new();

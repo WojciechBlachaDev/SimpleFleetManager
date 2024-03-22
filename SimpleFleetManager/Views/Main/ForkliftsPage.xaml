@@ -121,7 +121,7 @@
                 </Grid>
             </ui:Button>
             <!--#endregion-->
-            <!--#region Live work parameters menu button-->
+            <!--#region Errors page menu button-->
             <ui:Button
                 Width="250"
                 Height="50"
@@ -147,7 +147,7 @@
                 </Grid>
             </ui:Button>
             <!--#endregion-->
-            <!--#region Live work parameters menu button-->
+            <!--#region Safety page menu button-->
             <ui:Button
                 Width="250"
                 Height="50"
@@ -170,6 +170,84 @@
                         FontWeight="Bold"
                         Foreground="White"
                         Text="Statusy safety" />
+                </Grid>
+            </ui:Button>
+            <!--#endregion-->
+            <!--#region Sick API menu button-->
+            <ui:Button
+                Width="250"
+                Height="50"
+                HorizontalContentAlignment="Left"
+                Background="Transparent"
+                Command="{Binding SickApiPageButtonClick}"
+                MouseOverBackground="Orange"
+                MouseOverBorderBrush="Orange">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Models/Resources/Icons/LiveParametersPageWhite.png" />
+                    <TextBlock
+                        Grid.Column="1"
+                        Margin="15,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="SICK API" />
+                </Grid>
+            </ui:Button>
+            <!--#endregion-->
+            <!--#region Work Page menu button-->
+            <ui:Button
+                Width="250"
+                Height="50"
+                HorizontalContentAlignment="Left"
+                Background="Transparent"
+                Command="{Binding WorkPageButtonClick}"
+                MouseOverBackground="Orange"
+                MouseOverBorderBrush="Orange">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Models/Resources/Icons/LiveParametersPageWhite.png" />
+                    <TextBlock
+                        Grid.Column="1"
+                        Margin="15,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="Aktualna praca" />
+                </Grid>
+            </ui:Button>
+            <!--#endregion-->
+            <!--#region Logs page menu button-->
+            <ui:Button
+                Width="250"
+                Height="50"
+                HorizontalContentAlignment="Left"
+                Background="Transparent"
+                Command="{Binding LogPageButtonClick}"
+                MouseOverBackground="Orange"
+                MouseOverBorderBrush="Orange">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Models/Resources/Icons/LiveParametersPageWhite.png" />
+                    <TextBlock
+                        Grid.Column="1"
+                        Margin="15,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="Dziennik zdarzeń" />
                 </Grid>
             </ui:Button>
             <!--#endregion-->

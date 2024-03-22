@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SimpleFleetManager.Models.Common.AMR.Misc;
 using SimpleFleetManager.Models.Common.AMR.Misc.Config;
 using SimpleFleetManager.Models.Main;
 
@@ -12,6 +13,7 @@ namespace SimpleFleetManager.Models.EntityFramework
         public DbSet<JobStep> JobSteps { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<TebConfig> TebConfigs { get; set; }
+        public DbSet<ForkliftLog> Logs { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Forklift>()

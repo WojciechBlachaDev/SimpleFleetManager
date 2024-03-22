@@ -4,14 +4,14 @@ using System.Windows.Controls;
 namespace SimpleFleetManager.Views.ForkliftPages
 {
     /// <summary>
-    /// Logika interakcji dla klasy ActualParametersPage.xaml
+    /// Logika interakcji dla klasy LogPage.xaml
     /// </summary>
-    public partial class ActualParametersPage : Page
+    public partial class LogPage : Page
     {
-        public ActualParametersPage(ActualParametersPageVIewModel vIewModel)
+        public LogPage(LogsPageViewModel viewModel)
         {
             InitializeComponent();
-            DataContext = vIewModel;
+            DataContext = viewModel;
         }
     }
 }

@@ -1,0 +1,79 @@
+﻿<Page
+    x:Class="SimpleFleetManager.Views.ForkliftPages.LogPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:conv="clr-namespace:SimpleFleetManager.ViewModels.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:forkliftpages="clr-namespace:SimpleFleetManager.ViewModels.ForkliftPages"
+    xmlns:local="clr-namespace:SimpleFleetManager.Views.ForkliftPages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="LogPage"
+    d:DataContext="{d:DesignInstance Type=forkliftpages:LogsPageViewModel}"
+    d:DesignHeight="1000"
+    d:DesignWidth="1610"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <conv:LogLevelStringConverter x:Key="LogConverter" />
+        <conv:StringLogLevelConverter x:Key="LogBackConverter" />
+    </Page.Resources>
+    <Grid>
+        <TabControl>
+            <!--#region Actual log tab-->
+            <TabItem>
+                <Grid>
+                    <StackPanel
+                        Margin="50,0,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <StackPanel>
+                            <ui:TextBox
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Text="Wybierz minimalny poziom dziennika" />
+                            <ComboBox
+                                IsDropDownOpen="{Binding MinimumActualLogBoxOpened}"
+                                ItemsSource="{Binding AvaibleLevels}"
+                                SelectedItem="{Binding MinimumActualLogLevel, Mode=TwoWay, Converter={StaticResource LogConverter}}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <TextBlock Text="{Binding}" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                                <ComboBox.ItemContainerStyle>
+                                    <Style TargetType="ComboBoxItem">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ComboBoxItem">
+                                                    <Button
+                                                        x:Name="MinActualLogLevelChoiceButton"
+                                                        HorizontalContentAlignment="Center"
+                                                        Background="Black"
+                                                        BorderBrush="Transparent"
+                                                        Command="{Binding RelativeSource={RelativeSource AncestorType=ComboBox}, Path=DataContext.SelectMinimumActualLogLevel}"
+                                                        CommandParameter="{Binding Converter={StaticResource LogBackConverter}}">
+                                                        <ContentPresenter />
+                                                    </Button>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter TargetName="MinActualLogLevelChoiceButton" Property="Background" Value="Orange" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ComboBox.ItemContainerStyle>
+                            </ComboBox>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <!--#endregion-->
+        </TabControl>
+    </Grid>
+</Page>

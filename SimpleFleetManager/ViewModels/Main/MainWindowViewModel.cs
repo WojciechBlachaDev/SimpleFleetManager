@@ -21,6 +21,7 @@ namespace SimpleFleetManager.ViewModels.Main
         private readonly UserStore _userStore;
         private readonly JobStepDataService _jobStepDataService;
         private readonly JobDataService _jobdataService;
+        private readonly LogsDataService _logsDataService;
         private IEnumerable<Forklift>? _readedForklifts;
         #region Page variables
         private Page? _currentPage;
@@ -155,7 +156,8 @@ namespace SimpleFleetManager.ViewModels.Main
             ForkliftDataService forkliftDataService,
             LocationDataService locationDataService,
             UserStore userStore,
-            ForkliftConnection forkliftConnection)
+            ForkliftConnection forkliftConnection,
+            LogsDataService logsDataService)
         {
             #region Services
             _userDataService = userDataService;
@@ -165,6 +167,7 @@ namespace SimpleFleetManager.ViewModels.Main
             _locationDataService = locationDataService;
             _userStore = userStore;
             _forkliftConnection = forkliftConnection;
+            _logsDataService = logsDataService;
             #endregion
             #region Buttton actions
             ShutdownAppButtonClick = new RelayCommand(ExecuteShutdownAppButtonClick);
@@ -253,7 +256,7 @@ namespace SimpleFleetManager.ViewModels.Main
                     }
                     if (forklift.Client.Connected)
                     {
-                        await Task.Run(() => { Task dataEchange = _forkliftConnection.HandleDataExchange(forklift); });
+                        await Task.Run(() => { Task dataEchange = _forkliftConnection.HandleDataExchange(forklift, _logsDataService); });
                         if (_connectedForklifts != null && _connectedForklifts.Count > 0)
                         {
                             if (forklift.Id >= _connectedForklifts.Count && _connectedForklifts.ElementAt(forklift.Id - 1) == null)
@@ -294,7 +297,7 @@ namespace SimpleFleetManager.ViewModels.Main
         {
             Log.Debug("Forklifts page button clicked");
             _connectedForklifts ??= [];
-            CurrentPage = new ForkliftsPage(new ForkliftsPageViewModel(_userStore, _forkliftDataService, _connectedForklifts));
+            CurrentPage = new ForkliftsPage(new ForkliftsPageViewModel(_userStore, _forkliftDataService, _connectedForklifts, _logsDataService));
             ShowMenu = false;
         }
         private void ExecuteUsersManagerPageButtonClick(object? o)

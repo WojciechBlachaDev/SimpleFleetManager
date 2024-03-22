@@ -1,0 +1,304 @@
+﻿<Page
+    x:Class="SimpleFleetManager.Views.ForkliftPages.WorkPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:conv="clr-namespace:SimpleFleetManager.ViewModels.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:forkliftpages="clr-namespace:SimpleFleetManager.ViewModels.ForkliftPages"
+    xmlns:local="clr-namespace:SimpleFleetManager.Views.ForkliftPages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="WorkPage"
+    d:DataContext="{d:DesignInstance Type=forkliftpages:WorkPageViewModel}"
+    d:DesignHeight="1000"
+    d:DesignWidth="1610"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <conv:BoolToStatusGreenGrey x:Key="BoolGreenGrey" />
+    </Page.Resources>
+    <Grid>
+        <TabControl>
+            <!--#region Main state machine tab-->
+            <TabItem Cursor="Hand" Header="Główna maszyna stanów">
+                <Grid>
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <!--#region Icons stack panel-->
+                        <StackPanel>
+                            <Image Width="50" Source="/Models/Resources/Icons/WhiteWaitingForChoice.png" />
+                            <Separator Height="5" Background="Transparent" />
+                            <Image Width="50" Source="/Models/Resources/Icons/WhiteWorkSafety.png" />
+                            <Separator Height="5" Background="Transparent" />
+                            <Image Width="50" Source="/Models/Resources/Icons/WhiteManualMode.png" />
+                            <Separator Height="5" Background="Transparent" />
+                            <Image Width="50" Source="/Models/Resources/Icons/WhiteInitializing.png" />
+                            <Separator Height="5" Background="Transparent" />
+                            <Image Width="50" Source="/Models/Resources/Icons/WhiteDiagnosticMode.png" />
+                            <Separator Height="5" Background="Transparent" />
+                            <Image Width="50" Source="/Models/Resources/Icons/WhiteWorkSafety.png" />
+                            <Separator Height="5" Background="Transparent" />
+                            <Image Width="50" Source="/Models/Resources/Icons/WhiteAutomaticWork.png" />
+                            <Separator Height="5" Background="Transparent" />
+                        </StackPanel>
+                        <!--#endregion-->
+                        <!--#region Descriptions stack panel-->
+                        <StackPanel Margin="20,15,0,0">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="S0.1 - oczekiwanie na wybór trybu pracy" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="S0.2 - Bezpieczeństwo dla otoczenia - Poziom 1" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="S0.3 - Tryb pracy ręcznej" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="S1 - Inicjalizacja trybu automatycznego" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="S2 - Moduł autodiagnostyki" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="S3 - Bezpieczeństwo dla otoczenia - Poziom 2" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="S4 - Praca w trybie automatycznym" />
+                        </StackPanel>
+                        <!--#endregion-->
+                        <!--#region Data assign stack panel-->
+                        <StackPanel Margin="0,0,0,0">
+                            <Image Source="{Binding Data.ActualWorkstates.S01, Converter={StaticResource BoolGreenGrey}}" />
+                            <Separator Height="15" Background="Transparent" />
+                            <Image Source="{Binding Data.ActualWorkstates.S02, Converter={StaticResource BoolGreenGrey}}" />
+                            <Separator Height="15" Background="Transparent" />
+                            <Image Source="{Binding Data.ActualWorkstates.S03, Converter={StaticResource BoolGreenGrey}}" />
+                            <Separator Height="15" Background="Transparent" />
+                            <Image Source="{Binding Data.ActualWorkstates.S1, Converter={StaticResource BoolGreenGrey}}" />
+                            <Separator Height="15" Background="Transparent" />
+                            <Image Source="{Binding Data.ActualWorkstates.S2, Converter={StaticResource BoolGreenGrey}}" />
+                            <Separator Height="15" Background="Transparent" />
+                            <Image Source="{Binding Data.ActualWorkstates.S3, Converter={StaticResource BoolGreenGrey}}" />
+                            <Separator Height="15" Background="Transparent" />
+                            <Image Source="{Binding Data.ActualWorkstates.S4, Converter={StaticResource BoolGreenGrey}}" />
+                            <Separator Height="15" Background="Transparent" />
+                        </StackPanel>
+                        <!--#endregion-->
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <!--#endregion-->
+            <!--#region Main state machine tab-->
+            <TabItem
+                Margin="10,0,0,0"
+                Cursor="Hand"
+                Header="Podstany trybu automatycznego">
+                <Grid>
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <!--#region Icons stack panel-->
+                        <StackPanel>
+                            <Image Width="50" Source="/Models/Resources/Icons/WhiteStandby.png" />
+                            <Separator Height="5" Background="Transparent" />
+                            <Image Width="50" Source="/Models/Resources/Icons/WhiteNavRide.png" />
+                            <Separator Height="5" Background="Transparent" />
+                            <Image Width="50" Source="/Models/Resources/Icons/WhiteCharging.png" />
+                            <Separator Height="5" Background="Transparent" />
+                            <Image Width="50" Source="/Models/Resources/Icons/WhiteLoad.png" />
+                            <Separator Height="5" Background="Transparent" />
+                            <Image Width="50" Source="/Models/Resources/Icons/WhitePalletUnload.png" />
+                            <Separator Height="5" Background="Transparent" />
+                            <Image Width="50" Source="/Models/Resources/Icons/WhiteLoad.png" />
+                            <Separator Height="5" Background="Transparent" />
+                            <Image Width="50" Source="/Models/Resources/Icons/WhitePalletUnload.png" />
+                            <Separator Height="5" Background="Transparent" />
+                        </StackPanel>
+                        <!--#endregion-->
+                        <!--#region Descriptions stack panel-->
+                        <StackPanel Margin="20,15,0,0">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="S4.0 - Tryb oszczędzania energii - oczekiwanie na zadanie" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="S4.1 - Jazda do celu z wykorzystaniem nawigacji" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="S4.2 - Sekwencja ładowania" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="S4.3 - Sekwencja pobrania palety w magazynie" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="S4.4 - Sekwencja odłożenia palety w magazynie" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="S4.5 - Sekwencja pobrania palety w gnieździe obróbczym" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="S4.6 - Sekwencja odłożenia palety w gnieździe obróbczym" />
+                        </StackPanel>
+                        <!--#endregion-->
+                        <!--#region Data assign stack panel-->
+                        <StackPanel Margin="0,0,0,0">
+                            <Image Source="{Binding Data.ActualWorkstates.S40, Converter={StaticResource BoolGreenGrey}}" />
+                            <Separator Height="15" Background="Transparent" />
+                            <Image Source="{Binding Data.ActualWorkstates.S41, Converter={StaticResource BoolGreenGrey}}" />
+                            <Separator Height="15" Background="Transparent" />
+                            <Image Source="{Binding Data.ActualWorkstates.S42, Converter={StaticResource BoolGreenGrey}}" />
+                            <Separator Height="15" Background="Transparent" />
+                            <Image Source="{Binding Data.ActualWorkstates.S43, Converter={StaticResource BoolGreenGrey}}" />
+                            <Separator Height="15" Background="Transparent" />
+                            <Image Source="{Binding Data.ActualWorkstates.S44, Converter={StaticResource BoolGreenGrey}}" />
+                            <Separator Height="15" Background="Transparent" />
+                            <Image Source="{Binding Data.ActualWorkstates.S45, Converter={StaticResource BoolGreenGrey}}" />
+                            <Separator Height="15" Background="Transparent" />
+                            <Image Source="{Binding Data.ActualWorkstates.S46, Converter={StaticResource BoolGreenGrey}}" />
+                            <Separator Height="15" Background="Transparent" />
+                        </StackPanel>
+                        <!--#endregion-->
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <!--#endregion-->
+            <!--#region Main state machine tab-->
+            <TabItem
+                Margin="10,0,0,0"
+                Cursor="Hand"
+                Header="Aktualne zadanie">
+                <Grid>
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <!--#region Descriptions stack panel-->
+                        <StackPanel Margin="20,15,0,0">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="Numer identyfikacyjny pojedyńczego kroku pracy:" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="Typ wykonywanego zadania:" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="Pozycja celu zadania - oś X:" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="Pozycja celu zadania - oś Y:" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="Pozycja celu zadania - kąt:" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="Status wykonywania zadania::" />
+                        </StackPanel>
+                        <!--#endregion-->
+                        <!--#region Data assign stack panel-->
+                        <StackPanel Margin="0,0,0,0">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="{Binding Data.ActualTask.Id}" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="{Binding Data.ActualTask.Type}" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="{Binding Data.ActualTask.Position.X}" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="{Binding Data.ActualTask.Position.Y}" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="{Binding Data.ActualTask.Position.R}" />
+                            <Separator Height="31" Background="Transparent" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="White"
+                                Text="{Binding Data.ActualTask.Id}" />
+                            <Separator Height="31" Background="Transparent" />
+                            <Image Source="{Binding Data.ActualTask.IsRunning, Converter={StaticResource BoolGreenGrey}}" />
+                        </StackPanel>
+                        <!--#endregion-->
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <!--#endregion-->
+        </TabControl>
+    </Grid>
+</Page>
