@@ -97,8 +97,13 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
             }
             set
             {
-                _minimumActualLogLevel = value;
-                OnPropertyChanged(nameof(MinimumActualLogLevel));
+                if (_minimumActualLogLevel != value)
+                {
+                    _minimumActualLogLevel = value;
+                    //TU SE KURWA DODAJ
+                    OnPropertyChanged(nameof(MinimumActualLogLevel));
+                }
+                
             }
         }
         private int _maximumActualLogLevel = 5;
@@ -162,8 +167,12 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
             }
             set
             {
-                _minimumActualLogBoxOpened = value;
-                OnPropertyChanged(nameof(MinimumActualLogBoxOpened));
+                if (_minimumActualLogBoxOpened != value)
+                {
+                    _minimumActualLogBoxOpened = value;
+                    OnPropertyChanged(nameof(MinimumActualLogBoxOpened));
+                }
+ 
             }
         }
         private bool _maximumActualLogBoxOpened;

@@ -14,7 +14,10 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
                 <!--  Theme setting  -->
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Dark.Orange.xaml" />
+                <ResourceDictionary Source="Models/Resources/Icons/Icons.xaml" />
                 <ResourceDictionary Source="Models/Resources/Styles/BasicStyle.xaml" />
+                <ResourceDictionary Source="Models/Resources/Styles/ComboboxStyle.xaml" />
+                <ResourceDictionary Source="Models/Resources/Styles/ButtonBasicStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

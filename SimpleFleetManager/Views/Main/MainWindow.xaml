@@ -23,10 +23,11 @@
     <Window.Resources>
         <conv:BoolToVIsibilityConverter x:Key="BoolToVisibility" />
         <Style x:Key="MenuContainerStyle" TargetType="Border" />
+        <conv:MenuExpanderIconConverter x:Key="MenuExpanderConverter" />
     </Window.Resources>
     <Border
-        Background="{StaticResource PrimaryBackgroundBrush}"
-        BorderBrush="{StaticResource WindowBorderBrush}"
+        Background="Black"
+        BorderBrush="Black"
         BorderThickness="3"
         CornerRadius="10"
         SnapsToDevicePixels="True">
@@ -47,7 +48,7 @@
             <Border
                 Height="50"
                 VerticalAlignment="Top"
-                Background="{StaticResource WindowBorderBrush}"
+                Background="Black"
                 CornerRadius="10 10 0 0">
                 <Grid>
                     <!--#region Top panel definition-->
@@ -65,24 +66,32 @@
                         Grid.Column="1"
                         Margin="350,0,0,0"
                         HorizontalAlignment="Center"
-                        Style="{StaticResource TitleStyle}"
+                        FontSize="26"
+                        FontWeight="SemiBold"
+                        Foreground="White"
                         Text="Fleet Management System" />
                     <!--#region LoggedUser-->
                     <StackPanel Grid.Column="2" Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource TitleStyle}" Text="Aktywny użytkownik:" />
+                        <TextBlock
+                            FontSize="26"
+                            FontWeight="SemiBold"
+                            Foreground="White"
+                            Text="Aktywny użytkownik:" />
                         <Separator Width="20" />
                         <TextBlock
                             Margin="0,0,30,0"
-                            Style="{StaticResource TitleStyle}"
+                            FontSize="26"
+                            FontWeight="SemiBold"
+                            Foreground="White"
                             Text="{Binding CurrentUser.Username}" />
                     </StackPanel>
                     <!--#endregion-->
                     <!--#region Menu toggle button with animation-->
                     <ToggleButton
                         x:Name="ShowPagesMenuButton"
-                        Width="50"
                         IsChecked="{Binding ShowMenu, Mode=TwoWay}"
-                        Style="{StaticResource MainMenuButtonStyle}">
+                        Style="{StaticResource MenuExpanderButton}"
+                        Tag="{StaticResource MenuExpanderOpenIcon}">
                         <ToggleButton.Triggers>
                             <EventTrigger RoutedEvent="ToggleButton.Checked">
                                 <BeginStoryboard>
@@ -101,9 +110,29 @@
                                             </DoubleAnimation.EasingFunction>
                                         </DoubleAnimation>
                                         <DoubleAnimation
+                                            Storyboard.TargetName="MenuContainer"
+                                            Storyboard.TargetProperty="Width"
+                                            From="80"
+                                            To="300"
+                                            Duration="0:0:0.8">
+                                            <DoubleAnimation.EasingFunction>
+                                                <SineEase EasingMode="EaseInOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="InstallatorMenuDescription"
+                                            Storyboard.TargetProperty="Height"
+                                            From="0"
+                                            To="40"
+                                            Duration="0:0:0.8">
+                                            <DoubleAnimation.EasingFunction>
+                                                <SineEase EasingMode="EaseInOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation
                                             Storyboard.TargetName="MenuPanel"
                                             Storyboard.TargetProperty="Width"
-                                            From="0"
+                                            From="80"
                                             To="300"
                                             Duration="0:0:0.8">
                                             <DoubleAnimation.EasingFunction>
@@ -130,10 +159,30 @@
                                             </DoubleAnimation.EasingFunction>
                                         </DoubleAnimation>
                                         <DoubleAnimation
+                                            Storyboard.TargetName="MenuContainer"
+                                            Storyboard.TargetProperty="Width"
+                                            From="300"
+                                            To="80"
+                                            Duration="0:0:0.8">
+                                            <DoubleAnimation.EasingFunction>
+                                                <SineEase EasingMode="EaseInOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="InstallatorMenuDescription"
+                                            Storyboard.TargetProperty="Height"
+                                            From="40"
+                                            To="0"
+                                            Duration="0:0:0.8">
+                                            <DoubleAnimation.EasingFunction>
+                                                <SineEase EasingMode="EaseInOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation
                                             Storyboard.TargetName="MenuPanel"
                                             Storyboard.TargetProperty="Width"
                                             From="300"
-                                            To="0"
+                                            To="80"
                                             Duration="0:0:0.8">
                                             <DoubleAnimation.EasingFunction>
                                                 <SineEase EasingMode="EaseInOut" />
@@ -163,152 +212,77 @@
                 x:Name="MenuContainer"
                 Grid.Row="1"
                 Grid.RowSpan="2"
-                Background="{x:Null}">
+                Grid.ColumnSpan="1"
+                Width="65"
+                HorizontalAlignment="Left"
+                Background="Transparent">
                 <StackPanel
                     x:Name="MenuPanel"
                     Width="80"
                     HorizontalAlignment="Left"
                     Background="#1e1e1e">
-                    <Separator Height="5" Margin="0,0,0,0" />
+                    <Separator
+                        Height="5"
+                        Margin="0,0,0,0"
+                        Background="Transparent" />
                     <!--  TU DODAĆ PRZYCISKI DO STRON  -->
                     <StackPanel>
-                        <ui:Button
+                        <ToggleButton
+                            x:Name="ShowwwPagesMenuButton"
+                            IsChecked="{Binding ShowMenu, Mode=TwoWay}"
+                            Style="{StaticResource MenuExpanderButton}"
+                            Tag="{Binding ShowMenu, Converter={StaticResource MenuExpanderConverter}}" />
+                        <Button
                             x:Name="LoginButton"
-                            Width="300"
-                            Padding="15,10"
-                            HorizontalContentAlignment="Left"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
                             Command="{Binding LoginPageButtonClick}"
-                            MouseOverBackground="DarkCyan">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto" />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-                                <Image
-                                    Width="40"
-                                    Height="40"
-                                    Margin="0,0,10,0"
-                                    Source="{Binding LoginPageIcon}" />
-                                <TextBlock
-                                    Grid.Column="1"
-                                    Margin="15,0,0,0"
-                                    VerticalAlignment="Center"
-                                    FontSize="18"
-                                    FontWeight="Bold"
-                                    Foreground="White"
-                                    Text="Logowanie" />
-                            </Grid>
-                        </ui:Button>
-                        <Separator Height="5" Margin="0,0,0,0" />
-                        <ui:Button
+                            Content="Zaloguj / Wyloguj"
+                            Style="{StaticResource MainMenuButton}"
+                            Tag="{StaticResource MenuLoginIcon}" />
+                        <Separator
+                            Height="5"
+                            Margin="0,0,0,0"
+                            Background="Transparent" />
+                        <Button
                             x:Name="UsersManagerButton"
-                            Width="300"
-                            Padding="15,10"
-                            HorizontalContentAlignment="Left"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
                             Command="{Binding UsersManagerPageButtonClick}"
-                            MouseOverBackground="DarkCyan">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto" />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-                                <Image
-                                    Width="40"
-                                    Height="40"
-                                    Margin="0,0,10,0"
-                                    Source="/Models/Resources/Icons/UsersPageWhite.png" />
-                                <TextBlock
-                                    Grid.Column="1"
-                                    Margin="15,0,0,0"
-                                    VerticalAlignment="Center"
-                                    FontSize="18"
-                                    FontWeight="Bold"
-                                    Foreground="White"
-                                    Text="Zarządzanie kontami" />
-                            </Grid>
-                        </ui:Button>
-                        <Separator Height="5" Margin="0,0,0,0" />
-                        <ui:Button
-                            x:Name="LiveForkliftsPage"
-                            Width="300"
-                            Padding="15,10"
-                            HorizontalContentAlignment="Left"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
+                            Content="Zarządzanie uzytkownikami"
+                            Style="{StaticResource MainMenuButton}"
+                            Tag="{StaticResource MenuUsersManagerIcon}" />
+                        <Separator
+                            Height="5"
+                            Margin="0,0,0,0"
+                            Background="Transparent" />
+                        <Button
+                            x:Name="ForkliftsPageButton"
                             Command="{Binding ForkliftsPageButtonClick}"
-                            MouseOverBackground="DarkCyan">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto" />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-                                <Image
-                                    Width="40"
-                                    Height="40"
-                                    Margin="0,0,10,0"
-                                    Source="/Models/Resources/Icons/LiveDataWhite.png" />
-                                <TextBlock
-                                    Grid.Column="1"
-                                    Margin="15,0,0,0"
-                                    VerticalAlignment="Center"
-                                    FontSize="18"
-                                    FontWeight="Bold"
-                                    Foreground="White"
-                                    Text="Podgląd wózków" />
-                            </Grid>
-                        </ui:Button>
+                            Content="Wózki online"
+                            Style="{StaticResource MainMenuButton}"
+                            Tag="{StaticResource MenuForkliftPagesIcon}" />
                         <Separator Height="5" Margin="0,0,0,0" />
-                        <!--  Tu DODAJ PRZYCISKI  -->
                     </StackPanel>
                     <StackPanel x:Name="InstallatorPages" Visibility="{Binding InstallatorMenuVisible, Mode=TwoWay, Converter={StaticResource BoolToVisibility}}">
                         <TextBlock
+                            x:Name="InstallatorMenuDescription"
                             Margin="0"
                             Padding="15,10"
                             HorizontalAlignment="Stretch"
-                            Background="DarkCyan"
-                            FontSize="18"
+                            VerticalAlignment="Center"
+                            Background="Orange"
+                            FontSize="16"
                             FontWeight="Bold"
-                            Style="{StaticResource TitleStyle}"
+                            Foreground="White"
                             Text="Panel Instalatora"
                             TextAlignment="Center" />
                         <Separator
                             Height="5"
                             Margin="0,0,0,0"
-                            Background="{StaticResource UnactiveBackgroundBrush}" />
-                        <ui:Button
-                            x:Name="ForkliftManagementPageButton"
-                            Width="300"
-                            Margin="0,0,0,0"
-                            Padding="15,10"
-                            HorizontalAlignment="Left"
-                            HorizontalContentAlignment="LEft"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
+                            Background="Transparent" />
+                        <Button
+                            x:Name="ForkliftManagerButton"
                             Command="{Binding ForkliftManagerPageButtonClick}"
-                            MouseOverBackground="DarkCyan">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto" />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-                                <Image
-                                    Width="40"
-                                    Height="40"
-                                    Margin="0,0,10,0"
-                                    Source="Models/Resources/Icons/ForkliftManagementPageWhite.png" />
-                                <TextBlock
-                                    Grid.Column="1"
-                                    VerticalAlignment="Center"
-                                    FontSize="18"
-                                    FontWeight="Bold"
-                                    Foreground="White"
-                                    Text="Zarządzanie wózkami" />
-                            </Grid>
-                        </ui:Button>
+                            Content="Zarządzanie wózkami"
+                            Style="{StaticResource MainMenuButton}"
+                            Tag="{StaticResource MenuForkliftManagerIcon}" />
                     </StackPanel>
                     <StackPanel>
                         <TextBlock Text="Tu tez dodaj" />

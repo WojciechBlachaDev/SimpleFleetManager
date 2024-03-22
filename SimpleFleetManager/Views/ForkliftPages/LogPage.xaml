@@ -36,40 +36,39 @@
                             <ComboBox
                                 IsDropDownOpen="{Binding MinimumActualLogBoxOpened}"
                                 ItemsSource="{Binding AvaibleLevels}"
-                                SelectedItem="{Binding MinimumActualLogLevel, Mode=TwoWay, Converter={StaticResource LogConverter}}">
-                                <ComboBox.ItemTemplate>
+                                SelectedItem="{Binding MinimumActualLogLevel, Mode=TwoWay, Converter={StaticResource LogConverter}}"
+                                Style="{StaticResource ComboBoxFlatStyle}">
+                                <!--<ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <Grid>
                                             <TextBlock Text="{Binding}" />
                                         </Grid>
                                     </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                                <ComboBox.ItemContainerStyle>
+                                </ComboBox.ItemTemplate>-->
+                                <!--<ComboBox.ItemContainerStyle>
                                     <Style TargetType="ComboBoxItem">
                                         <Setter Property="Template">
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="ComboBoxItem">
-                                                    <Button
+                                                    <ui:Button
                                                         x:Name="MinActualLogLevelChoiceButton"
-                                                        HorizontalContentAlignment="Center"
-                                                        Background="Black"
-                                                        BorderBrush="Transparent"
                                                         Command="{Binding RelativeSource={RelativeSource AncestorType=ComboBox}, Path=DataContext.SelectMinimumActualLogLevel}"
-                                                        CommandParameter="{Binding Converter={StaticResource LogBackConverter}}">
+                                                        CommandParameter="{Binding Converter={StaticResource LogBackConverter}}"
+                                                        MouseOverBackground="Orange">
                                                         <ContentPresenter />
-                                                    </Button>
-                                                    <ControlTemplate.Triggers>
-                                                        <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter TargetName="MinActualLogLevelChoiceButton" Property="Background" Value="Orange" />
-                                                        </Trigger>
+                                                    </ui:Button>
                                                     </ControlTemplate.Triggers>
                                                 </ControlTemplate>
                                             </Setter.Value>
                                         </Setter>
                                     </Style>
-                                </ComboBox.ItemContainerStyle>
+                                </ComboBox.ItemContainerStyle>-->
                             </ComboBox>
+
+
+
                         </StackPanel>
+
                     </StackPanel>
                 </Grid>
             </TabItem>

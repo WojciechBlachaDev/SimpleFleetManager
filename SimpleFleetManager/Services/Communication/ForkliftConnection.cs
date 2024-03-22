@@ -1,5 +1,4 @@
-﻿using Serilog;
-using SimpleFleetManager.Models.Common.AMR.Misc;
+﻿using SimpleFleetManager.Models.Common.AMR.Misc;
 using SimpleFleetManager.Models.Main;
 using SimpleFleetManager.Services.Data;
 using SimpleFleetManager.Services.Interfaces;

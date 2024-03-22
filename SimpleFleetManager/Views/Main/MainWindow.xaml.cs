@@ -1,5 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 using SimpleFleetManager.ViewModels.Main;
+using System.Windows;
 
 namespace SimpleFleetManager
 {
