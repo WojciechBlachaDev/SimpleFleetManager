@@ -1,0 +1,1284 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
+    <!--#region Simple colours-->
+    <Color x:Key="SimpleOrangeMain">#d48a28</Color>
+    <SolidColorBrush x:Key="SimpleOrangeMainBrush" Color="{StaticResource SimpleOrangeMain}" />
+    <Color x:Key="SimpleNaturalTextMain">#E6E5E4</Color>
+    <SolidColorBrush x:Key="SimpleNaturalTextMainBrush" Color="{StaticResource SimpleNaturalTextMain}" />
+    <Color x:Key="SimpleBackgroundMain">#0e0e0e</Color>
+    <SolidColorBrush x:Key="SimpleBackgroundBrush" Color="{StaticResource SimpleBackgroundMain}" />
+    <Color x:Key="SimpleButtonNotActive">#060606</Color>
+    <SolidColorBrush x:Key="SimpleButtonNotActiveBrush" Color="{StaticResource SimpleButtonNotActive}" />
+    <Color x:Key="SimpleLoginButtonInactive">#025402</Color>
+    <SolidColorBrush x:Key="SimpleLoginButtonInactiveBrush" Color="{StaticResource SimpleLoginButtonInactive}" />
+    <Color x:Key="SimpleLoginButtonMouseOver">#039403</Color>
+    <SolidColorBrush x:Key="SimpleLoginButtonMouseOverBrush" Color="{StaticResource SimpleLoginButtonMouseOver}" />
+
+    <!--#endregion-->
+    <!--  Region icons  -->
+    <PathGeometry x:Key="DownKeyIcon" Figures="M7,10L12,15L17,10H7Z" />
+    <PathGeometry x:Key="MenuLoginIcon" Figures="M19,3H5C3.89,3 3,3.89 3,5V9H5V5H19V19H5V15H3V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M10.08,15.58L11.5,17L16.5,12L11.5,7L10.08,8.41L12.67,11H3V13H12.67L10.08,15.58Z" />
+    <PathGeometry x:Key="MenuUsersManagerIcon" Figures="M2 17V20H10V18.11H3.9V17C3.9 16.36 7.03 14.9 10 14.9C10.96 14.91 11.91 15.04 12.83 15.28L14.35 13.76C12.95 13.29 11.5 13.03 10 13C7.33 13 2 14.33 2 17M10 4C7.79 4 6 5.79 6 8S7.79 12 10 12 14 10.21 14 8 12.21 4 10 4M10 10C8.9 10 8 9.11 8 8S8.9 6 10 6 12 6.9 12 8 11.11 10 10 10M21.7 13.35L20.7 14.35L18.65 12.35L19.65 11.35C19.86 11.14 20.21 11.14 20.42 11.35L21.7 12.63C21.91 12.84 21.91 13.19 21.7 13.4M12 18.94L18.06 12.88L20.11 14.88L14.11 20.95H12V18.94" />
+    <PathGeometry x:Key="MenuForkliftPagesIcon" Figures="M16.5 11.74C16.5 11.15 16.43 10.58 16.36 10H19.74C19.82 10.33 19.89 10.67 19.93 11C20.65 11.07 21.34 11.23 22 11.5C21.71 6.21 17.35 2 12 2C6.47 2 2 6.5 2 12C2 17.5 6.5 22 12 22C12.87 22 13.71 21.88 14.5 21.67C13.71 20.71 13.18 19.5 13.04 18.2C12.73 18.81 12.39 19.4 12 19.96C11.17 18.76 10.5 17.43 10.09 16H13.18C13.35 15.28 13.64 14.61 14.03 14H9.66C9.56 13.34 9.5 12.68 9.5 12S9.56 10.65 9.66 10H14.34C14.43 10.65 14.5 11.32 14.5 12C14.5 12.5 14.46 13 14.4 13.5C14.97 12.76 15.68 12.17 16.5 11.74M4.26 14C4.1 13.36 4 12.69 4 12S4.1 10.64 4.26 10H7.64C7.56 10.66 7.5 11.32 7.5 12S7.56 13.34 7.64 14H4.26M5.08 16H8C8.35 17.25 8.8 18.45 9.4 19.56C7.57 18.93 6.03 17.65 5.08 16M8 8H5.08C6.03 6.34 7.57 5.06 9.4 4.44C8.8 5.55 8.35 6.75 8 8M10.09 8C10.5 6.57 11.17 5.23 12 4.03C12.83 5.23 13.5 6.57 13.91 8H10.09M18.92 8H15.97C15.65 6.75 15.19 5.55 14.59 4.44C16.43 5.07 17.96 6.34 18.92 8M23 17.5C23 18.32 22.75 19.08 22.33 19.71L21.24 18.62C21.41 18.28 21.5 17.9 21.5 17.5C21.5 16.12 20.38 15 19 15V16.5L16.75 14.25L19 12V13.5C21.21 13.5 23 15.29 23 17.5M19 18.5L21.25 20.75L19 23V21.5C16.79 21.5 15 19.71 15 17.5C15 16.68 15.25 15.92 15.67 15.29L16.76 16.38C16.59 16.72 16.5 17.1 16.5 17.5C16.5 18.88 17.62 20 19 20V18.5Z" />
+    <PathGeometry x:Key="MenuForkliftManagerIcon" Figures="M15 17V14H18V12L22 15.5L18 19V17H15M17 18V21H14V23L10 19.5L14 16V18H17M12 8C9.79 8 8 9.8 8 12C8 13.91 9.35 15.54 11.21 15.92L16 11.86C15.93 9.71 14.16 8 12 8M12 14C10.9 14 10 13.11 10 12S10.9 10 12 10 14 10.9 14 12 13.11 14 12 14M21.66 8.73L19.66 5.27C19.54 5.05 19.28 4.96 19.05 5.05L16.56 6.05C16.05 5.64 15.5 5.31 14.87 5.05L14.5 2.42C14.46 2.18 14.25 2 14 2H10C9.75 2 9.54 2.18 9.5 2.42L9.13 5.07C8.5 5.33 7.96 5.66 7.44 6.07L5 5.05C4.77 4.96 4.5 5.05 4.39 5.27L2.39 8.73C2.26 8.94 2.31 9.22 2.5 9.37L4.57 11L4.5 12L4.57 13L2.46 14.63C2.26 14.78 2.21 15.06 2.34 15.27L4.34 18.73C4.45 19 4.74 19.11 5 19L5 19L7.5 18C7.74 18.19 8 18.37 8.26 18.53L9.91 17.13C9.14 16.8 8.46 16.31 7.91 15.68L5.5 16.68L4.73 15.38L6.8 13.8C6.4 12.63 6.4 11.37 6.8 10.2L4.69 8.65L5.44 7.35L7.85 8.35C8.63 7.45 9.68 6.82 10.85 6.57L11.25 4H12.75L13.12 6.62C14.29 6.86 15.34 7.5 16.12 8.39L18.53 7.39L19.28 8.69L17.2 10.2C17.29 10.46 17.36 10.73 17.4 11H19.4L21.5 9.37C21.72 9.23 21.78 8.95 21.66 8.73M12 8C9.79 8 8 9.8 8 12C8 13.91 9.35 15.54 11.21 15.92L16 11.86C15.93 9.71 14.16 8 12 8M12 14C10.9 14 10 13.11 10 12S10.9 10 12 10 14 10.9 14 12 13.11 14 12 14M12 8C9.79 8 8 9.8 8 12C8 13.91 9.35 15.54 11.21 15.92L16 11.86C15.93 9.71 14.16 8 12 8M12 14C10.9 14 10 13.11 10 12S10.9 10 12 10 14 10.9 14 12 13.11 14 12 14Z" />
+    <PathGeometry x:Key="MenuExpanderOpenIcon" Figures="M3 6H13V8H3V6M3 16H13V18H3V16M3 11H15V13H3V11M16 7L14.58 8.39L18.14 12L14.58 15.61L16 17L21 12L16 7Z" />
+    <PathGeometry x:Key="MenuExpanderCloseIcon" Figures="M21,15.61L19.59,17L14.58,12L19.59,7L21,8.39L17.44,12L21,15.61M3,6H16V8H3V6M3,13V11H13V13H3M3,18V16H16V18H3Z" />
+    <PathGeometry x:Key="LiveParametersPageIcon" Figures="M12 16C12.41 16 12.81 15.97 13.21 15.94C13.4 15.18 13.72 14.46 14.16 13.83C13.47 13.94 12.74 14 12 14C9.58 14 7.3 13.4 6 12.45V9.64C7.47 10.47 9.61 11 12 11S16.53 10.47 18 9.64V11.19C18.5 11.07 19 11 19.55 11C19.7 11 19.85 11 20 11.03V7C20 4.79 16.42 3 12 3S4 4.79 4 7V17C4 19.21 7.59 21 12 21C12.66 21 13.31 20.96 13.92 20.88C13.57 20.29 13.31 19.64 13.16 18.94C12.79 19 12.41 19 12 19C8.13 19 6 17.5 6 17V14.77C7.61 15.55 9.72 16 12 16M12 5C15.87 5 18 6.5 18 7S15.87 9 12 9 6 7.5 6 7 8.13 5 12 5M23 17.5C23 18.32 22.75 19.08 22.33 19.71L21.24 18.62C21.41 18.28 21.5 17.9 21.5 17.5C21.5 16.12 20.38 15 19 15V16.5L16.75 14.25L19 12V13.5C21.21 13.5 23 15.29 23 17.5M19 18.5L21.25 20.75L19 23V21.5C16.79 21.5 15 19.71 15 17.5C15 16.68 15.25 15.92 15.67 15.29L16.76 16.38C16.59 16.72 16.5 17.1 16.5 17.5C16.5 18.88 17.62 20 19 20V18.5Z" />
+    <PathGeometry x:Key="ErrorsPageIcon" Figures="M20 17H22V15H20V17M20 7V13H22V7M6 16H11V18H6M6 12H14V14H6M4 2C2.89 2 2 2.89 2 4V20C2 21.11 2.89 22 4 22H16C17.11 22 18 21.11 18 20V8L12 2M4 4H11V9H16V20H4Z" />
+    <PathGeometry x:Key="SafetyIcon" Figures="M21,11C21,16.55 17.16,21.74 12,23C6.84,21.74 3,16.55 3,11V5L12,1L21,5V11M12,21C15.75,20 19,15.54 19,11.22V6.3L12,3.18L5,6.3V11.22C5,15.54 8.25,20 12,21M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9" />
+    <PathGeometry x:Key="ApiIcon" Figures="M7 7H5A2 2 0 0 0 3 9V17H5V13H7V17H9V9A2 2 0 0 0 7 7M7 11H5V9H7M14 7H10V17H12V13H14A2 2 0 0 0 16 11V9A2 2 0 0 0 14 7M14 11H12V9H14M20 9V15H21V17H17V15H18V9H17V7H21V9Z" />
+    <PathGeometry x:Key="WorkIcon" Figures="M16 9C16 14.33 8 14.33 8 9H10C10 11.67 14 11.67 14 9M20 18V21H4V18C4 15.33 9.33 14 12 14C14.67 14 20 15.33 20 18M18.1 18C18.1 17.36 14.97 15.9 12 15.9C9.03 15.9 5.9 17.36 5.9 18V19.1H18.1M12.5 2C12.78 2 13 2.22 13 2.5V5.5H14V3C15.45 3.67 16.34 5.16 16.25 6.75C16.25 6.75 16.95 6.89 17 8H7C7 6.89 7.75 6.75 7.75 6.75C7.66 5.16 8.55 3.67 10 3V5.5H11V2.5C11 2.22 11.22 2 11.5 2" />
+    <PathGeometry x:Key="LogbookIcon" Figures="M19 1L14 6V17L19 12.5V1M21 5V18.5C19.9 18.15 18.7 18 17.5 18C15.8 18 13.35 18.65 12 19.5V6C10.55 4.9 8.45 4.5 6.5 4.5C4.55 4.5 2.45 4.9 1 6V20.65C1 20.9 1.25 21.15 1.5 21.15C1.6 21.15 1.65 21.1 1.75 21.1C3.1 20.45 5.05 20 6.5 20C8.45 20 10.55 20.4 12 21.5C13.35 20.65 15.8 20 17.5 20C19.15 20 20.85 20.3 22.25 21.05C22.35 21.1 22.4 21.1 22.5 21.1C22.75 21.1 23 20.85 23 20.6V6C22.4 5.55 21.75 5.25 21 5M10 18.41C8.75 18.09 7.5 18 6.5 18C5.44 18 4.18 18.19 3 18.5V7.13C3.91 6.73 5.14 6.5 6.5 6.5C7.86 6.5 9.09 6.73 10 7.13V18.41Z" />
+
+    <!--#endregion-->
+    <!--#region Simple styles region-->
+    <!--#region SimpleTabControlStyle-->
+    <Style x:Key="SimpleTabItemStyle" TargetType="{x:Type TabItem}">
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Background" Value="{StaticResource SimpleBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Cursor" Value="Hand" />
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                Storyboard.TargetProperty="(TabItem.Background).(SolidColorBrush.Color)"
+                                From="#0e0e0e"
+                                To="#d48a28"
+                                Duration="0:0:0.3" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                Storyboard.TargetProperty="(TabItem.Background).(SolidColorBrush.Color)"
+                                From="#d48a28"
+                                To="#0e0e0e"
+                                Duration="0:0:0.3" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="#774402" />
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+    <Style x:Key="SimpleTabControlStyle" TargetType="{x:Type TabControl}">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource SimpleTabItemStyle}" />
+        <Setter Property="Background" Value="{StaticResource SimpleBackgroundBrush}" />
+        <Setter Property="BorderThickness" Value="0,0,0,0" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TabControl">
+                    <Grid SnapsToDevicePixels="true">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TabPanel
+                            Grid.Row="0"
+                            HorizontalAlignment="Left"
+                            Background="Transparent"
+                            IsItemsHost="true" />
+                        <Border
+                            Grid.Row="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter
+                                Margin="{TemplateBinding Padding}"
+                                ContentSource="SelectedContent"
+                                SnapsToDevicePixels="True" />
+                        </Border>
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Transparent" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--#endregion-->
+    <!--#region Main menu button style-->
+    <Style x:Key="SimpleMainMenuButton" TargetType="{x:Type Button}">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Background" Value="{StaticResource SimpleButtonNotActiveBrush}" />
+        <Setter Property="MaxWidth" Value="320" />
+        <Setter Property="MinWidth" Value="80" />
+        <Setter Property="Height" Value="80" />
+
+        <Setter Property="BorderBrush" Value="{StaticResource SimpleOrangeMainBrush}" />
+        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        Padding="10,20"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5">
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Path
+                                Width="40"
+                                Height="40"
+                                Margin="10,0,20,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Data="{TemplateBinding Tag}"
+                                Fill="{TemplateBinding Foreground}"
+                                Stretch="Fill" />
+                            <TextBlock
+                                Grid.Column="1"
+                                Margin="5,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="{TemplateBinding FontSize}"
+                                FontWeight="Bold"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding Content}"
+                                TextWrapping="NoWrap" />
+                        </Grid>
+                    </Border>
+                    <!--#region Color animation-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ToggleButton.Background).(SolidColorBrush.Color)"
+                                            From="#060606"
+                                            To="#d48a28"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ToggleButton.Background).(SolidColorBrush.Color)"
+                                            From="#d48a28"
+                                            To="#060606"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    <!--#endregion-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--#region Simple menu button style secondary-->
+    <Style x:Key="SimpleMainMenuButtonSecondary" TargetType="{x:Type Button}">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Background" Value="{StaticResource SimpleButtonNotActiveBrush}" />
+        <Setter Property="MaxWidth" Value="320" />
+        <Setter Property="MinWidth" Value="80" />
+        <Setter Property="Height" Value="80" />
+
+        <Setter Property="BorderBrush" Value="{StaticResource SimpleOrangeMainBrush}" />
+        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        Padding="10,0,10,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5">
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Path
+                                Width="40"
+                                Height="40"
+                                Margin="10,0,20,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Data="{TemplateBinding Tag}"
+                                Fill="{TemplateBinding Foreground}"
+                                Stretch="Fill" />
+                            <TextBlock
+                                Grid.Column="1"
+                                Margin="5,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="{TemplateBinding FontSize}"
+                                FontWeight="Bold"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding Content}"
+                                TextWrapping="NoWrap" />
+                        </Grid>
+                    </Border>
+                    <!--#region Color animation-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ToggleButton.Background).(SolidColorBrush.Color)"
+                                            From="#060606"
+                                            To="#d48a28"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ToggleButton.Background).(SolidColorBrush.Color)"
+                                            From="#d48a28"
+                                            To="#060606"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    <!--#endregion-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--#region Menu expander button style-->
+    <Style x:Key="SimpleMenuExpanderButton" TargetType="{x:Type ToggleButton}">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Background" Value="{StaticResource SimpleButtonNotActiveBrush}" />
+        <Setter Property="MaxWidth" Value="300" />
+        <Setter Property="MinWidth" Value="80" />
+        <Setter Property="Height" Value="50" />
+        <Setter Property="BorderBrush" Value="{StaticResource SimpleOrangeMainBrush}" />
+        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border
+                        Height="{TemplateBinding Height}"
+                        Padding="10,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5">
+                        <Grid
+                            Height="{TemplateBinding Height}"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Stretch">
+                            <Path
+                                Width="50"
+                                Height="30"
+                                Margin="0,0,0,0"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Data="{TemplateBinding Tag}"
+                                Fill="{TemplateBinding Foreground}"
+                                Stretch="Fill" />
+                        </Grid>
+                    </Border>
+                    <!--#region Color animation-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ToggleButton.Background).(SolidColorBrush.Color)"
+                                            From="#060606"
+                                            To="#d48a28"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ToggleButton.Background).(SolidColorBrush.Color)"
+                                            From="#d48a28"
+                                            To="#060606"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    <!--#endregion-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--  region Login button style  -->
+    <Style x:Key="SimpleLoginButton" TargetType="{x:Type ui:Button}">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Background" Value="{StaticResource SimpleLoginButtonInactiveBrush}" />
+        <Setter Property="MaxWidth" Value="250" />
+        <Setter Property="MinWidth" Value="80" />
+        <Setter Property="Height" Value="60" />
+        <Setter Property="BorderBrush" Value="{StaticResource SimpleLoginButtonInactiveBrush}" />
+        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:Button}">
+                    <Border
+                        Padding="10"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5">
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Path
+                                Width="40"
+                                Height="40"
+                                Margin="10,0,20,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Data="{TemplateBinding Tag}"
+                                Fill="{TemplateBinding Foreground}"
+                                Stretch="Fill" />
+                            <TextBlock
+                                Grid.Column="1"
+                                Margin="5,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="{TemplateBinding FontSize}"
+                                FontWeight="Bold"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding Content}"
+                                TextWrapping="NoWrap" />
+                        </Grid>
+                    </Border>
+                    <!--#region Color animation-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ui:Button.Background).(SolidColorBrush.Color)"
+                                            From="#025402"
+                                            To="#039403"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ToggleButton.Background).(SolidColorBrush.Color)"
+                                            From="#039403"
+                                            To="#025402"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    <!--#endregion-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--  region Logout button style  -->
+    <Style x:Key="SimpleLogoutButton" TargetType="{x:Type ui:Button}">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Background" Value="#4c0600" />
+        <Setter Property="MaxWidth" Value="250" />
+        <Setter Property="MinWidth" Value="80" />
+        <Setter Property="Height" Value="60" />
+        <Setter Property="BorderBrush" Value="#4c0600" />
+        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:Button}">
+                    <Border
+                        Padding="10"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5">
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Path
+                                Width="40"
+                                Height="40"
+                                Margin="10,0,20,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Data="{TemplateBinding Tag}"
+                                Fill="{TemplateBinding Foreground}"
+                                Stretch="Fill" />
+                            <TextBlock
+                                Grid.Column="1"
+                                Margin="5,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="{TemplateBinding FontSize}"
+                                FontWeight="Bold"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding Content}"
+                                TextWrapping="NoWrap" />
+                        </Grid>
+                    </Border>
+                    <!--#region Color animation-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ui:Button.Background).(SolidColorBrush.Color)"
+                                            From="#4c0600"
+                                            To="#8c0b00"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ToggleButton.Background).(SolidColorBrush.Color)"
+                                            From="#8c0b00"
+                                            To="#4c0600"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    <!--#endregion-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--#region Simple Items control button style-->
+    <Style x:Key="SimpleItemsControlButtonStyle" TargetType="{x:Type ui:Button}">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Background" Value="{StaticResource SimpleButtonNotActiveBrush}" />
+        <Setter Property="MaxWidth" Value="320" />
+        <Setter Property="MinWidth" Value="80" />
+        <Setter Property="Height" Value="50" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:Button}">
+                    <Border
+                        Padding="20,0,0,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5">
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <TextBlock
+                                Grid.Column="1"
+                                Margin="5,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="{TemplateBinding FontSize}"
+                                FontWeight="Bold"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding Content}"
+                                TextWrapping="NoWrap" />
+                        </Grid>
+                    </Border>
+                    <!--#region Color animation-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ToggleButton.Background).(SolidColorBrush.Color)"
+                                            From="#060606"
+                                            To="#d48a28"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ToggleButton.Background).(SolidColorBrush.Color)"
+                                            From="#d48a28"
+                                            To="#060606"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    <!--#endregion-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--#region Simple Radio button main-->
+    <Style x:Key="SimpleRadioButtonMainStyle" TargetType="{x:Type RadioButton}">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Grid Background="Transparent">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Border
+                            x:Name="RadioButtonBorder"
+                            Grid.Column="0"
+                            Width="15"
+                            Height="15"
+                            Background="White"
+                            BorderBrush="White"
+                            BorderThickness="1">
+                            <Path
+                                x:Name="CheckMark"
+                                Width="15"
+                                Height="15"
+                                Margin="2"
+                                Data="M 0,5 L 2,7 L 7,0"
+                                Fill="#FFD48A28"
+                                Stroke="#FFD48A28"
+                                StrokeThickness="2"
+                                Visibility="Collapsed" />
+                        </Border>
+                        <ContentPresenter
+                            Grid.Column="1"
+                            Margin="4,0,0,0"
+                            VerticalAlignment="Center"
+                            RecognizesAccessKey="True" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="CheckMark" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="CheckMark" Property="Fill" Value="#FFD48A28" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="Gray" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--#endregion-->
+    <!--  region Simple add button style  -->
+    <Style x:Key="SimpleAddButton" TargetType="{x:Type ui:Button}">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Background" Value="{StaticResource SimpleLoginButtonInactiveBrush}" />
+        <Setter Property="MaxWidth" Value="250" />
+        <Setter Property="MinWidth" Value="80" />
+        <Setter Property="Height" Value="70" />
+        <Setter Property="BorderBrush" Value="{StaticResource SimpleLoginButtonInactiveBrush}" />
+        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:Button}">
+                    <Border
+                        Padding="20"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5">
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Path
+                                Width="40"
+                                Height="40"
+                                Margin="10,0,20,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Data="{TemplateBinding Tag}"
+                                Fill="{TemplateBinding Foreground}"
+                                Stretch="Fill" />
+                            <TextBlock
+                                Grid.Column="1"
+                                Margin="5,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="{TemplateBinding FontSize}"
+                                FontWeight="Bold"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding Content}"
+                                TextWrapping="NoWrap" />
+                        </Grid>
+                    </Border>
+                    <!--#region Color animation-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ui:Button.Background).(SolidColorBrush.Color)"
+                                            From="#025402"
+                                            To="#039403"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ToggleButton.Background).(SolidColorBrush.Color)"
+                                            From="#039403"
+                                            To="#025402"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    <!--#endregion-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--  region Simple delete button style  -->
+    <Style x:Key="SimpleDeleteButton" TargetType="{x:Type ui:Button}">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Background" Value="#4c0600" />
+        <Setter Property="MaxWidth" Value="250" />
+        <Setter Property="MinWidth" Value="80" />
+        <Setter Property="Height" Value="70" />
+        <Setter Property="BorderBrush" Value="#4c0600" />
+        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:Button}">
+                    <Border
+                        Padding="10"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5">
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Path
+                                Width="40"
+                                Height="40"
+                                Margin="10,0,20,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Data="{TemplateBinding Tag}"
+                                Fill="{TemplateBinding Foreground}"
+                                Stretch="Fill" />
+                            <TextBlock
+                                Grid.Column="1"
+                                Margin="5,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="{TemplateBinding FontSize}"
+                                FontWeight="Bold"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding Content}"
+                                TextWrapping="NoWrap" />
+                        </Grid>
+                    </Border>
+                    <!--#region Color animation-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ui:Button.Background).(SolidColorBrush.Color)"
+                                            From="#4c0600"
+                                            To="#8c0b00"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ToggleButton.Background).(SolidColorBrush.Color)"
+                                            From="#8c0b00"
+                                            To="#4c0600"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    <!--#endregion-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--  region Simple update button style  -->
+    <Style x:Key="SimpleUpdateButton" TargetType="{x:Type ui:Button}">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Background" Value="#9E9000" />
+        <Setter Property="MaxWidth" Value="250" />
+        <Setter Property="MinWidth" Value="80" />
+        <Setter Property="Height" Value="70" />
+        <Setter Property="BorderBrush" Value="#9E9000" />
+        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:Button}">
+                    <Border
+                        Padding="10"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5">
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Path
+                                Width="40"
+                                Height="40"
+                                Margin="10,0,20,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Data="{TemplateBinding Tag}"
+                                Fill="{TemplateBinding Foreground}"
+                                Stretch="Fill" />
+                            <TextBlock
+                                Grid.Column="1"
+                                Margin="5,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="{TemplateBinding FontSize}"
+                                FontWeight="Bold"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding Content}"
+                                TextWrapping="NoWrap" />
+                        </Grid>
+                    </Border>
+                    <!--#region Color animation-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ui:Button.Background).(SolidColorBrush.Color)"
+                                            From="#9E9000"
+                                            To="#DAC600"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ToggleButton.Background).(SolidColorBrush.Color)"
+                                            From="#DAC600"
+                                            To="#9E9000"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    <!--#endregion-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--#region Simple page container style-->
+    <Style x:Key="SimplePageContainerStyle" TargetType="{x:Type Frame}">
+        <Setter Property="Width" Value="1830" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="NavigationUIVisibility" Value="Hidden" />
+    </Style>
+    <!--#endregion-->
+    <!--#region Simple main border style-->
+    <Style x:Key="SimpleMainBorderStyle" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="{StaticResource SimpleBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource SimpleBackgroundBrush}" />
+        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="CornerRadius" Value="7" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+    </Style>
+    <!--#endregion-->
+    <!--#region Simple tittle style-->
+    <Style x:Key="SimpleTittleStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="FontWeight" Value="ExtraBold" />
+        <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+    </Style>
+    <!--#endregion-->
+    <!--#region Simple user tittle style-->
+    <Style x:Key="SimpleUserTittleStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontWeight" Value="ExtraBold" />
+        <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+    </Style>
+    <!--#endregion-->
+    <!--#region Simple top bar style-->
+    <Style x:Key="SimpleTopBarBorderStyle" TargetType="{x:Type Border}">
+        <Setter Property="Height" Value="50" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="10 10 0 0" />
+    </Style>
+    <!--#endregion-->
+    <!--#region Simple transparent separator style-->
+    <Style x:Key="SimpleTransparentSeparatorStyle5px" TargetType="{x:Type Separator}">
+        <Setter Property="Height" Value="5" />
+        <Setter Property="Foreground" Value="Transparent" />
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <!--#endregion-->
+    <!--#region Simple expandable menu border style-->
+    <Style x:Key="SimpleExpandableMenuBorderStyle" TargetType="{x:Type Border}">
+        <Setter Property="Width" Value="65" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Background" Value="{StaticResource SimpleBackgroundBrush}" />
+    </Style>
+    <!--#endregion-->
+    <!--#region Simple expandable menu text block style-->
+    <Style x:Key="SimpleExpandableMenuTextStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="Padding" Value="15,10" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Background" Value="{StaticResource SimpleOrangeMainBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+    <!--#endregion-->
+    <!--#region Main label style-->
+    <Style x:Key="SimpleLabelMainStyle" TargetType="{x:Type Label}">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
+    </Style>
+    <!--#endregion-->
+    <!--#region  Main user textbox style-->
+    <Style x:Key="SimpleUserTextBoxMain" TargetType="{x:Type TextBox}">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="MinWidth" Value="300" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontWeight" Value="Thin" />
+        <Setter Property="Height" Value="25" />
+        <Setter Property="BorderBrush" Value="{StaticResource SimpleOrangeMainBrush}" />
+    </Style>
+    <!--#endregion-->
+    <!--#region Passwordbox main style-->
+    <Style x:Key="SimpleUserPasswordBoxMain" TargetType="{x:Type ui:PasswordBox}">
+        <Setter Property="MinWidth" Value="300" />
+        <Setter Property="Height" Value="25" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontWeight" Value="Thin" />
+        <Setter Property="PasswordChar" Value="*" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="BorderBrush" Value="{StaticResource SimpleOrangeMainBrush}" />
+    </Style>
+    <!--#endregion-->
+    <!--#region  TextBlock main style-->
+    <Style x:Key="SimpleTexBloxkMain" TargetType="{x:Type TextBlock}">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="TextAlignment" Value="Left" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
+        <Setter Property="Background" Value="{StaticResource SimpleButtonNotActiveBrush}" />
+    </Style>
+    <!--#endregion-->
+    <!--#region Simple combobox style-->
+    <ControlTemplate x:Key="SimpleComboBoxToggleButtonTemplate" TargetType="{x:Type ToggleButton}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="30" />
+            </Grid.ColumnDefinitions>
+            <Border
+                Name="Border"
+                Grid.ColumnSpan="2"
+                Height="45"
+                Background="{StaticResource SimpleBackgroundBrush}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="0,0,0,2" />
+            <!--  strzałka  -->
+            <Path
+                Name="Arrow"
+                Grid.Column="1"
+                Width="15"
+                Height="15"
+                Margin="0,0,0,-15"
+                HorizontalAlignment="Center"
+                Data="{StaticResource DownKeyIcon}"
+                Fill="{StaticResource SimpleOrangeMainBrush}"
+                Stretch="Uniform" />
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="UIElement.IsMouseOver" Value="True">
+                <Setter Property="Cursor" Value="Hand" />
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                Storyboard.TargetProperty="(ComboBox.BorderBrush).(SolidColorBrush.Color)"
+                                From="#E6E5E4"
+                                To="#d48a28"
+                                Duration="0:0:0.3" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                Storyboard.TargetProperty="(ComboBox.BorderBrush).(SolidColorBrush.Color)"
+                                From="#E6E5E4"
+                                To="#d48a28"
+                                Duration="0:0:0.3" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+            <Trigger Property="ToggleButton.IsChecked" Value="True">
+                <Setter TargetName="Arrow" Property="Shape.Fill" Value="{StaticResource SimpleOrangeMainBrush}" />
+            </Trigger>
+            <!--  TU se wyszarz w przyszłości ledwo widoczne ma być  -->
+            <Trigger Property="UIElement.IsEnabled" Value="False">
+                <Setter TargetName="Border" Property="Border.BorderBrush" Value="{StaticResource SimpleBackgroundBrush}" />
+                <!--  TU se wyszarz w przyszłości  -->
+                <Setter Property="TextElement.Foreground" Value="{StaticResource SimpleBackgroundBrush}" />
+                <!--  TU se wyszarz w przyszłości  -->
+                <Setter TargetName="Arrow" Property="Shape.Fill" Value="{StaticResource SimpleBackgroundBrush}" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                Storyboard.TargetName="Arrow"
+                                Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                From="#E6E5E4"
+                                To="#d48a28"
+                                Duration="0:0:0.3" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                Storyboard.TargetName="Arrow"
+                                Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                From="#d48a28"
+                                To="#E6E5E4"
+                                Duration="0:0:0.3" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <Style x:Key="SimpleComboBoxFlatStyle" TargetType="{x:Type ComboBox}">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Margin" Value="5,0,5,5" />
+        <Setter Property="MinWidth" Value="150" />
+        <Setter Property="UIElement.SnapsToDevicePixels" Value="True" />
+        <Setter Property="FrameworkElement.OverridesDefaultStyle" Value="True" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
+        <Setter Property="TextElement.Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
+        <Setter Property="FrameworkElement.OverridesDefaultStyle" Value="True" />
+        <Setter Property="FrameworkElement.FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBox">
+                    <Grid>
+                        <ToggleButton
+                            Name="ToggleButton"
+                            Grid.Column="2"
+                            ClickMode="Press"
+                            Focusable="False"
+                            IsChecked="{Binding Path=IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                            Template="{StaticResource SimpleComboBoxToggleButtonTemplate}" />
+                        <ContentPresenter
+                            Name="ContentSite"
+                            Margin="15,0,15,-15"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding ComboBox.SelectionBoxItem}"
+                            ContentTemplate="{TemplateBinding ComboBox.SelectionBoxItemTemplate}"
+                            ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                            IsHitTestVisible="False" />
+                        <TextBox
+                            Name="PART_EditableTextBox"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Background="{StaticResource SimpleBackgroundBrush}"
+                            Focusable="True"
+                            IsReadOnly="{TemplateBinding IsReadOnly}"
+                            TextWrapping="WrapWithOverflow"
+                            Visibility="Hidden">
+                            <TextBox.Template>
+                                <ControlTemplate TargetType="TextBox">
+                                    <Border Name="PART_ContentHost" Focusable="False" />
+                                </ControlTemplate>
+                            </TextBox.Template>
+                        </TextBox>
+                        <!--  Popup showing items  -->
+                        <Popup
+                            Name="Popup"
+                            AllowsTransparency="True"
+                            Focusable="False"
+                            IsOpen="{TemplateBinding ComboBox.IsDropDownOpen}"
+                            Placement="Bottom"
+                            PopupAnimation="Slide">
+                            <Grid
+                                Name="DropDown"
+                                MinWidth="{TemplateBinding FrameworkElement.ActualWidth}"
+                                MaxHeight="{TemplateBinding ComboBox.MaxDropDownHeight}"
+                                SnapsToDevicePixels="True">
+                                <Border
+                                    Name="DropDownBorder"
+                                    Margin="0"
+                                    Background="{StaticResource SimpleBackgroundBrush}"
+                                    BorderBrush="{StaticResource SimpleOrangeMainBrush}"
+                                    BorderThickness="2,0,2,2"
+                                    CornerRadius="0,0,3,3" />
+                                <ScrollViewer Margin="4" SnapsToDevicePixels="True">
+                                    <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained" />
+                                </ScrollViewer>
+                            </Grid>
+                        </Popup>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="ItemsControl.HasItems" Value="False">
+                            <Setter TargetName="DropDownBorder" Property="FrameworkElement.MinHeight" Value="125" />
+                        </Trigger>
+                        <!--  TU SE W PRZYSZLOSCI WYSZARZ  -->
+                        <Trigger Property="UIElement.IsEnabled" Value="False">
+                            <Setter Property="TextElement.Foreground" Value="{StaticResource SimpleBackgroundBrush}" />
+                        </Trigger>
+                        <Trigger Property="ItemsControl.IsGrouping" Value="True">
+                            <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+                        </Trigger>
+                        <Trigger Property="ComboBox.IsEditable" Value="True">
+                            <Setter Property="KeyboardNavigation.IsTabStop" Value="False" />
+                            <Setter TargetName="PART_EditableTextBox" Property="UIElement.Visibility" Value="Visible" />
+                            <Setter TargetName="ContentSite" Property="UIElement.Visibility" Value="Hidden" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                Storyboard.TargetProperty="(ComboBox.Foreground).(SolidColorBrush.Color)"
+                                From="#E6E5E4"
+                                To="#d48a28"
+                                Duration="0:0:0.3" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                Storyboard.TargetProperty="(ComboBox.Foreground).(SolidColorBrush.Color)"
+                                From="#d48a28"
+                                To="#E6E5E4"
+                                Duration="0:0:0.3" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--#region Combobox item-->
+    <Style x:Key="{x:Type ComboBoxItem}" TargetType="{x:Type ComboBoxItem}">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Background" Value="{StaticResource SimpleBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                    <Border
+                        Padding="5,3"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{StaticResource SimpleOrangeMainBrush}"
+                        BorderThickness="0,0,0,1"
+                        CornerRadius="0">
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="{TemplateBinding Foreground}"
+                            Text="{Binding}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
+                <Setter Property="Background" Value="{StaticResource SimpleOrangeMainBrush}" />
+                <Setter Property="Cursor" Value="Hand" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--#endregion-->
+    <!--#endregion-->
+    <!--#region Simple content presenter style-->
+    <Style x:Key="SimpleContentPresenter1" TargetType="{x:Type ContentControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ContentControl}">
+                    <Border
+                        Padding="10"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5">
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding Source}" />
+                            <TextBlock Style="{StaticResource SimpleUserTittleStyle}" Text="{Binding Text}" />
+
+
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--#region SimpleImageStyle-->
+    <Style x:Key="SimpleImageStyle" TargetType="{x:Type Image}">
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Width" Value="40" />
+    </Style>
+    <!--#endregion-->
+    <!--#region SimpleDataDescriptionStyle-->
+    <Style x:Key="SimpleDataDescriptionStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Margin" Value="10,0,0,0" />
+        <Setter Property="Height" Value="40.1" />
+    </Style>
+    <!--#endregion-->
+    <!--#region SimpleDataStyle-->
+    <Style x:Key="SimpleDataStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="20,0,0,0" />
+        <Setter Property="Height" Value="40.1" />
+    </Style>
+    <!--#endregion-->
+
+    <!--#endregion-->
+</ResourceDictionary>

@@ -27,14 +27,14 @@ namespace SimpleFleetManager.ViewModels.Converters
             }
             if (givenValue == 5)
             {
-                returnedString = "FATAL";
+                returnedString = "CRITICAL";
             }
             return returnedString;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            int returnedInt = 1;
+            int returnedInt = 6;
             string givenString = (string)value;
             if (givenString == "DEBUG")
             {
@@ -52,7 +52,7 @@ namespace SimpleFleetManager.ViewModels.Converters
             {
                 returnedInt = 4;
             }
-            if (givenString == "FATAL")
+            if (givenString == "CRITICAL")
             {
                 returnedInt = 5;
             }

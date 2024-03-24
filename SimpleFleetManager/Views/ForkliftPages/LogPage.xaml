@@ -18,61 +18,150 @@
         <conv:StringLogLevelConverter x:Key="LogBackConverter" />
     </Page.Resources>
     <Grid>
-        <TabControl>
-            <!--#region Actual log tab-->
-            <TabItem>
-                <Grid>
-                    <StackPanel
-                        Margin="50,0,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Orientation="Horizontal">
-                        <StackPanel>
-                            <ui:TextBox
-                                FontSize="18"
-                                FontWeight="Bold"
-                                Foreground="White"
-                                Text="Wybierz minimalny poziom dziennika" />
-                            <ComboBox
-                                IsDropDownOpen="{Binding MinimumActualLogBoxOpened}"
-                                ItemsSource="{Binding AvaibleLevels}"
-                                SelectedItem="{Binding MinimumActualLogLevel, Mode=TwoWay, Converter={StaticResource LogConverter}}"
-                                Style="{StaticResource ComboBoxFlatStyle}">
-                                <!--<ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid>
-                                            <TextBlock Text="{Binding}" />
-                                        </Grid>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>-->
-                                <!--<ComboBox.ItemContainerStyle>
-                                    <Style TargetType="ComboBoxItem">
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="ComboBoxItem">
-                                                    <ui:Button
-                                                        x:Name="MinActualLogLevelChoiceButton"
-                                                        Command="{Binding RelativeSource={RelativeSource AncestorType=ComboBox}, Path=DataContext.SelectMinimumActualLogLevel}"
-                                                        CommandParameter="{Binding Converter={StaticResource LogBackConverter}}"
-                                                        MouseOverBackground="Orange">
-                                                        <ContentPresenter />
-                                                    </ui:Button>
-                                                    </ControlTemplate.Triggers>
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Style>
-                                </ComboBox.ItemContainerStyle>-->
-                            </ComboBox>
-
-
-
-                        </StackPanel>
-
-                    </StackPanel>
-                </Grid>
-            </TabItem>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel
+            Grid.Row="0"
+            Margin="50,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <!--#region Options selecting bar-->
+            <StackPanel>
+                <TextBlock
+                    FontSize="16"
+                    Style="{StaticResource SimpleDataDescriptionStyle}"
+                    Text="Wybierz minimalny poziom aktualnego alarmu" />
+                <ComboBox
+                    Margin="0,-20,0,0"
+                    IsDropDownOpen="{Binding MinimumActualLogBoxOpened}"
+                    ItemsSource="{Binding AvaibleLevels}"
+                    SelectedItem="{Binding MinimumActualLogLevel, Mode=TwoWay, Converter={StaticResource LogConverter}}"
+                    Style="{StaticResource SimpleComboBoxFlatStyle}" />
+            </StackPanel>
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock
+                    FontSize="16"
+                    Style="{StaticResource SimpleDataDescriptionStyle}"
+                    Text="Wybierz maksymalny poziom aktualnego alarmu" />
+                <ComboBox
+                    Margin="0,-20,0,0"
+                    IsDropDownOpen="{Binding MaximumActualLogBoxOpened}"
+                    ItemsSource="{Binding AvaibleLevels}"
+                    SelectedItem="{Binding MaximumActualLogLevel, Mode=TwoWay, Converter={StaticResource LogConverter}}"
+                    Style="{StaticResource SimpleComboBoxFlatStyle}" />
+            </StackPanel>
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock
+                    FontSize="16"
+                    Style="{StaticResource SimpleDataDescriptionStyle}"
+                    Text="Wybierz minimalny poziom dziennika alarmów" />
+                <ComboBox
+                    Margin="0,-20,0,0"
+                    IsDropDownOpen="{Binding MinimumSavedLogBoxOpened}"
+                    ItemsSource="{Binding AvaibleLevels}"
+                    SelectedItem="{Binding MinimumSavedLogLevel, Mode=TwoWay, Converter={StaticResource LogConverter}}"
+                    Style="{StaticResource SimpleComboBoxFlatStyle}" />
+            </StackPanel>
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock
+                    FontSize="16"
+                    Style="{StaticResource SimpleDataDescriptionStyle}"
+                    Text="Wybierz minimalny poziom dziennika alarmów" />
+                <ComboBox
+                    Margin="0,-20,0,0"
+                    IsDropDownOpen="{Binding MaximumSavedLogBoxOpened}"
+                    ItemsSource="{Binding AvaibleLevels}"
+                    SelectedItem="{Binding MaximumSavedLogLevel, Mode=TwoWay, Converter={StaticResource LogConverter}}"
+                    Style="{StaticResource SimpleComboBoxFlatStyle}" />
+            </StackPanel>
             <!--#endregion-->
-        </TabControl>
+            <!--#region Actual las alarm-->
+            <StackPanel />
+            <!--#endregion-->
+        </StackPanel>
+        <StackPanel
+            Grid.Row="1"
+            Width="1610"
+            Margin="10,20,0,0"
+            HorizontalAlignment="Left"
+
+            Orientation="Horizontal">
+            <!--#region Last log received data presentation-->
+            <StackPanel Width="650">
+                <!--#region Date stack panel-->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Data wiadomości: " />
+                    <TextBlock Style="{StaticResource SimpleDataStyle}" Text="{Binding FilteredActualLog.Date}" />
+                </StackPanel>
+                <!--#endregion-->
+                <!--#region Level stack panel-->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Poziom wiadomości: " />
+                    <TextBlock Style="{StaticResource SimpleDataStyle}" Text="{Binding FilteredActualLog.Level, Converter={StaticResource LogConverter}}" />
+                </StackPanel>
+                <!--#endregion-->
+                <!--#region Message stack panel-->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Treść: " />
+                    <TextBlock
+                        Style="{StaticResource SimpleDataStyle}"
+                        Text="{Binding FilteredActualLog.Message}"
+                        TextWrapping="WrapWithOverflow" />
+                </StackPanel>
+                <!--#endregion-->
+                <!--#region Node stack panel-->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Node: " />
+                    <TextBlock Style="{StaticResource SimpleDataStyle}" Text="{Binding FilteredActualLog.Node}" />
+                </StackPanel>
+                <!--#endregion-->
+                <!--#region File stack panel-->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Plik: " />
+                    <TextBlock Style="{StaticResource SimpleDataStyle}" Text="{Binding FilteredActualLog.File}" />
+                </StackPanel>
+                <!--#endregion-->
+                <!--#region Code line stack panel-->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Linia kodu: " />
+                    <TextBlock Style="{StaticResource SimpleDataStyle}" Text="{Binding FilteredActualLog.CodeLine}" />
+                </StackPanel>
+                <!--#endregion-->
+
+            </StackPanel>
+            <!--#endregion-->
+            <!--#region Log history-->
+            <TextBlock
+                Margin="0"
+                Padding="350,0,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Style="{StaticResource SimpleTittleStyle}"
+                Text="Dziennik zdarzeń" />
+            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+            <ItemsControl Height="900" ItemsSource="{Binding FilteredForkliftSavedLogs}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <TextBlock Style="{StaticResource SimpleDataStyle}" Text="{Binding Date}" />
+                            <TextBlock Style="{StaticResource SimpleDataStyle}" Text="{Binding Level, Converter={StaticResource LogConverter}}" />
+                            <TextBlock
+                                Style="{StaticResource SimpleDataStyle}"
+                                Text="{Binding Message}"
+                                TextWrapping="WrapWithOverflow" />
+                            <TextBlock Style="{StaticResource SimpleDataStyle}" Text="{Binding Node}" />
+                            <TextBlock Style="{StaticResource SimpleDataStyle}" Text="{Binding File}" />
+                            <TextBlock Style="{StaticResource SimpleDataStyle}" Text="{Binding CodeLine}" />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <!--#endregion-->
+        </StackPanel>
+
+
     </Grid>
 </Page>

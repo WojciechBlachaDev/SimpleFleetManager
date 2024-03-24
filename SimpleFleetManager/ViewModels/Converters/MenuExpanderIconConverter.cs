@@ -6,13 +6,13 @@ namespace SimpleFleetManager.ViewModels.Converters
 {
     public class MenuExpanderIconConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if ((bool)value)
             {
-                return new StaticResourceExtension("MenuExpanderCloseIcon");
+                return Application.Current.Resources["MenuExpanderCloseIcon"];
             }
-            return new StaticResourceExtension("MenuExpanderOpenIcon");
+            return Application.Current.Resources["MenuExpanderOpenIcon"];
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

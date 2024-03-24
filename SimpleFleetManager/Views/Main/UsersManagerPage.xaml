@@ -1,55 +1,44 @@
-﻿<Page x:Class="SimpleFleetManager.Views.Main.UsersManagerPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:conv="clr-namespace:SimpleFleetManager.ViewModels.Converters"
-      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-      xmlns:local="clr-namespace:SimpleFleetManager.Views.Main"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="UsersManagerPage">
+﻿<Page
+    x:Class="SimpleFleetManager.Views.Main.UsersManagerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:conv="clr-namespace:SimpleFleetManager.ViewModels.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SimpleFleetManager.Views.Main"
+    xmlns:main="clr-namespace:SimpleFleetManager.ViewModels.Main"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="UsersManagerPage"
+    d:DataContext="{d:DesignInstance Type=main:UsersManagerPageViewModel}"
+    d:DesignHeight="450"
+    d:DesignWidth="1840"
+    mc:Ignorable="d">
 
     <Page.Resources>
         <conv:BoolToVIsibilityConverter x:Key="BoolToVisibility" />
     </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
         <!--#region  Saved forklifts list-->
         <Grid Grid.Column="0">
-            <StackPanel Width="auto" Margin="30,10,0,0">
+            <StackPanel Width="320" Margin="30,10,0,0">
                 <TextBlock
-                Margin="0"
-                Padding="15,10"
-                HorizontalAlignment="Stretch"
-                Background="Transparent"
-                FontSize="22"
-                FontWeight="ExtraBold"
-                Style="{StaticResource TitleStyle}"
-                Text="Zarejestrowani użytkownicy:"
-                TextAlignment="Left"
-                TextWrapping="Wrap" />
-                <Separator Height="5" />
-                <ItemsControl Height="1000" ItemsSource="{Binding Users}">
+                    Margin="0"
+                    Style="{StaticResource SimpleTittleStyle}"
+                    Text="Zarejestrowani użytkownicy:" />
+                <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                <ItemsControl Height="900" ItemsSource="{Binding Users}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <ui:Button
-                            Width="250"
-                            Height="50"
-                            HorizontalContentAlignment="Stretch"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
-                            Command="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=DataContext.SelectUserFromList}"
-                            CommandParameter="{Binding Id}"
-                            Content="{Binding Username}"
-                            FontSize="20"
-                            Foreground="White"
-                            MouseOverBackground="DarkCyan"
-                            MouseOverBorderBrush="Aqua" />
+                                Command="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=DataContext.SelectUserFromList}"
+                                CommandParameter="{Binding Id}"
+                                Content="{Binding Username}"
+                                Style="{StaticResource SimpleItemsControlButtonStyle}" />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
@@ -60,161 +49,59 @@
         <Grid Grid.Column="1" HorizontalAlignment="Center">
             <StackPanel VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel Height="300" Margin="100,20,0,0">
-                        <TextBlock
-                        Margin="0"
-                        Padding="15,10"
-                        HorizontalAlignment="Stretch"
-                        Background="Transparent"
-                        FontSize="20"
-                        FontWeight="Bold"
-                        Style="{StaticResource TitleStyle}"
-                        Text="Nazwa użytkownika"
-                        TextAlignment="Left" />
-                        <Separator Height="15" Margin="0,0,0,0" />
-                        <TextBlock
-                        Margin="0"
-                        Padding="15,10"
-                        HorizontalAlignment="Stretch"
-                        Background="Transparent"
-                        FontSize="20"
-                        FontWeight="Bold"
-                        Style="{StaticResource TitleStyle}"
-                        Text="Hasło"
-                        TextAlignment="Left" />
-                        <Separator Height="15" Margin="0,0,0,0" />
-                        <TextBlock
-                        Margin="0"
-                        Padding="15,10"
-                        HorizontalAlignment="Stretch"
-                        Background="Transparent"
-                        FontSize="20"
-                        FontWeight="Bold"
-                        Style="{StaticResource TitleStyle}"
-                        Text="Potwierdź hasło"
-                        TextAlignment="Left" />
-                        <Separator Height="15" Margin="0,0,0,0" />
-                        <TextBlock
-                        Margin="0"
-                        Padding="15,10"
-                        HorizontalAlignment="Stretch"
-                        Background="Transparent"
-                        FontSize="20"
-                        FontWeight="Bold"
-                        Style="{StaticResource TitleStyle}"
-                        Text="Uprawnienia"
-                        TextAlignment="Left" />
+                    <StackPanel Height="300" Margin="0,20,0,0">
+                        <TextBlock Style="{StaticResource SimpleTexBloxkMain}" Text="Nazwa użytkownika" />
+                        <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                        <TextBlock Style="{StaticResource SimpleTexBloxkMain}" Text="Hasło" />
+                        <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                        <TextBlock Style="{StaticResource SimpleTexBloxkMain}" Text="Potwierdź hasło" />
+                        <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                        <TextBlock Style="{StaticResource SimpleTexBloxkMain}" Text="Uprawnienia" />
                     </StackPanel>
                     <StackPanel Height="300" Margin="20,23,0,0">
-                        <TextBox
-                        MinWidth="200"
-                        VerticalAlignment="Center"
-                        FontSize="24"
-                        Text="{Binding SelectedUser.Username}"
-                        TextAlignment="Center" />
-                        <Separator Height="15" Margin="0,-5,0,0" />
-                        <ui:PasswordBox
-                        MinWidth="200"
-                        VerticalAlignment="Center"
-                        FontSize="24"
-                        RevealButtonEnabled="False"
-                        Text="{Binding SelectedUser.Password}"
-                        TextAlignment="Center" />
-                        <Separator Height="15" Margin="0,-5,0,0" />
-                        <ui:PasswordBox
-                        MinWidth="200"
-                        VerticalAlignment="Center"
-                        FontSize="24"
-                        Text="{Binding CheckPassword}"
-                        TextAlignment="Center" />
-                        <Separator Height="25" Margin="0,-5,0,0" />
+                        <TextBox Style="{StaticResource SimpleUserTextBoxMain}" Text="{Binding SelectedUser.Username}" />
+                        <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                        <ui:PasswordBox Style="{StaticResource SimpleUserPasswordBoxMain}" Text="{Binding SelectedUser.Password}" />
+                        <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                        <ui:PasswordBox Style="{StaticResource SimpleUserPasswordBoxMain}" Text="{Binding CheckPassword}" />
+                        <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
                         <StackPanel Orientation="Horizontal">
-                            <RadioButton Content="Klient" IsChecked="{Binding IsClient}" />
-                            <RadioButton Content="Instalator" IsChecked="{Binding IsInstallator}" />
-                            <RadioButton Content="Administrator" IsChecked="{Binding IsAdmin}" />
+                            <RadioButton
+                                Margin="5,0,0,0"
+                                Content="Klient"
+                                IsChecked="{Binding IsClient}"
+                                Style="{StaticResource SimpleRadioButtonMainStyle}" />
+                            <Separator Width="40" Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                            <RadioButton
+                                Content="Instalator"
+                                IsChecked="{Binding IsInstallator}"
+                                Style="{StaticResource SimpleRadioButtonMainStyle}" />
+                            <Separator Width="40" Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                            <RadioButton
+                                Content="Administrator"
+                                IsChecked="{Binding IsAdmin}"
+                                Style="{StaticResource SimpleRadioButtonMainStyle}" />
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Margin="50,0,0,0" Orientation="Horizontal">
+                <StackPanel Margin="-80,-50,0,0" Orientation="Horizontal">
                     <ui:Button
-                    Width="180"
-                    Height="40"
-                    Appearance="Success"
-                    Background="White"
-                    Command="{Binding AddNewUserButtonClick}">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <Image
-                            Grid.Column="0"
-                            Width="30"
-                            Height="30"
-                            Source="/Models/Resources/Icons/SaveBlack.png" />
-                            <TextBlock
-                            Grid.Column="1"
-                            Margin="5,0,0,0"
-                            FontSize="20"
-                            FontWeight="Bold"
-                            Foreground="Black"
-                            Text="Zapisz" />
-                        </Grid>
-                    </ui:Button>
-                    <Separator Width="10" />
+                        Width="250"
+                        Command="{Binding AddNewUserButtonClick}"
+                        Content="Dodaj"
+                        Style="{StaticResource SimpleAddButton}" />
+                    <Separator Width="10" Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
                     <ui:Button
-                    Width="180"
-                    Height="40"
-                    Appearance="Primary"
-                    Background="White"
-                    Command="{Binding UpdateUserButtonClick}">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <Image
-                            Grid.Column="0"
-                            Width="30"
-                            Height="30"
-                            Source="/Models/Resources/Icons/UpdateBlack.png" />
-                            <TextBlock
-                            Grid.Column="1"
-                            Margin="5,0,0,0"
-                            FontSize="20"
-                            FontWeight="Bold"
-                            Foreground="Black"
-                            Text="Aktualizuj" />
-                        </Grid>
-                    </ui:Button>
-                    <Separator Width="10" />
+                        Width="250"
+                        Command="{Binding AddNewUserButtonClick}"
+                        Content="Zaktualizuj"
+                        Style="{StaticResource SimpleUpdateButton}" />
+                    <Separator Width="10" Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
                     <ui:Button
-                    Width="180"
-                    Height="40"
-                    Appearance="Danger"
-                    Background="White"
-                    Command="{Binding DeleteUserButtonClick}">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <Image
-                            Grid.Column="0"
-                            Width="30"
-                            Height="30"
-                            Source="/Models/Resources/Icons/DeleteBlack.png" />
-                            <TextBlock
-                            Grid.Column="1"
-                            Margin="5,0,0,0"
-                            FontSize="20"
-                            FontWeight="Bold"
-                            Foreground="Black"
-                            Text="Usuń" />
-                        </Grid>
-                    </ui:Button>
-                    <Separator Width="10" />
-
+                        Width="250"
+                        Command="{Binding AddNewUserButtonClick}"
+                        Content="Usuń"
+                        Style="{StaticResource SimpleDeleteButton}" />
                 </StackPanel>
             </StackPanel>
         </Grid>

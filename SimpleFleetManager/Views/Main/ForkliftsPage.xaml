@@ -26,230 +26,69 @@
         <!--#endregion-->
         <!--#region Side menu-->
         <StackPanel Grid.Column="0">
-            <TextBlock
-                Height="50"
-                Margin="0"
-                Padding="15,10"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Center"
-                Background="Orange"
-                FontSize="18"
-                FontWeight="Bold"
-                Foreground="White"
-                Opacity="1"
-                Text="Wybier wózek"
-                TextAlignment="Center" />
-            <Separator Height="5" Margin="0,0,0,0" />
             <!--#region Combo box for selecting forklift-->
+            <TextBlock Style="{StaticResource SimpleExpandableMenuTextStyle}" Text="Wybierz dostępny wózek" />
+            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
             <ComboBox
-                Width="250"
-                Height="40"
                 IsDropDownOpen="{Binding IsComboboxOpened, Mode=TwoWay}"
                 ItemsSource="{Binding AvaibleForklifts}"
                 SelectedItem="{Binding SelectedForklift}"
-                SelectedValuePath="Id">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <TextBlock FontWeight="Bold">
-                                <Run Text="{Binding Name}" />
-                                <Run Text="{Binding ForkliftIpAddress}" />
-                            </TextBlock>
-                        </Grid>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-                <ComboBox.ItemContainerStyle>
-                    <Style TargetType="ComboBoxItem">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="ComboBoxItem">
-                                    <ui:Button
-                                        Width="250"
-                                        Height="40"
-                                        HorizontalContentAlignment="Stretch"
-                                        Background="Transparent"
-                                        BorderBrush="Transparent"
-                                        Command="{Binding RelativeSource={RelativeSource AncestorType=ComboBox}, Path=DataContext.SelectForkliftFromList}"
-                                        CommandParameter="{Binding Id}"
-                                        MouseOverBackground="Orange">
-                                        <ContentPresenter />
-                                    </ui:Button>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </ComboBox.ItemContainerStyle>
-            </ComboBox>
-            <Separator Height="5" />
+                SelectedValuePath="Id"
+                Style="{StaticResource SimpleComboBoxFlatStyle}" />
+            <!--#endregion-->
+            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
             <TextBlock
-                Height="50"
-                Margin="0"
-                Padding="15,10"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Center"
-                Background="Orange"
-                FontSize="18"
-                FontWeight="Bold"
-                Foreground="White"
-                Opacity="1"
-                Text="Wybier stronę"
+                Style="{StaticResource SimpleExpandableMenuTextStyle}"
+                Text="Wybierz stronę"
                 TextAlignment="Center" />
-            <Separator Height="5" />
+            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
             <!--#region Live work parameters menu button-->
-            <ui:Button
-                Width="250"
-                Height="50"
-                HorizontalContentAlignment="Left"
-                Background="Transparent"
+            <Button
                 Command="{Binding ActualParametersButtonClick}"
-                MouseOverBackground="Orange"
-                MouseOverBorderBrush="Orange">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Image Grid.Column="0" Source="/Models/Resources/Icons/LiveParametersPageWhite.png" />
-                    <TextBlock
-                        Grid.Column="1"
-                        Margin="15,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="18"
-                        FontWeight="Bold"
-                        Foreground="White"
-                        Text="Aktualne parametry" />
-                </Grid>
-            </ui:Button>
+                Content="Aktualne parametry"
+                Style="{StaticResource SimpleMainMenuButtonSecondary}"
+                Tag="{StaticResource LiveParametersPageIcon}" />
+            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
             <!--#endregion-->
             <!--#region Errors page menu button-->
-            <ui:Button
-                Width="250"
-                Height="50"
-                HorizontalContentAlignment="Left"
-                Background="Transparent"
+            <Button
                 Command="{Binding ErrorsPageButtonClick}"
-                MouseOverBackground="Orange"
-                MouseOverBorderBrush="Orange">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Image Grid.Column="0" Source="/Models/Resources/Icons/LiveParametersPageWhite.png" />
-                    <TextBlock
-                        Grid.Column="1"
-                        Margin="15,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="18"
-                        FontWeight="Bold"
-                        Foreground="White"
-                        Text="Błędy" />
-                </Grid>
-            </ui:Button>
+                Content="Lista błędów"
+                Style="{StaticResource SimpleMainMenuButtonSecondary}"
+                Tag="{StaticResource ErrorsPageIcon}" />
+            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
             <!--#endregion-->
             <!--#region Safety page menu button-->
-            <ui:Button
-                Width="250"
-                Height="50"
-                HorizontalContentAlignment="Left"
-                Background="Transparent"
+            <Button
                 Command="{Binding SafetyPageButtonClick}"
-                MouseOverBackground="Orange"
-                MouseOverBorderBrush="Orange">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Image Grid.Column="0" Source="/Models/Resources/Icons/LiveParametersPageWhite.png" />
-                    <TextBlock
-                        Grid.Column="1"
-                        Margin="15,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="18"
-                        FontWeight="Bold"
-                        Foreground="White"
-                        Text="Statusy safety" />
-                </Grid>
-            </ui:Button>
+                Content="Stany urządzeń safety"
+                Style="{StaticResource SimpleMainMenuButtonSecondary}"
+                Tag="{StaticResource SafetyIcon}" />
+            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
             <!--#endregion-->
             <!--#region Sick API menu button-->
-            <ui:Button
-                Width="250"
-                Height="50"
-                HorizontalContentAlignment="Left"
-                Background="Transparent"
+            <Button
                 Command="{Binding SickApiPageButtonClick}"
-                MouseOverBackground="Orange"
-                MouseOverBorderBrush="Orange">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Image Grid.Column="0" Source="/Models/Resources/Icons/LiveParametersPageWhite.png" />
-                    <TextBlock
-                        Grid.Column="1"
-                        Margin="15,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="18"
-                        FontWeight="Bold"
-                        Foreground="White"
-                        Text="SICK API" />
-                </Grid>
-            </ui:Button>
+                Content="SICK API"
+                Style="{StaticResource SimpleMainMenuButtonSecondary}"
+                Tag="{StaticResource ApiIcon}" />
+            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
             <!--#endregion-->
             <!--#region Work Page menu button-->
-            <ui:Button
-                Width="250"
-                Height="50"
-                HorizontalContentAlignment="Left"
-                Background="Transparent"
+            <Button
                 Command="{Binding WorkPageButtonClick}"
-                MouseOverBackground="Orange"
-                MouseOverBorderBrush="Orange">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Image Grid.Column="0" Source="/Models/Resources/Icons/LiveParametersPageWhite.png" />
-                    <TextBlock
-                        Grid.Column="1"
-                        Margin="15,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="18"
-                        FontWeight="Bold"
-                        Foreground="White"
-                        Text="Aktualna praca" />
-                </Grid>
-            </ui:Button>
+                Content="Praca i stany"
+                Style="{StaticResource SimpleMainMenuButtonSecondary}"
+                Tag="{StaticResource WorkIcon}" />
+            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
             <!--#endregion-->
             <!--#region Logs page menu button-->
-            <ui:Button
-                Width="250"
-                Height="50"
-                HorizontalContentAlignment="Left"
-                Background="Transparent"
+            <Button
                 Command="{Binding LogPageButtonClick}"
-                MouseOverBackground="Orange"
-                MouseOverBorderBrush="Orange">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Image Grid.Column="0" Source="/Models/Resources/Icons/LiveParametersPageWhite.png" />
-                    <TextBlock
-                        Grid.Column="1"
-                        Margin="15,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="18"
-                        FontWeight="Bold"
-                        Foreground="White"
-                        Text="Dziennik zdarzeń" />
-                </Grid>
-            </ui:Button>
+                Content="Dziennik zdarzeń"
+                Style="{StaticResource SimpleMainMenuButtonSecondary}"
+                Tag="{StaticResource LogbookIcon}" />
+            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
             <!--#endregion-->
             <!--#endregion-->
         </StackPanel>
@@ -257,8 +96,9 @@
         <Frame
             x:Name="PageContainer"
             Grid.Column="1"
+            Width="1610"
             Content="{Binding ForkliftsCurrentPage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-            NavigationUIVisibility="Hidden" />
+            Style="{StaticResource SimplePageContainerStyle}" />
         <!--#endregion-->
         <!--#endregion-->
     </Grid>

@@ -22,7 +22,7 @@
         <conv:NegativeBoolToVisibility x:Key="NegativeVisibility" />
     </Page.Resources>
     <Grid>
-        <TabControl>
+        <TabControl Style="{StaticResource SimpleTabControlStyle}">
             <!--#region PLC Errors tab-->
             <TabItem Header="Sterownik PLC">
                 <Grid>
@@ -35,170 +35,98 @@
                         <!--#endregion-->
                         <!--#region Descriptions stack panel-->
                         <StackPanel>
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="White"
-                                Text="Błąd modułu analogowego - odczyt baterii:" />
-                            <Separator Height="8.3" Background="Transparent" />
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="White"
-                                Text="Błąd modułu analogowego - czujnik ciśnienia:" />
-                            <Separator Height="8.3" Background="Transparent" />
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="White"
-                                Text="Błąd modułu analogowego - czujnik wysokości wideł:" />
-                            <Separator Height="8.3" Background="Transparent" />
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="White"
-                                Text="Błąd modułu analogowego - czujnik przechyłu oś 1:" />
-                            <Separator Height="8.3" Background="Transparent" />
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="White"
-                                Text="Błąd modułu analogowego - czujnik przechyłu oś 2:" />
-                            <Separator Height="8.3" Background="Transparent" />
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="White"
-                                Text="Błąd modułu analogowego - manetka przyspieszenia:" />
-                            <Separator Height="8.3" Background="Transparent" />
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="White"
-                                Text="Błąd modułu analogowego - sterowanie prędkością CURTIS:" />
-                            <Separator Height="8.3" Background="Transparent" />
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="White"
-                                Text="Błąd modułu CAN Open - Scangrid lewy:" />
-                            <Separator Height="8.3" Background="Transparent" />
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="White"
-                                Text="Błąd modułu CAN Open - Scangrid prawy:" />
-                            <Separator Height="8.3" Background="Transparent" />
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="White"
-                                Text="Błąd modułu CAN Motion - zatrzymanie serwonapędu" />
-                            <Separator Height="8.3" Background="Transparent" />
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="White"
-                                Text="Błąd modułu CAN Motion - ruch serwonapędu:" />
-                            <Separator Height="8.3" Background="Transparent" />
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="White"
-                                Text="Błąd modułu CAN Motion - odczyt aktualnej pozycji serwonapędu:" />
-                            <Separator Height="8.3" Background="Transparent" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd modułu analogowego - odczyt baterii:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd modułu analogowego - czujnik ciśnienia:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd modułu analogowego - czujnik wysokości wideł:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd modułu analogowego - czujnik przechyłu oś 1:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd modułu analogowego - czujnik przechyłu oś 2:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd modułu analogowego - manetka przyspieszenia:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd modułu analogowego - sterowanie prędkością CURTIS:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd modułu CAN Open - Scangrid lewy:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd modułu CAN Open - Scangrid prawy:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd modułu CAN Motion - zatrzymanie serwonapędu" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd modułu CAN Motion - ruch serwonapędu:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd modułu CAN Motion - odczyt aktualnej pozycji serwonapędu:" />
                         </StackPanel>
                         <!--#endregion-->
                         <!--#region Data statuses stack panel-->
                         <StackPanel Margin="15,0,0,0">
-                            <Image Height="30" Source="{Binding Data.PlcErrorStatus.BatteryVoltageRead, Converter={StaticResource BoolGreyRed}}" />
-                            <Separator Height="5" Background="Transparent" />
-                            <Image Height="30" Source="{Binding Data.PlcErrorStatus.PressureSensor, Converter={StaticResource BoolGreyRed}}" />
-                            <Separator Height="5" Background="Transparent" />
-                            <Image Height="30" Source="{Binding Data.PlcErrorStatus.ForksHeightSensor, Converter={StaticResource BoolGreyRed}}" />
-                            <Separator Height="5" Background="Transparent" />
-                            <Image Height="30" Source="{Binding Data.PlcErrorStatus.TiltSensorAxis1, Converter={StaticResource BoolGreyRed}}" />
-                            <Separator Height="5" Background="Transparent" />
-                            <Image Height="30" Source="{Binding Data.PlcErrorStatus.TiltSensorAxis2, Converter={StaticResource BoolGreyRed}}" />
-                            <Separator Height="5" Background="Transparent" />
-                            <Image Height="30" Source="{Binding Data.PlcErrorStatus.ManualModeSpeedRegulator, Converter={StaticResource BoolGreyRed}}" />
-                            <Separator Height="5" Background="Transparent" />
-                            <Image Height="30" Source="{Binding Data.PlcErrorStatus.PowerToCurtisWrite, Converter={StaticResource BoolGreyRed}}" />
-                            <Separator Height="5" Background="Transparent" />
-                            <Image Height="30" Source="{Binding Data.PlcErrorStatus.ScangridLeftReadMeasurement, Converter={StaticResource BoolGreyRed}}" />
-                            <Separator Height="5" Background="Transparent" />
-                            <Image Height="30" Source="{Binding Data.PlcErrorStatus.ScangridRightReadMeasurement, Converter={StaticResource BoolGreyRed}}" />
-                            <Separator Height="5" Background="Transparent" />
-                            <Image Height="30" Source="{Binding Data.PlcErrorStatus.ServoHalt, Converter={StaticResource BoolGreyRed}}" />
-                            <Separator Height="5" Background="Transparent" />
-                            <Image Height="30" Source="{Binding Data.PlcErrorStatus.ServoMove, Converter={StaticResource BoolGreyRed}}" />
-                            <Separator Height="5" Background="Transparent" />
-                            <Image Height="30" Source="{Binding Data.PlcErrorStatus.ServoPositionRead, Converter={StaticResource BoolGreyRed}}" />
-                            <Separator Height="5" Background="Transparent" />
+                            <Image Source="{Binding Data.PlcErrorStatus.BatteryVoltageRead, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.PlcErrorStatus.PressureSensor, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.PlcErrorStatus.ForksHeightSensor, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.PlcErrorStatus.TiltSensorAxis1, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.PlcErrorStatus.TiltSensorAxis2, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.PlcErrorStatus.ManualModeSpeedRegulator, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.PlcErrorStatus.PowerToCurtisWrite, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.PlcErrorStatus.ScangridLeftReadMeasurement, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.PlcErrorStatus.ScangridRightReadMeasurement, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.PlcErrorStatus.ServoHalt, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.PlcErrorStatus.ServoMove, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.PlcErrorStatus.ServoPositionRead, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
                         </StackPanel>
                         <!--#endregion-->
                         <!--#region Data error codes stack panel-->
                         <StackPanel Width="100" Margin="15,0,0,0">
                             <TextBlock
-                                FontSize="20"
                                 Foreground="Red"
+                                Style="{StaticResource SimpleDataStyle}"
                                 Text="{Binding Data.PlcErrorCodes.BatteryVoltageRead}"
                                 Visibility="{Binding Data.PlcErrorStatus.BatteryVoltageRead, Converter={StaticResource NegativeVisibility}}" />
-                            <Separator Height="8.3" Background="Transparent" />
                             <TextBlock
-                                FontSize="20"
                                 Foreground="Red"
+                                Style="{StaticResource SimpleDataStyle}"
                                 Text="{Binding Data.PlcErrorCodes.BatteryVoltageRead}"
                                 Visibility="{Binding Data.PlcErrorStatus.BatteryVoltageRead, Converter={StaticResource NegativeVisibility}}" />
-                            <Separator Height="8.3" Background="Transparent" />
                             <TextBlock
-                                FontSize="20"
                                 Foreground="Red"
+                                Style="{StaticResource SimpleDataStyle}"
                                 Text="{Binding Data.PlcErrorCodes.ForksHeightSensor}"
                                 Visibility="{Binding Data.PlcErrorStatus.ForksHeightSensor, Converter={StaticResource NegativeVisibility}}" />
-                            <Separator Height="8.3" Background="Transparent" />
                             <TextBlock
-                                FontSize="20"
                                 Foreground="Red"
+                                Style="{StaticResource SimpleDataStyle}"
                                 Text="{Binding Data.PlcErrorCodes.TiltSensorAxis1}"
                                 Visibility="{Binding Data.PlcErrorStatus.TiltSensorAxis1, Converter={StaticResource NegativeVisibility}}" />
-                            <Separator Height="8.3" Background="Transparent" />
                             <TextBlock
-                                FontSize="20"
                                 Foreground="Red"
+                                Style="{StaticResource SimpleDataStyle}"
                                 Text="{Binding Data.PlcErrorCodes.TiltSensorAxis2}"
                                 Visibility="{Binding Data.PlcErrorStatus.TiltSensorAxis2, Converter={StaticResource NegativeVisibility}}" />
-                            <Separator Height="8.3" Background="Transparent" />
                             <TextBlock
-                                FontSize="20"
                                 Foreground="Red"
+                                Style="{StaticResource SimpleDataStyle}"
                                 Text="{Binding Data.PlcErrorCodes.ManualModeSpeedRegulator}"
                                 Visibility="{Binding Data.PlcErrorStatus.ManualModeSpeedRegulator, Converter={StaticResource NegativeVisibility}}" />
-                            <Separator Height="8.3" Background="Transparent" />
                             <TextBlock
-                                FontSize="20"
                                 Foreground="Red"
+                                Style="{StaticResource SimpleDataStyle}"
                                 Text="{Binding Data.PlcErrorCodes.PowerToCurtisWrite}"
                                 Visibility="{Binding Data.PlcErrorStatus.PowerToCurtisWrite, Converter={StaticResource NegativeVisibility}}" />
-                            <Separator Height="8.3" Background="Transparent" />
                             <TextBlock
-                                FontSize="20"
                                 Foreground="Red"
+                                Style="{StaticResource SimpleDataStyle}"
                                 Text="{Binding Data.PlcErrorCodes.ScangridLeftReadMeasurement}"
                                 Visibility="{Binding Data.PlcErrorStatus.ScangridLeftReadMeasurement, Converter={StaticResource NegativeVisibility}}" />
-                            <Separator Height="8.3" Background="Transparent" />
                             <TextBlock
-                                FontSize="20"
                                 Foreground="Red"
+                                Style="{StaticResource SimpleDataStyle}"
                                 Text="{Binding Data.PlcErrorCodes.ScangridRightReadMeasurement}"
                                 Visibility="{Binding Data.PlcErrorStatus.ScangridRightReadMeasurement, Converter={StaticResource NegativeVisibility}}" />
-                            <Separator Height="8.3" Background="Transparent" />
                             <TextBlock
-                                FontSize="20"
                                 Foreground="Red"
+                                Style="{StaticResource SimpleDataStyle}"
                                 Text="{Binding Data.PlcErrorCodes.ServoHalt}"
                                 Visibility="{Binding Data.PlcErrorStatus.ServoHalt, Converter={StaticResource NegativeVisibility}}" />
-                            <Separator Height="8.3" Background="Transparent" />
                             <TextBlock
-                                FontSize="20"
                                 Foreground="Red"
+                                Style="{StaticResource SimpleDataStyle}"
                                 Text="{Binding Data.PlcErrorCodes.ServoMove}"
                                 Visibility="{Binding Data.PlcErrorStatus.ServoMove, Converter={StaticResource NegativeVisibility}}" />
-                            <Separator Height="8.3" Background="Transparent" />
                             <TextBlock
-                                FontSize="20"
                                 Foreground="Red"
+                                Style="{StaticResource SimpleDataStyle}"
                                 Text="{Binding Data.PlcErrorCodes.ServoPositionRead}"
                                 Visibility="{Binding Data.PlcErrorStatus.ServoPositionRead, Converter={StaticResource NegativeVisibility}}" />
-                            <Separator Height="8.3" Background="Transparent" />
                         </StackPanel>
                         <!--#endregion-->
                     </StackPanel>

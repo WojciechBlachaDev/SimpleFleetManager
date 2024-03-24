@@ -14,7 +14,7 @@
     mc:Ignorable="d">
 
     <Grid>
-        <TabControl>
+        <TabControl Style="{StaticResource SimpleTabControlStyle}">
             <TabItem Header="LidarLoc">
                 <cefsharp:ChromiumWebBrowser
                     Name="LidarLoc"

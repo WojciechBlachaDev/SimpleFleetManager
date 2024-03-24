@@ -97,6 +97,7 @@ namespace SimpleFleetManager.ViewModels.Main
             _userStore = userStore;
             _userDataService = userDataService;
             SelectedUser ??= new();
+            SelectedUser.AccessLevel = 3;
             SelectUserFromList = new RelayCommand(ExecuteSelectUserFromList);
             DeleteUserButtonClick = new RelayCommand(ExecuteDeleteUserButtonClick);
             UpdateUserButtonClick = new RelayCommand(ExecuteUpdateUserButtonClick);

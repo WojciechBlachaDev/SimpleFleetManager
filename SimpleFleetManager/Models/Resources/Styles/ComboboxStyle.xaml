@@ -173,7 +173,6 @@
                             </Grid>
                         </Popup>
                     </Grid>
-
                     <ControlTemplate.Triggers>
                         <Trigger Property="ItemsControl.HasItems" Value="False">
                             <Setter TargetName="DropDownBorder" Property="FrameworkElement.MinHeight" Value="125" />
@@ -222,7 +221,6 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
     <!--#region Combobox item-->
     <Style x:Key="{x:Type ComboBoxItem}" TargetType="{x:Type ComboBoxItem}">
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -231,7 +229,7 @@
         <Setter Property="OverridesDefaultStyle" Value="true" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="Background" Value="DarkGray" />
+        <Setter Property="Background" Value="Yellow" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Template">
             <Setter.Value>
@@ -242,12 +240,10 @@
                         BorderBrush="Gray"
                         BorderThickness="0,0,0,1"
                         CornerRadius="0">
-
                         <TextBlock
                             FontSize="18"
                             Foreground="{TemplateBinding Foreground}"
                             Text="{Binding}" />
-
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

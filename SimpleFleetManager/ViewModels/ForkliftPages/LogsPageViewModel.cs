@@ -88,7 +88,7 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
             }
         }
         private readonly LogsDataService _logsDataService;
-        private int _minimumActualLogLevel = 1;
+        private int _minimumActualLogLevel;
         public int MinimumActualLogLevel
         {
             get
@@ -100,13 +100,13 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
                 if (_minimumActualLogLevel != value)
                 {
                     _minimumActualLogLevel = value;
-                    //TU SE KURWA DODAJ
+                    VerifyLogLevel(1);
                     OnPropertyChanged(nameof(MinimumActualLogLevel));
                 }
                 
             }
         }
-        private int _maximumActualLogLevel = 5;
+        private int _maximumActualLogLevel;
         public int MaximumActualLogLevel
         {
             get
@@ -115,11 +115,15 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
             }
             set
             {
-                _maximumActualLogLevel = value;
-                OnPropertyChanged(nameof(MaximumActualLogLevel));
+                if (_maximumActualLogLevel != value)
+                {
+                    _maximumActualLogLevel = value;
+                    VerifyLogLevel(2);
+                    OnPropertyChanged(nameof(MaximumActualLogLevel));
+                }
             }
         }
-        private int _minimumSavedLogLevel = 1;
+        private int _minimumSavedLogLevel;
         public int MinimumSavedLogLevel
         {
             get
@@ -128,11 +132,16 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
             }
             set
             {
-                _minimumSavedLogLevel = value;
-                OnPropertyChanged(nameof(MinimumSavedLogLevel));
+                if (_minimumSavedLogLevel != value)
+                {
+                    _minimumSavedLogLevel = value;
+                    VerifyLogLevel(1);
+                    OnPropertyChanged(nameof(MinimumSavedLogLevel));
+                }
+                
             }
         }
-        private int _maximumSavedlLogLevel = 5;
+        private int _maximumSavedlLogLevel;
         public int MaximumSavedLogLevel
         {
             get
@@ -141,8 +150,13 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
             }
             set
             {
-                _maximumSavedlLogLevel = value;
-                OnPropertyChanged(nameof(MaximumSavedLogLevel));
+                if (_maximumSavedlLogLevel != value)
+                {
+                    _maximumSavedlLogLevel = value;
+                    VerifyLogLevel(2);
+                    OnPropertyChanged(nameof(MaximumSavedLogLevel));
+                }
+                
             }
         }
         private List<string>? _avaibleLevels;
@@ -183,9 +197,13 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
                 return _maximumActualLogBoxOpened;
             }
             set
-            {
-                _maximumActualLogBoxOpened = value;
-                OnPropertyChanged(nameof(MaximumActualLogBoxOpened));
+            {   
+                if (_maximumActualLogBoxOpened != value)
+                {
+                    _maximumActualLogBoxOpened = value;
+
+                    OnPropertyChanged(nameof(MaximumActualLogBoxOpened));
+                }
             }
         }
         private bool _minimumSavedLogBoxOpened;
@@ -198,6 +216,7 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
             set
             {
                 _minimumSavedLogBoxOpened = value;
+                
                 OnPropertyChanged(nameof(MinimumSavedLogBoxOpened));
             }
         }
@@ -211,6 +230,7 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
             set
             {
                 _maximumSavedLogBoxOpened = value;
+
                 OnPropertyChanged(nameof(MaximumSavedLogBoxOpened));
             }
         }
@@ -221,14 +241,15 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
             _logsDataService = logsDataService;
             _selectedForklift = selectedForklift;
             AvaibleLevels = new List<string> { "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL" };
-            SelectMaximumActualLogLevel = new RelayCommand(ExecuteSelectMaximumActualLogLevel);
+/*            SelectMaximumActualLogLevel = new RelayCommand(ExecuteSelectMaximumActualLogLevel);
             SelectMinimumActualLogLevel = new RelayCommand(ExecuteSelectMinimumActualLogLevel);
             SelectMaximumSavedLogLevel = new RelayCommand(ExecuteSelectMaximumSavedLogLevel);
-            SelectMinimumSavedLogLevel = new RelayCommand(ExecuteSelectMinimumSavedLogLevel);
+            SelectMinimumSavedLogLevel = new RelayCommand(ExecuteSelectMinimumSavedLogLevel);*/
+            SetDeafultFilter();
             Task.Run(() => { RefreshData(); });
         }
         #endregion
-        #region Logic
+        #region Logic async
         private async void RefreshData()
         {
             while (_selectedForklift != null && _selectedForklift.ActualLog != null)
@@ -273,6 +294,40 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
                     FilteredForkliftSavedLogs.Append(log);
                 }
             }
+        }
+        private void SetDeafultFilter()
+        {
+            MinimumActualLogLevel = 1;
+            MaximumActualLogLevel = 5;
+            MinimumSavedLogLevel = 1;
+            MaximumSavedLogLevel = 5;
+        }
+        private void VerifyLogLevel(int checkType)
+        {
+            if (checkType == 1)
+            {
+                if (MinimumSavedLogLevel > MaximumSavedLogLevel)
+                {
+                    MaximumSavedLogLevel = MinimumSavedLogLevel;
+                }
+                if (MinimumActualLogLevel > MaximumActualLogLevel)
+                {
+                    MaximumActualLogLevel = MinimumActualLogLevel;
+                }
+            }
+            else
+            {
+                if (MaximumSavedLogLevel < MinimumSavedLogLevel)
+                {
+                    MinimumSavedLogLevel = MaximumSavedLogLevel;
+                }
+
+                if (MaximumActualLogLevel < MinimumActualLogLevel)
+                {
+                    MinimumActualLogLevel = MaximumActualLogLevel;
+                }
+            }
+           
         }
         #endregion
         #region Buttons execution
