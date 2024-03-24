@@ -240,7 +240,7 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
         {
             _logsDataService = logsDataService;
             _selectedForklift = selectedForklift;
-            AvaibleLevels = new List<string> { "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL" };
+            AvaibleLevels = ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"];
 /*            SelectMaximumActualLogLevel = new RelayCommand(ExecuteSelectMaximumActualLogLevel);
             SelectMinimumActualLogLevel = new RelayCommand(ExecuteSelectMinimumActualLogLevel);
             SelectMaximumSavedLogLevel = new RelayCommand(ExecuteSelectMaximumSavedLogLevel);
@@ -261,7 +261,7 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
                 {
                     if (log.ForkliftId == _selectedForklift.Id)
                     {
-                        SelectedForkliftSavedLogs.Append(log);
+                        SelectedForkliftSavedLogs.Add(log);
                     }
                 }
                 FilterActualLogs();
@@ -271,12 +271,6 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
         }
         #endregion
         #region Logic
-        private bool IsLogLevelOk(int level)
-        {
-            if (1 > level) { return false; }
-            if (5 < level) { return false; } 
-            return true;
-        }
         private void FilterActualLogs()
         {
             if (_selectedForkliftLog != null && SelectedForkliftLog.Level >= MinimumActualLogLevel && SelectedForkliftLog.Level <= MaximumActualLogLevel)
@@ -291,7 +285,7 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
             {
                 if (log.Level >= MinimumSavedLogLevel && log.Level <= MaximumActualLogLevel)
                 {
-                    FilteredForkliftSavedLogs.Append(log);
+                    FilteredForkliftSavedLogs.Add(log);
                 }
             }
         }
@@ -330,61 +324,6 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
            
         }
         #endregion
-        #region Buttons execution
-        private void ExecuteSelectMinimumActualLogLevel(object? o)
-        {
-            if (o != null && IsLogLevelOk(Convert.ToInt32(o)))
-            {
-                MinimumActualLogLevel = (int)o;
-                if (MinimumActualLogLevel > MaximumActualLogLevel)
-                {
-                    MaximumActualLogLevel = MinimumActualLogLevel;
-                }
-            }
-            MinimumActualLogBoxOpened = false;
-        }
-        private void ExecuteSelectMaximumActualLogLevel(object? o)
-        {
-            if(o != null && IsLogLevelOk(Convert.ToInt32(o)))
-            {
-                MaximumActualLogLevel = (int)o;
-                if (MaximumActualLogLevel < MinimumActualLogLevel)
-                {
-                    MinimumActualLogLevel = MaximumActualLogLevel;
-                }
-            }
-            MaximumSavedLogBoxOpened = false;
-        }
-        private void ExecuteSelectMinimumSavedLogLevel(object? o)
-        {
-            if( o != null && IsLogLevelOk(Convert.ToInt32(o)))
-            {
-                MinimumSavedLogLevel = (int)o;
-                if (MinimumSavedLogLevel > MaximumSavedLogLevel)
-                {
-                    MaximumSavedLogLevel = MinimumSavedLogLevel;
-                }
-            }
-            MinimumSavedLogBoxOpened = false;
-        }
-        private void ExecuteSelectMaximumSavedLogLevel(object? o)
-        {
-            if (o != null && IsLogLevelOk(Convert.ToInt32(o))) 
-            { 
-                MaximumSavedLogLevel = (int)o; 
-                if (MaximumSavedLogLevel < MinimumSavedLogLevel)
-                {
-                    MinimumSavedLogLevel = MaximumSavedLogLevel;
-                }
-            }
-            MaximumSavedLogBoxOpened = false;
-        }
-        #endregion
-        #region ICommand declarations
-        public ICommand? SelectMinimumActualLogLevel {  get; private set; }
-        public ICommand? SelectMaximumActualLogLevel { get; private set; }
-        public ICommand? SelectMinimumSavedLogLevel { get; private set; }
-        public ICommand? SelectMaximumSavedLogLevel { get; private set; }
-        #endregion
+        
     }
 }

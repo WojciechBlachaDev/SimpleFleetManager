@@ -97,7 +97,6 @@
                         <!--#region Menu expander button with animation-->
                         <ToggleButton
                             x:Name="ShowwwPagesMenuButton"
-                            Height="50"
                             IsChecked="{Binding ShowMenu, Mode=TwoWay}"
                             Style="{StaticResource SimpleMenuExpanderButton}"
                             Tag="{Binding ShowMenu, Converter={StaticResource MenuExpanderConverter}}">
@@ -131,7 +130,7 @@
                                             <DoubleAnimation
                                                 Storyboard.TargetName="InstallatorMenuDescription"
                                                 Storyboard.TargetProperty="Height"
-                                                From="0"
+                                                From="5"
                                                 To="40"
                                                 Duration="0:0:0.8">
                                                 <DoubleAnimation.EasingFunction>
@@ -181,7 +180,7 @@
                                                 Storyboard.TargetName="InstallatorMenuDescription"
                                                 Storyboard.TargetProperty="Height"
                                                 From="40"
-                                                To="0"
+                                                To="5"
                                                 Duration="0:0:0.8">
                                                 <DoubleAnimation.EasingFunction>
                                                     <SineEase EasingMode="EaseInOut" />
