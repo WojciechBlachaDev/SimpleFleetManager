@@ -236,6 +236,13 @@
                             Content="Zarządzanie wózkami"
                             Style="{StaticResource SimpleMainMenuButton}"
                             Tag="{StaticResource MenuForkliftManagerIcon}" />
+                        <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                        <Button
+                            x:Name="LocationsmanagerButton"
+                            Command="{Binding LocationsManagerPageButtonClick}"
+                            Content="Zarządzanie wózkami"
+                            Style="{StaticResource SimpleMainMenuButton}"
+                            Tag="{StaticResource LocationManagerIcon}" />
                     </StackPanel>
                     <StackPanel>
                         <TextBlock Text="Tu tez dodaj" />

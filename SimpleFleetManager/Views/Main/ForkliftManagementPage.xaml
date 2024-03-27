@@ -58,15 +58,30 @@
                         <TextBlock Style="{StaticResource SimpleTexBloxkMain}" Text="Adres Visionary T-mini" />
                     </StackPanel>
                     <StackPanel Height="auto" Margin="20,23,0,0">
-                        <TextBox Style="{StaticResource SimpleUserTextBoxMain}" Text="{Binding CurrentForklift.Name}" />
+                        <TextBox
+                            Style="{StaticResource SimpleUserTextBoxMain}"
+                            Tag="Nadaj nazwę"
+                            Text="{Binding CurrentForklift.Name}" />
                         <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
-                        <TextBox Style="{StaticResource SimpleUserTextBoxMain}" Text="{Binding CurrentForklift.ForkliftIpAddress}" />
+                        <TextBox
+                            Style="{StaticResource SimpleUserTextBoxMain}"
+                            Tag="Podaj adres IP wózka"
+                            Text="{Binding CurrentForklift.ForkliftIpAddress}" />
                         <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
-                        <TextBox Style="{StaticResource SimpleUserTextBoxMain}" Text="{Binding CurrentForklift.Port}" />
+                        <TextBox
+                            Style="{StaticResource SimpleUserTextBoxMain}"
+                            Tag="Podaj port wózka"
+                            Text="{Binding CurrentForklift.Port}" />
                         <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
-                        <TextBox Style="{StaticResource SimpleUserTextBoxMain}" Text="{Binding CurrentForklift.LidarLocIpAddress}" />
+                        <TextBox
+                            Style="{StaticResource SimpleUserTextBoxMain}"
+                            Tag="Podaj adres urządzenia LidarLoc"
+                            Text="{Binding CurrentForklift.LidarLocIpAddress}" />
                         <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
-                        <TextBox Style="{StaticResource SimpleUserTextBoxMain}" Text="{Binding CurrentForklift.VisionaryIpAddress}" />
+                        <TextBox
+                            Style="{StaticResource SimpleUserTextBoxMain}"
+                            Tag="Podaj adres kamery 3D"
+                            Text="{Binding CurrentForklift.VisionaryIpAddress}" />
                     </StackPanel>
                 </StackPanel>
                 <StackPanel

@@ -21,262 +21,261 @@
         <conv:BoolToStatusGreyYellow x:Key="BoolGreyYellow" />
     </Page.Resources>
     <Grid>
-        <mah:MetroAnimatedTabControl>
-            <TabControl Style="{StaticResource SimpleTabControlStyle}">
-                <!--#region Main safety statuses-->
-                <TabItem Header="Główne urzadzenia">
-                    <Grid>
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Orientation="Horizontal">
-                            <!--#region Icons stack panel-->
-                            <StackPanel>
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/CpuWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/EncoderWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/StandstillWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/SpeedGuardWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/EmergencyStopButtonWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/EmergencyStopButtonWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                            </StackPanel>
-                            <!--#endregion-->
-                            <!--#region Descriptions stack panel-->
-                            <StackPanel Margin="15,0,0,0">
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Status głównego modułu bezpieczeństwa:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Status enkodera bezpieczeńtwa:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Potwierdzony bezpieczny postój:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan ochrony przed przekroczeniem bezpiecznej prędkości:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan lewego przycisku awaryjnego zatrzymania:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan prawego przycisku awaryjnego zatrzymania:" />
-                            </StackPanel>
-                            <!--#endregion-->
-                            <!--#region Data status stack panel-->
-                            <StackPanel Margin="15,0,0,0">
-                                <Image Source="{Binding Data.Safety.CpuOk, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.EncoderOk, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.Standstill, Converter={StaticResource BoolGreenGrey}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.SafeSpeed, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.ButtonemergencyLeft, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.ButtonemergencyRight, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                            </StackPanel>
-                            <!--#endregion-->
+
+        <TabControl Background="{StaticResource SimpleBackgroundBrush}">
+            <!--#region Main safety statuses-->
+            <TabItem Header="Główne urzadzenia" Style="{StaticResource SimpleTabItemStyle}">
+                <Grid>
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <!--#region Icons stack panel-->
+                        <StackPanel>
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/CpuWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/EncoderWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/StandstillWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/SpeedGuardWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/EmergencyStopButtonWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/EmergencyStopButtonWhite.png" Style="{StaticResource SimpleImageStyle}" />
                         </StackPanel>
-                    </Grid>
-                </TabItem>
-                <!--#endregion-->
-                <!--#region Left lidar tab-->
-                <TabItem Header="SICK MicroScan3 lewy">
-                    <Grid>
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Orientation="Horizontal">
-                            <!--#region Icons stack panel-->
-                            <StackPanel>
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/IsActiveWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/EmergencyZoneRed.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/SoftStopZoneOrange.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/ReducedSpeedZoneYellow.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/AppErrorWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/DeviceErrorWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                            </StackPanel>
-                            <!--#endregion-->
-                            <!--#region Descriptions stack panel-->
-                            <StackPanel Margin="15,0,0,0">
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan aktywności skanera:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy awaryjnego zatrzymania:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy zatrzymania:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy ograniczonej prędkości:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan kontroli przełączania przypadków monitorowania:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Ostrzeżenie o zabrudzeniu:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Bład zabrudzenia urządzenia:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd wewnętrzny programu skanera:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd urządzenia:" />
-                            </StackPanel>
-                            <!--#endregion-->
-                            <!--#region Data status stack panel-->
-                            <StackPanel Margin="15,0,0,0">
-                                <Image Source="{Binding Data.Safety.LidarLeft.IsActive, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.LidarLeft.EmergencyStopZoneStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.LidarLeft.SoftStopZoneStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.LidarLeft.ReducedSpeedZoneStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.LidarLeft.SwitchMonitoringCaseError, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.LidarLeft.ContaminationWarning, Converter={StaticResource BoolGreyYellow}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.LidarLeft.ContaminationError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.LidarLeft.AppError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.LidarLeft.DeviceError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
-                            </StackPanel>
-                            <!--#endregion-->
+                        <!--#endregion-->
+                        <!--#region Descriptions stack panel-->
+                        <StackPanel Margin="15,0,0,0">
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Status głównego modułu bezpieczeństwa:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Status enkodera bezpieczeńtwa:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Potwierdzony bezpieczny postój:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan ochrony przed przekroczeniem bezpiecznej prędkości:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan lewego przycisku awaryjnego zatrzymania:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan prawego przycisku awaryjnego zatrzymania:" />
                         </StackPanel>
-                    </Grid>
-                </TabItem>
-                <!--#endregion-->
-                <!--#region Left lidar tab-->
-                <TabItem Header="SICK MicroScan3 prawy">
-                    <Grid>
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Orientation="Horizontal">
-                            <!--#region Icons stack panel-->
-                            <StackPanel>
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/IsActiveWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/EmergencyZoneRed.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/SoftStopZoneOrange.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/ReducedSpeedZoneYellow.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/AppErrorWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/DeviceErrorWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                            </StackPanel>
-                            <!--#endregion-->
-                            <!--#region Descriptions stack panel-->
-                            <StackPanel Margin="15,0,0,0">
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan aktywności skanera:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy awaryjnego zatrzymania:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy zatrzymania:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy ograniczonej prędkości:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan kontroli przełączania przypadków monitorowania:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Ostrzeżenie o zabrudzeniu:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Bład zabrudzenia urządzenia:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd wewnętrzny programu skanera:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd urządzenia:" />
-                            </StackPanel>
-                            <!--#endregion-->
-                            <!--#region Data status stack panel-->
-                            <StackPanel Margin="15,0,0,0">
-                                <Image Source="{Binding Data.Safety.LidarRight.IsActive, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.LidarRight.EmergencyStopZoneStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.LidarRight.SoftStopZoneStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.LidarRight.ReducedSpeedZoneStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.LidarRight.SwitchMonitoringCaseError, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.LidarRight.ContaminationWarning, Converter={StaticResource BoolGreyYellow}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.LidarRight.ContaminationError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.LidarRight.AppError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.Safety.LidarRight.DeviceError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
-                            </StackPanel>
-                            <!--#endregion-->
+                        <!--#endregion-->
+                        <!--#region Data status stack panel-->
+                        <StackPanel Margin="15,0,0,0">
+                            <Image Source="{Binding Data.Safety.CpuOk, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.EncoderOk, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.Standstill, Converter={StaticResource BoolGreenGrey}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.SafeSpeed, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.ButtonemergencyLeft, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.ButtonemergencyRight, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
                         </StackPanel>
-                    </Grid>
-                </TabItem>
-                <!--#endregion-->
-                <!--#region Scangrid left statuses tab-->
-                <TabItem Header="SICK Scangrid2 lewy">
-                    <Grid>
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Orientation="Horizontal">
-                            <!--#region Icons stack panel-->
-                            <StackPanel>
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/IsActiveWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/EmergencyZoneRed.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/ReducedSpeedZoneYellow.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/SafetyOutputWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/SleepModeWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/ExternalLightWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/VoltageWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                            </StackPanel>
-                            <!--#endregion-->
-                            <!--#region Descriptions stack panel-->
-                            <StackPanel Margin="15,0,0,0">
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan aktywności skanera:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan przełączania przypadków monitorowania (CAN):" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan przełączania przypadków monitorowania (INPUT):" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy awaryjnego zatrzymania:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy ostrzegania:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan wyjścia fizycznego safety:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan aktywności trybu uśpienia:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Ostrzeżenie o zabrudzeniu:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd zabrudzenia:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd odporności na oświetlenie zewnętrzne:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd napięcia:" />
-                            </StackPanel>
-                            <!--#endregion-->
-                            <!--#region Data status stack panel-->
-                            <StackPanel Margin="15,0,0,0">
-                                <Image Source="{Binding Data.ScangridLeft.Status.WorkStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridLeft.Status.MonitoringCaseSwitchCanValid, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridLeft.Status.MonitoringCaseSwitchInputValid, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridLeft.Status.ProtectionFieldStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridLeft.Status.WarningFieldStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridLeft.Status.SafetyOutputSignal, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridLeft.Status.SleeepModeStatus, Converter={StaticResource BoolGreyYellow}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridLeft.Status.ContaminationWarning, Converter={StaticResource BoolGreyYellow}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridLeft.Status.ContaminationError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridLeft.Status.ExternalLightResistanceError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridLeft.Status.VoltageError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
-                            </StackPanel>
-                            <!--#endregion-->
+                        <!--#endregion-->
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <!--#endregion-->
+            <!--#region Left lidar tab-->
+            <TabItem Header="SICK MicroScan3 lewy" Style="{StaticResource SimpleTabItemStyle}">
+                <Grid>
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <!--#region Icons stack panel-->
+                        <StackPanel>
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/IsActiveWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/EmergencyZoneRed.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/SoftStopZoneOrange.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/ReducedSpeedZoneYellow.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/AppErrorWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/DeviceErrorWhite.png" Style="{StaticResource SimpleImageStyle}" />
                         </StackPanel>
-                    </Grid>
-                </TabItem>
-                <!--#endregion-->
-                <!--#region Scangrid right statuses tab-->
-                <TabItem Header="SICK Scangrid2 prawy">
-                    <Grid>
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Orientation="Horizontal">
-                            <!--#region Icons stack panel-->
-                            <StackPanel>
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/IsActiveWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/EmergencyZoneRed.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/ReducedSpeedZoneYellow.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/SafetyOutputWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/SleepModeWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/ExternalLightWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="/Models/Resources/ItemsIcons/Safety/VoltageWhite.png" Style="{StaticResource SimpleImageStyle}" />
-                            </StackPanel>
-                            <!--#endregion-->
-                            <!--#region Descriptions stack panel-->
-                            <StackPanel Margin="15,0,0,0">
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan aktywności skanera:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan przełączania przypadków monitorowania (CAN):" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan przełączania przypadków monitorowania (INPUT):" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy awaryjnego zatrzymania:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy ostrzegania:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan wyjścia fizycznego safety:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan aktywności trybu uśpienia:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Ostrzeżenie o zabrudzeniu:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd zabrudzenia:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd odporności na oświetlenie zewnętrzne:" />
-                                <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd napięcia:" />
-                            </StackPanel>
-                            <!--#endregion-->
-                            <!--#region Data status stack panel-->
-                            <StackPanel Margin="15,0,0,0">
-                                <Image Source="{Binding Data.ScangridRight.Status.WorkStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridRight.Status.MonitoringCaseSwitchCanValid, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridRight.Status.MonitoringCaseSwitchInputValid, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridRight.Status.ProtectionFieldStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridRight.Status.WarningFieldStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridRight.Status.SafetyOutputSignal, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridRight.Status.SleeepModeStatus, Converter={StaticResource BoolGreyYellow}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridRight.Status.ContaminationWarning, Converter={StaticResource BoolGreyYellow}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridRight.Status.ContaminationError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridRight.Status.ExternalLightResistanceError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
-                                <Image Source="{Binding Data.ScangridRight.Status.VoltageError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
-                            </StackPanel>
-                            <!--#endregion-->
+                        <!--#endregion-->
+                        <!--#region Descriptions stack panel-->
+                        <StackPanel Margin="15,0,0,0">
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan aktywności skanera:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy awaryjnego zatrzymania:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy zatrzymania:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy ograniczonej prędkości:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan kontroli przełączania przypadków monitorowania:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Ostrzeżenie o zabrudzeniu:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Bład zabrudzenia urządzenia:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd wewnętrzny programu skanera:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd urządzenia:" />
                         </StackPanel>
-                    </Grid>
-                </TabItem>
-                <!--#endregion-->
-            </TabControl>
-        </mah:MetroAnimatedTabControl>
+                        <!--#endregion-->
+                        <!--#region Data status stack panel-->
+                        <StackPanel Margin="15,0,0,0">
+                            <Image Source="{Binding Data.Safety.LidarLeft.IsActive, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.LidarLeft.EmergencyStopZoneStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.LidarLeft.SoftStopZoneStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.LidarLeft.ReducedSpeedZoneStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.LidarLeft.SwitchMonitoringCaseError, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.LidarLeft.ContaminationWarning, Converter={StaticResource BoolGreyYellow}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.LidarLeft.ContaminationError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.LidarLeft.AppError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.LidarLeft.DeviceError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                        </StackPanel>
+                        <!--#endregion-->
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <!--#endregion-->
+            <!--#region Left lidar tab-->
+            <TabItem Header="SICK MicroScan3 prawy" Style="{StaticResource SimpleTabItemStyle}">
+                <Grid>
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <!--#region Icons stack panel-->
+                        <StackPanel>
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/IsActiveWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/EmergencyZoneRed.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/SoftStopZoneOrange.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/ReducedSpeedZoneYellow.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/AppErrorWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/DeviceErrorWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                        </StackPanel>
+                        <!--#endregion-->
+                        <!--#region Descriptions stack panel-->
+                        <StackPanel Margin="15,0,0,0">
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan aktywności skanera:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy awaryjnego zatrzymania:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy zatrzymania:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy ograniczonej prędkości:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan kontroli przełączania przypadków monitorowania:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Ostrzeżenie o zabrudzeniu:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Bład zabrudzenia urządzenia:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd wewnętrzny programu skanera:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd urządzenia:" />
+                        </StackPanel>
+                        <!--#endregion-->
+                        <!--#region Data status stack panel-->
+                        <StackPanel Margin="15,0,0,0">
+                            <Image Source="{Binding Data.Safety.LidarRight.IsActive, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.LidarRight.EmergencyStopZoneStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.LidarRight.SoftStopZoneStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.LidarRight.ReducedSpeedZoneStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.LidarRight.SwitchMonitoringCaseError, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.LidarRight.ContaminationWarning, Converter={StaticResource BoolGreyYellow}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.LidarRight.ContaminationError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.LidarRight.AppError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.Safety.LidarRight.DeviceError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                        </StackPanel>
+                        <!--#endregion-->
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <!--#endregion-->
+            <!--#region Scangrid left statuses tab-->
+            <TabItem Header="SICK Scangrid2 lewy" Style="{StaticResource SimpleTabItemStyle}">
+                <Grid>
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <!--#region Icons stack panel-->
+                        <StackPanel>
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/IsActiveWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/EmergencyZoneRed.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/ReducedSpeedZoneYellow.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/SafetyOutputWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/SleepModeWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/ExternalLightWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/VoltageWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                        </StackPanel>
+                        <!--#endregion-->
+                        <!--#region Descriptions stack panel-->
+                        <StackPanel Margin="15,0,0,0">
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan aktywności skanera:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan przełączania przypadków monitorowania (CAN):" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan przełączania przypadków monitorowania (INPUT):" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy awaryjnego zatrzymania:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy ostrzegania:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan wyjścia fizycznego safety:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan aktywności trybu uśpienia:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Ostrzeżenie o zabrudzeniu:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd zabrudzenia:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd odporności na oświetlenie zewnętrzne:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd napięcia:" />
+                        </StackPanel>
+                        <!--#endregion-->
+                        <!--#region Data status stack panel-->
+                        <StackPanel Margin="15,0,0,0">
+                            <Image Source="{Binding Data.ScangridLeft.Status.WorkStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridLeft.Status.MonitoringCaseSwitchCanValid, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridLeft.Status.MonitoringCaseSwitchInputValid, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridLeft.Status.ProtectionFieldStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridLeft.Status.WarningFieldStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridLeft.Status.SafetyOutputSignal, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridLeft.Status.SleeepModeStatus, Converter={StaticResource BoolGreyYellow}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridLeft.Status.ContaminationWarning, Converter={StaticResource BoolGreyYellow}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridLeft.Status.ContaminationError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridLeft.Status.ExternalLightResistanceError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridLeft.Status.VoltageError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                        </StackPanel>
+                        <!--#endregion-->
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <!--#endregion-->
+            <!--#region Scangrid right statuses tab-->
+            <TabItem Header="SICK Scangrid2 prawy" Style="{StaticResource SimpleTabItemStyle}">
+                <Grid>
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <!--#region Icons stack panel-->
+                        <StackPanel>
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/IsActiveWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/MonitoringCaseWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/EmergencyZoneRed.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/ReducedSpeedZoneYellow.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/SafetyOutputWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/SleepModeWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/ContaminationWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/ExternalLightWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="/Models/Resources/ItemsIcons/Safety/VoltageWhite.png" Style="{StaticResource SimpleImageStyle}" />
+                        </StackPanel>
+                        <!--#endregion-->
+                        <!--#region Descriptions stack panel-->
+                        <StackPanel Margin="15,0,0,0">
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan aktywności skanera:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan przełączania przypadków monitorowania (CAN):" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan przełączania przypadków monitorowania (INPUT):" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy awaryjnego zatrzymania:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan strefy ostrzegania:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan wyjścia fizycznego safety:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Stan aktywności trybu uśpienia:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Ostrzeżenie o zabrudzeniu:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd zabrudzenia:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd odporności na oświetlenie zewnętrzne:" />
+                            <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Błąd napięcia:" />
+                        </StackPanel>
+                        <!--#endregion-->
+                        <!--#region Data status stack panel-->
+                        <StackPanel Margin="15,0,0,0">
+                            <Image Source="{Binding Data.ScangridRight.Status.WorkStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridRight.Status.MonitoringCaseSwitchCanValid, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridRight.Status.MonitoringCaseSwitchInputValid, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridRight.Status.ProtectionFieldStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridRight.Status.WarningFieldStatus, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridRight.Status.SafetyOutputSignal, Converter={StaticResource BoolGreenRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridRight.Status.SleeepModeStatus, Converter={StaticResource BoolGreyYellow}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridRight.Status.ContaminationWarning, Converter={StaticResource BoolGreyYellow}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridRight.Status.ContaminationError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridRight.Status.ExternalLightResistanceError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                            <Image Source="{Binding Data.ScangridRight.Status.VoltageError, Converter={StaticResource BoolGreyRed}}" Style="{StaticResource SimpleImageStyle}" />
+                        </StackPanel>
+                        <!--#endregion-->
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <!--#endregion-->
+        </TabControl>
     </Grid>
 </Page>

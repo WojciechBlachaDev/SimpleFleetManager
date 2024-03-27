@@ -15,6 +15,8 @@ namespace SimpleFleetManager.Models.Main
         public bool IsRunning { get; set; }
         public bool IsDone { get; set; }
         public bool IsCanceled { get; set; }
+        public int JobId { get; set; }
+        public bool IsAssigned {  get; set; }
         public JobStep()
         {
             Location = new();

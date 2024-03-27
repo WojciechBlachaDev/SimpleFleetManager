@@ -34,7 +34,33 @@
                 ItemsSource="{Binding AvaibleForklifts}"
                 SelectedItem="{Binding SelectedForklift}"
                 SelectedValuePath="Id"
-                Style="{StaticResource SimpleComboBoxFlatStyle}" />
+                Style="{StaticResource SimpleComboBoxFlatStyle}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <TextBlock FontWeight="Bold">
+                                <Run Text="{Binding Name}" />
+                                <Run Text="{Binding IpAddress}" />
+                            </TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ComboBoxItem">
+                                    <Button
+                                        Command="{Binding RelativeSource={RelativeSource AncestorType=ComboBox}, Path=DataContext.SelectForkliftFromList}"
+                                        CommandParameter="{Binding Id}"
+                                        Content="{Binding Name}"
+                                        Style="{StaticResource SimpleComboboxItemStyle}" />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
             <!--#endregion-->
             <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
             <TextBlock

@@ -15,6 +15,10 @@
     <SolidColorBrush x:Key="SimpleLoginButtonInactiveBrush" Color="{StaticResource SimpleLoginButtonInactive}" />
     <Color x:Key="SimpleLoginButtonMouseOver">#039403</Color>
     <SolidColorBrush x:Key="SimpleLoginButtonMouseOverBrush" Color="{StaticResource SimpleLoginButtonMouseOver}" />
+    <Color x:Key="SimpleBackgroundGray">#949392</Color>
+    <SolidColorBrush x:Key="SimpleBackgroundGrayBrush" Color="{StaticResource SimpleBackgroundGray}" />
+    <Color x:Key="SimpleOrangeSecondary">#9E671C</Color>
+    <SolidColorBrush x:Key="SimpleOrangeSecondaryBrush" Color="{StaticResource SimpleOrangeSecondary}" />
 
     <!--#endregion-->
     <!--  Region icons  -->
@@ -31,85 +35,74 @@
     <PathGeometry x:Key="ApiIcon" Figures="M7 7H5A2 2 0 0 0 3 9V17H5V13H7V17H9V9A2 2 0 0 0 7 7M7 11H5V9H7M14 7H10V17H12V13H14A2 2 0 0 0 16 11V9A2 2 0 0 0 14 7M14 11H12V9H14M20 9V15H21V17H17V15H18V9H17V7H21V9Z" />
     <PathGeometry x:Key="WorkIcon" Figures="M16 9C16 14.33 8 14.33 8 9H10C10 11.67 14 11.67 14 9M20 18V21H4V18C4 15.33 9.33 14 12 14C14.67 14 20 15.33 20 18M18.1 18C18.1 17.36 14.97 15.9 12 15.9C9.03 15.9 5.9 17.36 5.9 18V19.1H18.1M12.5 2C12.78 2 13 2.22 13 2.5V5.5H14V3C15.45 3.67 16.34 5.16 16.25 6.75C16.25 6.75 16.95 6.89 17 8H7C7 6.89 7.75 6.75 7.75 6.75C7.66 5.16 8.55 3.67 10 3V5.5H11V2.5C11 2.22 11.22 2 11.5 2" />
     <PathGeometry x:Key="LogbookIcon" Figures="M19 1L14 6V17L19 12.5V1M21 5V18.5C19.9 18.15 18.7 18 17.5 18C15.8 18 13.35 18.65 12 19.5V6C10.55 4.9 8.45 4.5 6.5 4.5C4.55 4.5 2.45 4.9 1 6V20.65C1 20.9 1.25 21.15 1.5 21.15C1.6 21.15 1.65 21.1 1.75 21.1C3.1 20.45 5.05 20 6.5 20C8.45 20 10.55 20.4 12 21.5C13.35 20.65 15.8 20 17.5 20C19.15 20 20.85 20.3 22.25 21.05C22.35 21.1 22.4 21.1 22.5 21.1C22.75 21.1 23 20.85 23 20.6V6C22.4 5.55 21.75 5.25 21 5M10 18.41C8.75 18.09 7.5 18 6.5 18C5.44 18 4.18 18.19 3 18.5V7.13C3.91 6.73 5.14 6.5 6.5 6.5C7.86 6.5 9.09 6.73 10 7.13V18.41Z" />
-
+    <PathGeometry x:Key="LocationManagerIcon" Figures="M12 19C8.13 19 6 17.5 6 17V14.77C7.61 15.55 9.72 16 12 16C12.35 16 12.69 15.97 13.03 15.95C13 15.8 13 15.65 13 15.5C13 14.96 13.09 14.44 13.24 13.94C12.83 14 12.42 14 12 14C9.58 14 7.3 13.4 6 12.45V9.64C7.47 10.47 9.61 11 12 11S16.53 10.47 18 9.64V10.03C18.17 10 18.33 10 18.5 10C19 10 19.5 10.08 20 10.22V7C20 4.79 16.42 3 12 3S4 4.79 4 7V17C4 19.21 7.59 21 12 21C13.06 21 14.07 20.89 15 20.71C14.62 20.14 14.25 19.5 13.93 18.85C13.34 18.94 12.71 19 12 19M12 5C15.87 5 18 6.5 18 7S15.87 9 12 9 6 7.5 6 7 8.13 5 12 5M18.5 12C16.6 12 15 13.6 15 15.5C15 18.1 18.5 22 18.5 22S22 18.1 22 15.5C22 13.6 20.4 12 18.5 12M18.5 16.8C17.8 16.8 17.3 16.2 17.3 15.6C17.3 14.9 17.9 14.4 18.5 14.4S19.7 15 19.7 15.6C19.8 16.2 19.2 16.8 18.5 16.8Z" />
     <!--#endregion-->
     <!--#region Simple styles region-->
+
     <!--#region SimpleTabControlStyle-->
     <Style x:Key="SimpleTabItemStyle" TargetType="{x:Type TabItem}">
-        <Setter Property="FontSize" Value="22" />
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="Background" Value="{StaticResource SimpleBackgroundBrush}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Cursor" Value="Hand" />
-                <Trigger.EnterActions>
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <ColorAnimation
-                                Storyboard.TargetProperty="(TabItem.Background).(SolidColorBrush.Color)"
-                                From="#0e0e0e"
-                                To="#d48a28"
-                                Duration="0:0:0.3" />
-                        </Storyboard>
-                    </BeginStoryboard>
-                </Trigger.EnterActions>
-                <Trigger.ExitActions>
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <ColorAnimation
-                                Storyboard.TargetProperty="(TabItem.Background).(SolidColorBrush.Color)"
-                                From="#d48a28"
-                                To="#0e0e0e"
-                                Duration="0:0:0.3" />
-                        </Storyboard>
-                    </BeginStoryboard>
-                </Trigger.ExitActions>
-            </Trigger>
-            <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background" Value="#774402" />
-            </Trigger>
-        </Style.Triggers>
-
-    </Style>
-    <Style x:Key="SimpleTabControlStyle" TargetType="{x:Type TabControl}">
-        <Setter Property="ItemContainerStyle" Value="{StaticResource SimpleTabItemStyle}" />
         <Setter Property="Background" Value="{StaticResource SimpleBackgroundBrush}" />
-        <Setter Property="BorderThickness" Value="0,0,0,0" />
-        <Setter Property="Padding" Value="5" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="TabControl">
-                    <Grid SnapsToDevicePixels="true">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <TabPanel
-                            Grid.Row="0"
-                            HorizontalAlignment="Left"
-                            Background="Transparent"
-                            IsItemsHost="true" />
-                        <Border
-                            Grid.Row="1"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
+                <ControlTemplate TargetType="{x:Type TabItem}">
+                    <Border
+                        x:Name="Container"
+                        Padding="15,5"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5,5,0,0">
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
                             <ContentPresenter
-                                Margin="{TemplateBinding Padding}"
-                                ContentSource="SelectedContent"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                ContentSource="Header"
+                                Focusable="False"
+                                RecognizesAccessKey="True"
                                 SnapsToDevicePixels="True" />
-                        </Border>
-
-                    </Grid>
+                        </Grid>
+                    </Border>
+                    <!--#region Color animation-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                            From="#060606"
+                                            To="#d48a28"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                            From="#d48a28"
+                                            To="#060606"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="Container" Property="Background" Value="{StaticResource SimpleOrangeSecondaryBrush}" />
+                            <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    <!--#endregion-->
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="Transparent" />
-            </Trigger>
-        </Style.Triggers>
     </Style>
     <!--#endregion-->
     <!--#region Main menu button style-->
@@ -126,7 +119,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border
-                        Padding="10,20"
+                        Padding="10,5"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
                         Background="{TemplateBinding Background}"
@@ -274,15 +267,100 @@
         </Setter>
     </Style>
     <!--#endregion-->
+    <!--#region Simple combobox button style secondary-->
+    <Style x:Key="SimpleComboboxButton" TargetType="{x:Type Button}">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Background" Value="{StaticResource SimpleButtonNotActiveBrush}" />
+        <Setter Property="MaxWidth" Value="375" />
+        <Setter Property="MinWidth" Value="80" />
+        <Setter Property="Height" Value="40" />
+
+        <Setter Property="BorderBrush" Value="{StaticResource SimpleOrangeMainBrush}" />
+        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        Padding="10,0,20,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5">
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                Grid.Column="1"
+                                Margin="5,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="{TemplateBinding FontSize}"
+                                FontWeight="Bold"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding Content}"
+                                TextWrapping="NoWrap" />
+                        </Grid>
+                    </Border>
+                    <!--#region Color animation-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ToggleButton.Background).(SolidColorBrush.Color)"
+                                            From="#060606"
+                                            To="#d48a28"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(ToggleButton.Background).(SolidColorBrush.Color)"
+                                            From="#d48a28"
+                                            To="#060606"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    <!--#endregion-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--#region Combobox custom simple items display style-->
+    <Style
+        x:Key="SimpleComboboxItemStyle"
+        BasedOn="{StaticResource SimpleComboboxButton}"
+        TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource SimpleBackgroundBrush}" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource SimpleOrangeMainBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--#endregion-->
     <!--#region Menu expander button style-->
     <Style x:Key="SimpleMenuExpanderButton" TargetType="{x:Type ToggleButton}">
         <Setter Property="FontSize" Value="18" />
+        <Setter Property="Margin" Value="0,0,0,20" />
         <Setter Property="Background" Value="{StaticResource SimpleButtonNotActiveBrush}" />
-        <Setter Property="MaxWidth" Value="300" />
         <Setter Property="MinWidth" Value="80" />
         <Setter Property="Height" Value="50" />
         <Setter Property="BorderBrush" Value="{StaticResource SimpleOrangeMainBrush}" />
-        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
@@ -950,7 +1028,60 @@
         <Setter Property="FontSize" Value="18" />
         <Setter Property="FontWeight" Value="Thin" />
         <Setter Property="Height" Value="25" />
+        <Setter Property="Background" Value="{StaticResource SimpleButtonNotActiveBrush}" />
         <Setter Property="BorderBrush" Value="{StaticResource SimpleOrangeMainBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border
+                        x:Name="txtBorder"
+                        MaxWidth="{TemplateBinding MaxWidth}"
+                        MaxHeight="{TemplateBinding MaxHeight}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="True">
+                        <Grid>
+                            <ScrollViewer
+                                x:Name="PART_ContentHost"
+                                Margin="0,-1"
+                                Focusable="False"
+                                HorizontalScrollBarVisibility="Hidden"
+                                VerticalScrollBarVisibility="Hidden" />
+                            <TextBlock
+                                x:Name="WaterMarkerLabel"
+                                Padding="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                FontWeight="{TemplateBinding FontWeight}"
+                                Foreground="{DynamicResource SimpleBackgroundGrayBrush}"
+                                Text="{TemplateBinding Tag}"
+                                Visibility="Collapsed" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Text" Value="" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="WaterMarkerLabel" Property="Visibility" Value="Visible" />
+                        </MultiTrigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource SimpleOrangeSecondaryBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource AppNeutralForegroundBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource SimpleNaturalTextMainBrush}" />
+                            <Setter Property="BorderThickness" Value="0,0,0,1" />
+
+                            <Setter Property="BorderBrush" Value="{DynamicResource AppComboBoxHoverItemBackgroundBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
     </Style>
     <!--#endregion-->
     <!--#region Passwordbox main style-->
@@ -998,7 +1129,7 @@
                 Margin="0,0,0,-15"
                 HorizontalAlignment="Center"
                 Data="{StaticResource DownKeyIcon}"
-                Fill="{StaticResource SimpleOrangeMainBrush}"
+                Fill="{StaticResource SimpleNaturalTextMainBrush}"
                 Stretch="Uniform" />
         </Grid>
         <ControlTemplate.Triggers>
@@ -1020,15 +1151,15 @@
                         <Storyboard>
                             <ColorAnimation
                                 Storyboard.TargetProperty="(ComboBox.BorderBrush).(SolidColorBrush.Color)"
-                                From="#E6E5E4"
-                                To="#d48a28"
+                                From="#d48a28"
+                                To="#E6E5E4"
                                 Duration="0:0:0.3" />
                         </Storyboard>
                     </BeginStoryboard>
                 </Trigger.ExitActions>
             </Trigger>
             <Trigger Property="ToggleButton.IsChecked" Value="True">
-                <Setter TargetName="Arrow" Property="Shape.Fill" Value="{StaticResource SimpleOrangeMainBrush}" />
+                <Setter TargetName="Arrow" Property="Shape.Fill" Value="{StaticResource SimpleNaturalTextMainBrush}" />
             </Trigger>
             <!--  TU se wyszarz w przyszłości ledwo widoczne ma być  -->
             <Trigger Property="UIElement.IsEnabled" Value="False">
@@ -1256,12 +1387,14 @@
     <Style x:Key="SimpleImageStyle" TargetType="{x:Type Image}">
         <Setter Property="Height" Value="40" />
         <Setter Property="Width" Value="40" />
+        <Setter Property="Cursor" Value="Arrow" />
     </Style>
     <!--#endregion-->
     <!--#region SimpleDataDescriptionStyle-->
     <Style x:Key="SimpleDataDescriptionStyle" TargetType="{x:Type TextBlock}">
         <Setter Property="Foreground" Value="{StaticResource SimpleNaturalTextMainBrush}" />
         <Setter Property="FontSize" Value="24" />
+        <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="FontWeight" Value="SemiBold" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />

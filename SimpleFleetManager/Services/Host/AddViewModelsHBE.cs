@@ -22,7 +22,9 @@ namespace SimpleFleetManager.Services.Host
                 services.AddSingleton<ScangridsPageViewModel>();
                 services.AddSingleton<SickApiPageViewModel>();
                 services.AddSingleton<WorkPageViewModel>();
-                services.AddSingleton<LogsPageViewModel>();
+                services.AddTransient<LogsPageViewModel>();
+                services.AddTransient<LocationsManagerPageViewModel>();
+                services.AddTransient<ManualTasksCreatorPageViewModel>();
             });
             return hostBuilder;
         }

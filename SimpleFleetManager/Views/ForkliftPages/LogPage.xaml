@@ -87,7 +87,6 @@
             Width="1610"
             Margin="10,20,0,0"
             HorizontalAlignment="Left"
-
             Orientation="Horizontal">
             <!--#region Last log received data presentation-->
             <StackPanel Width="650">
@@ -107,9 +106,11 @@
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Treść: " />
                     <TextBlock
+                        Width="600"
+                        Height="auto"
                         Style="{StaticResource SimpleDataStyle}"
                         Text="{Binding FilteredActualLog.Message}"
-                        TextWrapping="WrapWithOverflow" />
+                        TextWrapping="Wrap" />
                 </StackPanel>
                 <!--#endregion-->
                 <!--#region Node stack panel-->

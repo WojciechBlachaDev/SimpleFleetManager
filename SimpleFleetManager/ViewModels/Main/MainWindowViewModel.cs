@@ -316,6 +316,9 @@ namespace SimpleFleetManager.ViewModels.Main
         private void ExecuteLocationsManagerPageButtonClick(object? o)
         {
             Log.Debug("Locations Manager page button clicked");
+            _connectedForklifts ??= [];
+            CurrentPage = new LocationsManagerPage(new LocationsManagerPageViewModel(_locationDataService, _connectedForklifts));
+            ShowMenu = false;
         }
         #endregion
         #region Button's Icommands declarations

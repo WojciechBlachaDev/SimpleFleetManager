@@ -7,12 +7,18 @@ namespace SimpleFleetManager.Services.Data
 {
     public class LogsDataService(SimpleDbContext context) : IDataService<ForkliftLog>
     {
+        private bool _isLoadingList;
         private readonly SimpleDbContext _context = context;
         public async Task<ForkliftLog> Create(ForkliftLog entity)
         {
-            var addedEntity = _context.Logs.Add(entity).Entity;
-            await _context.SaveChangesAsync();
-            return addedEntity;
+            if (!_isLoadingList)
+            {
+                var addedEntity = _context.Logs.Add(entity).Entity;
+                await _context.SaveChangesAsync();
+                return addedEntity;
+            }
+            return new();
+            
         }
 
         public async Task<bool> Delete(int id)
@@ -39,8 +45,13 @@ namespace SimpleFleetManager.Services.Data
 
         public async Task<IEnumerable<ForkliftLog>> GetAll()
         {
-            return await _context.Logs.ToListAsync();
+            _isLoadingList = true;
+            List<ForkliftLog> forkliftLogs = await _context.Logs.ToListAsync();
+            IEnumerable<ForkliftLog> Logs = forkliftLogs;
+            _isLoadingList = false;
+            return Logs;
         }
+
 
         public Task<ForkliftLog> Update(int id, ForkliftLog entity)
         {

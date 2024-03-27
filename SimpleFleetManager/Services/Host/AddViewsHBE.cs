@@ -35,6 +35,10 @@ namespace SimpleFleetManager.Services.Host
                 new WorkPage(s.GetRequiredService<WorkPageViewModel>()));
                 services.AddSingleton<LogPage>(s =>
                 new LogPage(s.GetRequiredService<LogsPageViewModel>()));
+                services.AddSingleton<LocationsManagerPage>(s =>
+                new LocationsManagerPage(s.GetRequiredService<LocationsManagerPageViewModel>()));
+                services.AddSingleton<ManualTaskCreatorPage>(s =>
+                new ManualTaskCreatorPage(s.GetRequiredService<ManualTasksCreatorPageViewModel>()));
             });
             return hostBuilder;
         }

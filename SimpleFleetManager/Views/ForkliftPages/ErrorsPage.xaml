@@ -22,9 +22,9 @@
         <conv:NegativeBoolToVisibility x:Key="NegativeVisibility" />
     </Page.Resources>
     <Grid>
-        <TabControl Style="{StaticResource SimpleTabControlStyle}">
+        <TabControl>
             <!--#region PLC Errors tab-->
-            <TabItem Header="Sterownik PLC">
+            <TabItem Header="Sterownik PLC" Style="{StaticResource SimpleTabItemStyle}">
                 <Grid>
                     <StackPanel
                         HorizontalAlignment="Center"
@@ -77,6 +77,7 @@
                                 Style="{StaticResource SimpleDataStyle}"
                                 Text="{Binding Data.PlcErrorCodes.BatteryVoltageRead}"
                                 Visibility="{Binding Data.PlcErrorStatus.BatteryVoltageRead, Converter={StaticResource NegativeVisibility}}" />
+
                             <TextBlock
                                 Foreground="Red"
                                 Style="{StaticResource SimpleDataStyle}"

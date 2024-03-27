@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SimpleFleetManager.Models.EntityFramework;
 
@@ -10,9 +11,11 @@ using SimpleFleetManager.Models.EntityFramework;
 namespace SimpleFleetManager.Migrations
 {
     [DbContext(typeof(SimpleDbContext))]
-    partial class SimpleDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240325065639_xd")]
+    partial class xd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.3");
@@ -192,9 +195,6 @@ namespace SimpleFleetManager.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("IsAssigned")
-                        .HasColumnType("INTEGER");
-
                     b.Property<bool>("IsCanceled")
                         .HasColumnType("INTEGER");
 
@@ -204,7 +204,7 @@ namespace SimpleFleetManager.Migrations
                     b.Property<bool>("IsRunning")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("JobId")
+                    b.Property<int?>("JobId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("LocationId")
@@ -296,9 +296,7 @@ namespace SimpleFleetManager.Migrations
                 {
                     b.HasOne("SimpleFleetManager.Models.Main.Job", null)
                         .WithMany("JobSteps")
-                        .HasForeignKey("JobId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("JobId");
 
                     b.HasOne("SimpleFleetManager.Models.Main.Location", "Location")
                         .WithMany()

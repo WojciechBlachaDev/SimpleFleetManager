@@ -1,0 +1,163 @@
+﻿<Page
+    x:Class="SimpleFleetManager.Views.Main.LocationsManagerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:conv="clr-namespace:SimpleFleetManager.ViewModels.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SimpleFleetManager.Views.Main"
+    xmlns:main="clr-namespace:SimpleFleetManager.ViewModels.Main"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="LocationsManagerPage"
+    d:DataContext="{d:DesignInstance Type=main:LocationsManagerPageViewModel}"
+    d:DesignHeight="1000"
+    d:DesignWidth="1840"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <conv:LocationTypeConverter x:Key="LocationConverter" />
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <!--#region Locations from database region-->
+        <StackPanel
+            Grid.Column="0"
+            Width="400"
+            Margin="0,10,0,0">
+            <TextBlock
+                Margin="20,0,0,0"
+                Style="{StaticResource SimpleTittleStyle}"
+                Text="Zapisane lokacje:" />
+            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+            <ItemsControl
+                Height="900"
+                Margin="-40,0,0,0"
+                ItemsSource="{Binding AllLocations}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <ui:Button
+                            Command="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=DataContext.SelectExistingLocation}"
+                            CommandParameter="{Binding Id}"
+                            Content="{Binding Name}"
+                            Style="{StaticResource SimpleItemsControlButtonStyle}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+        <!--#endregion-->
+        <!--#region Loaction data stack panel-->
+        <StackPanel
+            Grid.Column="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Nazwa lokalizacji: " />
+                    <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Opis lokalizacji:" />
+                    <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Wybierz typ lokalizacji: " />
+                    <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Lokalizacja na mapie w osi X:" />
+                    <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Lokalizacja na mapie w osi Y:" />
+                    <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Lokalizacja na mapie w osi R:" />
+                    <TextBlock Style="{StaticResource SimpleDataDescriptionStyle}" Text="Lokalizacja aktywna:" />
+                </StackPanel>
+                <StackPanel Margin="20,0,0,0">
+                    <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                    <TextBox
+                        Style="{StaticResource SimpleUserTextBoxMain}"
+                        Tag="Podaj nazwę lokalizacji"
+                        Text="{Binding DisplayedLocation.Name}" />
+                    <Separator Height="10" Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                    <TextBox
+                        Style="{StaticResource SimpleUserTextBoxMain}"
+                        Tag="Podaj opis lokalizacji (opcjonalne)"
+                        Text="{Binding DisplayedLocation.Description}" />
+
+                    <ComboBox
+                        Height="40"
+                        IsDropDownOpen="{Binding LocationTypeMenuOpened}"
+                        ItemsSource="{Binding AvaibleLocationTypes}"
+                        SelectedItem="{Binding SelectedLocationType, Mode=TwoWay, Converter={StaticResource LocationConverter}}"
+                        Style="{StaticResource SimpleComboBoxFlatStyle}" />
+                    <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                    <TextBox Style="{StaticResource SimpleUserTextBoxMain}" Text="{Binding DisplayedLocation.X}" />
+                    <Separator Height="10" Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                    <TextBox Style="{StaticResource SimpleUserTextBoxMain}" Text="{Binding DisplayedLocation.Y}" />
+                    <Separator Height="10" Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                    <TextBox Style="{StaticResource SimpleUserTextBoxMain}" Text="{Binding DisplayedLocation.R}" />
+                    <RadioButton
+                        Margin="0,20,0,0"
+                        IsChecked="{Binding DisplayedLocation.IsActive}"
+                        Style="{StaticResource SimpleRadioButtonMainStyle}" />
+                </StackPanel>
+                <StackPanel Width="400" Margin="50,0,0,0">
+                    <TextBlock
+                        Height="auto"
+                        Style="{StaticResource SimpleDataDescriptionStyle}"
+                        Text="Wybierz połaczony z systemem wózek i uzyskaj jego lokalizację:"
+                        TextWrapping="WrapWithOverflow" />
+                    <ComboBox
+                        IsDropDownOpen="{Binding SelectForkliftOpened}"
+                        ItemsSource="{Binding AvaibleForklifts}"
+                        SelectedItem="{Binding SelectedForklift}"
+                        Style="{StaticResource SimpleComboBoxFlatStyle}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock FontWeight="Bold">
+                                        <Run Text="{Binding Name}" />
+                                        <Run Text="{Binding IpAddress}" />
+                                    </TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                        <ComboBox.ItemContainerStyle>
+                            <Style TargetType="ComboBoxItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ComboBoxItem">
+                                            <Button
+                                                Command="{Binding RelativeSource={RelativeSource AncestorType=ComboBox}, Path=DataContext.SelectForkliftFromList}"
+                                                CommandParameter="{Binding Id}"
+                                                Content="{Binding Name}"
+                                                Style="{StaticResource SimpleComboboxItemStyle}" />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ComboBox.ItemContainerStyle>
+                    </ComboBox>
+                    <Button
+                        Command="{Binding GetPositionFromForkliftButtonClick}"
+                        Content="Pobierz lokalizację"
+                        Style="{StaticResource SimpleMainMenuButton}"
+                        Tag="{StaticResource LocationManagerIcon}" />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Margin="-50,0,0,0" Orientation="Horizontal">
+                <ui:Button
+                    Width="250"
+                    Command="{Binding AddNewLocationButtonClick}"
+                    Content="Dodaj"
+                    Style="{StaticResource SimpleAddButton}" />
+                <ui:Button
+                    Width="250"
+                    Margin="10"
+                    Command="{Binding UpdateLocationButtonClick}"
+                    Content="Aktualizuj"
+                    Style="{StaticResource SimpleUpdateButton}" />
+                <ui:Button
+                    Width="250"
+                    Command="{Binding RemoveLocationButtonClick}"
+                    Content="Usuń"
+                    Style="{StaticResource SimpleDeleteButton}" />
+            </StackPanel>
+        </StackPanel>
+        <!--#endregion-->
+    </Grid>
+
+</Page>

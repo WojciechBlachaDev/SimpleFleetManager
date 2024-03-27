@@ -277,3 +277,309 @@
 2024-03-22 14:28:35.373 +01:00 [DBG] Check user result: SUCCESS
 2024-03-22 14:53:55.607 +01:00 [INF] Logger started
 2024-03-22 14:56:54.269 +01:00 [INF] Logger started
+2024-03-25 07:52:23.927 +01:00 [INF] Logger started
+2024-03-25 07:52:32.220 +01:00 [DBG] Login page button clicked
+2024-03-25 07:52:41.981 +01:00 [INF] Incorrect user name or password
+2024-03-25 07:52:45.413 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-25 07:52:59.099 +01:00 [ERR] Exception catched while creating new user: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-25 07:53:07.483 +01:00 [ERR] Exception catched while creating new user: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-25 07:56:54.904 +01:00 [INF] Logger started
+2024-03-25 07:56:57.113 +01:00 [ERR] Error occured when trying to connect to forklifts saved in database: SQLite Error 1: 'no such table: Forklifts'.
+2024-03-25 07:56:57.302 +01:00 [ERR] Error occured when trying to connect to forklifts saved in database: SQLite Error 1: 'no such table: Forklifts'.
+2024-03-25 07:57:05.309 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-25 07:57:05.345 +01:00 [ERR] Error occured when trying to refresh existing users list: SQLite Error 1: 'no such table: Users'.
+2024-03-25 07:57:13.564 +01:00 [ERR] Exception catched while creating new user: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-25 07:57:40.856 +01:00 [INF] Logger started
+2024-03-25 07:57:41.816 +01:00 [ERR] Error occured when trying to connect to forklifts saved in database: SQLite Error 1: 'no such table: Forklifts'.
+2024-03-25 07:57:41.995 +01:00 [ERR] Error occured when trying to connect to forklifts saved in database: SQLite Error 1: 'no such table: Forklifts'.
+2024-03-25 07:57:55.580 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-25 07:57:55.614 +01:00 [ERR] Error occured when trying to refresh existing users list: SQLite Error 1: 'no such table: Users'.
+2024-03-25 07:58:04.921 +01:00 [ERR] Exception catched while creating new user: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-25 07:59:01.710 +01:00 [INF] Logger started
+2024-03-25 07:59:05.836 +01:00 [DBG] Forklifts page button clicked
+2024-03-25 07:59:08.324 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-25 07:59:20.940 +01:00 [DBG] Login page button clicked
+2024-03-25 07:59:24.596 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-25 07:59:25.436 +01:00 [DBG] Login page button clicked
+2024-03-25 07:59:30.501 +01:00 [DBG] Check user result: SUCCESS
+2024-03-25 07:59:31.884 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-25 07:59:58.028 +01:00 [DBG] Login page button clicked
+2024-03-25 07:59:58.691 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-25 07:59:59.532 +01:00 [DBG] Forklifts page button clicked
+2024-03-25 08:35:55.824 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-25 08:35:56.680 +01:00 [DBG] Forklifts page button clicked
+2024-03-25 08:36:38.128 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-25 08:36:39.233 +01:00 [DBG] Login page button clicked
+2024-03-25 08:36:39.992 +01:00 [DBG] Forklifts page button clicked
+2024-03-25 08:37:43.689 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-25 08:37:52.392 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-25 08:37:53.568 +01:00 [DBG] Forklifts page button clicked
+2024-03-25 08:37:56.024 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-25 08:37:56.874 +01:00 [DBG] Selected forklift: AMR
+2024-03-26 14:42:40.121 +01:00 [INF] Logger started
+2024-03-26 14:43:07.931 +01:00 [DBG] Forklifts page button clicked
+2024-03-26 14:43:10.251 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-26 14:43:11.635 +01:00 [DBG] Login page button clicked
+2024-03-26 14:43:12.450 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-26 14:43:16.051 +01:00 [DBG] Login page button clicked
+2024-03-26 14:43:17.035 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-26 14:43:17.963 +01:00 [DBG] Forklifts page button clicked
+2024-03-26 14:55:05.315 +01:00 [INF] Logger started
+2024-03-26 14:55:11.282 +01:00 [DBG] Login page button clicked
+2024-03-26 14:55:17.172 +01:00 [DBG] Check user result: SUCCESS
+2024-03-26 14:55:18.578 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-26 14:55:33.118 +01:00 [DBG] Selected forklift: AMR
+2024-03-26 14:57:34.114 +01:00 [DBG] Selected forklift: AMR_WIFI
+2024-03-26 14:58:05.431 +01:00 [ERR] Error occured when trying to add new forklift to database: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-26 14:58:13.881 +01:00 [ERR] Error occured when trying to update forklift in database: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-26 14:58:28.524 +01:00 [ERR] Error occured when trying to update forklift in database: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-26 14:58:32.058 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-26 14:58:58.986 +01:00 [ERR] Error occured when trying to add new forklift to database: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-26 14:58:59.873 +01:00 [ERR] Error occured when trying to add new forklift to database: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-26 14:59:00.487 +01:00 [ERR] Error occured when trying to add new forklift to database: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-26 14:59:00.674 +01:00 [ERR] Error occured when trying to add new forklift to database: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-26 14:59:00.858 +01:00 [ERR] Error occured when trying to add new forklift to database: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-26 14:59:01.042 +01:00 [ERR] Error occured when trying to add new forklift to database: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-26 14:59:01.243 +01:00 [ERR] Error occured when trying to add new forklift to database: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-26 14:59:01.409 +01:00 [ERR] Error occured when trying to add new forklift to database: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-26 14:59:01.604 +01:00 [ERR] Error occured when trying to add new forklift to database: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-26 14:59:06.042 +01:00 [ERR] Error occured when trying to add new forklift to database: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-26 14:59:08.826 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-26 14:59:09.674 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-26 15:02:18.503 +01:00 [INF] Logger started
+2024-03-26 15:02:48.635 +01:00 [DBG] Login page button clicked
+2024-03-26 15:02:53.811 +01:00 [DBG] Check user result: SUCCESS
+2024-03-26 15:02:55.346 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-26 15:02:56.990 +01:00 [DBG] Selected forklift: AMR_LAN
+2024-03-26 15:03:22.632 +01:00 [INF] Logger started
+2024-03-26 15:03:26.811 +01:00 [DBG] Forklifts page button clicked
+2024-03-26 15:03:28.002 +01:00 [DBG] Login page button clicked
+2024-03-26 15:03:33.203 +01:00 [DBG] Check user result: SUCCESS
+2024-03-26 15:03:36.554 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-26 15:03:37.773 +01:00 [DBG] Selected forklift: AMR_LAN
+2024-03-26 15:03:57.906 +01:00 [DBG] Selected forklift: AMR_WiFi
+2024-03-26 15:03:59.211 +01:00 [DBG] Selected forklift: AMR_WiFi
+2024-03-26 15:04:00.146 +01:00 [DBG] Selected forklift: AMR_WiFi
+2024-03-26 15:04:08.682 +01:00 [DBG] Selected forklift: AMR_WiFi
+2024-03-26 15:04:18.090 +01:00 [DBG] Selected forklift: AMR_LAN
+2024-03-26 15:04:18.555 +01:00 [DBG] Selected forklift: AMR_WiFi
+2024-03-26 15:05:30.187 +01:00 [DBG] Selected forklift: AMR_LAN
+2024-03-26 15:05:30.850 +01:00 [DBG] Selected forklift: AMR_WiFi
+2024-03-26 15:05:31.410 +01:00 [DBG] Selected forklift: AMR_LAN
+2024-03-26 15:05:31.938 +01:00 [DBG] Selected forklift: AMR_WiFi
+2024-03-26 15:05:33.522 +01:00 [DBG] Selected forklift: AMR_LAN
+2024-03-26 15:05:34.098 +01:00 [DBG] Selected forklift: AMR_WiFi
+2024-03-26 15:05:34.539 +01:00 [DBG] Selected forklift: AMR_LAN
+2024-03-26 15:05:35.050 +01:00 [DBG] Selected forklift: AMR_WiFi
+2024-03-26 15:09:09.947 +01:00 [DBG] Selected forklift: AMR_WiFi
+2024-03-26 15:09:18.138 +01:00 [DBG] Selected forklift: AMR_LAN
+2024-03-26 15:09:18.690 +01:00 [DBG] Selected forklift: AMR_WiFi
+2024-03-26 15:11:51.811 +01:00 [INF] Logger started
+2024-03-26 15:12:14.514 +01:00 [DBG] Forklifts page button clicked
+2024-03-26 15:12:23.808 +01:00 [DBG] Forklifts page button clicked
+2024-03-26 15:12:25.573 +01:00 [DBG] Login page button clicked
+2024-03-26 15:12:33.502 +01:00 [DBG] Check user result: SUCCESS
+2024-03-26 15:12:34.666 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-26 15:12:35.485 +01:00 [DBG] Selected forklift: AMR_LAN
+2024-03-26 15:12:36.234 +01:00 [DBG] Selected forklift: AMR_WiFi
+2024-03-26 15:16:26.286 +01:00 [INF] Logger started
+2024-03-26 15:16:44.250 +01:00 [DBG] Forklifts page button clicked
+2024-03-26 15:17:13.809 +01:00 [DBG] Login page button clicked
+2024-03-26 15:17:19.368 +01:00 [DBG] Check user result: SUCCESS
+2024-03-26 15:17:21.290 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-26 15:17:22.629 +01:00 [DBG] Selected forklift: AMR_WiFi
+2024-03-26 15:17:24.366 +01:00 [DBG] Forklift delete SUCCESS
+2024-03-26 15:17:26.955 +01:00 [DBG] Selected forklift: AMR_LAN
+2024-03-26 15:17:28.337 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-26 15:17:34.130 +01:00 [INF] Logger started
+2024-03-26 15:17:37.698 +01:00 [DBG] Login page button clicked
+2024-03-26 15:17:39.529 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-26 15:17:40.793 +01:00 [DBG] Forklifts page button clicked
+2024-03-26 15:19:01.363 +01:00 [INF] Logger started
+2024-03-26 15:19:04.778 +01:00 [DBG] Forklifts page button clicked
+2024-03-26 15:19:42.558 +01:00 [INF] Logger started
+2024-03-26 15:19:51.394 +01:00 [DBG] Forklifts page button clicked
+2024-03-26 15:25:23.918 +01:00 [INF] Logger started
+2024-03-26 15:25:27.162 +01:00 [DBG] Forklifts page button clicked
+2024-03-26 15:30:20.960 +01:00 [INF] Logger started
+2024-03-26 15:30:23.786 +01:00 [DBG] Forklifts page button clicked
+2024-03-26 15:37:46.422 +01:00 [INF] Logger started
+2024-03-26 15:37:48.954 +01:00 [DBG] Forklifts page button clicked
+2024-03-26 15:38:14.863 +01:00 [INF] Logger started
+2024-03-26 15:38:18.367 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 08:17:07.441 +01:00 [INF] Logger started
+2024-03-27 08:17:15.859 +01:00 [DBG] Login page button clicked
+2024-03-27 08:17:20.908 +01:00 [DBG] Check user result: SUCCESS
+2024-03-27 08:17:30.099 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 08:18:21.120 +01:00 [INF] Logger started
+2024-03-27 08:18:24.635 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 08:19:48.530 +01:00 [INF] Logger started
+2024-03-27 08:19:57.329 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 08:20:32.016 +01:00 [DBG] Login page button clicked
+2024-03-27 08:20:37.379 +01:00 [DBG] Check user result: SUCCESS
+2024-03-27 08:20:39.658 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-27 08:20:43.450 +01:00 [DBG] Selected forklift: AMR_LAN
+2024-03-27 08:20:45.749 +01:00 [DBG] Login page button clicked
+2024-03-27 08:20:47.615 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-27 08:20:48.858 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 08:24:26.970 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 08:26:41.786 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 08:31:09.920 +01:00 [INF] Logger started
+2024-03-27 08:31:18.986 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 08:31:33.099 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 08:35:57.329 +01:00 [INF] Logger started
+2024-03-27 08:36:12.041 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 08:37:55.798 +01:00 [INF] Logger started
+2024-03-27 08:37:59.688 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 08:44:55.891 +01:00 [INF] Logger started
+2024-03-27 08:45:03.873 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 08:46:06.891 +01:00 [INF] Logger started
+2024-03-27 08:46:09.697 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 08:50:28.224 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 08:50:38.471 +01:00 [INF] Logger started
+2024-03-27 08:50:41.184 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 08:57:23.054 +01:00 [INF] Logger started
+2024-03-27 08:57:28.936 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 09:00:57.348 +01:00 [INF] Logger started
+2024-03-27 09:01:02.287 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 09:05:49.120 +01:00 [INF] Logger started
+2024-03-27 09:05:56.631 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 09:07:09.334 +01:00 [INF] Logger started
+2024-03-27 09:07:15.147 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 09:14:51.182 +01:00 [DBG] Login page button clicked
+2024-03-27 09:14:52.397 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-27 09:14:53.213 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 09:14:54.317 +01:00 [DBG] Login page button clicked
+2024-03-27 09:14:55.325 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-27 09:15:23.645 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-27 09:15:24.525 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 09:19:37.268 +01:00 [INF] Logger started
+2024-03-27 09:24:14.152 +01:00 [INF] Logger started
+2024-03-27 09:25:13.005 +01:00 [INF] Logger started
+2024-03-27 09:25:15.518 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-27 09:25:16.621 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 09:29:01.177 +01:00 [INF] Logger started
+2024-03-27 09:29:06.197 +01:00 [DBG] Login page button clicked
+2024-03-27 09:29:15.286 +01:00 [DBG] Check user result: SUCCESS
+2024-03-27 09:29:17.068 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-27 09:29:17.968 +01:00 [DBG] Selected forklift: AMR_LAN
+2024-03-27 09:39:53.615 +01:00 [INF] Logger started
+2024-03-27 09:40:00.852 +01:00 [DBG] Login page button clicked
+2024-03-27 09:40:05.693 +01:00 [DBG] Check user result: SUCCESS
+2024-03-27 09:40:07.650 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-27 09:48:16.874 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-27 09:48:26.066 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-27 09:48:27.299 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 09:53:07.258 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 09:53:45.210 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 09:54:51.850 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 09:55:02.982 +01:00 [INF] Logger started
+2024-03-27 09:55:15.563 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 09:55:27.196 +01:00 [INF] Logger started
+2024-03-27 09:55:33.691 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 09:56:01.522 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 09:58:22.842 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 09:58:41.342 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-27 09:58:42.482 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 09:58:43.450 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-27 09:58:44.265 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 09:59:28.654 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:00:04.549 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:02:10.636 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:02:11.022 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:03:16.860 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:03:32.733 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:04:15.382 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:04:45.749 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:04:57.172 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:05:35.340 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:05:58.913 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:06:16.172 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:09:07.940 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:09:14.771 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:09:36.965 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:10:16.997 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:10:38.309 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:10:55.644 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:11:12.108 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:11:37.294 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:11:55.053 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:12:24.434 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:13:02.717 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:16:07.787 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:17:19.099 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:17:40.660 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:18:14.852 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:42:30.610 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:43:32.402 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:46:13.660 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:46:30.784 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:49:05.555 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:51:39.409 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:52:11.897 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:53:20.824 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:53:55.178 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:54:37.087 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:55:00.567 +01:00 [INF] Logger started
+2024-03-27 10:55:06.613 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:56:17.404 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 10:56:53.476 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-27 10:56:56.053 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 12:53:39.910 +01:00 [DBG] Login page button clicked
+2024-03-27 12:54:00.868 +01:00 [INF] Logger started
+2024-03-27 12:56:47.822 +01:00 [INF] Logger started
+2024-03-27 12:56:52.714 +01:00 [DBG] Login page button clicked
+2024-03-27 12:57:00.395 +01:00 [DBG] Check user result: SUCCESS
+2024-03-27 13:53:01.865 +01:00 [INF] Logger started
+2024-03-27 13:53:10.957 +01:00 [DBG] Login page button clicked
+2024-03-27 13:53:18.230 +01:00 [DBG] Check user result: SUCCESS
+2024-03-27 13:54:47.580 +01:00 [DBG] Locations Manager page button clicked
+2024-03-27 13:59:59.445 +01:00 [INF] Logger started
+2024-03-27 14:00:10.156 +01:00 [DBG] Login page button clicked
+2024-03-27 14:00:15.709 +01:00 [DBG] Check user result: SUCCESS
+2024-03-27 14:00:16.740 +01:00 [DBG] Locations Manager page button clicked
+2024-03-27 14:20:01.130 +01:00 [DBG] Forklifts page button clicked
+2024-03-27 14:20:02.154 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-27 14:20:23.986 +01:00 [DBG] Locations Manager page button clicked
+2024-03-27 14:45:22.757 +01:00 [INF] Logger started
+2024-03-27 14:45:26.944 +01:00 [DBG] Login page button clicked
+2024-03-27 14:45:32.769 +01:00 [DBG] Check user result: SUCCESS
+2024-03-27 14:45:34.024 +01:00 [DBG] Locations Manager page button clicked
+2024-03-27 14:50:37.647 +01:00 [DBG] Locations Manager page button clicked
+2024-03-27 14:55:32.602 +01:00 [INF] Logger started
+2024-03-27 14:55:41.215 +01:00 [DBG] Login page button clicked
+2024-03-27 14:55:46.336 +01:00 [DBG] Check user result: SUCCESS
+2024-03-27 14:55:48.655 +01:00 [DBG] Locations Manager page button clicked
+2024-03-27 14:56:14.504 +01:00 [DBG] Location data: Location does not exists!
+2024-03-27 14:56:15.596 +01:00 [DBG] Adding new location after check
+2024-03-27 14:56:21.591 +01:00 [DBG] Locations Manager page button clicked
+2024-03-27 15:00:44.006 +01:00 [DBG] Locations Manager page button clicked
+2024-03-27 15:02:48.025 +01:00 [DBG] Update location data succeed
+2024-03-27 15:03:09.438 +01:00 [DBG] Locations Manager page button clicked
+2024-03-27 15:03:14.386 +01:00 [DBG] Update location data succeed
+2024-03-27 15:03:18.350 +01:00 [DBG] Locations Manager page button clicked
+2024-03-27 15:03:32.944 +01:00 [DBG] Delete location result == True
+2024-03-27 15:03:47.105 +01:00 [DBG] Location data: Location does not exists!
+2024-03-27 15:03:47.105 +01:00 [DBG] Adding new location after check
+2024-03-27 15:03:55.873 +01:00 [ERR] Location data: Location Id already exists!
+2024-03-27 15:04:14.816 +01:00 [ERR] Location data: Location Id already exists!
+2024-03-27 15:04:45.381 +01:00 [DBG] Delete location result == True
+2024-03-27 15:07:22.158 +01:00 [DBG] Locations Manager page button clicked
+2024-03-27 15:07:39.832 +01:00 [DBG] Location data: Location does not exists!
+2024-03-27 15:07:39.832 +01:00 [DBG] Adding new location after check
+2024-03-27 15:07:42.888 +01:00 [ERR] Location data: Location Id already exists!
+2024-03-27 15:08:20.780 +01:00 [DBG] Delete location result == True
+2024-03-27 15:08:22.384 +01:00 [DBG] Location data: Location does not exists!
+2024-03-27 15:08:22.385 +01:00 [DBG] Adding new location after check
+2024-03-27 15:08:23.879 +01:00 [ERR] Location data: Location Name already exists!
+2024-03-27 15:08:34.040 +01:00 [ERR] Location data: Location with the same coordinates already exists!:test1
+2024-03-27 15:08:40.208 +01:00 [DBG] Location data: Location does not exists!
+2024-03-27 15:08:40.208 +01:00 [DBG] Adding new location after check
+2024-03-27 15:20:37.165 +01:00 [DBG] Locations Manager page button clicked
+2024-03-27 15:25:19.476 +01:00 [DBG] Locations Manager page button clicked
+2024-03-27 15:27:48.698 +01:00 [INF] Logger started
+2024-03-27 15:27:53.317 +01:00 [DBG] Login page button clicked
+2024-03-27 15:28:06.941 +01:00 [DBG] Check user result: SUCCESS
+2024-03-27 15:28:07.876 +01:00 [DBG] Locations Manager page button clicked
+2024-03-27 15:33:01.515 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-27 15:33:03.444 +01:00 [DBG] Locations Manager page button clicked

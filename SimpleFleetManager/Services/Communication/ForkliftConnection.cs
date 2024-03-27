@@ -48,11 +48,17 @@ namespace SimpleFleetManager.Services.Communication
                 {
                     throw new NotImplementedException();
                 }
-                forklift.Client ??= new();
                 var timeout = new CancellationTokenSource(5000);
                 if (forklift.ForkliftIpAddress != null)
                 {
-                    await forklift.Client.ConnectAsync(forklift.ForkliftIpAddress, forklift.Port, timeout.Token);
+                    if (forklift.Client == null)
+                    {
+                        forklift.Client = new TcpClient();
+                    }
+                    if (!forklift.Client.Connected)
+                    {
+                        await forklift.Client.ConnectAsync(forklift.ForkliftIpAddress, forklift.Port, timeout.Token);
+                    }
                     if (forklift.Client.Connected)
                     {
                         return true;

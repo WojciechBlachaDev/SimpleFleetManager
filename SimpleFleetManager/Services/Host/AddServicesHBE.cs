@@ -25,7 +25,7 @@ namespace SimpleFleetManager.Services.Host
                 services.AddSingleton<JobStep>();
                 services.AddSingleton<Job>();
                 services.AddSingleton<Location>();
-                services.AddSingleton<ForkliftLog>();
+                services.AddTransient<ForkliftLog>();
                 services.AddSingleton<List<Forklift>>(provider => []);
                 services.AddScoped<UserDataService>();
                 services.AddScoped<ForkliftDataService>();
