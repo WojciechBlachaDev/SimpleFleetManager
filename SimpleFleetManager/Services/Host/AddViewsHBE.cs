@@ -4,7 +4,6 @@ using SimpleFleetManager.ViewModels.ForkliftPages;
 using SimpleFleetManager.ViewModels.Main;
 using SimpleFleetManager.Views.ForkliftPages;
 using SimpleFleetManager.Views.Main;
-
 namespace SimpleFleetManager.Services.Host
 {
     public static class AddViewsHBE

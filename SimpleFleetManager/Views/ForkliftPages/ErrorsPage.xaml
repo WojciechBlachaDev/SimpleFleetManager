@@ -5,20 +5,14 @@
     xmlns:conv="clr-namespace:SimpleFleetManager.ViewModels.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:forkliftpages="clr-namespace:SimpleFleetManager.ViewModels.ForkliftPages"
-    xmlns:local="clr-namespace:SimpleFleetManager.Views.ForkliftPages"
-    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="ErrorsPage"
     d:DataContext="{d:DesignInstance Type=forkliftpages:ErrorsPageViewModel}"
     d:DesignHeight="1000"
     d:DesignWidth="1610"
     mc:Ignorable="d">
     <Page.Resources>
-        <conv:BoolToStatusGreenRed x:Key="BoolGreenRed" />
-        <conv:BoolToStatusGreenGrey x:Key="BoolGreenGrey" />
         <conv:BoolToStatusGreyRed x:Key="BoolGreyRed" />
-        <conv:BoolToStatusGreyYellow x:Key="BoolGreyYellow" />
         <conv:NegativeBoolToVisibility x:Key="NegativeVisibility" />
     </Page.Resources>
     <Grid>
@@ -77,7 +71,6 @@
                                 Style="{StaticResource SimpleDataStyle}"
                                 Text="{Binding Data.PlcErrorCodes.BatteryVoltageRead}"
                                 Visibility="{Binding Data.PlcErrorStatus.BatteryVoltageRead, Converter={StaticResource NegativeVisibility}}" />
-
                             <TextBlock
                                 Foreground="Red"
                                 Style="{StaticResource SimpleDataStyle}"

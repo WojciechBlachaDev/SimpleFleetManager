@@ -1,5 +1,4 @@
 ﻿using SimpleFleetManager.Models.Main;
-
 namespace SimpleFleetManager.Services.Interfaces
 {
     public interface IUserStore

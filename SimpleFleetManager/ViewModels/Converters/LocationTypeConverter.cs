@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 using System.Windows.Data;
-
 namespace SimpleFleetManager.ViewModels.Converters
 {
     public class LocationTypeConverter : IValueConverter
@@ -13,7 +12,6 @@ namespace SimpleFleetManager.ViewModels.Converters
             if (data == 3) { return "StandbyPlace"; }
             return "Wrong type";
         }
-
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             string data = (string)value;

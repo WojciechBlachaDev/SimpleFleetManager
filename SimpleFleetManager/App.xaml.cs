@@ -4,7 +4,6 @@ using Serilog;
 using SimpleFleetManager.Services.Host;
 using SimpleFleetManager.ViewModels.Main;
 using System.Windows;
-
 namespace SimpleFleetManager
 {
     public partial class App : Application
@@ -23,10 +22,7 @@ namespace SimpleFleetManager
                     .CreateLogger();
                 Log.Information("Logger started");
             }
-            catch (Exception ex)
-            {
-                Log.Error("Error occured while creating serilog configuration: " + ex.Message);
-            }
+            catch (Exception ex) { Log.Error("Error occured while creating serilog configuration: " + ex.Message); }
             System.Globalization.CultureInfo customCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
             customCulture.NumberFormat.NumberDecimalSeparator = ".";
             System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
@@ -46,10 +42,7 @@ namespace SimpleFleetManager
             await _host.StartAsync();
             MainWindow = _host.Services.GetRequiredService<MainWindow>();
             MainWindow.DataContext = _host.Services.GetRequiredService<MainWindowViewModel>();
-            if (!MainWindow.IsLoaded)
-            {
-                MainWindow.Show();
-            }
+            if (!MainWindow.IsLoaded) { MainWindow.Show(); }
             base.OnStartup(e);
         }
         protected override async void OnExit(ExitEventArgs e)

@@ -1,7 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
-using SimpleFleetManager.Models.Main;
+﻿using SimpleFleetManager.Models.Main;
 using SimpleFleetManager.Services.Data;
-
 namespace SimpleFleetManager.Services.Interfaces
 {
     public interface IForkliftConnection

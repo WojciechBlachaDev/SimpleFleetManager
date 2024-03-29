@@ -8,7 +8,6 @@ using SimpleFleetManager.Views.Main;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-
 namespace SimpleFleetManager.ViewModels.Main
 {
     public class MainWindowViewModel : BaseViewModel
@@ -27,125 +26,56 @@ namespace SimpleFleetManager.ViewModels.Main
         private Page? _currentPage;
         public Page CurrentPage
         {
-            get
-            {
-                return _currentPage ??= new();
-            }
-            set
-            {
-                if (_currentPage != value)
-                {
-                    _currentPage = value;
-                    OnPropertyChanged(nameof(CurrentPage));
-                }
-            }
+            get { return _currentPage ??= new(); }
+            set { if (_currentPage != value) { _currentPage = value; OnPropertyChanged(nameof(CurrentPage)); } }
         }
         private bool _showMenu;
         public bool ShowMenu
         {
-            get
-            {
-                return _showMenu;
-            }
-            set
-            {
-                if (_showMenu != value)
-                {
-                    _showMenu = value;
-                    OnPropertyChanged(nameof(ShowMenu));
-                }
-            }
+            get { return _showMenu; }
+            set { if (_showMenu != value) { _showMenu = value; OnPropertyChanged(nameof(ShowMenu)); } }
         }
         private bool _showShutdownDialog;
         public bool ShowShutdownDialog
         {
-            get
-            {
-                return _showShutdownDialog;
-            }
-            set
-            {
-                _showShutdownDialog = value;
-                OnPropertyChanged(nameof(ShowShutdownDialog));
-            }
+            get { return _showShutdownDialog; }
+            set { _showShutdownDialog = value; OnPropertyChanged(nameof(ShowShutdownDialog)); }
         }
         private User? _currentUser;
         public User CurrentUser
         {
-            get
-            {
-                return _currentUser ??= new();
-            }
-            set
-            {
-                _currentUser = value;
-                OnPropertyChanged(nameof(CurrentUser));
-            }
+            get { return _currentUser ??= new(); }
+            set { _currentUser = value; OnPropertyChanged(nameof(CurrentUser)); }
         }
         private string? _loginPageIcon;
         public string LoginPageIcon
         {
-            get
-            {
-                return _loginPageIcon ??= "Models/Resources/Icons/LoginPageWhite.png";
-            }
-            set
-            {
-                _loginPageIcon = value;
-                OnPropertyChanged(nameof(LoginPageIcon));
-            }
+            get { return _loginPageIcon ??= "Models/Resources/Icons/LoginPageWhite.png"; }
+            set { _loginPageIcon = value; OnPropertyChanged(nameof(LoginPageIcon)); }
         }
         private bool _clientMenuVisible;
         public bool ClientMenuVisible
         {
-            get
-            {
-                return _clientMenuVisible;
-            }
-            set
-            {
-                _clientMenuVisible = value;
-                OnPropertyChanged(nameof(ClientMenuVisible));
-            }
+            get { return _clientMenuVisible; }
+            set { _clientMenuVisible = value; OnPropertyChanged(nameof(ClientMenuVisible)); }
         }
         private bool _installatorMenuVisible;
         public bool InstallatorMenuVisible
         {
-            get
-            {
-                return _installatorMenuVisible;
-            }
-            set
-            {
-                _installatorMenuVisible = value;
-                OnPropertyChanged(nameof(InstallatorMenuVisible));
-            }
+            get { return _installatorMenuVisible; }
+            set { _installatorMenuVisible = value; OnPropertyChanged(nameof(InstallatorMenuVisible)); }
         }
         private bool _adminMenuVisible;
         public bool AdminMenuVisible
         {
-            get
-            {
-                return _adminMenuVisible;
-            }
-            set
-            {
-                _adminMenuVisible = value;
-                OnPropertyChanged(nameof(AdminMenuVisible));
-            }
+            get { return _adminMenuVisible; }
+            set { _adminMenuVisible = value; OnPropertyChanged(nameof(AdminMenuVisible)); }
         }
         private List<Forklift>? _connectedForklifts;
         public List<Forklift> ConnectedForklifts
         {
-            get
-            {
-                return _connectedForklifts ??= [];
-            }
-            set
-            {
-                _connectedForklifts = value;
-                OnPropertyChanged(nameof(ConnectedForklifts));
-            }
+            get { return _connectedForklifts ??= []; }
+            set { _connectedForklifts = value; OnPropertyChanged(nameof(ConnectedForklifts)); }
         }
         #endregion
         #endregion
@@ -190,21 +120,11 @@ namespace SimpleFleetManager.ViewModels.Main
         {
             try
             {
-                if (_userStore.CurrentUser != null)
-                {
-                    CurrentUser = _userStore.CurrentUser;
-                    LoginPageIcon = "/Models/Resources/Icons/LogoutPageWhite.png";
-                }
-                else
-                {
-                    LoginPageIcon = "/Models/Resources/Icons/LoginPageWhite.png";
-                }
+                if (_userStore.CurrentUser != null) { CurrentUser = _userStore.CurrentUser; LoginPageIcon = "/Models/Resources/Icons/LogoutPageWhite.png"; }
+                else { LoginPageIcon = "/Models/Resources/Icons/LoginPageWhite.png"; }
                 SetMenuVisibility();
             }
-            catch (Exception ex)
-            {
-                Log.Error("Error occured when selecting login page icon: " + ex.Message);
-            }
+            catch (Exception ex) { Log.Error("Error occured when selecting login page icon: " + ex.Message); }
         }
         private void SetMenuVisibility()
         {
@@ -235,10 +155,7 @@ namespace SimpleFleetManager.ViewModels.Main
                     AdminMenuVisible = false;
                 }
             }
-            catch (Exception ex)
-            {
-                Log.Error("Error occured when setting main menu visibility by access level: " + ex.Message);
-            }
+            catch (Exception ex) { Log.Error("Error occured when setting main menu visibility by access level: " + ex.Message); }
         }
         #endregion
         #region Main logic
@@ -264,23 +181,13 @@ namespace SimpleFleetManager.ViewModels.Main
                             {
                                 _connectedForklifts.Insert(forklift.Id, forklift);
                             }
-                            else
-                            {
-                                _connectedForklifts.Add(forklift);
-                            }
+                            else { _connectedForklifts.Add(forklift); }
                         }
-                        else
-                        {
-                            _connectedForklifts = [];
-                            ConnectedForklifts.Add(forklift);
-                        }
+                        else { _connectedForklifts = [];  ConnectedForklifts.Add(forklift); }
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                Log.Error("Error occured when trying to connect to forklifts saved in database: " + ex.Message);
-            }
+            catch (Exception ex) { Log.Error("Error occured when trying to connect to forklifts saved in database: " + ex.Message); }
         }
         #endregion
         #region Buttons actions execution

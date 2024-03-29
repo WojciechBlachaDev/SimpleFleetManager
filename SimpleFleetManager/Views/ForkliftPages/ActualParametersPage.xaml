@@ -11,7 +11,6 @@
     d:DesignHeight="1000"
     d:DesignWidth="1610"
     mc:Ignorable="d">
-
     <Grid>
         <StackPanel>
             <!--#region Header data refresh time stack panel-->

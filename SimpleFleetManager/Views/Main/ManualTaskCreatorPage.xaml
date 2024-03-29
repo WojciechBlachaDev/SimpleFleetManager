@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:conv="clr-namespace:SimpleFleetManager.ViewModels.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:SimpleFleetManager.Views.Main"
     xmlns:main="clr-namespace:SimpleFleetManager.ViewModels.Main"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
@@ -49,7 +48,6 @@
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>
                             </ScrollViewer>
-
                         </StackPanel>
                     </Grid>
                     <!--#endregion-->
@@ -135,8 +133,6 @@
                                     <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
                                 </StackPanel>
                                 <!--#endregion-->
-
-
                             </StackPanel>
                             <StackPanel Margin="0,40,0,0" Orientation="Horizontal">
                                 <ui:Button
@@ -157,8 +153,6 @@
                                     Style="{StaticResource SimpleDeleteButton}" />
                             </StackPanel>
                         </StackPanel>
-
-
                     </Grid>
                     <!--#endregion-->
                 </Grid>
@@ -352,7 +346,6 @@
                     </Grid>
                     <!--#endregion-->
                 </Grid>
-
             </TabItem>
             <!--#endregion-->
         </TabControl>

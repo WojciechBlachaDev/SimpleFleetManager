@@ -18,6 +18,5 @@
                 <ResourceDictionary Source="Models/Resources/Styles/BasicStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-
     </Application.Resources>
 </Application>

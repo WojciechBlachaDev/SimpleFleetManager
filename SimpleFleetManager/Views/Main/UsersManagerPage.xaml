@@ -13,7 +13,6 @@
     d:DesignHeight="450"
     d:DesignWidth="1840"
     mc:Ignorable="d">
-
     <Page.Resources>
         <conv:BoolToVIsibilityConverter x:Key="BoolToVisibility" />
     </Page.Resources>
@@ -106,6 +105,5 @@
             </StackPanel>
         </Grid>
         <!--#endregion-->
-
     </Grid>
 </Page>

@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
 namespace SimpleFleetManager.Models.Main
 {
     public class User
@@ -17,8 +16,6 @@ namespace SimpleFleetManager.Models.Main
         public int AccessLevel { get; set; }
         public User()
         {
-            /*Username = string.Empty;
-            Password = string.Empty;*/
         }
     }
 }

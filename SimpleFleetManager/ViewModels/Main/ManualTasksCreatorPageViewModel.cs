@@ -3,7 +3,6 @@ using SimpleFleetManager.Models.Main;
 using SimpleFleetManager.Services.Data;
 using SimpleFleetManager.ViewModels.Common;
 using System.Windows.Input;
-
 namespace SimpleFleetManager.ViewModels.Main
 {
     public class ManualTasksCreatorPageViewModel : BaseViewModel
@@ -132,25 +131,13 @@ namespace SimpleFleetManager.ViewModels.Main
         #region Page logic
         private async void LoadAllJobSteps()
         {
-            try
-            {
-                AvaibleJobStep = await _jobStepDataService.GetAll();
-            }
-            catch (Exception ex)
-            {
-                Log.Error("Error occured when trying to load all job steps: " + ex.Message);
-            }
+            try { AvaibleJobStep = await _jobStepDataService.GetAll(); }
+            catch (Exception ex) { Log.Error("Error occured when trying to load all job steps: " + ex.Message); }
         }
         private async void LoadAllJobs()
         {
-            try
-            {
-                AvaibleJobs = await _jobDataService.GetAll();
-            }
-            catch (Exception ex)
-            {
-                Log.Error("Error occured when tying to load all jobs: " + ex.Message);
-            }
+            try { AvaibleJobs = await _jobDataService.GetAll(); }
+            catch (Exception ex) { Log.Error("Error occured when tying to load all jobs: " + ex.Message); }
         }
         private async void LoadAllLocations()
         {
@@ -158,19 +145,9 @@ namespace SimpleFleetManager.ViewModels.Main
             {
                 AvaibleLocations ??= [];
                 IEnumerable<Location>? tmpLocations = await _locationDataService.GetAll();
-                foreach (Location location in tmpLocations)
-                {
-                    if (location.IsActive)
-                    {
-                        AvaibleLocations.Add(location);
-                    }
-                }
-
+                foreach (Location location in tmpLocations) { if (location.IsActive) { AvaibleLocations.Add(location); } }
             }
-            catch (Exception ex)
-            {
-                Log.Error("Error occured when trying to load all avaible locations: " + ex.Message);
-            }
+            catch (Exception ex) { Log.Error("Error occured when trying to load all avaible locations: " + ex.Message); }
         }
         private void SortJobStepsByAssign()
         {
@@ -184,17 +161,8 @@ namespace SimpleFleetManager.ViewModels.Main
                     List<JobStep>? tmpUnassignedSteps = [];
                     foreach (JobStep step in _avaibleJobSteps)
                     {
-                        if (!step.IsAssigned)
-                        {
-                            tmpUnassignedSteps.Add(step);
-                        }
-                        else
-                        {
-                            if (_currentJob != null && step.JobId == _currentJob.Id)
-                            {
-                                tmpAssignedSteps.Add(step);
-                            }
-                        }
+                        if (!step.IsAssigned) { tmpUnassignedSteps.Add(step); }
+                        else { if (_currentJob != null && step.JobId == _currentJob.Id) { tmpAssignedSteps.Add(step); } }
                     }
                     AssignedSteps = tmpAssignedSteps;
                     UnassignedSteps = tmpUnassignedSteps;
@@ -213,10 +181,7 @@ namespace SimpleFleetManager.ViewModels.Main
             List<JobStep>? tmpSteps = [];
             if (_currentJob != null && _currentJob.JobSteps != null)
             {
-                foreach (int stepId in _currentJob.JobSteps)
-                {
-                    tmpSteps.Add(await _jobStepDataService.Get(stepId));
-                }
+                foreach (int stepId in _currentJob.JobSteps) { tmpSteps.Add(await _jobStepDataService.Get(stepId)); }
             }
             CurrentJobOrderedSteps = tmpSteps;
         }
@@ -247,10 +212,7 @@ namespace SimpleFleetManager.ViewModels.Main
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                Log.Error("Error catched while creating new job step: " + ex.Message);
-            }
+            catch (Exception ex) { Log.Error("Error catched while creating new job step: " + ex.Message) }
         }
         private async void ExecuteUpdateJobStepButtonClick(object o)
         {
@@ -399,11 +361,7 @@ namespace SimpleFleetManager.ViewModels.Main
                     step.JobId = -1;
                     foreach (int jobId in _currentJob.JobSteps)
                     {
-                        if (jobId > step.Id)
-                        {
-                            CurrentJob.JobSteps.RemoveAt(jobId);
-                            break;
-                        }
+                        if (jobId > step.Id) { CurrentJob.JobSteps.RemoveAt(jobId); break; }
                     }
                     _ = await _jobStepDataService.Update(step.Id, step);
                     _ = await _jobDataService.Update(_currentJob.Id, _currentJob);

@@ -5,14 +5,12 @@
     xmlns:conv="clr-namespace:SimpleFleetManager.ViewModels.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:forkliftpages="clr-namespace:SimpleFleetManager.ViewModels.ForkliftPages"
-    xmlns:local="clr-namespace:SimpleFleetManager.Views.ForkliftPages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="WorkPage"
     d:DataContext="{d:DesignInstance Type=forkliftpages:WorkPageViewModel}"
     d:DesignHeight="1000"
     d:DesignWidth="1610"
     mc:Ignorable="d">
-
     <Page.Resources>
         <conv:BoolToStatusGreenGrey x:Key="BoolGreenGrey" />
     </Page.Resources>

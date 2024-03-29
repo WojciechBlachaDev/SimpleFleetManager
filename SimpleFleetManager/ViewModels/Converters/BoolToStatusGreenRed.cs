@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 using System.Windows.Data;
-
 namespace SimpleFleetManager.ViewModels.Converters
 {
     public class BoolToStatusGreenRed : IValueConverter
@@ -8,18 +7,8 @@ namespace SimpleFleetManager.ViewModels.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             bool isOk = (bool)value;
-            string result;
-            if (isOk)
-            {
-                result = "/Models/Resources/Icons/StatusOk.png";
-            }
-            else
-            {
-                result = "/Models/Resources/Icons/StatusError.png";
-            }
-            return result;
+            if (isOk) { return "/Models/Resources/Icons/StatusOk.png"; } else { return "/Models/Resources/Icons/StatusError.png"; }
         }
-
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();

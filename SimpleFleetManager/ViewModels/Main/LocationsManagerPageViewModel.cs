@@ -3,7 +3,6 @@ using SimpleFleetManager.Models.Main;
 using SimpleFleetManager.Services.Data;
 using SimpleFleetManager.ViewModels.Common;
 using System.Windows.Input;
-
 namespace SimpleFleetManager.ViewModels.Main
 {
     public class LocationsManagerPageViewModel : BaseViewModel
@@ -85,10 +84,7 @@ namespace SimpleFleetManager.ViewModels.Main
         #region PageLogic
         private async void LoadLocations()
         {
-            if (_locationDataService != null)
-            {
-                AllLocations = await _locationDataService.GetAll();
-            }
+            if (_locationDataService != null) { AllLocations = await _locationDataService.GetAll(); }
         }
         private bool LocationExist(Location location)
         {
@@ -97,25 +93,12 @@ namespace SimpleFleetManager.ViewModels.Main
             {
                 foreach (Location loadedLocation in _allLocations)
                 {
-                    if (loadedLocation.Id == location.Id)
-                    {
-                        Log.Error("Location data: Location Id already exists!");
-                        return true;
-                    }
-                    if (loadedLocation.Name == location.Name)
-                    {
-                        Log.Error("Location data: Location Name already exists!");
-                        return true;
-                    }
+                    if (loadedLocation.Id == location.Id) { Log.Error("Location data: Location Id already exists!"); return true; }
+                    if (loadedLocation.Name == location.Name) { Log.Error("Location data: Location Name already exists!"); return true; }
                     bool positionExists = (loadedLocation.X == location.X) && (loadedLocation.Y == location.Y) && (loadedLocation.R == location.R);
-                    if (positionExists)
-                    {
-                        Log.Error("Location data: Location with the same coordinates already exists!:" + loadedLocation.Name);
-                        return true;
-                    }
+                    if (positionExists) { Log.Error("Location data: Location with the same coordinates already exists!:" + loadedLocation.Name); return true; }
                 }
-                Log.Debug("Location data: Location does not exists!");
-                return false;
+                Log.Debug("Location data: Location does not exists!"); return false;
             }
             return true;
         }
@@ -125,7 +108,6 @@ namespace SimpleFleetManager.ViewModels.Main
         }
         #endregion
         #region Buttons executions
-
         private async void ExecuteAddNewLocationButtonClick(object o)
         {
             if (_displayedLocation != null && _locationDataService != null)
@@ -175,10 +157,7 @@ namespace SimpleFleetManager.ViewModels.Main
                             LoadLocations();
                             break;
                         }
-                        else
-                        {
-                            Log.Warning("Error while updating location data!");
-                        }
+                        else { Log.Warning("Error while updating location data!"); }
                     }
                 }
             }
@@ -202,10 +181,7 @@ namespace SimpleFleetManager.ViewModels.Main
                     DisplayedLocation = newLocation;
                 }
             }
-            catch (Exception ex)
-            {
-                Log.Error("Error while trying to get current forklift position data: " + ex.Message);
-            }
+            catch (Exception ex) { Log.Error("Error while trying to get current forklift position data: " + ex.Message); }
         }
         private void ExecuteSelectForkliftFromList(object o)
         {
@@ -224,10 +200,7 @@ namespace SimpleFleetManager.ViewModels.Main
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                Log.Error("Error while trying to select forklift from list: " + ex.Message);
-            }
+            catch (Exception ex) { Log.Error("Error while trying to select forklift from list: " + ex.Message); }
         }
         private async void ExecuteSelectExistingLocation(object o)
         {
@@ -240,10 +213,7 @@ namespace SimpleFleetManager.ViewModels.Main
                     SelectedLocationType = DisplayedLocation.Type;
                 }
             }
-            catch (Exception ex)
-            {
-                Log.Error("Error while trying to select existing location: " + ex.Message);
-            }
+            catch (Exception ex) { Log.Error("Error while trying to select existing location: " + ex.Message); }
         }
         #endregion
         #region ICommand decalrations

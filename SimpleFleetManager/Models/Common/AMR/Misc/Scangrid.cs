@@ -1,6 +1,4 @@
 ﻿using SimpleFleetManager.Models.Common.AMR.Misc.Scangrids;
-
-
 namespace SimpleFleetManager.Models.Common.AMR.Misc
 {
     public class Scangrid
@@ -11,6 +9,5 @@ namespace SimpleFleetManager.Models.Common.AMR.Misc
         {
             Ranges = [];
         }
-
     }
 }

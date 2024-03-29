@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
-
 namespace SimpleFleetManager.Services.Host
 {
     public static class AddConfigurationHBE

@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
 namespace SimpleFleetManager.Models.Common.AMR.Misc
 {
     public class ForkliftLog
@@ -15,7 +14,5 @@ namespace SimpleFleetManager.Models.Common.AMR.Misc
         public string? Message { get; set; }
         public string? File { get; set; }
         public int CodeLine { get; set; }
-
-
     }
 }

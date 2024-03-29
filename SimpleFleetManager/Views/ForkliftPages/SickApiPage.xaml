@@ -5,14 +5,12 @@
     xmlns:cefsharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:forkliftpages="clr-namespace:SimpleFleetManager.ViewModels.ForkliftPages"
-    xmlns:local="clr-namespace:SimpleFleetManager.Views.ForkliftPages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="SickApiPage"
     d:DataContext="{d:DesignInstance Type=forkliftpages:SickApiPageViewModel}"
     d:DesignHeight="1000"
     d:DesignWidth="1610"
     mc:Ignorable="d">
-
     <Grid>
         <TabControl>
             <TabItem Header="LidarLoc">

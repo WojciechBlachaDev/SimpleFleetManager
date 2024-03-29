@@ -4,7 +4,6 @@ using SimpleFleetManager.Models.Common.AMR.Misc.Config;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Net.Sockets;
-
 namespace SimpleFleetManager.Models.Main
 {
     public class Forklift
@@ -38,6 +37,5 @@ namespace SimpleFleetManager.Models.Main
             DataIn = new();
             DataOut = new();
         }
-
     }
 }

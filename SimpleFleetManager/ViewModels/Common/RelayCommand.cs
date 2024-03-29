@@ -1,5 +1,4 @@
 ﻿using System.Windows.Input;
-
 namespace SimpleFleetManager.ViewModels.Common
 {
     class RelayCommand : ICommand

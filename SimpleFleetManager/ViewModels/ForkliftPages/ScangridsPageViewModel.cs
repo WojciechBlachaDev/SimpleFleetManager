@@ -1,7 +1,6 @@
 ﻿using SimpleFleetManager.Models.Common.AMR;
 using SimpleFleetManager.Models.Main;
 using SimpleFleetManager.ViewModels.Common;
-
 namespace SimpleFleetManager.ViewModels.ForkliftPages
 {
     public class ScangridsPageViewModel : BaseViewModel
@@ -10,44 +9,20 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
         private Forklift? _selectedForklift;
         public Forklift? SelectedForklift
         {
-            get
-            {
-                return _selectedForklift;
-            }
-            set
-            {
-                if (_selectedForklift != value)
-                {
-                    _selectedForklift = value;
-                    OnPropertyChanged(nameof(SelectedForklift));
-                }
-            }
+            get { return _selectedForklift; }
+            set { if (_selectedForklift != value) { _selectedForklift = value; OnPropertyChanged(nameof(SelectedForklift)); } }
         }
         private DataOut? _data;
         public DataOut Data
         {
-            get
-            {
-                return _data ?? new(); ;
-            }
-            set
-            {
-                _data = value;
-                OnPropertyChanged(nameof(Data));
-            }
+            get {  return _data ?? new(); ; }
+            set { _data = value; OnPropertyChanged(nameof(Data)); }
         }
         private DateTime _refreshDate;
         public DateTime RefreshDate
         {
-            get
-            {
-                return _refreshDate;
-            }
-            set
-            {
-                _refreshDate = value;
-                OnPropertyChanged(nameof(RefreshDate));
-            }
+            get { return _refreshDate; }
+            set { _refreshDate = value; OnPropertyChanged(nameof(RefreshDate)); }
         }
         #endregion
         #region Cosntructor
@@ -64,12 +39,8 @@ namespace SimpleFleetManager.ViewModels.ForkliftPages
                 Data = _selectedForklift.DataOut;
                 RefreshDate = DateTime.Now;
                 await Task.Delay(30);
-                if (!_selectedForklift.Client.Connected)
-                {
-                    break;
-                }
+                if (!_selectedForklift.Client.Connected) { break; }
             }
-
         }
     }
 }

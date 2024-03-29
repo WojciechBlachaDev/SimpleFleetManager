@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-
 namespace SimpleFleetManager.Models.EntityFramework
 {
     public class DtSimpleDbContextFactory

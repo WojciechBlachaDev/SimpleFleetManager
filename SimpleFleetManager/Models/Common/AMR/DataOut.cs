@@ -1,7 +1,6 @@
 ﻿using SimpleFleetManager.Models.Common.AMR.Misc;
 using SimpleFleetManager.Models.Common.AMR.Misc.Config;
 using SimpleFleetManager.Models.Common.AMR.Misc.PLC;
-
 namespace SimpleFleetManager.Models.Common.AMR
 {
     public class DataOut
@@ -32,6 +31,5 @@ namespace SimpleFleetManager.Models.Common.AMR
             Ethernet = new();
             ActualTask = new();
         }
-
     }
 }

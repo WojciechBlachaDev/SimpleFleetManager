@@ -2,7 +2,6 @@
 using SimpleFleetManager.Models.EntityFramework;
 using SimpleFleetManager.Models.Main;
 using SimpleFleetManager.Services.Interfaces;
-
 namespace SimpleFleetManager.Services.Data
 {
     public class ForkliftDataService(SimpleDbContext context) : IDataService<Forklift>
@@ -12,7 +11,7 @@ namespace SimpleFleetManager.Services.Data
         public async Task<Forklift> Create(Forklift entity)
         {
             var addedEntity = _context.Forklifts.Add(entity).Entity;
-            await _context.SaveChangesAsync();
+            _ = await _context.SaveChangesAsync();
             return addedEntity;
         }
 
@@ -22,7 +21,7 @@ namespace SimpleFleetManager.Services.Data
             if (entity != null) 
             {
                 _context.Forklifts.Remove(entity);
-                await _context.SaveChangesAsync();
+                _ =  await _context.SaveChangesAsync();
                 return true;
             }
             return false;
@@ -31,11 +30,8 @@ namespace SimpleFleetManager.Services.Data
         public async Task<Forklift> Get(int id)
         {
             var entity = await _context.Forklifts.FindAsync(id);
-            if (entity != null)
-            {
-                return entity;
-            }
-            throw new NotImplementedException();
+            if (entity != null) { return entity; }
+            return new();
         }
 
         public async Task<IEnumerable<Forklift>> GetAll()
@@ -46,16 +42,9 @@ namespace SimpleFleetManager.Services.Data
         public async Task<Forklift> Update(int id, Forklift entity)
         {
             var existingEntity = await _context.Forklifts.FindAsync(id);
-            if (existingEntity != null)
-            {
-                existingEntity = entity;
-            }
-            else
-            {
-                await Create(entity);
-                existingEntity = entity;
-            }
-            await _context.SaveChangesAsync();
+            if (existingEntity != null) { existingEntity = entity; }
+            else { _ = await Create(entity); existingEntity = entity; }
+            _ = await _context.SaveChangesAsync();
             return existingEntity;
         }
     }

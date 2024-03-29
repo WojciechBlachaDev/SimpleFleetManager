@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SimpleFleetManager.Models.EntityFramework;
-
 namespace SimpleFleetManager.Services.Host
 {
     public static class AddDbContextHBE

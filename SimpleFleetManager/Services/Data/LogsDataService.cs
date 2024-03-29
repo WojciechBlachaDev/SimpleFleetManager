@@ -2,7 +2,6 @@
 using SimpleFleetManager.Models.Common.AMR.Misc;
 using SimpleFleetManager.Models.EntityFramework;
 using SimpleFleetManager.Services.Interfaces;
-
 namespace SimpleFleetManager.Services.Data
 {
     public class LogsDataService(SimpleDbContext context) : IDataService<ForkliftLog>
@@ -14,35 +13,28 @@ namespace SimpleFleetManager.Services.Data
             if (!_isLoadingList)
             {
                 var addedEntity = _context.Logs.Add(entity).Entity;
-                await _context.SaveChangesAsync();
+                _ = await _context.SaveChangesAsync();
                 return addedEntity;
             }
             return new();
-            
         }
-
         public async Task<bool> Delete(int id)
         {
             var entity = await _context.Logs.FindAsync(id);
             if (entity != null)
             {
                 _context.Logs.Remove(entity);
-                await _context.SaveChangesAsync();
+                _ = await _context.SaveChangesAsync();
                 return true;
             }
             return false;
         }
-
         public async Task<ForkliftLog> Get(int id)
         {
             var entity = await _context.Logs.FindAsync(id);
-            if (entity != null)
-            {
-                return entity;
-            }
-            throw new NotImplementedException();
+            if (entity != null) { return entity; }
+            return new();
         }
-
         public async Task<IEnumerable<ForkliftLog>> GetAll()
         {
             _isLoadingList = true;
@@ -51,8 +43,6 @@ namespace SimpleFleetManager.Services.Data
             _isLoadingList = false;
             return Logs;
         }
-
-
         public Task<ForkliftLog> Update(int id, ForkliftLog entity)
         {
             throw new NotImplementedException();

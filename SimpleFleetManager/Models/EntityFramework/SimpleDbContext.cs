@@ -2,7 +2,6 @@
 using SimpleFleetManager.Models.Common.AMR.Misc;
 using SimpleFleetManager.Models.Common.AMR.Misc.Config;
 using SimpleFleetManager.Models.Main;
-
 namespace SimpleFleetManager.Models.EntityFramework
 {
     public class SimpleDbContext(DbContextOptions options) : DbContext(options)
@@ -22,7 +21,5 @@ namespace SimpleFleetManager.Models.EntityFramework
                 .HasForeignKey<TebConfig>(e => e.ForkliftId);
             base.OnModelCreating(modelBuilder);
         }
-
-
     }
 }

@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Hosting;
 using SimpleFleetManager.ViewModels.ForkliftPages;
 using SimpleFleetManager.ViewModels.Main;
-
 namespace SimpleFleetManager.Services.Host
 {
     public static class AddViewModelsHBE

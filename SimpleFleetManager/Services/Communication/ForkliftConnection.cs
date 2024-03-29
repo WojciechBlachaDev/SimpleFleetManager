@@ -5,7 +5,6 @@ using SimpleFleetManager.Services.Interfaces;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
-
 namespace SimpleFleetManager.Services.Communication
 {
     public class ForkliftConnection : IForkliftConnection
@@ -23,12 +22,8 @@ namespace SimpleFleetManager.Services.Communication
                     var reply = await ping.SendPingAsync(ipAddress);
                     return reply.Status == IPStatus.Success;
                 }
-
             }
-            catch (PingException)
-            {
-                return false;
-            }
+            catch (PingException) { return false; }
             return false;
         }
         #endregion
@@ -39,52 +34,27 @@ namespace SimpleFleetManager.Services.Communication
             {
                 if (forklift.ForkliftIpAddress != null)
                 {
-                    if (!await IsForkliftAvaible(forklift.ForkliftIpAddress))
-                    {
-                        return false;
-                    }
+                    if (!await IsForkliftAvaible(forklift.ForkliftIpAddress)) { return false; }
                 }
-                else
-                {
-                    throw new NotImplementedException();
-                }
+                else { throw new NotImplementedException(); }
                 var timeout = new CancellationTokenSource(5000);
                 if (forklift.ForkliftIpAddress != null)
                 {
-                    if (forklift.Client == null)
-                    {
-                        forklift.Client = new TcpClient();
-                    }
-                    if (!forklift.Client.Connected)
-                    {
-                        await forklift.Client.ConnectAsync(forklift.ForkliftIpAddress, forklift.Port, timeout.Token);
-                    }
-                    if (forklift.Client.Connected)
-                    {
-                        return true;
-                    }
+                    forklift.Client ??= new TcpClient();
+                    if (!forklift.Client.Connected) { await forklift.Client.ConnectAsync(forklift.ForkliftIpAddress, forklift.Port, timeout.Token); }
+                    if (forklift.Client.Connected) { return true; }
                     return false;
                 }
             }
-            catch (SocketException)
-            {
-                return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            catch (SocketException) { return false; }
+            catch (Exception) { return false; }
             return false;
         }
         #endregion
         #region Reconnect task
         public async Task<bool> Reconnect(Forklift forklift, LogsDataService logsDataService, int retryInterval = 5000, int maxRetries = 5)
         {
-            if (forklift.Client != null)
-            {
-                forklift.Client.Close();
-                forklift.Client.Dispose();
-            }
+            if (forklift.Client != null) { forklift.Client.Close(); forklift.Client.Dispose(); }
             forklift.Client = new();
             int retryCounter = 0;
             while (!forklift.Client.Connected && retryCounter < maxRetries)
@@ -92,26 +62,13 @@ namespace SimpleFleetManager.Services.Communication
                 try
                 {
                     await Connect(forklift);
-                    if (forklift.Client.Connected)
-                    {
-                        await Task.Run(() =>
-                        {
-                            Task dataExchange = HandleDataExchange(forklift, logsDataService);
-                        });
-                        return true;
-                    }
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
+                    if (forklift.Client.Connected) { await Task.Run(() => { Task dataExchange = HandleDataExchange(forklift, logsDataService); }); return true; }
+                } 
+                catch (Exception) { return false; }
                 await Task.Delay(retryInterval);
                 retryCounter++;
             }
-            if (retryCounter > maxRetries)
-            {
-                // Tu dodac informacje o przekroczeniu licznika prob polaczeniowych
-            }
+            if (retryCounter > maxRetries) { /* Tu dodac informacje o przekroczeniu licznika prob polaczeniowych */ }
             return false;
         }
         #endregion
@@ -122,22 +79,12 @@ namespace SimpleFleetManager.Services.Communication
             {
                 if (forklift.Client != null)
                 {
-                    if (forklift.Client.Connected)
-                    {
-                        forklift.Client.Close();
-                        return Task.FromResult(true);
-                    }
-                    else
-                    {
-                        return Task.FromResult(false);
-                    }
+                    if (forklift.Client.Connected) { forklift.Client.Close(); return Task.FromResult(true); }
+                    else { return Task.FromResult(false); }
                 }
                 return Task.FromResult(false);
             }
-            catch (Exception)
-            {
-                return Task.FromResult(false);
-            }
+            catch (Exception) { return Task.FromResult(false); }
         }
         #endregion
         #region Data exchange task
@@ -176,58 +123,19 @@ namespace SimpleFleetManager.Services.Communication
                             string actualTebConfigString = string.Empty;
                             string actualTaskString = string.Empty;
                             string actualLogString = string.Empty;
-                            if (forkliftData[0] != null)
-                            {
-                                poseDataStrig = forkliftData[0];
-                            }
-                            if (forkliftData[1] != null)
-                            {
-                                sensorDataString = forkliftData[1];
-                            }
-                            if (forkliftData[2] != null)
-                            {
-                                encoderDataString = forkliftData[2];
-                            }
-                            if (forkliftData[3] != null)
-                            {
-                                plcErrorStatusString = forkliftData[3];
-                            }
-                            if (forkliftData[4] != null)
-                            {
-                                plcErrorCodesString = forkliftData[4];
-                            }
-                            if (forkliftData[5] != null)
-                            {
-                                safetyDataString = forkliftData[5];
-                            }
-                            if (forkliftData[6] != null)
-                            {
-                                scangridStatusString = forkliftData[6];
-                            }
-                            if (forkliftData[7] != null)
-                            {
-                                scangridMeasuringString = forkliftData[7];
-                            }
-                            if (forkliftData[8] != null)
-                            {
-                                actualWorkstatesString = forkliftData[8];
-                            }
-                            if (forkliftData[9] != null)
-                            {
-                                ethernetStatusString = forkliftData[9];
-                            }
-                            if (forkliftData[10] != null)
-                            {
-                                actualTebConfigString = forkliftData[10];
-                            }
-                            if (forkliftData[11] != null)
-                            {
-                                actualTaskString = forkliftData[11];
-                            }
-                            if (forkliftData[12] != null)
-                            {
-                                actualLogString = forkliftData[12];
-                            }
+                            if (forkliftData[0] != null) { poseDataStrig = forkliftData[0]; }
+                            if (forkliftData[1] != null) { sensorDataString = forkliftData[1]; }
+                            if (forkliftData[2] != null) { encoderDataString = forkliftData[2]; }
+                            if (forkliftData[3] != null) { plcErrorStatusString = forkliftData[3]; }
+                            if (forkliftData[4] != null) { plcErrorCodesString = forkliftData[4]; }
+                            if (forkliftData[5] != null) { safetyDataString = forkliftData[5]; }
+                            if (forkliftData[6] != null) { scangridStatusString = forkliftData[6]; }
+                            if (forkliftData[7] != null) { scangridMeasuringString = forkliftData[7]; }
+                            if (forkliftData[8] != null) { actualWorkstatesString = forkliftData[8]; }
+                            if (forkliftData[9] != null) { ethernetStatusString = forkliftData[9]; }
+                            if (forkliftData[10] != null) { actualTebConfigString = forkliftData[10]; }
+                            if (forkliftData[11] != null) { actualTaskString = forkliftData[11]; }
+                            if (forkliftData[12] != null) { actualLogString = forkliftData[12]; }
                             #endregion
                             #region Creating tables from strings above
                             var poseData = new List<string>(poseDataStrig.Split('#'));
@@ -246,10 +154,7 @@ namespace SimpleFleetManager.Services.Communication
                             #endregion
                             #region Pose data assign to forklift
                             forklift.DataOut.ActualPosition ??= new();
-                            if (poseData.Count > 3)
-                            {
-                                poseData.RemoveAt(poseData.Count - 1);
-                            }
+                            if (poseData.Count > 3) { poseData.RemoveAt(poseData.Count - 1); }
                             if (poseData.Count == 3)
                             {
                                 forklift.DataOut.ActualPosition.X = Convert.ToDouble(poseData[0]);
@@ -259,11 +164,7 @@ namespace SimpleFleetManager.Services.Communication
                             #endregion
                             #region Sensor data assign to forklift
                             forklift.DataOut.Sensors ??= new();
-                            if (sensorsData.Count > 10)
-                            {
-                                sensorsData.RemoveAt(0);
-                                sensorsData.RemoveAt(sensorsData.Count - 1);
-                            }
+                            if (sensorsData.Count > 10) { sensorsData.RemoveAt(0); sensorsData.RemoveAt(sensorsData.Count - 1); }
                             if (sensorsData.Count == 10)
                             {
                                 forklift.DataOut.Sensors.BatteryVoltage = Convert.ToDouble(sensorsData[0]);
@@ -280,11 +181,7 @@ namespace SimpleFleetManager.Services.Communication
                             #endregion
                             #region Encoder data assign to forklift
                             forklift.DataOut.Encoder ??= new();
-                            if (encoderData.Count > 8)
-                            {
-                                encoderData.RemoveAt(0);
-                                encoderData.RemoveAt(encoderData.Count - 1);
-                            }
+                            if (encoderData.Count > 8) { encoderData.RemoveAt(0); encoderData.RemoveAt(encoderData.Count - 1); }
                             if (encoderData.Count == 8)
                             {
                                 forklift.DataOut.Encoder.Speed = Convert.ToDouble(encoderData[0]);
@@ -416,30 +313,16 @@ namespace SimpleFleetManager.Services.Communication
                             #region Scangrid measuring data assign to forklift
                             forklift.DataOut.ScangridRight.Ranges = [];
                             forklift.DataOut.ScangridLeft.Ranges = [];
-                            if (scangridMeasuring.Count > 64)
-                            {
-                                scangridMeasuring.RemoveAt(0);
-                                scangridMeasuring.RemoveAt(scangridMeasuring.Count - 1);
-                            }
+                            if (scangridMeasuring.Count > 64) { scangridMeasuring.RemoveAt(0); scangridMeasuring.RemoveAt(scangridMeasuring.Count - 1); }
                             if (scangridMeasuring.Count == 64)
                             {
-                                for (int i = 0; i < 32; i++)
-                                {
-                                    forklift.DataOut.ScangridLeft.Ranges.Append(Convert.ToInt32(scangridMeasuring[i]));
-                                }
-                                for (int i = 32; i < 64; i++)
-                                {
-                                    forklift.DataOut.ScangridLeft.Ranges.Append(Convert.ToInt32(scangridMeasuring[i]));
-                                }
+                                for (int i = 0; i < 32; i++) { forklift.DataOut.ScangridLeft.Ranges.Add(Convert.ToInt32(scangridMeasuring[i])); }
+                                for (int i = 32; i < 64; i++) { forklift.DataOut.ScangridLeft.Ranges.Add(Convert.ToInt32(scangridMeasuring[i])); }
                             }
                             #endregion
                             #region Actual workstates assign to forklift
                             forklift.DataOut.ActualWorkstates ??= new();
-                            if (actualWorkstates.Count > 14)
-                            {
-                                actualWorkstates.RemoveAt(0);
-                                actualWorkstates.RemoveAt(actualWorkstates.Count - 1);
-                            }
+                            if (actualWorkstates.Count > 14) { actualWorkstates.RemoveAt(0); actualWorkstates.RemoveAt(actualWorkstates.Count - 1); }
                             if (actualWorkstates.Count == 14)
                             {
                                 forklift.DataOut.ActualWorkstates.S01 = Convert.ToBoolean(actualWorkstates[0]);
@@ -460,11 +343,7 @@ namespace SimpleFleetManager.Services.Communication
                             #endregion
                             #region Ethernet test statuses assign to forklift
                             forklift.DataOut.Ethernet ??= new();
-                            if (ethernetStatus.Count > 10)
-                            {
-                                ethernetStatus.RemoveAt(0);
-                                ethernetStatus.RemoveAt(ethernetStatus.Count - 1);
-                            }
+                            if (ethernetStatus.Count > 10) { ethernetStatus.RemoveAt(0); ethernetStatus.RemoveAt(ethernetStatus.Count - 1); }
                             if (ethernetStatus.Count == 10)
                             {
                                 forklift.DataOut.Ethernet.LidarLoc = Convert.ToBoolean(ethernetStatus[0]);
@@ -481,11 +360,7 @@ namespace SimpleFleetManager.Services.Communication
                             #endregion
                             #region Actual teb config assign to Forklift
                             forklift.DataOut.ActualTebConfig ??= new();
-                            if (actualTebConfig.Count > 19)
-                            {
-                                actualTebConfig.RemoveAt(0);
-                                actualTebConfig.RemoveAt(actualTebConfig.Count - 1);
-                            }
+                            if (actualTebConfig.Count > 19) { actualTebConfig.RemoveAt(0); actualTebConfig.RemoveAt(actualTebConfig.Count - 1); }
                             if (actualTebConfig.Count == 19)
                             {
                                 forklift.DataOut.ActualTebConfig.MaxVelForward = Convert.ToDouble(actualTebConfig[0]);
@@ -510,11 +385,7 @@ namespace SimpleFleetManager.Services.Communication
                             }
                             #endregion
                             #region Actual log data assign to forklift
-                            if (actualLog.Count > 6)
-                            {
-                                actualLog.RemoveAt(0);
-                                actualLog.RemoveAt(actualLog.Count - 1);
-                            }
+                            if (actualLog.Count > 6) { actualLog.RemoveAt(0); actualLog.RemoveAt(actualLog.Count - 1); }
                             if (actualLog.Count == 6)
                             {
                                 forklift.ActualLog ??= new();
@@ -525,29 +396,16 @@ namespace SimpleFleetManager.Services.Communication
                                 forklift.ActualLog.Message = actualLog[3];
                                 forklift.ActualLog.CodeLine = Convert.ToInt32(actualLog[4]);
                                 forklift.ActualLog.File = actualLog[5];
-                                if (forklift.ActualLog != _lastLog)
-                                {
-                                    _lastLog = await logsDataService.Create(forklift.ActualLog);
-                                }
+                                if (forklift.ActualLog != _lastLog) { _lastLog = await logsDataService.Create(forklift.ActualLog); }
                             }
                             #endregion
-
-
-
-
                         }
                         #endregion
                     }
                 }
-                catch (Exception)
-                {
-                    await Reconnect(forklift, logsDataService);
-                }
+                catch (Exception) { _ = await Reconnect(forklift, logsDataService); }
             }
-            else
-            {
-                await Reconnect(forklift, logsDataService);
-            }
+            else { _ = await Reconnect(forklift, logsDataService); }
         }
         #endregion
     }

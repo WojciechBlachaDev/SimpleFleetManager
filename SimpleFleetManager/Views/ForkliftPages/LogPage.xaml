@@ -5,9 +5,7 @@
     xmlns:conv="clr-namespace:SimpleFleetManager.ViewModels.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:forkliftpages="clr-namespace:SimpleFleetManager.ViewModels.ForkliftPages"
-    xmlns:local="clr-namespace:SimpleFleetManager.Views.ForkliftPages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="LogPage"
     d:DataContext="{d:DesignInstance Type=forkliftpages:LogsPageViewModel}"
     d:DesignHeight="1000"
@@ -15,7 +13,6 @@
     mc:Ignorable="d">
     <Page.Resources>
         <conv:LogLevelStringConverter x:Key="LogConverter" />
-        <conv:StringLogLevelConverter x:Key="LogBackConverter" />
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -162,7 +159,5 @@
             </ItemsControl>
             <!--#endregion-->
         </StackPanel>
-
-
     </Grid>
 </Page>

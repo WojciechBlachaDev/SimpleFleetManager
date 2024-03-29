@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
 namespace SimpleFleetManager.Models.Common.AMR.Misc.Config
 {
     public class TebConfig

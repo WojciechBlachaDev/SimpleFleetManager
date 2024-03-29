@@ -5,7 +5,6 @@ using SimpleFleetManager.Services.Data;
 using SimpleFleetManager.ViewModels.Common;
 using System.Net.NetworkInformation;
 using System.Windows.Input;
-
 namespace SimpleFleetManager.ViewModels.Main
 {
     public class ForkliftsManagerPageViewModel : BaseViewModel
@@ -14,66 +13,26 @@ namespace SimpleFleetManager.ViewModels.Main
         private string? _connectionStatusIconPath;
         public string ConnectionStatusIconPath
         {
-            get
-            {
-                return _connectionStatusIconPath ??= "/Models/Resources/Icons/OfflineRed.png";
-            }
-            set
-            {
-                if (_connectionStatusIconPath != value)
-                {
-                    _connectionStatusIconPath = value;
-                    OnPropertyChanged(nameof(ConnectionStatusIconPath));
-                }
-            }
+            get { return _connectionStatusIconPath ??= "/Models/Resources/Icons/OfflineRed.png"; }
+            set { if (_connectionStatusIconPath != value) { _connectionStatusIconPath = value; OnPropertyChanged(nameof(ConnectionStatusIconPath)); } }
         }
         private List<Forklift>? _onlineForklifts;
         public List<Forklift> OnlineForklfits
         {
-            get
-            {
-                return _onlineForklifts ??= [];
-            }
-            set
-            {
-                if (_onlineForklifts != value)
-                {
-                    _onlineForklifts = value;
-                    OnPropertyChanged(nameof(OnlineForklfits));
-                }
-            }
+            get { return _onlineForklifts ??= []; }
+            set { if (_onlineForklifts != value) { _onlineForklifts = value; OnPropertyChanged(nameof(OnlineForklfits)); } }
         }
         private IEnumerable<Forklift>? _databaseForklifts;
         public IEnumerable<Forklift> DatabaseForklifts
         {
-            get
-            {
-                return _databaseForklifts ??= [];
-            }
-            set
-            {
-                if (_databaseForklifts != value)
-                {
-                    _databaseForklifts = value;
-                    OnPropertyChanged(nameof(DatabaseForklifts));
-                }
-            }
+            get { return _databaseForklifts ??= []; }
+            set { if (_databaseForklifts != value) { _databaseForklifts = value; OnPropertyChanged(nameof(DatabaseForklifts)); } }
         }
         private Forklift? _currentForklift;
         public Forklift CurrentForklift
         {
-            get
-            {
-                return _currentForklift ??= new();
-            }
-            set
-            {
-                if (_currentForklift != value)
-                {
-                    _currentForklift = value;
-                    OnPropertyChanged(nameof(CurrentForklift));
-                }
-            }
+            get { return _currentForklift ??= new(); }
+            set { if (_currentForklift != value) { _currentForklift = value; OnPropertyChanged(nameof(CurrentForklift)); } }
         }
         private readonly ForkliftDataService? _forkliftDataService;
         private readonly ForkliftConnection? _forkliftConnection;
@@ -99,38 +58,20 @@ namespace SimpleFleetManager.ViewModels.Main
         {
             try
             {
-                if (_forkliftDataService != null)
-                {
-                    DatabaseForklifts = await _forkliftDataService.GetAll();
-                }
-                else
-                {
-                    Log.Warning("Forklift data service is null when trying to read all forklfits");
-                }
+                if (_forkliftDataService != null) { DatabaseForklifts = await _forkliftDataService.GetAll(); }
+                else { Log.Warning("Forklift data service is null when trying to read all forklfits"); }
             }
-            catch (Exception ex)
-            {
-                Log.Error("Exception occured when tried to get all forklifts from database: " + ex.Message);
-            }
+            catch (Exception ex) { Log.Error("Exception occured when tried to get all forklifts from database: " + ex.Message); }
         }
         private void ConnectionSstatusIconsSteering()
         {
             try
             {
                 _currentForklift ??= new();
-                if (_currentForklift.IsConnected)
-                {
-                    ConnectionStatusIconPath = "/Models/Resources/Icons/OnlineGreen.png";
-                }
-                else
-                {
-                    ConnectionStatusIconPath = "/Models/Resources/Icons/OfflineRed.png";
-                }
+                if (_currentForklift.IsConnected) { ConnectionStatusIconPath = "/Models/Resources/Icons/OnlineGreen.png"; }
+                else { ConnectionStatusIconPath = "/Models/Resources/Icons/OfflineRed.png"; }
             }
-            catch (Exception ex)
-            {
-                Log.Error("Exception occured when tried to change connection status icon: " + ex.Message);
-            }
+            catch (Exception ex) { Log.Error("Exception occured when tried to change connection status icon: " + ex.Message); }
         }
         #endregion
         #region Logic
@@ -138,21 +79,9 @@ namespace SimpleFleetManager.ViewModels.Main
         {
             bool result = true;
             _currentForklift ??= new();
-            if (string.IsNullOrEmpty(_currentForklift.ForkliftIpAddress))
-            {
-                result = false;
-                Log.Warning("Forklift IP Address is null or empty");
-            }
-            if (_currentForklift.Port == 0)
-            {
-                result = false;
-                Log.Warning("Forklift Port is 0");
-            }
-            if (string.IsNullOrEmpty(_currentForklift.Name))
-            {
-                result = false;
-                Log.Warning("Forklift Name is null or empty");
-            }
+            if (string.IsNullOrEmpty(_currentForklift.ForkliftIpAddress)) { result = false; Log.Warning("Forklift IP Address is null or empty"); }
+            if (_currentForklift.Port == 0) { result = false; Log.Warning("Forklift Port is 0"); }
+            if (string.IsNullOrEmpty(_currentForklift.Name)) { result = false; Log.Warning("Forklift Name is null or empty"); }
             return result;
         }
         private void PingForklift()
@@ -172,10 +101,7 @@ namespace SimpleFleetManager.ViewModels.Main
                     if (_currentForklift != null && string.IsNullOrEmpty(_currentForklift.ForkliftIpAddress)) { Log.Warning("Current selected forklift IP Address is NULL or EMPTY"); }
                 }
             }
-            catch (Exception ex)
-            {
-                Log.Error("Error occured when trying to ping selected forklift: " + ex.Message);
-            }
+            catch (Exception ex) { Log.Error("Error occured when trying to ping selected forklift: " + ex.Message); }
         }
         /*private async void ConnectToSelectedForklift()
         {
@@ -239,10 +165,7 @@ namespace SimpleFleetManager.ViewModels.Main
                 }
                 GetForklifts();
             }
-            catch (Exception ex)
-            {
-                Log.Error("Error occured when trying to add new forklift to database: " + ex.Message);
-            }
+            catch (Exception ex) { Log.Error("Error occured when trying to add new forklift to database: " + ex.Message); }
         }
         private async void ExecuteUpdateForkliftButtonClick(object o)
         {
@@ -255,14 +178,8 @@ namespace SimpleFleetManager.ViewModels.Main
                     {
                         if (forklift.Id == _currentForklift.Id)
                         {
-                            if (VerifyForkliftData())
-                            {
-                                await _forkliftDataService.Update(_currentForklift.Id, _currentForklift);
-                            }
-                            else
-                            {
-                                Log.Warning("Updated forklift data verification failed!");
-                            }
+                            if (VerifyForkliftData()) { _ = await _forkliftDataService.Update(_currentForklift.Id, _currentForklift); }
+                            else { Log.Warning("Updated forklift data verification failed!"); }
                         }
                     }
                 }
@@ -273,10 +190,7 @@ namespace SimpleFleetManager.ViewModels.Main
                     if (_forkliftDataService == null) { Log.Warning("Forklift data service is NULL"); }
                 }
             }
-            catch (Exception ex)
-            {
-                Log.Error("Error occured when trying to update forklift in database: " + ex.Message);
-            }
+            catch (Exception ex) { Log.Error("Error occured when trying to update forklift in database: " + ex.Message); }
         }
         private async void ExecuteDeleteForkliftButtonClick(object o)
         {
@@ -291,21 +205,12 @@ namespace SimpleFleetManager.ViewModels.Main
                         {
                             if (forklift.Id == _currentForklift.Id)
                             {
-                                if (await _forkliftDataService.Delete(_currentForklift.Id))
-                                {
-                                    Log.Debug("Forklift delete SUCCESS");
-                                }
-                                else
-                                {
-                                    Log.Debug("Forklift delete failed");
-                                }
+                                if (await _forkliftDataService.Delete(_currentForklift.Id)) { Log.Debug("Forklift delete SUCCESS"); }
+                                else { Log.Debug("Forklift delete failed"); }
                             }
                         }
                     }
-                    else
-                    {
-                        Log.Warning("List of forklifts readed from database is null");
-                    }
+                    else { Log.Warning("List of forklifts readed from database is null"); }
                 }
                 else
                 {
@@ -313,10 +218,7 @@ namespace SimpleFleetManager.ViewModels.Main
                     if (_currentForklift == null) { Log.Warning("Current selected forklift is empty!"); }
                 }
             }
-            catch (Exception ex)
-            {
-                Log.Error("Error occured when trying to delete existing forklift from database: " + ex.Message);
-            }
+            catch (Exception ex) { Log.Error("Error occured when trying to delete existing forklift from database: " + ex.Message); }
         }
         private async void ExecuteSelectForklift(object o)
         {
@@ -332,17 +234,11 @@ namespace SimpleFleetManager.ViewModels.Main
                         {
                             foreach (Forklift forklift in _onlineForklifts)
                             {
-                                if (forklift.Id == _currentForklift.Id)
-                                {
-                                    CurrentForklift.IsConnected = true;
-                                }
+                                if (forklift.Id == _currentForklift.Id) { CurrentForklift.IsConnected = true; }
                             }
                         }
                     }
-                    else
-                    {
-                        Log.Warning("Current forklift (private) is still null");
-                    }
+                    else { Log.Warning("Current forklift (private) is still null"); }
                 }
                 else
                 {
@@ -350,29 +246,16 @@ namespace SimpleFleetManager.ViewModels.Main
                     if (Convert.ToInt32(o) <= 0) { Log.Error("Wrong object value given by button action: " +  Convert.ToString(o)); }
                 }
             }
-            catch (Exception ex)
-            {
-                Log.Error("Error occured when trying to select forklift from list: " + ex.Message);
-            }
+            catch (Exception ex) { Log.Error("Error occured when trying to select forklift from list: " + ex.Message); }
         }
         private void ExecuteConnectButtonClick(object o)
         {
-            if (_currentForklift != null)
-            {
-               /* ConnectToSelectedForklift();*/
-                ConnectionSstatusIconsSteering();
-            }
+            if (_currentForklift != null) { /* ConnectToSelectedForklift();*/ ConnectionSstatusIconsSteering(); }
         }
         private void ExecutePingButtonClick(object o)
         {
-            try
-            {
-                PingForklift();
-            }
-            catch (Exception ex)
-            {
-                Log.Error("Error occured when trying to execute ping button click: " + ex.Message);
-            }
+            try { PingForklift(); }
+            catch (Exception ex) { Log.Error("Error occured when trying to execute ping button click: " + ex.Message); }
         }
         #endregion
         #region Button's Icommands declarations
