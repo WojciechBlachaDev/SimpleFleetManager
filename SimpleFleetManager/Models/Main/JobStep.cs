@@ -8,18 +8,20 @@ namespace SimpleFleetManager.Models.Main
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required]
-        public Location Location { get; set; }
+        public string? Name { get; set; }
+        public double LocX { get; set; }
+        public double LocY { get; set; }
+        public double LocR { get; set; }
         [Required]
         public int Type { get; set; }
         public bool IsRunning { get; set; }
         public bool IsDone { get; set; }
         public bool IsCanceled { get; set; }
         public int JobId { get; set; }
+        public int LocationId { get; set; }
         public bool IsAssigned {  get; set; }
         public JobStep()
         {
-            Location = new();
         }
     }
 }

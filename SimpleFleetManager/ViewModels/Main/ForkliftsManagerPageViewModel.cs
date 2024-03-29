@@ -226,13 +226,15 @@ namespace SimpleFleetManager.ViewModels.Main
             {
                 if (VerifyForkliftData() && _forkliftDataService != null && _currentForklift != null) 
                 {
-                    Forklift forklift = new Forklift();
-                    forklift.ForkliftIpAddress = CurrentForklift.ForkliftIpAddress;
-                    forklift.Name = CurrentForklift.Name;
-                    forklift.LidarLocIpAddress = CurrentForklift.LidarLocIpAddress;
-                    forklift.Port = CurrentForklift.Port;
-                    forklift.VisionaryIpAddress = CurrentForklift.VisionaryIpAddress;
-                    forklift.BackedUpTebConfig = CurrentForklift.BackedUpTebConfig;
+                    Forklift forklift = new()
+                    {
+                        ForkliftIpAddress = CurrentForklift.ForkliftIpAddress,
+                        Name = CurrentForklift.Name,
+                        LidarLocIpAddress = CurrentForklift.LidarLocIpAddress,
+                        Port = CurrentForklift.Port,
+                        VisionaryIpAddress = CurrentForklift.VisionaryIpAddress,
+                        BackedUpTebConfig = CurrentForklift.BackedUpTebConfig
+                    };
                     await _forkliftDataService.Create(forklift);
                 }
                 GetForklifts();

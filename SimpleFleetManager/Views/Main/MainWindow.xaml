@@ -87,167 +87,203 @@
                 Grid.RowSpan="2"
                 Grid.ColumnSpan="1"
                 Style="{StaticResource SimpleExpandableMenuBorderStyle}">
-                <StackPanel
-                    x:Name="MenuPanel"
-                    Width="auto"
-                    HorizontalAlignment="Left"
-                    Background="Transparent">
-                    <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
-                    <StackPanel>
-                        <!--#region Menu expander button with animation-->
-                        <ToggleButton
-                            x:Name="ShowwwPagesMenuButton"
-                            IsChecked="{Binding ShowMenu, Mode=TwoWay}"
-                            Style="{StaticResource SimpleMenuExpanderButton}"
-                            Tag="{Binding ShowMenu, Converter={StaticResource MenuExpanderConverter}}">
-                            <ToggleButton.Triggers>
-                                <EventTrigger RoutedEvent="ToggleButton.Checked">
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuContainer" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.0" Value="{x:Static Visibility.Visible}" />
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <DoubleAnimation
-                                                Storyboard.TargetName="MenuContainer"
-                                                Storyboard.TargetProperty="Opacity"
-                                                From="0.75"
-                                                To="1.0"
-                                                Duration="0:0:0.3">
-                                                <DoubleAnimation.EasingFunction>
-                                                    <SineEase EasingMode="EaseInOut" />
-                                                </DoubleAnimation.EasingFunction>
-                                            </DoubleAnimation>
-                                            <DoubleAnimation
-                                                Storyboard.TargetName="MenuContainer"
-                                                Storyboard.TargetProperty="Width"
-                                                From="80"
-                                                To="375"
-                                                Duration="0:0:0.8">
-                                                <DoubleAnimation.EasingFunction>
-                                                    <SineEase EasingMode="EaseInOut" />
-                                                </DoubleAnimation.EasingFunction>
-                                            </DoubleAnimation>
-                                            <DoubleAnimation
-                                                Storyboard.TargetName="InstallatorMenuDescription"
-                                                Storyboard.TargetProperty="Height"
-                                                From="5"
-                                                To="40"
-                                                Duration="0:0:0.8">
-                                                <DoubleAnimation.EasingFunction>
-                                                    <SineEase EasingMode="EaseInOut" />
-                                                </DoubleAnimation.EasingFunction>
-                                            </DoubleAnimation>
-                                            <DoubleAnimation
-                                                Storyboard.TargetName="MenuPanel"
-                                                Storyboard.TargetProperty="Width"
-                                                From="80"
-                                                To="375"
-                                                Duration="0:0:0.8">
-                                                <DoubleAnimation.EasingFunction>
-                                                    <SineEase EasingMode="EaseInOut" />
-                                                </DoubleAnimation.EasingFunction>
-                                            </DoubleAnimation>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuContainer" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.8" Value="{x:Static Visibility.Visible}" />
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <DoubleAnimation
-                                                Storyboard.TargetName="MenuContainer"
-                                                Storyboard.TargetProperty="Opacity"
-                                                From="1.0"
-                                                To="0.75"
-                                                Duration="0:0:1.3">
-                                                <DoubleAnimation.EasingFunction>
-                                                    <SineEase EasingMode="EaseInOut" />
-                                                </DoubleAnimation.EasingFunction>
-                                            </DoubleAnimation>
-                                            <DoubleAnimation
-                                                Storyboard.TargetName="MenuContainer"
-                                                Storyboard.TargetProperty="Width"
-                                                From="375"
-                                                To="80"
-                                                Duration="0:0:0.5">
-                                                <DoubleAnimation.EasingFunction>
-                                                    <SineEase EasingMode="EaseInOut" />
-                                                </DoubleAnimation.EasingFunction>
-                                            </DoubleAnimation>
-                                            <DoubleAnimation
-                                                Storyboard.TargetName="InstallatorMenuDescription"
-                                                Storyboard.TargetProperty="Height"
-                                                From="40"
-                                                To="5"
-                                                Duration="0:0:0.8">
-                                                <DoubleAnimation.EasingFunction>
-                                                    <SineEase EasingMode="EaseInOut" />
-                                                </DoubleAnimation.EasingFunction>
-                                            </DoubleAnimation>
-                                            <DoubleAnimation
-                                                Storyboard.TargetName="MenuPanel"
-                                                Storyboard.TargetProperty="Width"
-                                                From="375"
-                                                To="80"
-                                                Duration="0:0:0.5">
-                                                <DoubleAnimation.EasingFunction>
-                                                    <SineEase EasingMode="EaseInOut" />
-                                                </DoubleAnimation.EasingFunction>
-                                            </DoubleAnimation>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                            </ToggleButton.Triggers>
-                        </ToggleButton>
-                        <!--#endregion-->
-                        <Button
-                            x:Name="LoginButton"
-                            Command="{Binding LoginPageButtonClick}"
-                            Content="Zaloguj / Wyloguj"
-                            Style="{StaticResource SimpleMainMenuButton}"
-                            Tag="{StaticResource MenuLoginIcon}" />
+                <ScrollViewer
+                    Height="1050"
+                    VerticalAlignment="Top"
+                    VerticalScrollBarVisibility="auto">
+                    <StackPanel
+                        x:Name="MenuPanel"
+                        Width="auto"
+                        HorizontalAlignment="Left"
+                        Background="Transparent">
                         <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
-                        <Button
-                            x:Name="UsersManagerButton"
-                            Command="{Binding UsersManagerPageButtonClick}"
-                            Content="Manager uzytkowników"
-                            Style="{StaticResource SimpleMainMenuButton}"
-                            Tag="{StaticResource MenuUsersManagerIcon}" />
-                        <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
-                        <Button
-                            x:Name="ForkliftsPageButton"
-                            Command="{Binding ForkliftsPageButtonClick}"
-                            Content="Wózki online"
-                            Style="{StaticResource SimpleMainMenuButton}"
-                            Tag="{StaticResource MenuForkliftPagesIcon}" />
-                        <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                        <StackPanel>
+                            <!--#region Menu expander button with animation-->
+                            <ToggleButton
+                                x:Name="ShowwwPagesMenuButton"
+                                IsChecked="{Binding ShowMenu, Mode=TwoWay}"
+                                Style="{StaticResource SimpleMenuExpanderButton}"
+                                Tag="{Binding ShowMenu, Converter={StaticResource MenuExpanderConverter}}">
+                                <ToggleButton.Triggers>
+                                    <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuContainer" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.0" Value="{x:Static Visibility.Visible}" />
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetName="MenuContainer"
+                                                    Storyboard.TargetProperty="Opacity"
+                                                    From="0.75"
+                                                    To="1.0"
+                                                    Duration="0:0:0.3">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetName="MenuContainer"
+                                                    Storyboard.TargetProperty="Width"
+                                                    From="80"
+                                                    To="375"
+                                                    Duration="0:0:0.8">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetName="InstallatorMenuDescription"
+                                                    Storyboard.TargetProperty="Height"
+                                                    From="5"
+                                                    To="40"
+                                                    Duration="0:0:0.8">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetName="AdminMenuDescription"
+                                                    Storyboard.TargetProperty="Height"
+                                                    From="5"
+                                                    To="40"
+                                                    Duration="0:0:0.8">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetName="MenuPanel"
+                                                    Storyboard.TargetProperty="Width"
+                                                    From="80"
+                                                    To="375"
+                                                    Duration="0:0:0.8">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuContainer" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.8" Value="{x:Static Visibility.Visible}" />
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetName="MenuContainer"
+                                                    Storyboard.TargetProperty="Opacity"
+                                                    From="1.0"
+                                                    To="0.75"
+                                                    Duration="0:0:1.3">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetName="MenuContainer"
+                                                    Storyboard.TargetProperty="Width"
+                                                    From="375"
+                                                    To="80"
+                                                    Duration="0:0:0.5">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetName="InstallatorMenuDescription"
+                                                    Storyboard.TargetProperty="Height"
+                                                    From="40"
+                                                    To="5"
+                                                    Duration="0:0:0.8">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetName="AdminMenuDescription"
+                                                    Storyboard.TargetProperty="Height"
+                                                    From="40"
+                                                    To="5"
+                                                    Duration="0:0:0.8">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetName="MenuPanel"
+                                                    Storyboard.TargetProperty="Width"
+                                                    From="375"
+                                                    To="80"
+                                                    Duration="0:0:0.5">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </ToggleButton.Triggers>
+                            </ToggleButton>
+                            <!--#endregion-->
+                            <Button
+                                x:Name="LoginButton"
+                                Command="{Binding LoginPageButtonClick}"
+                                Content="Zaloguj / Wyloguj"
+                                Style="{StaticResource SimpleMainMenuButton}"
+                                Tag="{StaticResource MenuLoginIcon}" />
+                            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                            <Button
+                                x:Name="UsersManagerButton"
+                                Command="{Binding UsersManagerPageButtonClick}"
+                                Content="Manager uzytkowników"
+                                Style="{StaticResource SimpleMainMenuButton}"
+                                Tag="{StaticResource MenuUsersManagerIcon}" />
+                            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                            <Button
+                                x:Name="ForkliftsPageButton"
+                                Command="{Binding ForkliftsPageButtonClick}"
+                                Content="Wózki online"
+                                Style="{StaticResource SimpleMainMenuButton}"
+                                Tag="{StaticResource MenuForkliftPagesIcon}" />
+                            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                        </StackPanel>
+                        <StackPanel x:Name="InstallatorPages" Visibility="{Binding InstallatorMenuVisible, Mode=TwoWay, Converter={StaticResource BoolToVisibility}}">
+                            <TextBlock
+                                x:Name="InstallatorMenuDescription"
+                                Style="{StaticResource SimpleExpandableMenuTextStyle}"
+                                Text="Panel Instalatora" />
+                            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                            <Button
+                                x:Name="ForkliftManagerButton"
+                                Command="{Binding ForkliftManagerPageButtonClick}"
+                                Content="Zarządzanie wózkami"
+                                Style="{StaticResource SimpleMainMenuButton}"
+                                Tag="{StaticResource MenuForkliftManagerIcon}" />
+                            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                            <Button
+                                x:Name="LocationsmanagerButton"
+                                Command="{Binding LocationsManagerPageButtonClick}"
+                                Content="Zarządzanie wózkami"
+                                Style="{StaticResource SimpleMainMenuButton}"
+                                Tag="{StaticResource LocationManagerIcon}" />
+                            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                            <Button
+                                x:Name="ManualTaskCreatorButton"
+                                Command="{Binding ManualTaskCreatorPageButtonClick}"
+                                Content="Kreator zadań"
+                                Style="{StaticResource SimpleMainMenuButton}"
+                                Tag="{StaticResource ManualTaskCreatorIcon}" />
+                            <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock
+                                x:Name="AdminMenuDescription"
+                                Style="{StaticResource SimpleExpandableMenuTextStyle}"
+                                Text="Panel Administratora" />
+                        </StackPanel>
                     </StackPanel>
-                    <StackPanel x:Name="InstallatorPages" Visibility="{Binding InstallatorMenuVisible, Mode=TwoWay, Converter={StaticResource BoolToVisibility}}">
-                        <TextBlock
-                            x:Name="InstallatorMenuDescription"
-                            Style="{StaticResource SimpleExpandableMenuTextStyle}"
-                            Text="Panel Instalatora" />
-                        <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
-                        <Button
-                            x:Name="ForkliftManagerButton"
-                            Command="{Binding ForkliftManagerPageButtonClick}"
-                            Content="Zarządzanie wózkami"
-                            Style="{StaticResource SimpleMainMenuButton}"
-                            Tag="{StaticResource MenuForkliftManagerIcon}" />
-                        <Separator Style="{StaticResource SimpleTransparentSeparatorStyle5px}" />
-                        <Button
-                            x:Name="LocationsmanagerButton"
-                            Command="{Binding LocationsManagerPageButtonClick}"
-                            Content="Zarządzanie wózkami"
-                            Style="{StaticResource SimpleMainMenuButton}"
-                            Tag="{StaticResource LocationManagerIcon}" />
-                    </StackPanel>
-                    <StackPanel>
-                        <TextBlock Text="Tu tez dodaj" />
-                    </StackPanel>
-                </StackPanel>
+                </ScrollViewer>
             </Border>
             <!--#endregion-->
         </Grid>

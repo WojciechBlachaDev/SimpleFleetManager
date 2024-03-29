@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
     <!--#region Simple colours-->
     <Color x:Key="SimpleOrangeMain">#d48a28</Color>
@@ -36,6 +37,7 @@
     <PathGeometry x:Key="WorkIcon" Figures="M16 9C16 14.33 8 14.33 8 9H10C10 11.67 14 11.67 14 9M20 18V21H4V18C4 15.33 9.33 14 12 14C14.67 14 20 15.33 20 18M18.1 18C18.1 17.36 14.97 15.9 12 15.9C9.03 15.9 5.9 17.36 5.9 18V19.1H18.1M12.5 2C12.78 2 13 2.22 13 2.5V5.5H14V3C15.45 3.67 16.34 5.16 16.25 6.75C16.25 6.75 16.95 6.89 17 8H7C7 6.89 7.75 6.75 7.75 6.75C7.66 5.16 8.55 3.67 10 3V5.5H11V2.5C11 2.22 11.22 2 11.5 2" />
     <PathGeometry x:Key="LogbookIcon" Figures="M19 1L14 6V17L19 12.5V1M21 5V18.5C19.9 18.15 18.7 18 17.5 18C15.8 18 13.35 18.65 12 19.5V6C10.55 4.9 8.45 4.5 6.5 4.5C4.55 4.5 2.45 4.9 1 6V20.65C1 20.9 1.25 21.15 1.5 21.15C1.6 21.15 1.65 21.1 1.75 21.1C3.1 20.45 5.05 20 6.5 20C8.45 20 10.55 20.4 12 21.5C13.35 20.65 15.8 20 17.5 20C19.15 20 20.85 20.3 22.25 21.05C22.35 21.1 22.4 21.1 22.5 21.1C22.75 21.1 23 20.85 23 20.6V6C22.4 5.55 21.75 5.25 21 5M10 18.41C8.75 18.09 7.5 18 6.5 18C5.44 18 4.18 18.19 3 18.5V7.13C3.91 6.73 5.14 6.5 6.5 6.5C7.86 6.5 9.09 6.73 10 7.13V18.41Z" />
     <PathGeometry x:Key="LocationManagerIcon" Figures="M12 19C8.13 19 6 17.5 6 17V14.77C7.61 15.55 9.72 16 12 16C12.35 16 12.69 15.97 13.03 15.95C13 15.8 13 15.65 13 15.5C13 14.96 13.09 14.44 13.24 13.94C12.83 14 12.42 14 12 14C9.58 14 7.3 13.4 6 12.45V9.64C7.47 10.47 9.61 11 12 11S16.53 10.47 18 9.64V10.03C18.17 10 18.33 10 18.5 10C19 10 19.5 10.08 20 10.22V7C20 4.79 16.42 3 12 3S4 4.79 4 7V17C4 19.21 7.59 21 12 21C13.06 21 14.07 20.89 15 20.71C14.62 20.14 14.25 19.5 13.93 18.85C13.34 18.94 12.71 19 12 19M12 5C15.87 5 18 6.5 18 7S15.87 9 12 9 6 7.5 6 7 8.13 5 12 5M18.5 12C16.6 12 15 13.6 15 15.5C15 18.1 18.5 22 18.5 22S22 18.1 22 15.5C22 13.6 20.4 12 18.5 12M18.5 16.8C17.8 16.8 17.3 16.2 17.3 15.6C17.3 14.9 17.9 14.4 18.5 14.4S19.7 15 19.7 15.6C19.8 16.2 19.2 16.8 18.5 16.8Z" />
+    <PathGeometry x:Key="ManualTaskCreatorIcon" Figures="M-0 501.4c0,-276.92 224.49,-501.4 501.4,-501.4l3008.43 0c276.91,0 501.4,224.49 501.4,501.4l0 1509.07c-103.22,-66.07 -215.38,-119.45 -334.27,-157.84l0 -1351.23c0,-92.31 -74.83,-167.13 -167.13,-167.13l-3008.43 0c-92.31,0 -167.13,74.83 -167.13,167.13l0 3008.43c0,92.3 74.83,167.13 167.13,167.13l1351.23 0c38.39,118.89 91.77,231.05 157.84,334.27l-1509.07 0c-276.92,0 -501.4,-224.5 -501.4,-501.4l0 -3008.43zm1733.81 550.36c65.27,65.27 65.27,171.09 0,236.36l-445.69 445.69c-65.27,65.27 -171.09,65.27 -236.36,0l-222.85 -222.84c-65.27,-65.27 -65.27,-171.09 0,-236.36 65.27,-65.27 171.09,-65.27 236.37,0l104.66 104.66 327.51 -327.51c65.28,-65.27 171.08,-65.27 236.36,0zm0 1225.66c65.27,65.27 65.27,171.08 0,236.35l-445.69 445.69c-65.27,65.27 -171.09,65.27 -236.36,0l-222.85 -222.85c-65.27,-65.27 -65.27,-171.08 0,-236.35 65.27,-65.27 171.09,-65.27 236.37,0l104.66 104.65 327.51 -327.49c65.28,-65.27 171.08,-65.27 236.36,0zm1497.46 -271.8c676.92,0 1225.66,548.73 1225.66,1225.65 0,676.92 -548.74,1225.66 -1225.66,1225.66 -676.92,0 -1225.65,-548.74 -1225.65,-1225.66 0,-676.92 548.73,-1225.65 1225.65,-1225.65zm111.67 1894.97l-0.11 -557.89 557.65 0c61.55,0 111.43,-49.87 111.43,-111.43 0,-61.53 -49.87,-111.42 -111.43,-111.42l-557.67 0 -0.11 -557.27c0,-61.55 -49.9,-111.42 -111.43,-111.42 -61.53,0 -111.42,49.87 -111.42,111.42l0.11 557.27 -558.1 0c-61.53,0 -111.42,49.9 -111.42,111.42 0,61.55 49.9,111.43 111.42,111.43l558.12 0 0.11 557.89c0,61.55 49.9,111.43 111.42,111.43 61.55,0 111.43,-49.87 111.43,-111.43zm-1058.77 -2674.93c-92.3,0 -167.13,74.83 -167.13,167.14 0,92.31 74.83,167.14 167.13,167.14l779.96 0c92.3,0 167.13,-74.83 167.13,-167.14 0,-92.31 -74.83,-167.14 -167.13,-167.14l-779.96 0z" />
     <!--#endregion-->
     <!--#region Simple styles region-->
 
@@ -187,6 +189,65 @@
     </Style>
     <!--#endregion-->
     <!--#region Simple menu button style secondary-->
+    <Style x:Key="SimpleScrollViewer" TargetType="{x:Type ScrollViewer}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                    <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition x:Name="leftColumn" Width="*" />
+                            <ColumnDefinition x:Name="rightColumn" Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <ScrollContentPresenter
+                            x:Name="PART_ScrollContentPresenter"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Margin="{TemplateBinding Padding}"
+                            CanContentScroll="{TemplateBinding CanContentScroll}"
+                            CanHorizontallyScroll="False"
+                            CanVerticallyScroll="False"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+                        <ScrollBar
+                            x:Name="PART_VerticalScrollBar"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Cursor="Arrow"
+                            Maximum="{TemplateBinding ScrollableHeight}"
+                            Minimum="0"
+                            ViewportSize="{TemplateBinding ViewportHeight}"
+                            Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                            Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                        <ScrollBar
+                            x:Name="PART_HorizontalScrollBar"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Cursor="Arrow"
+                            Maximum="{TemplateBinding ScrollableWidth}"
+                            Minimum="0"
+                            Orientation="Horizontal"
+                            ViewportSize="{TemplateBinding ViewportWidth}"
+                            Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                            Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide" Value="True">
+                            <Setter TargetName="PART_HorizontalScrollBar" Property="Grid.Column" Value="1" />
+                            <Setter TargetName="PART_ScrollContentPresenter" Property="Grid.Column" Value="1" />
+                            <Setter TargetName="PART_VerticalScrollBar" Property="Grid.Column" Value="0" />
+                            <Setter TargetName="leftColumn" Property="Width" Value="Auto" />
+                            <Setter TargetName="rightColumn" Property="Width" Value="*" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide" Value="False" />
+    </Style>
     <Style x:Key="SimpleMainMenuButtonSecondary" TargetType="{x:Type Button}">
         <Setter Property="FontSize" Value="18" />
         <Setter Property="Background" Value="{StaticResource SimpleButtonNotActiveBrush}" />
@@ -590,14 +651,14 @@
         <Setter Property="Background" Value="{StaticResource SimpleButtonNotActiveBrush}" />
         <Setter Property="MaxWidth" Value="320" />
         <Setter Property="MinWidth" Value="80" />
-        <Setter Property="Height" Value="50" />
+        <Setter Property="MinHeight" Value="50" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ui:Button}">
                     <Border
-                        Padding="20,0,0,0"
+                        Padding="20,0"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
                         Background="{TemplateBinding Background}"
@@ -614,7 +675,7 @@
                                 FontWeight="Bold"
                                 Foreground="{TemplateBinding Foreground}"
                                 Text="{TemplateBinding Content}"
-                                TextWrapping="NoWrap" />
+                                TextWrapping="WrapWithOverflow" />
                         </Grid>
                     </Border>
                     <!--#region Color animation-->
@@ -1199,8 +1260,9 @@
     </ControlTemplate>
     <Style x:Key="SimpleComboBoxFlatStyle" TargetType="{x:Type ComboBox}">
         <Setter Property="FontSize" Value="16" />
-        <Setter Property="Margin" Value="5,0,5,5" />
+        <Setter Property="Margin" Value="0,0,0,0" />
         <Setter Property="MinWidth" Value="150" />
+        <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="UIElement.SnapsToDevicePixels" Value="True" />
         <Setter Property="FrameworkElement.OverridesDefaultStyle" Value="True" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
@@ -1222,7 +1284,7 @@
                             Template="{StaticResource SimpleComboBoxToggleButtonTemplate}" />
                         <ContentPresenter
                             Name="ContentSite"
-                            Margin="15,0,15,-15"
+                            Margin="0,0,0,-15"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             Content="{TemplateBinding ComboBox.SelectionBoxItem}"
@@ -1412,6 +1474,189 @@
         <Setter Property="Height" Value="40.1" />
     </Style>
     <!--#endregion-->
-
+    <!--#region SimpleScrollBarLineButton-->
+    <Style x:Key="SimpleScrollBarLineButton" TargetType="{x:Type RepeatButton}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Border
+                        x:Name="Border"
+                        Margin="1"
+                        BorderThickness="0"
+                        CornerRadius="0">
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="Wheat" />
+                        </Border.BorderBrush>
+                        <Border.Background>
+                            <SolidColorBrush Color="AliceBlue" />
+                        </Border.Background>
+                        <Path
+                            x:Name="Arrow"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Data="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}">
+                            <Path.Fill>
+                                <SolidColorBrush Color="BlueViolet" />
+                            </Path.Fill>
+                        </Path>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)"
+                                            From="{StaticResource SimpleBackgroundGray}"
+                                            To="{StaticResource SimpleBackgroundGray}"
+                                            Duration="0:0:0.125">
+                                            <ColorAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseInOut" Exponent="2" />
+                                            </ColorAnimation.EasingFunction>
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            AutoReverse="False"
+                                            Storyboard.TargetName="Arrow"
+                                            Storyboard.TargetProperty="Fill.Color"
+                                            From="{StaticResource SimpleBackgroundGray}"
+                                            To="{StaticResource SimpleBackgroundGray}"
+                                            Duration="0:0:0.150" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            AutoReverse="False"
+                                            Storyboard.TargetName="Arrow"
+                                            Storyboard.TargetProperty="Fill.Color"
+                                            From="{StaticResource SimpleBackgroundGray}"
+                                            To="{StaticResource SimpleBackgroundGray}"
+                                            Duration="0:0:0.150" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--#region SimpleScrollbarVerticalThumb-->
+    <Style x:Key="SimpleVerticalScrollbarThumb" TargetType="{x:Type Thumb}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Border Background="{StaticResource SimpleOrangeSecondaryBrush}">
+                        <Border.Style>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="Opacity" Value="0.9" />
+                                <Setter Property="Width" Value="10" />
+                                <Setter Property="CornerRadius" Value="5" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Opacity" Value="1" />
+                                        <Setter Property="Width" Value="20" />
+                                        <Setter Property="CornerRadius" Value="11" />
+                                    </Trigger>
+                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=Thumb}, Path=IsDragging}" Value="True">
+                                        <Setter Property="Opacity" Value="0.5" />
+                                        <Setter Property="Width" Value="20" />
+                                        <Setter Property="CornerRadius" Value="11" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--#region SimpleScrollbarPageButton-->
+    <Style x:Key="SimpleScrollbarPageButton" TargetType="{x:Type RepeatButton}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="IsTabStop" Value="false" />
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Border Background="Transparent" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--#region SimpleVerticalScrollbar-->
+    <ControlTemplate x:Key="SimpleVerticalScrollbar" TargetType="{x:Type ScrollBar}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="1" />
+                <RowDefinition Height="0.00001*" />
+                <RowDefinition MaxHeight="1" />
+            </Grid.RowDefinitions>
+            <Border
+                Grid.RowSpan="3"
+                Width="6"
+                Background="{DynamicResource DodgeBlueBrush}"
+                CornerRadius="6"
+                Opacity="0.2" />
+            <RepeatButton
+                Grid.Row="0"
+                Height="1"
+                Command="ScrollBar.LineUpCommand"
+                Content="M 0 4 L 8 4 L 4 0 Z"
+                Style="{StaticResource SimpleScrollBarLineButton}" />
+            <Track
+                x:Name="PART_Track"
+                Grid.Row="1"
+                IsDirectionReversed="true">
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton Command="ScrollBar.PageUpCommand" Style="{StaticResource SimpleScrollbarPageButton}" />
+                </Track.DecreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb Margin="0,0,0,0" Style="{StaticResource SimpleVerticalScrollbarThumb}" />
+                </Track.Thumb>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton Command="ScrollBar.PageDownCommand" Style="{StaticResource SimpleScrollbarPageButton}" />
+                </Track.IncreaseRepeatButton>
+            </Track>
+            <RepeatButton
+                Grid.Row="2"
+                Height="1"
+                Command="ScrollBar.LineDownCommand"
+                Content="M 0 0 L 4 4 L 8 0 Z"
+                Style="{StaticResource SimpleScrollBarLineButton}" />
+        </Grid>
+    </ControlTemplate>
+    <!--#endregion-->
+    <!--#region SimpleScrollbar-->
+    <Style x:Key="SimpleScrollbar" TargetType="{x:Type ScrollBar}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Style.Triggers>
+            <Trigger Property="Orientation" Value="Horizontal">
+                <Setter Property="Width" Value="auto" />
+                <Setter Property="Height" Value="20" />
+            </Trigger>
+            <Trigger Property="Orientation" Value="Vertical">
+                <Setter Property="Width" Value="20" />
+                <Setter Property="Height" Value="auto" />
+                <Setter Property="Template" Value="{StaticResource SimpleVerticalScrollbar}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--#endregion-->
     <!--#endregion-->
 </ResourceDictionary>

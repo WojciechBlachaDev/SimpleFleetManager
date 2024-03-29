@@ -11,8 +11,8 @@ using SimpleFleetManager.Models.EntityFramework;
 namespace SimpleFleetManager.Migrations
 {
     [DbContext(typeof(SimpleDbContext))]
-    [Migration("20240325065639_xd")]
-    partial class xd
+    [Migration("20240329061434_290320240001")]
+    partial class _290320240001
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -195,6 +195,9 @@ namespace SimpleFleetManager.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("IsAssigned")
+                        .HasColumnType("INTEGER");
+
                     b.Property<bool>("IsCanceled")
                         .HasColumnType("INTEGER");
 
@@ -204,11 +207,15 @@ namespace SimpleFleetManager.Migrations
                     b.Property<bool>("IsRunning")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("JobId")
+                    b.Property<int>("JobId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("LocationId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("Type")
                         .HasColumnType("INTEGER");
@@ -296,7 +303,9 @@ namespace SimpleFleetManager.Migrations
                 {
                     b.HasOne("SimpleFleetManager.Models.Main.Job", null)
                         .WithMany("JobSteps")
-                        .HasForeignKey("JobId");
+                        .HasForeignKey("JobId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SimpleFleetManager.Models.Main.Location", "Location")
                         .WithMany()

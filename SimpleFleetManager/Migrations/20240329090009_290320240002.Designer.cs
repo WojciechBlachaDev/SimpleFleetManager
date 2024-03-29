@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SimpleFleetManager.Models.EntityFramework;
 
@@ -10,9 +11,11 @@ using SimpleFleetManager.Models.EntityFramework;
 namespace SimpleFleetManager.Migrations
 {
     [DbContext(typeof(SimpleDbContext))]
-    partial class SimpleDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240329090009_290320240002")]
+    partial class _290320240002
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.3");
@@ -175,10 +178,6 @@ namespace SimpleFleetManager.Migrations
                     b.Property<bool>("IsRunning")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("JobSteps")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
@@ -220,9 +219,6 @@ namespace SimpleFleetManager.Migrations
                     b.Property<double>("LocY")
                         .HasColumnType("REAL");
 
-                    b.Property<int>("LocationId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
@@ -230,6 +226,8 @@ namespace SimpleFleetManager.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("JobId");
 
                     b.ToTable("JobSteps");
                 });
@@ -304,9 +302,23 @@ namespace SimpleFleetManager.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("SimpleFleetManager.Models.Main.JobStep", b =>
+                {
+                    b.HasOne("SimpleFleetManager.Models.Main.Job", null)
+                        .WithMany("JobSteps")
+                        .HasForeignKey("JobId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("SimpleFleetManager.Models.Main.Forklift", b =>
                 {
                     b.Navigation("BackedUpTebConfig");
+                });
+
+            modelBuilder.Entity("SimpleFleetManager.Models.Main.Job", b =>
+                {
+                    b.Navigation("JobSteps");
                 });
 #pragma warning restore 612, 618
         }

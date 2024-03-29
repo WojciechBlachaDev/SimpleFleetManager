@@ -583,3 +583,346 @@
 2024-03-27 15:28:07.876 +01:00 [DBG] Locations Manager page button clicked
 2024-03-27 15:33:01.515 +01:00 [DBG] Forklift Manager page button clicked
 2024-03-27 15:33:03.444 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 07:51:25.754 +01:00 [INF] Logger started
+2024-03-29 07:51:33.524 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-29 07:51:44.171 +01:00 [DBG] Login page button clicked
+2024-03-29 07:51:48.500 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 07:51:58.540 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 07:52:18.438 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 07:52:18.439 +01:00 [DBG] Adding new location after check
+2024-03-29 07:52:26.014 +01:00 [ERR] Location data: Location with the same coordinates already exists!:Loc1
+2024-03-29 07:52:31.149 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 07:52:31.150 +01:00 [DBG] Adding new location after check
+2024-03-29 07:52:39.692 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 07:52:55.566 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 07:52:55.567 +01:00 [DBG] Adding new location after check
+2024-03-29 07:53:27.369 +01:00 [INF] Logger started
+2024-03-29 08:06:19.937 +01:00 [INF] Logger started
+2024-03-29 08:06:24.907 +01:00 [DBG] Login page button clicked
+2024-03-29 08:06:30.645 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 08:06:32.212 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 08:09:58.923 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-29 08:10:01.452 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-29 08:10:03.011 +01:00 [DBG] Forklifts page button clicked
+2024-03-29 08:11:29.498 +01:00 [INF] Logger started
+2024-03-29 08:11:35.148 +01:00 [DBG] Login page button clicked
+2024-03-29 08:11:40.028 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 08:11:41.571 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 08:36:26.498 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 08:36:32.427 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-29 08:36:33.275 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 08:37:02.675 +01:00 [INF] Logger started
+2024-03-29 08:37:07.219 +01:00 [DBG] Login page button clicked
+2024-03-29 08:37:11.900 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 08:37:13.003 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 08:40:52.554 +01:00 [INF] Logger started
+2024-03-29 08:40:57.019 +01:00 [DBG] Login page button clicked
+2024-03-29 08:41:04.380 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 08:41:06.131 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 08:50:54.450 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 08:51:11.138 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 09:03:50.218 +01:00 [INF] Logger started
+2024-03-29 09:03:56.827 +01:00 [DBG] Login page button clicked
+2024-03-29 09:04:03.468 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 09:04:04.538 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 09:10:27.951 +01:00 [INF] Logger started
+2024-03-29 09:10:35.339 +01:00 [DBG] Login page button clicked
+2024-03-29 09:10:40.916 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 09:10:41.738 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 09:14:11.602 +01:00 [INF] Logger started
+2024-03-29 09:15:09.803 +01:00 [DBG] Login page button clicked
+2024-03-29 09:15:15.723 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 09:15:17.082 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 09:15:56.386 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 09:16:40.706 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 09:16:43.499 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 09:16:44.098 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 09:16:44.978 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 09:17:38.904 +01:00 [INF] Logger started
+2024-03-29 09:17:42.715 +01:00 [DBG] Login page button clicked
+2024-03-29 09:17:48.379 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 09:17:49.730 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 09:18:32.162 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 09:19:15.026 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-29 09:19:16.098 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 09:19:16.866 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 09:22:58.514 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 09:23:43.730 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 09:26:37.858 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 09:29:31.186 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 09:52:39.188 +01:00 [WRN] New created step has wrong type!
+2024-03-29 09:53:35.529 +01:00 [ERR] Error catched while creating new job step: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-29 09:54:40.470 +01:00 [INF] Logger started
+2024-03-29 09:54:45.211 +01:00 [DBG] Login page button clicked
+2024-03-29 09:54:50.419 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 09:54:51.450 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 09:56:16.860 +01:00 [ERR] Error catched while creating new job step: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-29 10:00:22.277 +01:00 [INF] Logger started
+2024-03-29 10:00:26.178 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-29 10:00:35.578 +01:00 [DBG] Login page button clicked
+2024-03-29 10:00:40.211 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 10:00:41.122 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 10:00:42.170 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 10:01:00.197 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 10:01:00.198 +01:00 [DBG] Adding new location after check
+2024-03-29 10:01:10.468 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 10:01:10.469 +01:00 [DBG] Adding new location after check
+2024-03-29 10:01:11.602 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 10:01:13.114 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 10:03:21.804 +01:00 [ERR] Error catched while creating new job step: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-29 10:05:17.788 +01:00 [INF] Logger started
+2024-03-29 10:05:21.619 +01:00 [DBG] Login page button clicked
+2024-03-29 10:05:26.270 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 10:05:27.426 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 10:06:40.961 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 10:06:52.482 +01:00 [DBG] Job step delete SUCCESS
+2024-03-29 10:06:59.625 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 10:07:21.072 +01:00 [WRN] Job step delete FAILED
+2024-03-29 10:07:25.634 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-29 10:07:26.825 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 10:07:36.975 +01:00 [INF] Logger started
+2024-03-29 10:07:42.066 +01:00 [DBG] Login page button clicked
+2024-03-29 10:07:47.875 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 10:07:48.778 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 10:08:27.399 +01:00 [DBG] Job step delete SUCCESS
+2024-03-29 10:09:08.265 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 10:09:44.339 +01:00 [DBG] Update location data succeed
+2024-03-29 10:10:11.253 +01:00 [ERR] Location data: Location Name already exists!
+2024-03-29 10:10:15.033 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 10:10:16.274 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-29 10:10:16.866 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 10:10:31.596 +01:00 [ERR] Location data: Location Name already exists!
+2024-03-29 10:11:25.469 +01:00 [INF] Logger started
+2024-03-29 10:11:33.802 +01:00 [DBG] Login page button clicked
+2024-03-29 10:11:38.835 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 10:11:39.762 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 10:11:41.234 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 10:12:53.437 +01:00 [ERR] Location data: Location Name already exists!
+2024-03-29 10:13:02.889 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 10:13:03.602 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-29 10:13:04.177 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 10:13:10.588 +01:00 [INF] Logger started
+2024-03-29 10:13:13.243 +01:00 [DBG] Login page button clicked
+2024-03-29 10:13:18.107 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 10:13:18.897 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 10:14:22.253 +01:00 [ERR] Location data: Location Name already exists!
+2024-03-29 10:14:43.356 +01:00 [ERR] Location data: Location Name already exists!
+2024-03-29 10:15:14.748 +01:00 [ERR] Location data: Location Name already exists!
+2024-03-29 10:15:37.970 +01:00 [ERR] Location data: Location Name already exists!
+2024-03-29 10:16:20.104 +01:00 [ERR] Location data: Location Name already exists!
+2024-03-29 10:17:31.463 +01:00 [ERR] Location data: Location Name already exists!
+2024-03-29 10:17:55.726 +01:00 [DBG] Delete location result == True
+2024-03-29 10:18:01.679 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 10:18:01.680 +01:00 [DBG] Adding new location after check
+2024-03-29 10:18:30.481 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 10:18:30.482 +01:00 [DBG] Adding new location after check
+2024-03-29 10:19:00.707 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 10:19:00.707 +01:00 [DBG] Adding new location after check
+2024-03-29 10:19:28.244 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 10:19:28.244 +01:00 [DBG] Adding new location after check
+2024-03-29 10:19:56.228 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 10:19:56.228 +01:00 [DBG] Adding new location after check
+2024-03-29 10:20:06.657 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 10:20:24.103 +01:00 [ERR] Error catched while creating new job step: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-29 10:20:25.946 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 10:20:46.265 +01:00 [ERR] Error catched while creating new job step: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-29 10:20:47.580 +01:00 [ERR] Error catched while creating new job step: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-29 10:20:47.762 +01:00 [ERR] Error catched while creating new job step: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-29 10:20:47.941 +01:00 [ERR] Error catched while creating new job step: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-29 10:20:48.099 +01:00 [ERR] Error catched while creating new job step: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-29 10:20:48.804 +01:00 [ERR] Error catched while creating new job step: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-29 10:20:48.978 +01:00 [ERR] Error catched while creating new job step: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-29 10:20:49.154 +01:00 [ERR] Error catched while creating new job step: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-29 10:21:34.088 +01:00 [ERR] Error catched while creating new job step: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-29 10:22:28.322 +01:00 [ERR] Error catched while creating new job step: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-29 10:23:55.861 +01:00 [ERR] Error catched while creating new job step: An error occurred while saving the entity changes. See the inner exception for details.
+2024-03-29 10:24:35.918 +01:00 [INF] Logger started
+2024-03-29 10:24:38.339 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-29 10:24:46.625 +01:00 [DBG] Login page button clicked
+2024-03-29 10:24:51.058 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 10:24:52.458 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 10:24:59.661 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 10:24:59.662 +01:00 [DBG] Adding new location after check
+2024-03-29 10:25:06.916 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 10:25:06.917 +01:00 [DBG] Adding new location after check
+2024-03-29 10:25:09.258 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 10:26:12.994 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 10:26:13.618 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 10:26:21.295 +01:00 [ERR] Error catched while creating new job step: The property 'JobStep.Id' is part of a key and so cannot be modified or marked as modified. To change the principal of an existing entity with an identifying foreign key, first delete the dependent and invoke 'SaveChanges', and then associate the dependent with the new principal.
+2024-03-29 10:26:24.324 +01:00 [ERR] Error catched while creating new job step: The property 'JobStep.Id' is part of a key and so cannot be modified or marked as modified. To change the principal of an existing entity with an identifying foreign key, first delete the dependent and invoke 'SaveChanges', and then associate the dependent with the new principal.
+2024-03-29 10:26:24.836 +01:00 [ERR] Error catched while creating new job step: The property 'JobStep.Id' is part of a key and so cannot be modified or marked as modified. To change the principal of an existing entity with an identifying foreign key, first delete the dependent and invoke 'SaveChanges', and then associate the dependent with the new principal.
+2024-03-29 10:26:25.004 +01:00 [ERR] Error catched while creating new job step: The property 'JobStep.Id' is part of a key and so cannot be modified or marked as modified. To change the principal of an existing entity with an identifying foreign key, first delete the dependent and invoke 'SaveChanges', and then associate the dependent with the new principal.
+2024-03-29 10:26:25.171 +01:00 [ERR] Error catched while creating new job step: The property 'JobStep.Id' is part of a key and so cannot be modified or marked as modified. To change the principal of an existing entity with an identifying foreign key, first delete the dependent and invoke 'SaveChanges', and then associate the dependent with the new principal.
+2024-03-29 10:26:25.348 +01:00 [ERR] Error catched while creating new job step: The property 'JobStep.Id' is part of a key and so cannot be modified or marked as modified. To change the principal of an existing entity with an identifying foreign key, first delete the dependent and invoke 'SaveChanges', and then associate the dependent with the new principal.
+2024-03-29 10:26:25.532 +01:00 [ERR] Error catched while creating new job step: The property 'JobStep.Id' is part of a key and so cannot be modified or marked as modified. To change the principal of an existing entity with an identifying foreign key, first delete the dependent and invoke 'SaveChanges', and then associate the dependent with the new principal.
+2024-03-29 10:26:32.052 +01:00 [ERR] Error catched while creating new job step: The property 'JobStep.Id' is part of a key and so cannot be modified or marked as modified. To change the principal of an existing entity with an identifying foreign key, first delete the dependent and invoke 'SaveChanges', and then associate the dependent with the new principal.
+2024-03-29 10:26:35.275 +01:00 [ERR] Error catched while creating new job step: The property 'JobStep.Id' is part of a key and so cannot be modified or marked as modified. To change the principal of an existing entity with an identifying foreign key, first delete the dependent and invoke 'SaveChanges', and then associate the dependent with the new principal.
+2024-03-29 10:26:52.497 +01:00 [ERR] Error catched while creating new job step: The property 'JobStep.Id' is part of a key and so cannot be modified or marked as modified. To change the principal of an existing entity with an identifying foreign key, first delete the dependent and invoke 'SaveChanges', and then associate the dependent with the new principal.
+2024-03-29 10:26:53.366 +01:00 [ERR] Error catched while creating new job step: The property 'JobStep.Id' is part of a key and so cannot be modified or marked as modified. To change the principal of an existing entity with an identifying foreign key, first delete the dependent and invoke 'SaveChanges', and then associate the dependent with the new principal.
+2024-03-29 10:26:54.126 +01:00 [ERR] Error catched while creating new job step: The property 'JobStep.Id' is part of a key and so cannot be modified or marked as modified. To change the principal of an existing entity with an identifying foreign key, first delete the dependent and invoke 'SaveChanges', and then associate the dependent with the new principal.
+2024-03-29 10:26:59.313 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 10:27:15.093 +01:00 [ERR] Error catched while creating new job step: The property 'JobStep.Id' is part of a key and so cannot be modified or marked as modified. To change the principal of an existing entity with an identifying foreign key, first delete the dependent and invoke 'SaveChanges', and then associate the dependent with the new principal.
+2024-03-29 10:28:36.199 +01:00 [INF] Logger started
+2024-03-29 10:28:38.562 +01:00 [DBG] Login page button clicked
+2024-03-29 10:28:39.569 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-29 10:28:49.337 +01:00 [DBG] Login page button clicked
+2024-03-29 10:28:53.811 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 10:28:55.138 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 10:28:58.161 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 10:29:05.749 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 10:29:05.749 +01:00 [DBG] Adding new location after check
+2024-03-29 10:29:11.424 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 10:29:11.424 +01:00 [DBG] Adding new location after check
+2024-03-29 10:29:13.009 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 11:10:42.771 +01:00 [INF] Logger started
+2024-03-29 11:10:46.097 +01:00 [DBG] Login page button clicked
+2024-03-29 11:10:50.722 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 11:10:51.817 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 11:16:28.872 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 11:33:17.441 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 11:35:52.713 +01:00 [ERR] Error occured while trying to add new Job: Object reference not set to an instance of an object.
+2024-03-29 11:35:58.952 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 12:06:50.512 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 12:08:15.424 +01:00 [INF] Logger started
+2024-03-29 12:08:20.025 +01:00 [DBG] Login page button clicked
+2024-03-29 12:08:24.626 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 12:08:25.496 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 12:08:51.384 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-29 12:08:52.416 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 12:09:55.120 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 12:14:16.032 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 12:16:26.979 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 12:16:30.644 +01:00 [ERR] Errro occured while unassigning job step to jobs: Collection was modified; enumeration operation may not execute.
+2024-03-29 12:18:16.252 +01:00 [ERR] Errro occured while unassigning job step to jobs: Collection was modified; enumeration operation may not execute.
+2024-03-29 12:18:24.435 +01:00 [ERR] Errro occured while unassigning job step to jobs: Collection was modified; enumeration operation may not execute.
+2024-03-29 12:19:12.720 +01:00 [ERR] Errro occured while unassigning job step to jobs: Collection was modified; enumeration operation may not execute.
+2024-03-29 12:19:27.639 +01:00 [INF] Logger started
+2024-03-29 12:19:31.241 +01:00 [DBG] Login page button clicked
+2024-03-29 12:19:41.033 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 12:19:42.072 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 12:35:55.060 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 12:36:25.648 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 12:37:22.656 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 12:42:27.361 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 12:43:31.033 +01:00 [INF] Logger started
+2024-03-29 12:43:37.552 +01:00 [DBG] Login page button clicked
+2024-03-29 12:43:47.137 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 12:43:50.993 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 12:52:29.727 +01:00 [INF] Logger started
+2024-03-29 12:52:33.513 +01:00 [DBG] Login page button clicked
+2024-03-29 12:52:38.137 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 12:52:39.008 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 12:55:28.440 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 12:56:23.532 +01:00 [INF] Logger started
+2024-03-29 12:56:37.806 +01:00 [INF] Logger started
+2024-03-29 12:56:41.512 +01:00 [DBG] Login page button clicked
+2024-03-29 12:56:45.778 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 12:56:46.640 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 13:00:26.968 +01:00 [INF] Logger started
+2024-03-29 13:00:31.945 +01:00 [DBG] Login page button clicked
+2024-03-29 13:00:36.721 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 13:00:37.656 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 13:06:48.474 +01:00 [INF] Logger started
+2024-03-29 13:06:52.672 +01:00 [DBG] Login page button clicked
+2024-03-29 13:06:57.321 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 13:06:58.440 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 13:39:14.461 +01:00 [INF] Logger started
+2024-03-29 13:39:25.176 +01:00 [DBG] Login page button clicked
+2024-03-29 13:39:29.768 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 13:39:30.639 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 13:40:28.512 +01:00 [INF] Logger started
+2024-03-29 13:40:35.056 +01:00 [DBG] Login page button clicked
+2024-03-29 13:40:39.680 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 13:40:40.575 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 13:41:55.464 +01:00 [INF] Logger started
+2024-03-29 13:41:58.824 +01:00 [DBG] Login page button clicked
+2024-03-29 13:42:03.320 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 13:42:04.191 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 13:44:01.380 +01:00 [INF] Logger started
+2024-03-29 13:44:05.608 +01:00 [DBG] Login page button clicked
+2024-03-29 13:44:10.976 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 13:44:12.127 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 13:44:12.999 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 13:44:14.487 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 13:45:10.589 +01:00 [INF] Logger started
+2024-03-29 13:45:14.480 +01:00 [DBG] Login page button clicked
+2024-03-29 13:45:19.081 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 13:45:20.135 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 13:53:22.374 +01:00 [INF] Logger started
+2024-03-29 13:53:26.224 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-29 13:53:42.223 +01:00 [DBG] Login page button clicked
+2024-03-29 13:53:50.689 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 13:53:52.088 +01:00 [DBG] Users Manager Page buttton clicked
+2024-03-29 13:53:52.943 +01:00 [DBG] Forklifts page button clicked
+2024-03-29 13:53:54.399 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-29 13:54:23.824 +01:00 [DBG] Forklifts page button clicked
+2024-03-29 13:54:24.871 +01:00 [DBG] Forklift Manager page button clicked
+2024-03-29 13:54:25.695 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 13:54:58.506 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 13:54:58.507 +01:00 [DBG] Adding new location after check
+2024-03-29 13:55:39.130 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 13:55:39.131 +01:00 [DBG] Adding new location after check
+2024-03-29 13:56:13.065 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 13:56:13.066 +01:00 [DBG] Adding new location after check
+2024-03-29 13:56:35.633 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 13:56:35.634 +01:00 [DBG] Adding new location after check
+2024-03-29 13:57:03.417 +01:00 [DBG] Location data: Location does not exists!
+2024-03-29 13:57:03.418 +01:00 [DBG] Adding new location after check
+2024-03-29 13:57:07.175 +01:00 [DBG] Locations Manager page button clicked
+2024-03-29 13:57:08.455 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 14:03:59.892 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:04:01.520 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:04:02.280 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:04:02.808 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:04:02.984 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:04:03.168 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:04:03.304 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:04:03.473 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:04:03.640 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:20:13.117 +01:00 [INF] Logger started
+2024-03-29 14:20:22.616 +01:00 [DBG] Login page button clicked
+2024-03-29 14:20:27.512 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 14:20:28.831 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 14:20:28.881 +01:00 [ERR] Error occured when trying to load all job steps: SQLite Error 1: 'no such column: j.OrderNumber'.
+2024-03-29 14:27:35.359 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 14:27:35.383 +01:00 [ERR] Error occured when trying to load all job steps: SQLite Error 1: 'no such column: j.OrderNumber'.
+2024-03-29 14:27:41.861 +01:00 [ERR] Error occured while trying to select Job: SQLite Error 1: 'no such column: j.OrderNumber'.
+2024-03-29 14:27:43.627 +01:00 [ERR] Error occured while trying to select Job: SQLite Error 1: 'no such column: j.OrderNumber'.
+2024-03-29 14:28:04.052 +01:00 [INF] Logger started
+2024-03-29 14:28:06.728 +01:00 [DBG] Login page button clicked
+2024-03-29 14:28:16.416 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 14:28:17.279 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 14:29:16.850 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:30:16.271 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 14:31:21.307 +01:00 [INF] Logger started
+2024-03-29 14:31:25.399 +01:00 [DBG] Login page button clicked
+2024-03-29 14:31:32.468 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 14:31:34.743 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 14:31:47.783 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 14:37:09.279 +01:00 [INF] Logger started
+2024-03-29 14:37:12.801 +01:00 [DBG] Login page button clicked
+2024-03-29 14:37:17.609 +01:00 [DBG] Check user result: SUCCESS
+2024-03-29 14:37:18.391 +01:00 [DBG] Manual task creator page buttton clicked
+2024-03-29 14:43:30.058 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:43:30.200 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:43:30.384 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:43:31.705 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:43:31.872 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:43:32.041 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:43:32.208 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:43:54.256 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:44:05.745 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:44:09.426 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:44:09.826 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:44:09.986 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:44:10.147 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:44:10.314 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:44:15.177 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:44:28.290 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:44:29.313 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:44:29.505 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:44:29.698 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:44:30.218 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:44:30.394 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:44:30.562 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2024-03-29 14:44:30.705 +01:00 [ERR] Errro occured while unassigning job step to jobs: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')

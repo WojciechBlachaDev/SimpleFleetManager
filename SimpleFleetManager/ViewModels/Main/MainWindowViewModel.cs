@@ -176,6 +176,7 @@ namespace SimpleFleetManager.ViewModels.Main
             ForkliftManagerPageButtonClick = new RelayCommand(ExecuteForkliftManagerPageButtonclick);
             UsersManagerPageButtonClick = new RelayCommand(ExecuteUsersManagerPageButtonClick);
             LocationsManagerPageButtonClick = new RelayCommand(ExecuteLocationsManagerPageButtonClick);
+            ManualTaskCreatorPageButtonClick = new RelayCommand(ExecuteManualTaskCreatorPageButtonClick);
             #endregion
             #region Page start setup
             ShowMenu = true;
@@ -320,6 +321,12 @@ namespace SimpleFleetManager.ViewModels.Main
             CurrentPage = new LocationsManagerPage(new LocationsManagerPageViewModel(_locationDataService, _connectedForklifts));
             ShowMenu = false;
         }
+        private void ExecuteManualTaskCreatorPageButtonClick(object? o)
+        {
+            Log.Debug("Manual task creator page buttton clicked");
+            CurrentPage = new ManualTaskCreatorPage(new ManualTasksCreatorPageViewModel(_jobStepDataService, _jobdataService, _locationDataService));
+            ShowMenu = false;
+        }
         #endregion
         #region Button's Icommands declarations
         public ICommand? ShutdownAppButtonClick { get; private set; }
@@ -328,6 +335,7 @@ namespace SimpleFleetManager.ViewModels.Main
         public ICommand? UsersManagerPageButtonClick { get; private set; }
         public ICommand? ForkliftManagerPageButtonClick { get; private set; }
         public ICommand? LocationsManagerPageButtonClick { get; private set; }
+        public ICommand? ManualTaskCreatorPageButtonClick { get; private set; }
         #endregion
     }
 }

@@ -15,7 +15,7 @@ namespace SimpleFleetManager.Models.Main
         public bool IsDone { get; set; }
         public bool IsCanceled { get; set; }
         public int CurrentJobStep { get; set; }
-        public List<JobStep>? JobSteps { get; set; }
+        public List<int> JobSteps { get; set; }
         public Job()
         {
             Name = string.Empty;

@@ -145,6 +145,7 @@ namespace SimpleFleetManager.ViewModels.Main
                     newLocation.Type = _selectedLocationType;
                     await _locationDataService.Create(newLocation);
                     LoadLocations();
+                    DisplayedLocation = new();
                 }
             }
         }

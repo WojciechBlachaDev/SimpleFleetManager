@@ -17,7 +17,7 @@
         <conv:BoolToStatusGreenGrey x:Key="BoolGreenGrey" />
     </Page.Resources>
     <Grid>
-        <TabControl Style="{StaticResource SimpleTabControlStyle}">
+        <TabControl Background="{StaticResource SimpleBackgroundBrush}">
             <!--#region Main state machine tab-->
             <TabItem Cursor="Hand" Header="Główna maszyna stanów">
                 <Grid>

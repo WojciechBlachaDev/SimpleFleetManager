@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SimpleFleetManager.Models.EntityFramework;
 
@@ -10,9 +11,11 @@ using SimpleFleetManager.Models.EntityFramework;
 namespace SimpleFleetManager.Migrations
 {
     [DbContext(typeof(SimpleDbContext))]
-    partial class SimpleDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240329090504_290320240003")]
+    partial class _290320240003
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.3");
@@ -219,9 +222,6 @@ namespace SimpleFleetManager.Migrations
 
                     b.Property<double>("LocY")
                         .HasColumnType("REAL");
-
-                    b.Property<int>("LocationId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
